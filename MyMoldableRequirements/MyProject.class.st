@@ -1,8 +1,37 @@
 Class {
 	#name : #MyProject,
 	#superclass : #Object,
+	#instVars : [
+		'id',
+		'title',
+		'epics'
+	],
 	#category : #MyMoldableRequirements
 }
+
+{ #category : #accessing }
+MyProject class >> fromRawData: projectDict [
+	^ self
+		id: (projectDict at: #id)
+		title: (projectDict at: #title)
+		epics:
+			((projectDict at: #epics)
+				collect: [ :epicDict | MyEpic fromRawData: epicDict ])
+]
+
+{ #category : #accessing }
+MyProject class >> id: aString title: anotherString epics: anArray [
+	^ self new
+		id: aString;
+		title: anotherString;
+		epics: anArray;
+		yourself
+]
+
+{ #category : #accessing }
+MyProject >> epics: anArray [
+	epics := anArray
+]
 
 { #category : #accessing }
 MyProject >> gtParseJSONExample [
@@ -12,4 +41,14 @@ MyProject >> gtParseJSONExample [
 		asFileReference.
 	projectsDictionaries := STONJSON fromString: rawData.
 	^ projectsDictionaries collect: [ :projectDict | MyProject new ]
+]
+
+{ #category : #accessing }
+MyProject >> id: aString [
+	id := aString
+]
+
+{ #category : #accessing }
+MyProject >> title: anotherString [
+	title := anotherString
 ]
