@@ -43,6 +43,11 @@ MyUseCase >> id: aString [
 ]
 
 { #category : #accessing }
+MyUseCase >> printOn: aStream [
+	aStream nextPutAll: title
+]
+
+{ #category : #accessing }
 MyUseCase >> title: anotherString [
 	title := anotherString
 ]

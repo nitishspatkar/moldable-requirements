@@ -49,6 +49,11 @@ MyProject >> id: aString [
 ]
 
 { #category : #accessing }
+MyProject >> printOn: aStream [
+	aStream nextPutAll: title
+]
+
+{ #category : #accessing }
 MyProject >> title: anotherString [
 	title := anotherString
 ]

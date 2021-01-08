@@ -42,6 +42,11 @@ MyEpic >> id: aString [
 ]
 
 { #category : #accessing }
+MyEpic >> printOn: aStream [
+	aStream nextPutAll: title
+]
+
+{ #category : #accessing }
 MyEpic >> title: anotherString [
 	title := anotherString
 ]
