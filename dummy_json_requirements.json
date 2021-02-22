@@ -2,7 +2,7 @@
   {
     "id": "1",
     "title": "Address Book Application",
-    "epics": [
+    "features": [
       {
         "id": "1",
         "title": "Manage address book",
@@ -168,7 +168,7 @@
   {
     "id": "2",
     "title": "Marketplace application",
-    "epics": [
+    "features": [
       {
         "id": "1",
         "title": "Sample Epic 1",
