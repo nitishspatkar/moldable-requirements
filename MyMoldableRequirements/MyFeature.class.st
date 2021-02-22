@@ -1,5 +1,5 @@
 Class {
-	#name : #MyEpic,
+	#name : #MyFeature,
 	#superclass : #Object,
 	#instVars : [
 		'id',
@@ -11,18 +11,18 @@ Class {
 }
 
 { #category : #accessing }
-MyEpic class >> fromRawData: epicDict [
+MyFeature class >> fromRawData: featureDict [
 	^ self
-		id: (epicDict at: #id)
-		title: (epicDict at: #title)
-		description: (epicDict at: #description)
+		id: (featureDict at: #id)
+		title: (featureDict at: #title)
+		description: (featureDict at: #description)
 		useCases:
-			((epicDict at: #'use-cases')
+			((featureDict at: #'use-cases')
 				collect: [ :useCaseDict | MyUseCase fromRawData: useCaseDict ])
 ]
 
 { #category : #accessing }
-MyEpic class >> id: aString title: anotherString description: yetAnotherString useCases: anArray [
+MyFeature class >> id: aString title: anotherString description: yetAnotherString useCases: anArray [
 	^ self new
 		id: aString;
 		title: anotherString;
@@ -32,26 +32,26 @@ MyEpic class >> id: aString title: anotherString description: yetAnotherString u
 ]
 
 { #category : #accessing }
-MyEpic >> description: yetAnotherString [
+MyFeature >> description: yetAnotherString [
 	description := yetAnotherString
 ]
 
 { #category : #accessing }
-MyEpic >> id: aString [
+MyFeature >> id: aString [
 	id := aString
 ]
 
 { #category : #accessing }
-MyEpic >> printOn: aStream [
+MyFeature >> printOn: aStream [
 	aStream nextPutAll: title
 ]
 
 { #category : #accessing }
-MyEpic >> title: anotherString [
+MyFeature >> title: anotherString [
 	title := anotherString
 ]
 
 { #category : #accessing }
-MyEpic >> useCases: anArray [
+MyFeature >> useCases: anArray [
 	useCases := anArray
 ]
