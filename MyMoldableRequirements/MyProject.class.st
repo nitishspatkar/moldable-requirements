@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'id',
 		'title',
-		'features'
+		'epics'
 	],
 	#category : #MyMoldableRequirements
 }
@@ -14,23 +14,23 @@ MyProject class >> fromRawData: projectDict [
 	^ self
 		id: (projectDict at: #id)
 		title: (projectDict at: #title)
-		features:
-			((projectDict at: #features)
+		epics:
+			((projectDict at: #epics)
 				collect: [ :featureDict | MyFeature fromRawData: featureDict ])
 ]
 
 { #category : #accessing }
-MyProject class >> id: aString title: anotherString features: anArray [
+MyProject class >> id: aString title: anotherString epics: anArray [
 	^ self new
 		id: aString;
 		title: anotherString;
-		features: anArray;
+		epics: anArray;
 		yourself
 ]
 
 { #category : #accessing }
-MyProject >> features: anArray [
-	features := anArray
+MyProject >> epics: anArray [
+	epics := anArray
 ]
 
 { #category : #accessing }

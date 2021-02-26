@@ -5,29 +5,29 @@ Class {
 		'id',
 		'title',
 		'description',
-		'useCases'
+		'userStories'
 	],
 	#category : #MyMoldableRequirements
 }
 
 { #category : #accessing }
-MyFeature class >> fromRawData: featureDict [
+MyFeature class >> fromRawData: epicDict [
 	^ self
-		id: (featureDict at: #id)
-		title: (featureDict at: #title)
-		description: (featureDict at: #description)
-		useCases:
-			((featureDict at: #'use-cases')
-				collect: [ :useCaseDict | MyUseCase fromRawData: useCaseDict ])
+		id: (epicDict at: #id)
+		title: (epicDict at: #title)
+		description: (epicDict at: #description)
+		userStories:
+			((epicDict at: #'user-stories')
+				collect: [ :userStoriesDict | MyUserStory fromRawData: userStoriesDict ])
 ]
 
 { #category : #accessing }
-MyFeature class >> id: aString title: anotherString description: yetAnotherString useCases: anArray [
+MyFeature class >> id: aString title: anotherString description: yetAnotherString userStories: anArray [
 	^ self new
 		id: aString;
 		title: anotherString;
 		description: yetAnotherString;
-		useCases: anArray;
+		userStories: anArray;
 		yourself
 ]
 
@@ -52,6 +52,6 @@ MyFeature >> title: anotherString [
 ]
 
 { #category : #accessing }
-MyFeature >> useCases: anArray [
-	useCases := anArray
+MyFeature >> userStories: anArray [
+	userStories := anArray
 ]
