@@ -3,5 +3,5 @@ This repo contains the work that is done during the pair programming sessions to
 
     Metacello new
       baseline: 'MyMoldableRequirements';
-      repository: 'github://nitishspatkar/GT-hands-on';
+      repository: 'github://nitishspatkar/GT-hands-on:main';
       load
