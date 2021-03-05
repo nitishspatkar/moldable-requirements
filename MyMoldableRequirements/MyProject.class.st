@@ -16,7 +16,7 @@ MyProject class >> fromRawData: projectDict [
 		title: (projectDict at: #title)
 		epics:
 			((projectDict at: #epics)
-				collect: [ :featureDict | MyFeature fromRawData: featureDict ])
+				collect: [ :featureDict | MyEpic fromRawData: featureDict ])
 ]
 
 { #category : #accessing }
@@ -30,7 +30,41 @@ MyProject class >> id: aString title: anotherString epics: anArray [
 
 { #category : #accessing }
 MyProject >> epics: anArray [
-	epics := anArray
+	epics := anArray asOrderedCollection
+]
+
+{ #category : #accessing }
+MyProject >> gtEpicsFor: aView [
+	<gtView>
+	^ (epics gtItemsFor: aView)
+		title: 'Epics';
+		actionDropdownButtonIcon: BrGlamorousVectorIcons add
+			tooltip: 'Add an Epic'
+			content: [ | label |
+			BlElement new
+				layout: BlLinearLayout horizontal;
+				constraintsDo: [ :c | 
+					c vertical fitContent.
+					c horizontal fitContent ];
+				padding: (BlInsets all: 5);
+				addChild:
+					(label := BrEditableLabel new
+						look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
+						yourself);
+				addChild:
+					(BrButton new
+						look: BrGlamorousButtonWithIconLook;
+						icon: BrGlamorousVectorIcons accept;
+						label: 'Save';
+						action: [ epics
+								add:
+									(MyEpic
+										id: nil
+										title: label text asString
+										description: ''
+										userStories: OrderedCollection new) ];
+						yourself);
+				yourself ]
 ]
 
 { #category : #accessing }

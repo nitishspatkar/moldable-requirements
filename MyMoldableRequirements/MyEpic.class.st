@@ -1,5 +1,5 @@
 Class {
-	#name : #MyFeature,
+	#name : #MyEpic,
 	#superclass : #Object,
 	#instVars : [
 		'id',
@@ -11,7 +11,7 @@ Class {
 }
 
 { #category : #accessing }
-MyFeature class >> fromRawData: epicDict [
+MyEpic class >> fromRawData: epicDict [
 	^ self
 		id: (epicDict at: #id)
 		title: (epicDict at: #title)
@@ -22,7 +22,7 @@ MyFeature class >> fromRawData: epicDict [
 ]
 
 { #category : #accessing }
-MyFeature class >> id: aString title: anotherString description: yetAnotherString userStories: anArray [
+MyEpic class >> id: aString title: anotherString description: yetAnotherString userStories: anArray [
 	^ self new
 		id: aString;
 		title: anotherString;
@@ -32,26 +32,32 @@ MyFeature class >> id: aString title: anotherString description: yetAnotherStrin
 ]
 
 { #category : #accessing }
-MyFeature >> description: yetAnotherString [
+MyEpic >> description: yetAnotherString [
 	description := yetAnotherString
 ]
 
 { #category : #accessing }
-MyFeature >> id: aString [
+MyEpic >> gtUserStoriesFor: aView [
+<gtView>
+^ (userStories gtItemsFor: aView) title: 'User stories'
+]
+
+{ #category : #accessing }
+MyEpic >> id: aString [
 	id := aString
 ]
 
 { #category : #accessing }
-MyFeature >> printOn: aStream [
+MyEpic >> printOn: aStream [
 	aStream nextPutAll: title
 ]
 
 { #category : #accessing }
-MyFeature >> title: anotherString [
+MyEpic >> title: anotherString [
 	title := anotherString
 ]
 
 { #category : #accessing }
-MyFeature >> userStories: anArray [
+MyEpic >> userStories: anArray [
 	userStories := anArray
 ]
