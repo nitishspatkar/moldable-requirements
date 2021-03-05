@@ -2,164 +2,67 @@
   {
     "id": "1",
     "title": "Address Book Application",
-    "features": [
+    "epics": [
       {
         "id": "1",
-        "title": "Manage address book",
+        "title": "Add a contact",
         "description": "sample description",
-        "use-cases": [
+        "user-stories": [
           {
             "id": "1",
-            "title": "Add a contact",
-            "description": "sample description",
-            "user-stories": [
-              {
-                "id": "1",
-                "status": "not-started",
-                "description": "As a user, I want to add a new contact to an address book",
-                "points": "10"
-              },
-              {
-                "id": "2",
-                "status": "not-started",
-                "description": "As a user, I want to add a new phone number to a contact",
-                "points": "20"
-              }
-            ]
+            "status": "not-started",
+            "description": "As a user, I want to add a new contact to an address book",
+            "points": "10"
           },
           {
             "id": "2",
-            "title": "Edit a contact",
-            "description": "sample description",
-            "user-stories": [
-              {
-                "id": "3",
-                "status": "not-started",
-                "description": "As a user, I want to edit the first name of a specific contact",
-                "points": "10"
-              },
-              {
-                "id": "4",
-                "status": "not-started",
-                "description": "As a user, I want to edit the last name of a specific contact",
-                "points": "20"
-              },
-              {
-                "id": "5",
-                "status": "not-started",
-                "description": "As a user, I want to edit a specific phone number of a specific contact",
-                "points": "20"
-              }
-            ]
-          },
-          {
-            "id": "3",
-            "title": "Remove a contact",
-            "description": "sample description",
-            "user-stories": [
-              {
-                "id": "6",
-                "status": "not-started",
-                "description": "As a user, I want to remove an entire contact",
-                "points": "10"
-              },
-              {
-                "id": "7",
-                "status": "not-started",
-                "description": "As a user, I want to remove a specific property, such as a specific phone number, of a specific contact",
-                "points": "20"
-              }
-            ]
+            "status": "not-started",
+            "description": "As a user, I want to add a new phone number to a contact",
+            "points": "20"
           }
         ]
       },
       {
         "id": "2",
-        "title": "Search address book",
+        "title": "Edit a contact",
         "description": "sample description",
-        "use-cases": [
+        "user-stories": [
+          {
+            "id": "3",
+            "status": "not-started",
+            "description": "As a user, I want to edit the first name of a specific contact",
+            "points": "10"
+          },
           {
             "id": "4",
-            "title": "use-case-4",
-            "description": "sample description",
-            "user-stories": [
-              {
-                "id": "8",
-                "status": "not-started",
-                "description": "user-story-8",
-                "points": "10"
-              },
-              {
-                "id": "9",
-                "status": "not-started",
-                "description": "user-story-9",
-                "points": "20"
-              }
-            ]
+            "status": "not-started",
+            "description": "As a user, I want to edit the last name of a specific contact",
+            "points": "20"
           },
           {
             "id": "5",
-            "title": "use-case-5",
-            "description": "sample description",
-            "user-stories": [
-              {
-                "id": "10",
-                "status": "not-started",
-                "description": "user-story-10",
-                "points": "10"
-              },
-              {
-                "id": "11",
-                "status": "not-started",
-                "description": "user-story-11",
-                "points": "20"
-              }
-            ]
+            "status": "not-started",
+            "description": "As a user, I want to edit a specific phone number of a specific contact",
+            "points": "20"
           }
         ]
       },
       {
         "id": "3",
-        "title": "Merging contacts",
+        "title": "Remove a contact",
         "description": "sample description",
-        "use-cases": [
+        "user-stories": [
           {
             "id": "6",
-            "title": "use-case-6",
-            "description": "sample description",
-            "user-stories": [
-              {
-                "id": "12",
-                "status": "not-started",
-                "description": "user-story-12",
-                "points": "10"
-              },
-              {
-                "id": "13",
-                "status": "not-started",
-                "description": "user-story-13",
-                "points": "20"
-              }
-            ]
+            "status": "not-started",
+            "description": "As a user, I want to remove an entire contact",
+            "points": "10"
           },
           {
             "id": "7",
-            "title": "use-case-7",
-            "description": "sample description",
-            "user-stories": [
-              {
-                "id": "14",
-                "status": "not-started",
-                "description": "user-story-14",
-                "points": "10"
-              },
-              {
-                "id": "15",
-                "status": "not-started",
-                "description": "user-story-15",
-                "points": "20"
-              }
-            ]
+            "status": "not-started",
+            "description": "As a user, I want to remove a specific property, such as a specific phone number, of a specific contact",
+            "points": "20"
           }
         ]
       }
@@ -167,98 +70,96 @@
   },
   {
     "id": "2",
-    "title": "Marketplace application",
-    "features": [
+    "title": "Restaurant Application",
+    "epics": [
       {
         "id": "1",
-        "title": "Sample Epic 1",
-        "description": "sample description",
-        "use-cases": [
+        "title": "Place an online order",
+        "description": "This epic covers requirements that specify how can one place an online order",
+        "user-stories": [
           {
             "id": "1",
-            "title": "use-case-1",
-            "description": "sample description",
-            "user-stories": [
-              {
-                "id": "1",
-                "status": "not-started",
-                "description": "user-story-1",
-                "points": "10"
-              },
-              {
-                "id": "2",
-                "status": "not-started",
-                "description": "user-story-2",
-                "points": "20"
-              }
-            ]
+            "status": "not-started",
+            "description": "As a registered or unregistered user, I want to explore the online menu",
+            "points": "10"
           },
           {
             "id": "2",
-            "title": "use-case-2",
-            "description": "sample description",
-            "user-stories": [
-              {
-                "id": "3",
-                "status": "not-started",
-                "description": "user-story-3",
-                "points": "10"
-              },
-              {
-                "id": "4",
-                "status": "not-started",
-                "description": "user-story-4",
-                "points": "20"
-              }
-            ]
+            "status": "not-started",
+            "description": "As a registered or unregistered user, I want to add the menu items to the shopping cart",
+            "points": "10"
+          },
+          {
+            "id": "3",
+            "status": "not-started",
+            "description": "As a registered user, I want to do one click payment",
+            "points": "10"
+          },
+          {
+            "id": "4",
+            "status": "not-started",
+            "description": "As an unregistered user, I want to enter my delivery and payment details to make the payment",
+            "points": "10"
           }
         ]
       },
       {
         "id": "2",
-        "title": "Sample Epic 2",
-        "description": "sample description",
-        "use-cases": [
+        "title": "Place an order in a restaurant",
+        "description": "This epic covers requirements that specify how can one place an order in a restaurant",
+        "user-stories": [
           {
-            "id": "3",
-            "title": "use-case-3",
-            "description": "sample description",
-            "user-stories": [
-              {
-                "id": "5",
-                "status": "not-started",
-                "description": "user-story-5",
-                "points": "10"
-              },
-              {
-                "id": "6",
-                "status": "not-started",
-                "description": "user-story-6",
-                "points": "20"
-              }
-            ]
+            "id": "5",
+            "status": "not-started",
+            "description": "As a waiter, I want to enter the selected menu items by guests to prepare an order",
+            "points": "10"
           },
           {
-            "id": "3",
-            "title": "use-case-3",
-            "description": "sample description",
-            "user-stories": [
-              {
-                "id": "7",
-                "status": "not-started",
-                "description": "user-story-7",
-                "points": "10"
-              },
-              {
-                "id": "8",
-                "status": "not-started",
-                "description": "user-story-8",
-                "points": "20"
-              }
-            ]
+            "id": "6",
+            "status": "not-started",
+            "description": "As a waiter, I want to be able to forward the received order to the chef",
+            "points": "10"
+          },
+          {
+            "id": "7",
+            "status": "not-started",
+            "description": "As a waiter, I want to be able to customize the order by modifying the default menu items",
+            "points": "10"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "title": "Invoicing",
+        "description": "This epic covers requirements that specify how invoices are calculated",
+        "user-stories": [
+          {
+            "id": "8",
+            "status": "not-started",
+            "description": "As a restaurant owner, I want to update the tax values for both online and offline orders, in case they legally change",
+            "points": "10"
+          },
+          {
+            "id": "9",
+            "status": "not-started",
+            "description": "As a restaurant owner, I want to update the tax values for individual menu items",
+            "points": "10"
+          },
+          {
+            "id": "10",
+            "status": "not-started",
+            "description": "As a waiter, I want to be able to view the invoice before printing it to check if the correct prices and tax is applied",
+            "points": "10"
+          },
+          {
+            "id": "11",
+            "status": "not-started",
+            "description": "As a waiter, I want to be able to view the total price before printing the invoice",
+            "points": "10"
           }
         ]
       }
     ]
   }
 ]
+  
