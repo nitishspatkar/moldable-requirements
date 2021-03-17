@@ -12,13 +12,15 @@
             "id": "1",
             "status": "not-started",
             "description": "As a user, I want to add a new contact to an address book",
-            "points": "10"
+            "points": "10",
+            "scenarios": []
           },
           {
             "id": "2",
             "status": "not-started",
             "description": "As a user, I want to add a new phone number to a contact",
-            "points": "20"
+            "points": "20",
+            "scenarios": []
           }
         ]
       },
@@ -31,19 +33,22 @@
             "id": "3",
             "status": "not-started",
             "description": "As a user, I want to edit the first name of a specific contact",
-            "points": "10"
+            "points": "10",
+            "scenarios": []
           },
           {
             "id": "4",
             "status": "not-started",
             "description": "As a user, I want to edit the last name of a specific contact",
-            "points": "20"
+            "points": "20",
+            "scenarios": []
           },
           {
             "id": "5",
             "status": "not-started",
             "description": "As a user, I want to edit a specific phone number of a specific contact",
-            "points": "20"
+            "points": "20",
+            "scenarios": []
           }
         ]
       },
@@ -56,13 +61,15 @@
             "id": "6",
             "status": "not-started",
             "description": "As a user, I want to remove an entire contact",
-            "points": "10"
+            "points": "10",
+            "scenarios": []
           },
           {
             "id": "7",
             "status": "not-started",
             "description": "As a user, I want to remove a specific property, such as a specific phone number, of a specific contact",
-            "points": "20"
+            "points": "20",
+            "scenarios": []
           }
         ]
       }
@@ -81,25 +88,29 @@
             "id": "1",
             "status": "not-started",
             "description": "As a registered or unregistered user, I want to explore the online menu",
-            "points": "10"
+            "points": "10",
+            "scenarios": []
           },
           {
             "id": "2",
             "status": "not-started",
             "description": "As a registered or unregistered user, I want to add the menu items to the shopping cart",
-            "points": "10"
+            "points": "10",
+            "scenarios": []
           },
           {
             "id": "3",
             "status": "not-started",
             "description": "As a registered user, I want to do one click payment",
-            "points": "10"
+            "points": "10",
+            "scenarios": []
           },
           {
             "id": "4",
             "status": "not-started",
             "description": "As an unregistered user, I want to enter my delivery and payment details to make the payment",
-            "points": "10"
+            "points": "10",
+            "scenarios": []
           }
         ]
       },
@@ -112,19 +123,22 @@
             "id": "5",
             "status": "not-started",
             "description": "As a waiter, I want to enter the selected menu items by guests to prepare an order",
-            "points": "10"
+            "points": "10",
+            "scenarios": []
           },
           {
             "id": "6",
             "status": "not-started",
             "description": "As a waiter, I want to be able to forward the received order to the chef",
-            "points": "10"
+            "points": "10",
+            "scenarios": []
           },
           {
             "id": "7",
             "status": "not-started",
             "description": "As a waiter, I want to be able to customize the order by modifying the default menu items",
-            "points": "10"
+            "points": "10",
+            "scenarios": []
           }
         ]
       },
@@ -137,25 +151,29 @@
             "id": "8",
             "status": "not-started",
             "description": "As a restaurant owner, I want to update the tax values for both online and offline orders, in case they legally change",
-            "points": "10"
+            "points": "10",
+            "scenarios": []
           },
           {
             "id": "9",
             "status": "not-started",
             "description": "As a restaurant owner, I want to update the tax values for individual menu items",
-            "points": "10"
+            "points": "10",
+            "scenarios": []
           },
           {
             "id": "10",
             "status": "not-started",
             "description": "As a waiter, I want to be able to view the invoice before printing it to check if the correct prices and tax is applied",
-            "points": "10"
+            "points": "10",
+            "scenarios": []
           },
           {
             "id": "11",
             "status": "not-started",
             "description": "As a waiter, I want to be able to view the total price before printing the invoice",
-            "points": "10"
+            "points": "10",
+            "scenarios": []
           }
         ]
       }
