@@ -27,7 +27,7 @@ MyEpic class >> id: aString title: anotherString description: yetAnotherString u
 		id: aString;
 		title: anotherString;
 		description: yetAnotherString;
-		userStories: anArray;
+		userStories: anArray asOrderedCollection;
 		yourself
 ]
 
@@ -38,36 +38,19 @@ MyEpic >> description: yetAnotherString [
 
 { #category : #accessing }
 MyEpic >> gtUserStoriesFor: aView [
-<gtView>
+	<gtView>
 	^ (userStories gtItemsFor: aView)
 		title: 'User stories';
 		actionDropdownButtonIcon: BrGlamorousVectorIcons add
 			tooltip: 'Add a user story'
-			content: [ | label |
-			BlElement new
-				layout: BlLinearLayout horizontal;
-				constraintsDo: [ :c | 
-					c vertical fitContent.
-					c horizontal fitContent ];
-				padding: (BlInsets all: 5);
-				addChild:
-					(label := BrEditableLabel new
-						look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
-						yourself);
-				addChild:
-					(BrButton new
-						look: BrGlamorousButtonWithIconLook;
-						icon: BrGlamorousVectorIcons accept;
-						label: 'Save';
-						action: [ userStories
-								add:
-									(MyUserStory
-										id: nil
-										status: ''
-										description: label text asString
-										points:nil) ];
-						yourself);
-				yourself ]
+			content: [ | story |
+			story := MyUserStory
+				id: nil
+				status: ''
+				description: ''
+				points: nil
+				scenarios: nil.
+			story asFormElement: [ userStories add: story ] ]
 ]
 
 { #category : #accessing }

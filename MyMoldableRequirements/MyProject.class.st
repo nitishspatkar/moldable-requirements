@@ -71,10 +71,12 @@ MyProject >> gtEpicsFor: aView [
 MyProject >> gtParseJSONExample [
 	<gtExample>
 	| rawData projectsDictionaries |
-	rawData := 'pharo-local/iceberg/nitishspatkar/GT-hands-on/dummy_json_requirements.json'
-		asFileReference.
+	rawData := FileLocator imageDirectory asFileReference
+		/
+			'pharo-local/iceberg/nitishspatkar/GT-hands-on/dummy_json_requirements.json'.
 	projectsDictionaries := STONJSON fromString: rawData.
-	^ projectsDictionaries collect: [ :projectDict | MyProject fromRawData: projectDict ]
+	^ projectsDictionaries
+		collect: [ :projectDict | MyProject fromRawData: projectDict ]
 ]
 
 { #category : #accessing }
