@@ -6,7 +6,8 @@ Class {
 		'description',
 		'status',
 		'points',
-		'scenarios'
+		'scenarios',
+		'references'
 	],
 	#category : #MyMoldableRequirements
 }
@@ -197,19 +198,109 @@ MyUserStory >> asStoryCard [
 ]
 
 { #category : #accessing }
+MyUserStory >> customEntityElementFor: aReference [
+	"generate a UI element for a missing reference to a class, used in the Referenced Entities view"
+
+	| container label button separator referencedEntity |
+	referencedEntity := aReference copyReplaceAll: ' - missing' with: ''.
+	container := BlElement new
+		layout: BlLinearLayout horizontal;
+		constraintsDo: [ :c | 
+			c horizontal matchParent.
+			c vertical exact: 30 ].
+	separator := BlElement new
+		constraintsDo: [ :c | 
+			c horizontal matchParent.
+			c vertical fitContent ].
+	label := BrLabel new
+		look: BrGlamorousListLabelLook;
+		text: aReference asRopedText.
+
+	"button := RequirementClassAdditionInterface new initializeWithFutureClassName: referencedEntity andElement: self."
+	container addChild: label.
+	container addChild: separator.
+	container addChild: button.
+	^ container
+]
+
+{ #category : #accessing }
+MyUserStory >> description [
+	^ description
+]
+
+{ #category : #accessing }
 MyUserStory >> description: yetAnotherString [
 	description := yetAnotherString
 ]
 
 { #category : #accessing }
+MyUserStory >> getReferencesFrom: aDocument [
+	"filter out all references to domain entities from a document"
+
+	| classAnnotations methodAnnotations missingEntityString |
+	references := OrderedCollection new.
+	aDocument children
+		do: [ :aChild | 
+			aChild class = PRParagraph
+				ifTrue: [ classAnnotations := aChild
+						select: [ :e | e class = GtClassAnnotation ].
+					methodAnnotations := aChild
+						select: [ :e | e class = GtMethodAnnotation ].
+					classAnnotations
+						do: [ :anAnnotation | 
+							[ (references
+								includes: (self class environment at: anAnnotation referencedClass name))
+								ifFalse: [ references
+										add: (self class environment at: anAnnotation referencedClass name) ] ]
+								on: KeyNotFound
+								do: [ missingEntityString := String
+										streamContents: [ :out | 
+											out
+												nextPutAll: anAnnotation referencedClass name;
+												nextPutAll: ' - missing' ].
+									references add: missingEntityString ] ].
+					methodAnnotations
+						do: [ :anAnnotation | 
+							(references includes: anAnnotation referencedMethod)
+								ifFalse: [ references add: anAnnotation referencedMethod ] ] ] ].
+	^ references asSet asOrderedCollection
+]
+
+{ #category : #accessing }
+MyUserStory >> gtDescriptionFor: aView [
+	<gtView>
+	| document |
+	document := GtDocument new text: self description.
+	^ (document gtTextFor: aView)
+		title: 'Description';
+		actionButtonIcon: BrGlamorousVectorIcons accept
+			label: 'Save'
+			action: [ self description: document text asString
+			"self announcer announce: ERequirementStateChangedAnnouncement new" ];
+		"updateWhen: ERequirementStateChangedAnnouncement in: self announcer;"
+			priority: 1
+]
+
+{ #category : #accessing }
 MyUserStory >> gtReferencedEntitiesFor: aView [
 	<gtView>
-	^ aView explicit
-		title: 'Referenced entities';
-		priority: 3;
-		stencil: [ |aTextEditor | 
-		aTextEditor := BrTextEditor new.
-		^ aTextEditor ]
+	| listView |
+	listView := aView list
+		title: 'Referenced Entities';
+		items: [ self getReferencesFrom: self parseStory ].
+	listView
+		itemStencil: [ :x | 
+			x class = ByteString
+				ifTrue: [ self customEntityElementFor: x ]
+				ifFalse: [ listView buildTextElementFor: x ] ].
+	listView
+		actionButtonIcon: BrGlamorousVectorIcons refresh
+		label: 'Refresh'
+		action: [ "self announcer announce: ERequirementStateChangedAnnouncement new ].
+	listView
+		updateWhen: ERequirementStateChangedAnnouncement
+		in: [ self announcer" ].
+	^ listView
 ]
 
 { #category : #accessing }
@@ -260,6 +351,13 @@ MyUserStory >> gtStoryCardFor: aView [
 { #category : #accessing }
 MyUserStory >> id: aString [
 	id := aString
+]
+
+{ #category : #accessing }
+MyUserStory >> parseStory [
+	| aPRDocument |
+	aPRDocument := GtDocumenterParser new parse: self description.
+	^ aPRDocument
 ]
 
 { #category : #accessing }

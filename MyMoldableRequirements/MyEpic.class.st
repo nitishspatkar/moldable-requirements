@@ -32,6 +32,43 @@ MyEpic class >> id: aString title: anotherString description: yetAnotherString u
 ]
 
 { #category : #accessing }
+MyEpic >> asFormElement: aBlock [
+	"an epic presents itself as a form to be filled and save as an object"
+
+	| label textElementDescription |
+	textElementDescription := GtDocument new asElementWithoutSaveAction
+		vFitContent;
+		hMatchParent;
+		border: (BlBorder paint: (Color fromHexString: 'eaeaea') width: 2);
+		padding: (BlInsets all: 3);
+		margin: (BlInsets top: 3 bottom: 3);
+		geometry: (BlRectangle cornerRadius: 5).
+	^ BlElement new
+		layout: BlLinearLayout vertical;
+		constraintsDo: [ :c | 
+			c vertical fitContent.
+			c horizontal exact: 300 ];
+		padding: (BlInsets all: 5);
+		addChild:
+			(BrLabel new
+				look: BrGlamorousLabelLook;
+				beLargeSize;
+				text: 'Description';
+				yourself);
+		addChild: textElementDescription;
+		addChild:
+			(BrButton new
+				look: BrGlamorousButtonWithIconLook;
+				icon: BrGlamorousVectorIcons accept;
+				label: 'Save';
+				action: [ description := textElementDescription document text asString.
+					"The following line means that when we click the save button, the arguement i.e., aBlock is evaluated"
+					aBlock value ];
+				yourself);
+		yourself
+]
+
+{ #category : #accessing }
 MyEpic >> description: yetAnotherString [
 	description := yetAnotherString
 ]
