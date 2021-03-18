@@ -7,7 +7,10 @@ Class {
 		'status',
 		'points',
 		'scenarios',
-		'references'
+		'references',
+		'role',
+		'means',
+		'benefit'
 	],
 	#category : #MyMoldableRequirements
 }
@@ -16,22 +19,41 @@ Class {
 MyUserStory class >> fromRawData: userStoryDict [
 	^ self
 		id: (userStoryDict at: #id)
+		role: (userStoryDict at: #role)
+		means: (userStoryDict at: #means)
+		benefit: (userStoryDict at: #benefit)
 		status: (userStoryDict at: #status)
-		description: (userStoryDict at: #description)
 		points: (userStoryDict at: #points)
 		scenarios:
 			((userStoryDict at: #scenarios)
 				collect: [ :scenariosDict | MyScenario fromRawData: scenariosDict ])
+		description: ('As a ', (userStoryDict at: #role), ', I want ', (userStoryDict at: #means), ' so that ', (userStoryDict at: #benefit))
 ]
 
 { #category : #accessing }
-MyUserStory class >> id: aString status: anotherString description: yetAnotherString points: aNumber scenarios: anArray [
+MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 status: anotherString points: aNumber scenarios: anArray [
 	^ self new
 		id: aString;
+		role: aString1;
+		means: aString2;
+		benefit: aString3;
 		status: anotherString;
-		description: yetAnotherString;
 		points: aNumber;
 		scenarios: anArray asOrderedCollection;
+		yourself
+]
+
+{ #category : #accessing }
+MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 status: anotherString points: aNumber scenarios: anArray description: yetAnotherString [
+	^ self new
+		id: aString;
+		role: aString1;
+		means: aString2;
+		benefit: aString3;
+		status: anotherString;
+		points: aNumber;
+		scenarios: anArray asOrderedCollection;
+		description: yetAnotherString;
 		yourself
 ]
 
@@ -39,7 +61,7 @@ MyUserStory class >> id: aString status: anotherString description: yetAnotherSt
 MyUserStory >> asFormElement [
 	"a user story presents itself as a form to be filled and save as an object"
 
-	| label textElementDescription textElementStatus textElementPoints |
+	| label textElementDescription textElementStatus |
 	textElementDescription := GtDocument new asElementWithoutSaveAction
 		vFitContent;
 		hMatchParent;
@@ -48,13 +70,6 @@ MyUserStory >> asFormElement [
 		margin: (BlInsets top: 3 bottom: 3);
 		geometry: (BlRectangle cornerRadius: 5).
 	textElementStatus := GtDocument new asElementWithoutSaveAction
-		vFitContent;
-		hMatchParent;
-		border: (BlBorder paint: (Color fromHexString: 'eaeaea') width: 2);
-		padding: (BlInsets all: 3);
-		margin: (BlInsets top: 3 bottom: 3);
-		geometry: (BlRectangle cornerRadius: 5).
-	textElementPoints := GtDocument new asElementWithoutSaveAction
 		vFitContent;
 		hMatchParent;
 		border: (BlBorder paint: (Color fromHexString: 'eaeaea') width: 2);
@@ -82,20 +97,12 @@ MyUserStory >> asFormElement [
 				yourself);
 		addChild: textElementStatus;
 		addChild:
-			(BrLabel new
-				look: BrGlamorousLabelLook;
-				beLargeSize;
-				text: 'Points';
-				yourself);
-		addChild: textElementPoints;
-		addChild:
 			(BrButton new
 				look: BrGlamorousButtonWithIconLook;
 				icon: BrGlamorousVectorIcons accept;
 				label: 'Save';
 				action: [ description := textElementDescription text.
-					status := textElementStatus text.
-					points := textElementPoints text ];
+					status := textElementStatus text.]
 				yourself);
 		yourself
 ]
@@ -104,22 +111,22 @@ MyUserStory >> asFormElement [
 MyUserStory >> asFormElement: aBlock [
 	"a user story presents itself as a form to be filled and save as an object"
 
-	| label textElementDescription textElementStatus textElementPoints |
-	textElementDescription := GtDocument new asElementWithoutSaveAction
+	| label textElementRole textElementMeans textElementBenefit |
+	textElementRole := GtDocument new asElementWithoutSaveAction
 		vFitContent;
 		hMatchParent;
 		border: (BlBorder paint: (Color fromHexString: 'eaeaea') width: 2);
 		padding: (BlInsets all: 3);
 		margin: (BlInsets top: 3 bottom: 3);
 		geometry: (BlRectangle cornerRadius: 5).
-	textElementStatus := GtDocument new asElementWithoutSaveAction
+	textElementMeans := GtDocument new asElementWithoutSaveAction
 		vFitContent;
 		hMatchParent;
 		border: (BlBorder paint: (Color fromHexString: 'eaeaea') width: 2);
 		padding: (BlInsets all: 3);
 		margin: (BlInsets top: 3 bottom: 3);
 		geometry: (BlRectangle cornerRadius: 5).
-	textElementPoints := GtDocument new asElementWithoutSaveAction
+	textElementBenefit := GtDocument new asElementWithoutSaveAction
 		vFitContent;
 		hMatchParent;
 		border: (BlBorder paint: (Color fromHexString: 'eaeaea') width: 2);
@@ -136,31 +143,32 @@ MyUserStory >> asFormElement: aBlock [
 			(BrLabel new
 				look: BrGlamorousLabelLook;
 				beLargeSize;
-				text: 'Description';
+				text: 'As a';
 				yourself);
-		addChild: textElementDescription;
+		addChild: textElementRole;
 		addChild:
 			(BrLabel new
 				look: BrGlamorousLabelLook;
 				beLargeSize;
-				text: 'Status';
+				text: 'I want';
 				yourself);
-		addChild: textElementStatus;
+		addChild: textElementMeans;
 		addChild:
 			(BrLabel new
 				look: BrGlamorousLabelLook;
 				beLargeSize;
-				text: 'Points';
+				text: 'so that';
 				yourself);
-		addChild: textElementPoints;
+		addChild: textElementBenefit;
 		addChild:
 			(BrButton new
 				look: BrGlamorousButtonWithIconLook;
 				icon: BrGlamorousVectorIcons accept;
 				label: 'Save';
-				action: [ description := textElementDescription document text asString.
-					status := textElementStatus document text asString.
-					points := textElementPoints document text asString.
+				action: [ role := textElementRole document text asString.
+					means := textElementMeans document text asString.
+					benefit := textElementBenefit document text asString.
+					description := ('As a ', role, ', I want ', means, ' so that ', benefit) .
 					"The following line means that when we click the save button, the arguement i.e., aBlock is evaluated"
 					aBlock value ];
 				yourself);
@@ -198,6 +206,11 @@ MyUserStory >> asStoryCard [
 ]
 
 { #category : #accessing }
+MyUserStory >> benefit: aString [
+	benefit := aString
+]
+
+{ #category : #accessing }
 MyUserStory >> customEntityElementFor: aReference [
 	"generate a UI element for a missing reference to a class, used in the Referenced Entities view"
 
@@ -225,12 +238,13 @@ MyUserStory >> customEntityElementFor: aReference [
 
 { #category : #accessing }
 MyUserStory >> description [
+	description := ('As a ', role, ', I want ', means, ' so that ', benefit).
 	^ description
 ]
 
 { #category : #accessing }
-MyUserStory >> description: yetAnotherString [
-	description := yetAnotherString
+MyUserStory >> description: aString [
+	description := aString
 ]
 
 { #category : #accessing }
@@ -354,6 +368,11 @@ MyUserStory >> id: aString [
 ]
 
 { #category : #accessing }
+MyUserStory >> means: aString [
+ means := aString
+]
+
+{ #category : #accessing }
 MyUserStory >> parseStory [
 	| aPRDocument |
 	aPRDocument := GtDocumenterParser new parse: self description.
@@ -371,6 +390,11 @@ MyUserStory >> printOn: aStream [
 ]
 
 { #category : #accessing }
+MyUserStory >> role: aString [
+ role := aString
+]
+
+{ #category : #accessing }
 MyUserStory >> scenarios: anArray [
 	scenarios := anArray
 ]
@@ -378,8 +402,4 @@ MyUserStory >> scenarios: anArray [
 { #category : #accessing }
 MyUserStory >> status: anotherString [
 	status := anotherString
-]
-
-{ #category : #accessing }
-MyUserStory >> title: anotherString [ 
 ]

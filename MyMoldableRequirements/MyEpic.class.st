@@ -83,8 +83,10 @@ MyEpic >> gtUserStoriesFor: aView [
 			content: [ | story |
 			story := MyUserStory
 				id: nil
+				role: ''
+				means: ''
+				benefit: ''
 				status: ''
-				description: ''
 				points: nil
 				scenarios: nil.
 			story asFormElement: [ userStories add: story ] ]
