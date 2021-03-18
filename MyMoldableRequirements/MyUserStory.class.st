@@ -308,6 +308,7 @@ MyUserStory >> gtScenariosFor: aView [
 	<gtView>
 	^ (scenarios gtItemsFor: aView)
 		title: 'Scenarios';
+		priority: 1;
 		actionDropdownButtonIcon: BrGlamorousVectorIcons add
 			tooltip: 'Add an scenario'
 			content: [ | label |

@@ -7,5 +7,11 @@ Class {
 { #category : #accessing }
 BaselineOfMyMoldableRequirements >> baseline: spec [
 	<baseline>
-	spec for: #common do: [ spec package: 'MyMoldableRequirements' ]
+	spec
+		for: #common
+		do: [ 
+			spec
+				package: 'MyMoldableRequirements';
+				baseline: 'Epic'
+					with: [ spec repository: 'github://nitishspatkar/SCG_EpicGit' ] ]
 ]
