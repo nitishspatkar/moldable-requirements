@@ -53,7 +53,7 @@ MyEpic >> asFormElement: aBlock [
 			(BrLabel new
 				look: BrGlamorousLabelLook;
 				beLargeSize;
-				text: 'Description';
+				text: 'Epic Description';
 				yourself);
 		addChild: textElementDescription;
 		addChild:
@@ -61,7 +61,7 @@ MyEpic >> asFormElement: aBlock [
 				look: BrGlamorousButtonWithIconLook;
 				icon: BrGlamorousVectorIcons accept;
 				label: 'Save';
-				action: [ description := textElementDescription document text asString.
+				action: [ title := textElementDescription document text asString.
 					"The following line means that when we click the save button, the arguement i.e., aBlock is evaluated"
 					aBlock value ];
 				yourself);
