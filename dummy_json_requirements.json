@@ -10,15 +10,19 @@
         "user-stories": [
           {
             "id": "1",
+            "role": "user",
+            "means": "to add a new contact to an address book",
+            "benefit": "",
             "status": "in-progress",
-            "description": "As a user, I want to add a new contact to an address book",
             "points": "10",
             "scenarios": []
           },
           {
             "id": "2",
+            "role": "user",
+            "means": "to add a new phone number to a contact",
+            "benefit": "",
             "status": "not-started",
-            "description": "As a user, I want to add a new phone number to a contact",
             "points": "20",
             "scenarios": []
           }
@@ -31,22 +35,28 @@
         "user-stories": [
           {
             "id": "3",
+            "role": "user",
+            "means": "to edit the first name of a specific contact",
+            "benefit": "",
             "status": "not-started",
-            "description": "As a user, I want to edit the first name of a specific contact",
             "points": "10",
             "scenarios": []
           },
           {
             "id": "4",
+            "role": "user",
+            "means": "to edit the last name of a specific contact",
+            "benefit": "",
             "status": "not-started",
-            "description": "As a user, I want to edit the last name of a specific contact",
             "points": "20",
             "scenarios": []
           },
           {
             "id": "5",
+            "role": "user",
+            "means": "to edit a specific phone number of a specific contact",
+            "benefit": "",
             "status": "not-started",
-            "description": "As a user, I want to edit a specific phone number of a specific contact",
             "points": "20",
             "scenarios": []
           }
@@ -59,15 +69,19 @@
         "user-stories": [
           {
             "id": "6",
+            "role": "user",
+            "means": "to remove an entire contact",
+            "benefit": "",
             "status": "not-started",
-            "description": "As a user, I want to remove an entire contact",
             "points": "10",
             "scenarios": []
           },
           {
             "id": "7",
+            "role": "user",
+            "means": "to remove a specific property, such as a specific phone number, of a specific contact",
+            "benefit": "",
             "status": "not-started",
-            "description": "As a user, I want to remove a specific property, such as a specific phone number, of a specific contact",
             "points": "20",
             "scenarios": []
           }
@@ -86,29 +100,37 @@
         "user-stories": [
           {
             "id": "1",
+            "role": "registered or unregistered user",
+            "means": "to explore the online menu",
+            "benefit": "",
             "status": "not-started",
-            "description": "As a registered or unregistered user, I want to explore the online menu",
             "points": "10",
             "scenarios": []
           },
           {
             "id": "2",
+            "role": "registered or unregistered user",
+            "means": "to add the menu items to the shopping cart",
+            "benefit": "",
             "status": "not-started",
-            "description": "As a registered or unregistered user, I want to add the menu items to the shopping cart",
             "points": "10",
             "scenarios": []
           },
           {
             "id": "3",
+            "role": "registered user",
+            "means": "to do one click payment",
+            "benefit": "",
             "status": "not-started",
-            "description": "As a registered user, I want to do one click payment",
             "points": "10",
             "scenarios": []
           },
           {
             "id": "4",
+            "role": "unregistered user",
+            "means": "to enter my delivery and payment details to make the payment",
+            "benefit": "",
             "status": "not-started",
-            "description": "As an unregistered user, I want to enter my delivery and payment details to make the payment",
             "points": "10",
             "scenarios": []
           }
@@ -121,22 +143,28 @@
         "user-stories": [
           {
             "id": "5",
+            "role": "waiter",
+            "means": "to enter the selected menu items by guests to prepare an order",
+            "benefit": "",
             "status": "not-started",
-            "description": "As a waiter, I want to enter the selected menu items by guests to prepare an order",
             "points": "10",
             "scenarios": []
           },
           {
             "id": "6",
+            "role": "waiter",
+            "means": "to be able to forward the received order to the chef",
+            "benefit": "",
             "status": "not-started",
-            "description": "As a waiter, I want to be able to forward the received order to the chef",
             "points": "10",
             "scenarios": []
           },
           {
             "id": "7",
+            "role": "waiter",
+            "means": "to be able to customize the order by modifying the default menu items",
+            "benefit": "",
             "status": "not-started",
-            "description": "As a waiter, I want to be able to customize the order by modifying the default menu items",
             "points": "10",
             "scenarios": []
           }
@@ -149,29 +177,37 @@
         "user-stories": [
           {
             "id": "8",
+            "role": "restaurant owner",
+            "means": "to update the tax values for both online and offline orders, in case they legally change",
+            "benefit": "",
             "status": "not-started",
-            "description": "As a restaurant owner, I want to update the tax values for both online and offline orders, in case they legally change",
             "points": "10",
             "scenarios": []
           },
           {
             "id": "9",
+            "role": "restaurant owner",
+            "means": "to update the tax values for individual menu items",
+            "benefit": "",
             "status": "not-started",
-            "description": "As a restaurant owner, I want to update the tax values for individual menu items",
             "points": "10",
             "scenarios": []
           },
           {
             "id": "10",
+            "role": "waiter",
+            "means": "to be able to view the invoice before printing it to check if the correct prices and tax is applied",
+            "benefit": "",
             "status": "not-started",
-            "description": "As a waiter, I want to be able to view the invoice before printing it to check if the correct prices and tax is applied",
             "points": "10",
             "scenarios": []
           },
           {
             "id": "11",
+            "role": "waiter",
+            "means": "to be able to view the total price before printing the invoice",
+            "benefit": "",
             "status": "not-started",
-            "description": "As a waiter, I want to be able to view the total price before printing the invoice",
             "points": "10",
             "scenarios": []
           }
@@ -180,4 +216,3 @@
     ]
   }
 ]
-  
