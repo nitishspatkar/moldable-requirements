@@ -10,7 +10,7 @@
         "user-stories": [
           {
             "id": "1",
-            "status": "not-started",
+            "status": "in-progress",
             "description": "As a user, I want to add a new contact to an address book",
             "points": "10",
             "scenarios": []
