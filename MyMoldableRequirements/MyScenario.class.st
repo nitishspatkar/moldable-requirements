@@ -29,6 +29,12 @@ MyScenario class >> id: aString description: anotherString [
 ]
 
 { #category : #accessing }
+MyScenario >> addParametrizedExample: anExample [
+	anExample boundScenario: self.
+	self parametrizedExamples add: anExample
+]
+
+{ #category : #accessing }
 MyScenario >> children [
 	^ self parametrizedExamples
 ]
@@ -129,6 +135,36 @@ MyScenario >> gtListOfParametrizedExamplesFor: aView [
 ]
 
 { #category : #accessing }
+MyScenario >> gtOverviewFor: aView [
+	<gtView>
+	| overviewElement viewElement container |
+	container := BlElement new
+		layout: BlLinearLayout vertical;
+		constraintsDo: [ :c | 
+			c horizontal matchParent.
+			c vertical matchParent ].
+	overviewElement := EScenarioOverviewElement new.
+	overviewElement initializeForScenario: self.
+	container addChild: overviewElement.
+	viewElement := aView explicit
+		title: 'Overview';
+		priority: 9;
+		stencil: [ overviewElement asScrollableElement ].
+	^ viewElement
+]
+
+{ #category : #accessing }
+MyScenario >> gtTreeViewOn: aView [
+	<gtView>
+	self exampleMethods isEmpty
+		ifTrue: [ ^ aView empty ].
+	^ aView columnedTree
+		title: 'Tree' translated;
+		items: [ {self exampleMethods} ];
+		column: 'Examples' text: [ :eachElement | ^ eachElement ]
+]
+
+{ #category : #accessing }
 MyScenario >> gtViewSource: aView [
 	<gtView>
 	self exampleMethod ifNil: [ ^ aView empty ].
@@ -138,6 +174,12 @@ MyScenario >> gtViewSource: aView [
 { #category : #accessing }
 MyScenario >> id: aString [
 	id := aString
+]
+
+{ #category : #accessing }
+MyScenario >> initialize [
+	exampleMethods := Set new.
+	parameterizedExamples := OrderedCollection new
 ]
 
 { #category : #accessing }

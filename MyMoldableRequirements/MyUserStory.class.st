@@ -7,7 +7,11 @@ Class {
 		'status',
 		'points',
 		'scenarios',
-		'references'
+		'references',
+		'acceptCriteria',
+		'action',
+		'announcer',
+		'user'
 	],
 	#category : #MyMoldableRequirements
 }
@@ -33,6 +37,55 @@ MyUserStory class >> id: aString status: anotherString description: yetAnotherSt
 		points: aNumber;
 		scenarios: anArray asOrderedCollection;
 		yourself
+]
+
+{ #category : #accessing }
+MyUserStory >> acceptCriteria [
+	^ acceptCriteria
+]
+
+{ #category : #accessing }
+MyUserStory >> acceptCriteria: anObject [
+	acceptCriteria := anObject
+]
+
+{ #category : #accessing }
+MyUserStory >> action [
+	^ action
+]
+
+{ #category : #accessing }
+MyUserStory >> action: anObject [
+	action := anObject
+]
+
+{ #category : #accessing }
+MyUserStory >> addClassPlaceholder: aName [
+	Object
+		subclass: aName asSymbol
+		instanceVariableNames: ''
+		classVariableNames: ''
+		package: ''
+]
+
+{ #category : #accessing }
+MyUserStory >> addScenario: aScenario [
+	scenarios add: aScenario
+]
+
+{ #category : #accessing }
+MyUserStory >> announcer [
+	"The announcer announces to potential watchers (typically viewers)
+	that a new signal was recorded"
+
+	^ announcer
+]
+
+{ #category : #accessing }
+MyUserStory >> announcer: anAnnouncer [
+	"Change the associated announcer"
+
+	announcer := anAnnouncer
 ]
 
 { #category : #accessing }
@@ -198,6 +251,28 @@ MyUserStory >> asStoryCard [
 ]
 
 { #category : #accessing }
+MyUserStory >> buildClassStringFromUser [
+	| camelCase |
+	camelCase := user class = ByteString
+		ifTrue: [ user asCamelCase ]
+		ifFalse: [ user class name asCamelCase ].
+	^ camelCase
+]
+
+{ #category : #accessing }
+MyUserStory >> buildMethodStringFromAction [
+	| camelCase |
+	camelCase := action asCamelCase.
+	camelCase at: 1 put: (camelCase at: 1) asLowercase.
+	^ camelCase
+]
+
+{ #category : #accessing }
+MyUserStory >> children [
+	^ self scenarios
+]
+
+{ #category : #accessing }
 MyUserStory >> customEntityElementFor: aReference [
 	"generate a UI element for a missing reference to a class, used in the Referenced Entities view"
 
@@ -215,8 +290,9 @@ MyUserStory >> customEntityElementFor: aReference [
 	label := BrLabel new
 		look: BrGlamorousListLabelLook;
 		text: aReference asRopedText.
-
-	"button := RequirementClassAdditionInterface new initializeWithFutureClassName: referencedEntity andElement: self."
+	button := RequirementClassAdditionInterface new
+		initializeWithFutureClassName: referencedEntity
+		andElement: self.
 	container addChild: label.
 	container addChild: separator.
 	container addChild: button.
@@ -267,22 +343,28 @@ MyUserStory >> getReferencesFrom: aDocument [
 ]
 
 { #category : #accessing }
-MyUserStory >> gtDescriptionFor: aView [
+MyUserStory >> gtDocumentFor: aView [
 	<gtView>
-	| document |
-	document := GtDocument new text: self description.
-	^ (document gtTextFor: aView)
-		title: 'Description';
-		actionButtonIcon: BrGlamorousVectorIcons accept
-			label: 'Save'
-			action: [ self description: document text asString
-			"self announcer announce: ERequirementStateChangedAnnouncement new" ];
-		"updateWhen: ERequirementStateChangedAnnouncement in: self announcer;"
-			priority: 1
+	| aDocument userObject actionObject |
+	userObject := '${class:name=' , self buildClassStringFromUser , '}$'.
+	actionObject := '${method:name=' , self buildClassStringFromUser
+		, '>>#' , self buildMethodStringFromAction , '}$'.
+	aDocument := GtDocument new
+		text:
+			'As a ' , userObject , ' I want to ' , actionObject
+				,
+					' so that I can <goal>
+
+Under elements, you can see a list of all actors that are present within this user story.
+
+Under scenarios, you can see a list and view each of the scenarios used to support this story.'.
+	^ (aDocument gtTextFor: aView)
+		title: 'View Details';
+		priority: 1
 ]
 
 { #category : #accessing }
-MyUserStory >> gtReferencedEntitiesFor: aView [
+MyUserStory >> gtReferencesFor: aView [
 	<gtView>
 	| listView |
 	listView := aView list
@@ -296,10 +378,10 @@ MyUserStory >> gtReferencedEntitiesFor: aView [
 	listView
 		actionButtonIcon: BrGlamorousVectorIcons refresh
 		label: 'Refresh'
-		action: [ "self announcer announce: ERequirementStateChangedAnnouncement new ].
+		action: [ self announcer announce: ERequirementStateChangedAnnouncement new ].
 	listView
 		updateWhen: ERequirementStateChangedAnnouncement
-		in: [ self announcer" ].
+		in: [ self announcer ].
 	^ listView
 ]
 
@@ -307,7 +389,7 @@ MyUserStory >> gtReferencedEntitiesFor: aView [
 MyUserStory >> gtScenariosFor: aView [
 	<gtView>
 	^ (scenarios gtItemsFor: aView)
-		title: 'Scenarios';
+		title: 'Scenarios with form';
 		priority: 1;
 		actionDropdownButtonIcon: BrGlamorousVectorIcons add
 			tooltip: 'Add an scenario'
@@ -350,6 +432,16 @@ MyUserStory >> gtStoryCardFor: aView [
 ]
 
 { #category : #accessing }
+MyUserStory >> gtViewScenarios: aView [
+	<gtView>
+	^ aView list
+		title: 'Scenarios';
+		priority: 3;
+		items: [ scenarios ];
+		itemText: [ :aScenario | aScenario description ]
+]
+
+{ #category : #accessing }
 MyUserStory >> id: aString [
 	id := aString
 ]
@@ -369,6 +461,16 @@ MyUserStory >> points: aNumber [
 { #category : #accessing }
 MyUserStory >> printOn: aStream [
 	aStream nextPutAll: description
+]
+
+{ #category : #accessing }
+MyUserStory >> removeScenario: aScenario [
+	scenarios remove: aScenario
+]
+
+{ #category : #accessing }
+MyUserStory >> scenarios [
+	^ scenarios
 ]
 
 { #category : #accessing }
