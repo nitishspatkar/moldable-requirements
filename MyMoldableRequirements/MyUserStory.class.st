@@ -27,7 +27,6 @@ MyUserStory class >> fromRawData: userStoryDict [
 		scenarios:
 			((userStoryDict at: #scenarios)
 				collect: [ :scenariosDict | MyScenario fromRawData: scenariosDict ])
-		description: ('As a ', (userStoryDict at: #role), ', I want ', (userStoryDict at: #means), ' so that ', (userStoryDict at: #benefit))
 ]
 
 { #category : #accessing }
@@ -40,20 +39,6 @@ MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString
 		status: anotherString;
 		points: aNumber;
 		scenarios: anArray asOrderedCollection;
-		yourself
-]
-
-{ #category : #accessing }
-MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 status: anotherString points: aNumber scenarios: anArray description: yetAnotherString [
-	^ self new
-		id: aString;
-		role: aString1;
-		means: aString2;
-		benefit: aString3;
-		status: anotherString;
-		points: aNumber;
-		scenarios: anArray asOrderedCollection;
-		description: yetAnotherString;
 		yourself
 ]
 
@@ -168,9 +153,11 @@ MyUserStory >> asFormElement: aBlock [
 				action: [ role := textElementRole document text asString.
 					means := textElementMeans document text asString.
 					benefit := textElementBenefit document text asString.
-					description := ('As a ', role, ', I want ', means, ' so that ', benefit) .
-					"The following line means that when we click the save button, the arguement i.e., aBlock is evaluated"
-					aBlock value ];
+					(benefit isEmpty)
+						ifTrue: [ description := 'As a ' , role , ', I want ' , means ]
+						ifFalse: [ description := 'As a ' , role , ', I want ' , means , ' so that '
+								, benefit ]. aBlock value
+					"The following line means that when we click the save button, the arguement i.e., aBlock is evaluated" ];
 				yourself);
 		yourself
 ]
@@ -238,7 +225,10 @@ MyUserStory >> customEntityElementFor: aReference [
 
 { #category : #accessing }
 MyUserStory >> description [
-	description := ('As a ', role, ', I want ', means, ' so that ', benefit).
+	(benefit isEmpty
+		ifTrue: [ description := 'As a ' , role , ', I want ' , means ]
+		ifFalse: [ description := 'As a ' , role , ', I want ' , means , ' so that '
+				, benefit ]).
 	^ description
 ]
 
@@ -386,7 +376,10 @@ MyUserStory >> points: aNumber [
 
 { #category : #accessing }
 MyUserStory >> printOn: aStream [
-	aStream nextPutAll: description
+	aStream nextPutAll: (benefit isEmpty
+		ifTrue: [ description := 'As a ' , role , ', I want ' , means ]
+		ifFalse: [ description := 'As a ' , role , ', I want ' , means , ' so that '
+				, benefit ])
 ]
 
 { #category : #accessing }
