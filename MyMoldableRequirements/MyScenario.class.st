@@ -14,6 +14,11 @@ MyScenario class >> fromRawData: scenariosDict [
 	^ self
 		id: (scenariosDict at: #id)
 		description: (scenariosDict at: #description)
+		example:
+			(scenariosDict
+				at: #example
+				ifPresent: [ :e | ((e at: #class) asClass >> (e at: #selector) asSymbol) gtExample ]
+				ifAbsent: [ nil ])
 ]
 
 { #category : #accessing }
@@ -25,6 +30,15 @@ MyScenario class >> id: aString description: anotherString [
 ]
 
 { #category : #accessing }
+MyScenario class >> id: aString description: anotherString example: anExample [
+	^ self new
+		id: aString;
+		description: anotherString;
+		example: anExample;
+		yourself
+]
+
+{ #category : #accessing }
 MyScenario >> description [
 	^ description
 ]
@@ -32,6 +46,18 @@ MyScenario >> description [
 { #category : #accessing }
 MyScenario >> description: aString [
 	description := aString
+]
+
+{ #category : #accessing }
+MyScenario >> ensureExampleClass [
+	| exampleClass |
+	(exampleClass isNotNil or: [ exampleClass isUnefined ])
+		ifTrue: [ ^ self ].
+	exampleClass := Object
+		subclass: 'MyUserStory' , id asString , description hash asString
+		instanceVariableNames: ''
+		classVariableNames: ''
+		package: 'MyMoldableRequirements-UserStories'
 ]
 
 { #category : #accessing }
