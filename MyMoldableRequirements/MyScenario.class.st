@@ -4,11 +4,7 @@ Class {
 	#instVars : [
 		'id',
 		'description',
-		'exampleMethod',
-		'exampleMethods',
-		'parameterizedExamples',
-		'descriptionText',
-		'simpleExampleText'
+		'example'
 	],
 	#category : #MyMoldableRequirements
 }
@@ -29,33 +25,6 @@ MyScenario class >> id: aString description: anotherString [
 ]
 
 { #category : #accessing }
-MyScenario >> addParametrizedExample: anExample [
-	anExample boundScenario: self.
-	self parametrizedExamples add: anExample
-]
-
-{ #category : #accessing }
-MyScenario >> children [
-	^ self parametrizedExamples
-]
-
-{ #category : #accessing }
-MyScenario >> createAddExampleButton [
-	^ BrButton new
-		look: BrGlamorousButtonWithLabelLook new;
-		label: 'New parameterized example';
-		action: [ ":button |
-			button phlow spawnObject: (EScenarioParametrizedExampleCreationHelper new asScrollableElement) " ];
-		margin:
-			(BlInsets
-				top: 10
-				left: 10
-				bottom: 10
-				right: 0);
-		constraintsDo: [ :c | c linear horizontal alignLeft ]
-]
-
-{ #category : #accessing }
 MyScenario >> description [
 	^ description
 ]
@@ -66,109 +35,13 @@ MyScenario >> description: aString [
 ]
 
 { #category : #accessing }
-MyScenario >> descriptionText [
-	^ descriptionText
+MyScenario >> example [
+	^ example
 ]
 
 { #category : #accessing }
-MyScenario >> descriptionText: anObject [
-	descriptionText := anObject
-]
-
-{ #category : #accessing }
-MyScenario >> exampleMethod [
-	^ exampleMethod
-]
-
-{ #category : #accessing }
-MyScenario >> exampleMethod: aMethod [
-	exampleMethod := aMethod
-]
-
-{ #category : #accessing }
-MyScenario >> exampleMethods [
-	^ exampleMethods
-]
-
-{ #category : #accessing }
-MyScenario >> exampleMethods: list [
-	list do: [ :item | self exampleMethods add: item ]
-]
-
-{ #category : #accessing }
-MyScenario >> gtListOfExamplesFor: aView [
-	<gtView>
-	^ aView forward
-		title: 'Examples';
-		priority: 1;
-		object: [ GtExampleGroup withAll: self exampleMethods asArray ];
-		view: #gtExamplesFor:
-]
-
-{ #category : #accessing }
-MyScenario >> gtListOfParametrizedExamplesFor: aView [
-	<gtView>
-	| phlowList listElement viewElement container |
-	container := BlElement new
-		layout: BlLinearLayout vertical;
-		constraintsDo: [ :c | 
-			c horizontal matchParent.
-			c vertical matchParent ].
-	phlowList := GtPhlowColumnedListView new
-		items: [ self parametrizedExamples ];
-		column: 'Index' item: [ :anElement :anIndex | anIndex ] width: 30;
-		column: 'Method'
-			item: [ :anElement | anElement exampleMethod gtParametrizedExample label ].
-	listElement := phlowList
-		asElementDo: [ :e | 
-			e
-				constraintsDo: [ :c | 
-					c horizontal matchParent.
-					c vertical fitContent ].
-			e addChild: self createAddExampleButton ].
-	container addChild: listElement.
-	viewElement := aView explicit
-		title: 'Parametrized examples';
-		priority: 3;
-		stencil: [ container ].
-	^ viewElement
-]
-
-{ #category : #accessing }
-MyScenario >> gtOverviewFor: aView [
-	<gtView>
-	| overviewElement viewElement container |
-	container := BlElement new
-		layout: BlLinearLayout vertical;
-		constraintsDo: [ :c | 
-			c horizontal matchParent.
-			c vertical matchParent ].
-	overviewElement := EScenarioOverviewElement new.
-	overviewElement initializeForScenario: self.
-	container addChild: overviewElement.
-	viewElement := aView explicit
-		title: 'Overview';
-		priority: 9;
-		stencil: [ overviewElement asScrollableElement ].
-	^ viewElement
-]
-
-{ #category : #accessing }
-MyScenario >> gtTreeViewOn: aView [
-	<gtView>
-	self exampleMethods isEmpty
-		ifTrue: [ ^ aView empty ].
-	^ aView columnedTree
-		title: 'Tree' translated;
-		items: [ {self exampleMethods} ];
-		column: 'Examples' text: [ :eachElement | ^ eachElement ]
-]
-
-{ #category : #accessing }
-MyScenario >> gtViewSource: aView [
-	<gtView>
-	self exampleMethod ifNil: [ ^ aView empty ].
-	^ self exampleMethod gtCoderSourceFor: aView
+MyScenario >> example: anExample [
+	example := anExample
 ]
 
 { #category : #accessing }
@@ -183,21 +56,6 @@ MyScenario >> initialize [
 ]
 
 { #category : #accessing }
-MyScenario >> parametrizedExamples [
-	^ parameterizedExamples
-]
-
-{ #category : #accessing }
 MyScenario >> printOn: aStream [
 	aStream nextPutAll: description
-]
-
-{ #category : #accessing }
-MyScenario >> simpleExampleText [
-	^ simpleExampleText
-]
-
-{ #category : #accessing }
-MyScenario >> simpleExampleText: anObject [
-	simpleExampleText := anObject
 ]

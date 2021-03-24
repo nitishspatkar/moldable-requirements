@@ -6,12 +6,7 @@ Class {
 		'description',
 		'status',
 		'points',
-		'scenarios',
-		'references',
-		'acceptCriteria',
-		'action',
-		'announcer',
-		'user'
+		'scenarios'
 	],
 	#category : #MyMoldableRequirements
 }
@@ -36,120 +31,6 @@ MyUserStory class >> id: aString status: anotherString description: yetAnotherSt
 		description: yetAnotherString;
 		points: aNumber;
 		scenarios: anArray asOrderedCollection;
-		yourself
-]
-
-{ #category : #accessing }
-MyUserStory >> acceptCriteria [
-	^ acceptCriteria
-]
-
-{ #category : #accessing }
-MyUserStory >> acceptCriteria: anObject [
-	acceptCriteria := anObject
-]
-
-{ #category : #accessing }
-MyUserStory >> action [
-	^ action
-]
-
-{ #category : #accessing }
-MyUserStory >> action: anObject [
-	action := anObject
-]
-
-{ #category : #accessing }
-MyUserStory >> addClassPlaceholder: aName [
-	Object
-		subclass: aName asSymbol
-		instanceVariableNames: ''
-		classVariableNames: ''
-		package: ''
-]
-
-{ #category : #accessing }
-MyUserStory >> addScenario: aScenario [
-	scenarios add: aScenario
-]
-
-{ #category : #accessing }
-MyUserStory >> announcer [
-	"The announcer announces to potential watchers (typically viewers)
-	that a new signal was recorded"
-
-	^ announcer
-]
-
-{ #category : #accessing }
-MyUserStory >> announcer: anAnnouncer [
-	"Change the associated announcer"
-
-	announcer := anAnnouncer
-]
-
-{ #category : #accessing }
-MyUserStory >> asFormElement [
-	"a user story presents itself as a form to be filled and save as an object"
-
-	| label textElementDescription textElementStatus textElementPoints |
-	textElementDescription := GtDocument new asElementWithoutSaveAction
-		vFitContent;
-		hMatchParent;
-		border: (BlBorder paint: (Color fromHexString: 'eaeaea') width: 2);
-		padding: (BlInsets all: 3);
-		margin: (BlInsets top: 3 bottom: 3);
-		geometry: (BlRectangle cornerRadius: 5).
-	textElementStatus := GtDocument new asElementWithoutSaveAction
-		vFitContent;
-		hMatchParent;
-		border: (BlBorder paint: (Color fromHexString: 'eaeaea') width: 2);
-		padding: (BlInsets all: 3);
-		margin: (BlInsets top: 3 bottom: 3);
-		geometry: (BlRectangle cornerRadius: 5).
-	textElementPoints := GtDocument new asElementWithoutSaveAction
-		vFitContent;
-		hMatchParent;
-		border: (BlBorder paint: (Color fromHexString: 'eaeaea') width: 2);
-		padding: (BlInsets all: 3);
-		margin: (BlInsets top: 3 bottom: 3);
-		geometry: (BlRectangle cornerRadius: 5).
-	^ BlElement new
-		layout: BlLinearLayout vertical;
-		constraintsDo: [ :c | 
-			c vertical fitContent.
-			c horizontal exact: 300 ];
-		padding: (BlInsets all: 5);
-		addChild:
-			(BrLabel new
-				look: BrGlamorousLabelLook;
-				beLargeSize;
-				text: 'Description';
-				yourself);
-		addChild: textElementDescription;
-		addChild:
-			(BrLabel new
-				look: BrGlamorousLabelLook;
-				beLargeSize;
-				text: 'Status';
-				yourself);
-		addChild: textElementStatus;
-		addChild:
-			(BrLabel new
-				look: BrGlamorousLabelLook;
-				beLargeSize;
-				text: 'Points';
-				yourself);
-		addChild: textElementPoints;
-		addChild:
-			(BrButton new
-				look: BrGlamorousButtonWithIconLook;
-				icon: BrGlamorousVectorIcons accept;
-				label: 'Save';
-				action: [ description := textElementDescription text.
-					status := textElementStatus text.
-					points := textElementPoints text ];
-				yourself);
 		yourself
 ]
 
@@ -251,55 +132,6 @@ MyUserStory >> asStoryCard [
 ]
 
 { #category : #accessing }
-MyUserStory >> buildClassStringFromUser [
-	| camelCase |
-	camelCase := user class = ByteString
-		ifTrue: [ user asCamelCase ]
-		ifFalse: [ user class name asCamelCase ].
-	^ camelCase
-]
-
-{ #category : #accessing }
-MyUserStory >> buildMethodStringFromAction [
-	| camelCase |
-	camelCase := action asCamelCase.
-	camelCase at: 1 put: (camelCase at: 1) asLowercase.
-	^ camelCase
-]
-
-{ #category : #accessing }
-MyUserStory >> children [
-	^ self scenarios
-]
-
-{ #category : #accessing }
-MyUserStory >> customEntityElementFor: aReference [
-	"generate a UI element for a missing reference to a class, used in the Referenced Entities view"
-
-	| container label button separator referencedEntity |
-	referencedEntity := aReference copyReplaceAll: ' - missing' with: ''.
-	container := BlElement new
-		layout: BlLinearLayout horizontal;
-		constraintsDo: [ :c | 
-			c horizontal matchParent.
-			c vertical exact: 30 ].
-	separator := BlElement new
-		constraintsDo: [ :c | 
-			c horizontal matchParent.
-			c vertical fitContent ].
-	label := BrLabel new
-		look: BrGlamorousListLabelLook;
-		text: aReference asRopedText.
-	button := RequirementClassAdditionInterface new
-		initializeWithFutureClassName: referencedEntity
-		andElement: self.
-	container addChild: label.
-	container addChild: separator.
-	container addChild: button.
-	^ container
-]
-
-{ #category : #accessing }
 MyUserStory >> description [
 	^ description
 ]
@@ -307,82 +139,6 @@ MyUserStory >> description [
 { #category : #accessing }
 MyUserStory >> description: yetAnotherString [
 	description := yetAnotherString
-]
-
-{ #category : #accessing }
-MyUserStory >> getReferencesFrom: aDocument [
-	"filter out all references to domain entities from a document"
-
-	| classAnnotations methodAnnotations missingEntityString |
-	references := OrderedCollection new.
-	aDocument children
-		do: [ :aChild | 
-			aChild class = PRParagraph
-				ifTrue: [ classAnnotations := aChild
-						select: [ :e | e class = GtClassAnnotation ].
-					methodAnnotations := aChild
-						select: [ :e | e class = GtMethodAnnotation ].
-					classAnnotations
-						do: [ :anAnnotation | 
-							[ (references
-								includes: (self class environment at: anAnnotation referencedClass name))
-								ifFalse: [ references
-										add: (self class environment at: anAnnotation referencedClass name) ] ]
-								on: KeyNotFound
-								do: [ missingEntityString := String
-										streamContents: [ :out | 
-											out
-												nextPutAll: anAnnotation referencedClass name;
-												nextPutAll: ' - missing' ].
-									references add: missingEntityString ] ].
-					methodAnnotations
-						do: [ :anAnnotation | 
-							(references includes: anAnnotation referencedMethod)
-								ifFalse: [ references add: anAnnotation referencedMethod ] ] ] ].
-	^ references asSet asOrderedCollection
-]
-
-{ #category : #accessing }
-MyUserStory >> gtDocumentFor: aView [
-	<gtView>
-	| aDocument userObject actionObject |
-	userObject := '${class:name=' , self buildClassStringFromUser , '}$'.
-	actionObject := '${method:name=' , self buildClassStringFromUser
-		, '>>#' , self buildMethodStringFromAction , '}$'.
-	aDocument := GtDocument new
-		text:
-			'As a ' , userObject , ' I want to ' , actionObject
-				,
-					' so that I can <goal>
-
-Under elements, you can see a list of all actors that are present within this user story.
-
-Under scenarios, you can see a list and view each of the scenarios used to support this story.'.
-	^ (aDocument gtTextFor: aView)
-		title: 'View Details';
-		priority: 1
-]
-
-{ #category : #accessing }
-MyUserStory >> gtReferencesFor: aView [
-	<gtView>
-	| listView |
-	listView := aView list
-		title: 'Referenced Entities';
-		items: [ self getReferencesFrom: self parseStory ].
-	listView
-		itemStencil: [ :x | 
-			x class = ByteString
-				ifTrue: [ self customEntityElementFor: x ]
-				ifFalse: [ listView buildTextElementFor: x ] ].
-	listView
-		actionButtonIcon: BrGlamorousVectorIcons refresh
-		label: 'Refresh'
-		action: [ self announcer announce: ERequirementStateChangedAnnouncement new ].
-	listView
-		updateWhen: ERequirementStateChangedAnnouncement
-		in: [ self announcer ].
-	^ listView
 ]
 
 { #category : #accessing }
@@ -447,13 +203,6 @@ MyUserStory >> id: aString [
 ]
 
 { #category : #accessing }
-MyUserStory >> parseStory [
-	| aPRDocument |
-	aPRDocument := GtDocumenterParser new parse: self description.
-	^ aPRDocument
-]
-
-{ #category : #accessing }
 MyUserStory >> points: aNumber [
 	points := aNumber
 ]
@@ -461,11 +210,6 @@ MyUserStory >> points: aNumber [
 { #category : #accessing }
 MyUserStory >> printOn: aStream [
 	aStream nextPutAll: description
-]
-
-{ #category : #accessing }
-MyUserStory >> removeScenario: aScenario [
-	scenarios remove: aScenario
 ]
 
 { #category : #accessing }
