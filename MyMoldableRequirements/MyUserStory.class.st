@@ -167,27 +167,45 @@ MyUserStory >> asStoryCard [
 	"Returns a bloc element that renders a card"
 
 	^ BlElement new
-		layout: BlLinearLayout vertical;
+		layout: BlLinearLayout horizontal;
 		addChild:
-			(BrEditableLabel new
-				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
-				text: description;
-				when: BrEditorAcceptWish
-					do: [ :aWish | description := aWish text ];
+			(BrLabel new
+				look: BrGlamorousLabelLook;
+				beLargeSize;
+				margin: (BlInsets right: 3);
+				text: 'As a';
 				yourself);
 		addChild:
 			(BrEditableLabel new
 				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
-				text: status;
-				when: BrEditorAcceptWish
-					do: [ :aWish | status := aWish text ];
+				text: role;
+				when: BrEditorAcceptWish do: [ :aWish | role := aWish text ];
+				yourself);
+		addChild:
+			(BrLabel new
+				look: BrGlamorousLabelLook;
+				beLargeSize;
+				margin: (BlInsets right: 3);
+				text: 'I want';
 				yourself);
 		addChild:
 			(BrEditableLabel new
 				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
-				text: points;
-				when: BrEditorAcceptWish
-					do: [ :aWish | points := aWish text ];
+				text: means;
+				when: BrEditorAcceptWish do: [ :aWish | means := aWish text ];
+				yourself);
+		addChild:
+			(BrLabel new
+				look: BrGlamorousLabelLook;
+				beLargeSize;
+				margin: (BlInsets right: 3);
+				text: 'so that';
+				yourself);
+		addChild:
+			(BrEditableLabel new
+				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
+				text: benefit;
+				when: BrEditorAcceptWish do: [ :aWish | benefit := aWish text ];
 				yourself);
 		yourself
 ]
