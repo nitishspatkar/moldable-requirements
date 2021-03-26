@@ -13,9 +13,9 @@ Class {
 { #category : #accessing }
 MyEpic class >> fromRawData: epicDict [
 	^ self
-		id: (epicDict at: #id)
+		id: (epicDict at: #id ifAbsent: nil)
 		title: (epicDict at: #title)
-		description: (epicDict at: #description)
+		description: (epicDict at: #description ifAbsent: nil)
 		userStories:
 			((epicDict at: #'user-stories')
 				collect: [ :userStoriesDict | MyUserStory fromRawData: userStoriesDict ])

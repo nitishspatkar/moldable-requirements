@@ -12,7 +12,7 @@ Class {
 { #category : #accessing }
 MyScenario class >> fromRawData: scenariosDict [
 	^ self
-		id: (scenariosDict at: #id)
+		id: (scenariosDict at: #id ifAbsent: nil)
 		description: (scenariosDict at: #description)
 		example:
 			(scenariosDict
@@ -68,6 +68,15 @@ MyScenario >> example [
 { #category : #accessing }
 MyScenario >> example: anExample [
 	example := anExample
+]
+
+{ #category : #accessing }
+MyScenario >> gtExammpleFor: aView [
+	<gtView>
+	^ aView forward
+		title: 'Live';
+		object: [ self example ];
+		view: #gtCoderSourceFor:
 ]
 
 { #category : #accessing }

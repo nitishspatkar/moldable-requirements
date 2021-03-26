@@ -12,7 +12,7 @@ Class {
 { #category : #accessing }
 MyProject class >> fromRawData: projectDict [
 	^ self
-		id: (projectDict at: #id)
+		id: (projectDict at: #id ifAbsent: nil)
 		title: (projectDict at: #title)
 		epics:
 			((projectDict at: #epics)

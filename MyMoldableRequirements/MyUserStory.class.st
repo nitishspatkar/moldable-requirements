@@ -14,12 +14,12 @@ Class {
 { #category : #accessing }
 MyUserStory class >> fromRawData: userStoryDict [
 	^ self
-		id: (userStoryDict at: #id)
-		status: (userStoryDict at: #status)
+		id: (userStoryDict at: #id ifAbsent: nil)
+		status: (userStoryDict at: #status ifAbsent: nil)
 		description: (userStoryDict at: #description)
-		points: (userStoryDict at: #points)
+		points: (userStoryDict at: #points ifAbsent: nil)
 		scenarios:
-			((userStoryDict at: #scenarios)
+			((userStoryDict at: #scenarios ifAbsent: #())
 				collect: [ :scenariosDict | MyScenario fromRawData: scenariosDict ])
 ]
 
