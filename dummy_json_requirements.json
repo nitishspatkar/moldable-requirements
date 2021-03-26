@@ -1,4 +1,10 @@
 [
+
+{
+    "title": "Living Requirements",
+    "epics":
+[	{		"title" : "Create Project Requirements",		"user-stories" : [			{				"description" : "As a product owner, I want to create user stories"			},			{				"description" : "As a product owner, I want to add epics to a project"			},			{				"description" : "As a product owner, I want to create sprints with a start and end date"			}		]	},	{		"title" : "Create Project Attributes",		"user-stories" : [			{				"description" : "As a product owner, I want to assign team members to a project"			},			{				"description" : "As a product owner, I want to create various personas for a specific project"			}		]	},	{		"title" : "Add User Story Attributes",		"user-stories" : [			{				"description" : "As a product owner, I want to add assignees to a specific user story so that the project team knows who is working on this user story"			},			{				"description" : "As a product owner, I want to add personas to specific user stories so that the developers will have a better understanding of the user"			},			{				"description" : "As a developer, I want to add tasks to a specific user story so that I know what has to be done"			},			{				"description" : "As a developer or product owner, I want to add labels to a user story so that it gains more information about what to do with it"			},			{				"description" : "As an assignee, I want to add notes to a user story so that I can communicate with other assignees on the specific user story"			},			{				"description" : "As a product owner, I want to add a start and end date to a specific user story so that time management becomes easier"			},			{				"description" : "As a product owner, I want to add acceptance criteria to a user story"			}		]	},	{		"title" : "Edit User Story Attributes",		"user-stories" : [			{				"description" : "As a product owner, I want to annotate words in a user story as a class or as a method so that the project team has the same mental model"			},			{				"description" : "As a tester, I want to be able to add tests to a specific user story"			}		]	},	{		"title" : "Storyboard Functionality",		"user-stories" : [			{				"description" : "As a developer and product owner, I want the Kanban board story cards to be minimalistic so that the view isn’t overloaded"			},			{				"description" : "As a developer and product owner, I want to click on the Kanban board story cards to get more information about a specific story card"			},			{				"description" : "As a product owner or developer, I want to filter story cards in a kanban board according to various criteria, such as label, assignee, etc."			},			{				"description" : "As a product owner or developer, I want to drag and drop story cards into one of the columns, i.e., not-started, in-progress and done"			}		]	},	{		"title" : "Get Overview",		"user-stories" : [			{				"description" : "As a project team member, I want to be able to see which is the current sprint"			},			{				"description" : "As a developer, I want to see which classes in a specific user story are already created and which aren't"			},			{				"description" : "As a product owner, I want to see which classes belong or relate to a specific user story"			},			{				"description" : "As a tester, I want to see how many tests pass and fail for a specific user story"			},			{				"description" : "As a product owner, I want to have a quick overview if the acceptance criteria of a user story is fulfilled "			},			{				"description" : "As a product owner, I want to have a quick overview on the progress and status of a specific project"			},			{				"description" : "As a product owner, I want to have a quick overview on the progress of a specific epic’s user stories"			},			{				"description" : "As a product owner, I want to see if epics start and end date overlap so that I can manage the time in the project team properly"			},			{				"description" : "As a developer, I want to see if user stories start and end date overlap so that I can manage my development time"			},			{				"description" : "As a developer, I want and need to obtain a feedback when a class or a method name referred in a user story changes"			}		]	}]
+},
   {
     "id": "1",
     "title": "Address Book Application",
@@ -20,7 +26,14 @@
             "status": "not-started",
             "description": "As a user, I want to add a new phone number to a contact",
             "points": "20",
-            "scenarios": []
+            "scenarios": [{
+            	"id": "1",
+            	"description": "adding a phone number to a contact  with no phone number",
+            	"example": {
+            		"class": "ABAddressBook",
+            		"selector": "emptyAddressBook"
+            	}
+            }]
           }
         ]
       },
