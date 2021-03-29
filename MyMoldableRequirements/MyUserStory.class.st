@@ -43,53 +43,30 @@ MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString
 ]
 
 { #category : #accessing }
-MyUserStory >> asFormElement [
-	"a user story presents itself as a form to be filled and save as an object"
+MyUserStory >> aWithAllStatiDropdownLook [
+	"returns a dropdown of all stati"
 
-	| label textElementDescription textElementStatus |
-	textElementDescription := GtDocument new asElementWithoutSaveAction
-		vFitContent;
-		hMatchParent;
-		border: (BlBorder paint: (Color fromHexString: 'eaeaea') width: 2);
-		padding: (BlInsets all: 3);
-		margin: (BlInsets top: 3 bottom: 3);
-		geometry: (BlRectangle cornerRadius: 5).
-	textElementStatus := GtDocument new asElementWithoutSaveAction
-		vFitContent;
-		hMatchParent;
-		border: (BlBorder paint: (Color fromHexString: 'eaeaea') width: 2);
-		padding: (BlInsets all: 3);
-		margin: (BlInsets top: 3 bottom: 3);
-		geometry: (BlRectangle cornerRadius: 5).
-	^ BlElement new
-		layout: BlLinearLayout vertical;
-		constraintsDo: [ :c | 
-			c vertical fitContent.
-			c horizontal exact: 300 ];
-		padding: (BlInsets all: 5);
-		addChild:
-			(BrLabel new
-				look: BrGlamorousLabelLook;
-				beLargeSize;
-				text: 'Description';
-				yourself);
-		addChild: textElementDescription;
-		addChild:
-			(BrLabel new
-				look: BrGlamorousLabelLook;
-				beLargeSize;
-				text: 'Status';
-				yourself);
-		addChild: textElementStatus;
-		addChild:
-			(BrButton new
-				look: BrGlamorousButtonWithIconLook;
-				icon: BrGlamorousVectorIcons accept;
-				label: 'Save';
-				action: [ description := textElementDescription text.
-					status := textElementStatus text.]
-				yourself);
-		yourself
+	^ BrGlamorousWithDropdownLook
+		handle: [ BrButton new
+				look: BrGlamorousButtonRectangularLook + BrGlamorousButtonIconLook;
+				icon: BrGlamorousIcons menu ]
+		content: [ BrSimpleList new
+				itemStencil: [ BrLabel new
+						look:
+							BrGlamorousLabelLook new
+								+
+									(BrStyleCommonLook new
+										selected: [ :aStyle | aStyle background: Color veryVeryLightGray ]);
+						padding: (BlInsets all: 5)
+					"hMatchParent;" ];
+				itemDataBinder: [ :eachElement :eachClass :eachIndex | eachElement text: eachClass ];
+				items: (self allStati collect: [ :stati | stati ]) ]
+]
+
+{ #category : #accessing }
+MyUserStory >> allStati [
+"returns an orderedCollection of stati"
+ ^ #('not-started' 'in-progress' 'done')
 ]
 
 { #category : #accessing }
@@ -166,8 +143,11 @@ MyUserStory >> asFormElement: aBlock [
 MyUserStory >> asStoryCard [
 	"Returns a bloc element that renders a card"
 
+	| aWithDropdownLook |
+	aWithDropdownLook := self aWithAllStatiDropdownLook.
+				
 	^ BlElement new
-		layout: BlLinearLayout horizontal;
+		layout: BlLinearLayout vertical;
 		addChild:
 			(BrLabel new
 				look: BrGlamorousLabelLook;
@@ -206,6 +186,11 @@ MyUserStory >> asStoryCard [
 				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
 				text: benefit;
 				when: BrEditorAcceptWish do: [ :aWish | benefit := aWish text ];
+				yourself);
+		addChild:
+			(BrButton new
+				look: BrGlamorousButtonWithIconLook + aWithDropdownLook;
+				icon: BrGlamorousIcons menu;
 				yourself);
 		yourself
 ]
@@ -408,6 +393,11 @@ MyUserStory >> role: aString [
 { #category : #accessing }
 MyUserStory >> scenarios: anArray [
 	scenarios := anArray
+]
+
+{ #category : #accessing }
+MyUserStory >> status [
+ ^status
 ]
 
 { #category : #accessing }
