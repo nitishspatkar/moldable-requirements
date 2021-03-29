@@ -46,21 +46,24 @@ MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString
 MyUserStory >> aWithAllStatiDropdownLook [
 	"returns a dropdown of all stati"
 
+	| statusButton |
 	^ BrGlamorousWithDropdownLook
 		handle: [ BrButton new
-		label: self status;
-				look: BrGlamorousButtonRectangularLook + BrGlamorousButtonWithLabelAndIconLook;
+				label: self status;
+				look:
+					BrGlamorousButtonRectangularLook
+						+ BrGlamorousButtonWithLabelAndIconLook;
 				icon: BrGlamorousIcons menu ]
 		content: [ BrSimpleList new
-				itemStencil: [ BrLabel new
+				itemStencil: [ statusButton := BrButton new
 						look:
 							BrGlamorousLabelLook new
 								+
 									(BrStyleCommonLook new
 										selected: [ :aStyle | aStyle background: Color veryVeryLightGray ]);
-						padding: (BlInsets all: 5)
-					"hMatchParent;" ];
-				itemDataBinder: [ :eachElement :eachClass :eachIndex | eachElement text: eachClass ];
+						padding: (BlInsets all: 5);
+						action: [:eachElement | self status:eachElement label asString]];
+				itemDataBinder: [ :eachElement :eachClass :eachIndex | eachElement label: eachClass ];
 				items: (self allStati collect: [ :stati | stati ]) ]
 ]
 
