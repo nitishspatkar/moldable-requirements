@@ -421,6 +421,16 @@ MyUserStory >> status: anotherString [
 ]
 
 { #category : #accessing }
+MyUserStory >> statusColor [
+	status = 'not-started'
+		ifTrue: [ ^ Color lightRed ].
+	status = 'in-progress'
+		ifTrue: [ ^ Color lightYellow ].
+	status = 'done'
+		ifTrue: [ ^ Color lightGreen ]
+]
+
+{ #category : #accessing }
 MyUserStory >> subItems [
  ^ OrderedCollection new
 ]

@@ -104,7 +104,7 @@ MyEpic >> gtViewMindMapStoryTree: aView [
 					stencil: [ :x | 
 						BlElement new 
 							border: (BlBorder paint: Color black);
-							background: Color lightBlue;
+							background: x statusColor;
 							geometry: BlEllipse new;
 							size: (50)@(50)];
 					with: (self requirements).
@@ -132,6 +132,11 @@ MyEpic >> requirements [
 	requirements := userStories copy.
 	requirements add: self.
 	^requirements
+]
+
+{ #category : #accessing }
+MyEpic >> statusColor [
+	^Color lightBlue
 ]
 
 { #category : #accessing }
