@@ -196,7 +196,7 @@ MyUserStory >> asStoryCard [
 				yourself);
 		addChild:
 			(BrButton new
-				look: BrGlamorousButtonWithIconLook + aWithDropdownLook;
+				look: BrGlamorousButtonWithLabelAndIconLook + aWithDropdownLook;
 				icon: BrGlamorousIcons menu;
 				yourself);
 		yourself
@@ -414,4 +414,9 @@ MyUserStory >> status [
 { #category : #accessing }
 MyUserStory >> status: anotherString [
 	status := anotherString
+]
+
+{ #category : #accessing }
+MyUserStory >> subItems [
+ ^ OrderedCollection new
 ]

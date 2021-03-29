@@ -93,6 +93,29 @@ MyEpic >> gtUserStoriesFor: aView [
 ]
 
 { #category : #accessing }
+MyEpic >> gtViewMindMapStoryTree: aView [
+"Tree Mind Map for epic status and its user stories"
+	<gtView>
+	^ aView mondrian
+		title: 'Tree' translated;
+			priority: 2;
+			painting: [ :view |
+				view nodes 
+					stencil: [ :x | 
+						BlElement new 
+							border: (BlBorder paint: Color black);
+							background: Color lightBlue;
+							geometry: BlEllipse new;
+							size: (50)@(50)];
+					with: (self requirements).
+					view edges connectFrom: [ :x | x ] toAll: [ :x | x subItems ];
+		shape: [ :x | 
+			BlLineElement new
+				border: (BlBorder paint: (Color red alpha: 0.5) width: 5) ].
+				view layout tree]
+]
+
+{ #category : #accessing }
 MyEpic >> id: aString [
 	id := aString
 ]
@@ -103,8 +126,27 @@ MyEpic >> printOn: aStream [
 ]
 
 { #category : #accessing }
+MyEpic >> requirements [
+"requirements for the tree mind map view"
+	| requirements |
+	requirements := userStories copy.
+	requirements add: self.
+	^requirements
+]
+
+{ #category : #accessing }
+MyEpic >> subItems [
+	^ self userStories
+]
+
+{ #category : #accessing }
 MyEpic >> title: anotherString [
 	title := anotherString
+]
+
+{ #category : #accessing }
+MyEpic >> userStories [
+	^ userStories
 ]
 
 { #category : #accessing }
