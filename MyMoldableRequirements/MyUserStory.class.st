@@ -48,7 +48,8 @@ MyUserStory >> aWithAllStatiDropdownLook [
 
 	^ BrGlamorousWithDropdownLook
 		handle: [ BrButton new
-				look: BrGlamorousButtonRectangularLook + BrGlamorousButtonIconLook;
+		label: self status;
+				look: BrGlamorousButtonRectangularLook + BrGlamorousButtonWithLabelAndIconLook;
 				icon: BrGlamorousIcons menu ]
 		content: [ BrSimpleList new
 				itemStencil: [ BrLabel new
@@ -145,7 +146,6 @@ MyUserStory >> asStoryCard [
 
 	| aWithDropdownLook |
 	aWithDropdownLook := self aWithAllStatiDropdownLook.
-				
 	^ BlElement new
 		layout: BlLinearLayout vertical;
 		addChild:
@@ -192,10 +192,11 @@ MyUserStory >> asStoryCard [
 				look: BrGlamorousLabelLook;
 				beLargeSize;
 				margin: (BlInsets right: 3);
-				text: 'Select Status';
+				text: 'Status:';
 				yourself);
 		addChild:
 			(BrButton new
+				label: self status;
 				look: BrGlamorousButtonWithLabelAndIconLook + aWithDropdownLook;
 				icon: BrGlamorousIcons menu;
 				yourself);
