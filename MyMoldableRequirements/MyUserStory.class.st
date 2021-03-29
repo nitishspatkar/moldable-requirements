@@ -188,6 +188,13 @@ MyUserStory >> asStoryCard [
 				when: BrEditorAcceptWish do: [ :aWish | benefit := aWish text ];
 				yourself);
 		addChild:
+			(BrLabel new
+				look: BrGlamorousLabelLook;
+				beLargeSize;
+				margin: (BlInsets right: 3);
+				text: 'Select Status';
+				yourself);
+		addChild:
 			(BrButton new
 				look: BrGlamorousButtonWithIconLook + aWithDropdownLook;
 				icon: BrGlamorousIcons menu;
@@ -197,6 +204,7 @@ MyUserStory >> asStoryCard [
 
 { #category : #accessing }
 MyUserStory >> benefit: aString [
+"part after 'so that' in user story"
 	benefit := aString
 ]
 
@@ -228,6 +236,7 @@ MyUserStory >> customEntityElementFor: aReference [
 
 { #category : #accessing }
 MyUserStory >> description [
+"returns user story with benefit if defined, otherwise without"
 	(benefit isEmpty
 		ifTrue: [ description := 'As a ' , role , ', I want ' , means ]
 		ifFalse: [ description := 'As a ' , role , ', I want ' , means , ' so that '
@@ -362,6 +371,7 @@ MyUserStory >> id: aString [
 
 { #category : #accessing }
 MyUserStory >> means: aString [
+"the part of a user story after 'I want' "
  means := aString
 ]
 
@@ -387,6 +397,7 @@ MyUserStory >> printOn: aStream [
 
 { #category : #accessing }
 MyUserStory >> role: aString [
+"the part of a user story after 'As a' "
  role := aString
 ]
 
