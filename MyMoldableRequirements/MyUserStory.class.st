@@ -11,7 +11,8 @@ Class {
 		'role',
 		'means',
 		'benefit',
-		'epic'
+		'epic',
+		'checklist'
 	],
 	#category : #MyMoldableRequirements
 }
@@ -28,6 +29,9 @@ MyUserStory class >> fromRawData: userStoryDict [
 		scenarios:
 			((userStoryDict at: #scenarios)
 				collect: [ :scenariosDict | MyScenario fromRawData: scenariosDict ])
+		checklist: 
+		((userStoryDict at: #checklist)
+		collect: [:checklistDict | MyChecklist fromRawData: checklistDict])
 ]
 
 { #category : #accessing }
@@ -44,7 +48,7 @@ MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString
 ]
 
 { #category : #accessing }
-MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 status: anotherString points: aNumber scenarios: anArray epic: anEpic [
+MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 status: anotherString points: aNumber scenarios: anArray checklist: anObject [
 	^ self new
 		id: aString;
 		role: aString1;
@@ -53,7 +57,7 @@ MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString
 		status: anotherString;
 		points: aNumber;
 		scenarios: anArray asOrderedCollection;
-		epic: anEpic;
+		checklist: anObject
 		yourself
 ]
 
@@ -240,6 +244,11 @@ MyUserStory >> asMinimalStoryCard [
 MyUserStory >> benefit: aString [
 "part after 'so that' in user story"
 	benefit := aString
+]
+
+{ #category : #accessing }
+MyUserStory >> checklist: anObject [ 
+checklist := anObject
 ]
 
 { #category : #accessing }
