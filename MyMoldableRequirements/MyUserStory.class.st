@@ -10,7 +10,8 @@ Class {
 		'references',
 		'role',
 		'means',
-		'benefit'
+		'benefit',
+		'epic'
 	],
 	#category : #MyMoldableRequirements
 }
@@ -30,7 +31,7 @@ MyUserStory class >> fromRawData: userStoryDict [
 ]
 
 { #category : #accessing }
-MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 status: anotherString points: aNumber scenarios: anArray [
+MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 status: anotherString points: aNumber scenarios: anArray [ 
 	^ self new
 		id: aString;
 		role: aString1;
@@ -39,6 +40,20 @@ MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString
 		status: anotherString;
 		points: aNumber;
 		scenarios: anArray asOrderedCollection;
+		yourself
+]
+
+{ #category : #accessing }
+MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 status: anotherString points: aNumber scenarios: anArray epic: anEpic [
+	^ self new
+		id: aString;
+		role: aString1;
+		means: aString2;
+		benefit: aString3;
+		status: anotherString;
+		points: aNumber;
+		scenarios: anArray asOrderedCollection;
+		epic: anEpic;
 		yourself
 ]
 
@@ -71,6 +86,69 @@ MyUserStory >> aWithAllStatiDropdownLook [
 MyUserStory >> allStati [
 "returns an orderedCollection of stati"
  ^ #('not-started' 'in-progress' 'done')
+]
+
+{ #category : #accessing }
+MyUserStory >> asDetailedStoryCard [
+	"Returns a bloc element that renders a card"
+
+	| aWithDropdownLook |
+	aWithDropdownLook := self aWithAllStatiDropdownLook.
+	^ BlElement new
+		layout: BlLinearLayout vertical;
+		addChild:
+			(BrLabel new
+				look: BrGlamorousLabelLook;
+				beLargeSize;
+				margin: (BlInsets right: 3);
+				text: 'As a';
+				yourself);
+		addChild:
+			(BrEditableLabel new
+				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
+				text: role;
+				when: BrEditorAcceptWish do: [ :aWish | role := aWish text ];
+				yourself);
+		addChild:
+			(BrLabel new
+				look: BrGlamorousLabelLook;
+				beLargeSize;
+				margin: (BlInsets right: 3);
+				text: 'I want';
+				yourself);
+		addChild:
+			(BrEditableLabel new
+				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
+				text: means;
+				when: BrEditorAcceptWish do: [ :aWish | means := aWish text ];
+				yourself);
+		addChild:
+			(BrLabel new
+				look: BrGlamorousLabelLook;
+				beLargeSize;
+				margin: (BlInsets right: 3);
+				text: 'so that';
+				yourself);
+		addChild:
+			(BrEditableLabel new
+				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
+				text: benefit;
+				when: BrEditorAcceptWish do: [ :aWish | benefit := aWish text ];
+				yourself);
+		addChild:
+			(BrLabel new
+				look: BrGlamorousLabelLook;
+				beLargeSize;
+				margin: (BlInsets right: 3);
+				text: 'Status:';
+				yourself);
+		addChild:
+			(BrButton new
+				label: self status;
+				look: BrGlamorousButtonWithLabelAndIconLook + aWithDropdownLook;
+				icon: BrGlamorousIcons menu;
+				yourself);
+		yourself
 ]
 
 { #category : #accessing }
@@ -145,11 +223,7 @@ MyUserStory >> asFormElement: aBlock [
 ]
 
 { #category : #accessing }
-MyUserStory >> asStoryCard [
-	"Returns a bloc element that renders a card"
-
-	| aWithDropdownLook |
-	aWithDropdownLook := self aWithAllStatiDropdownLook.
+MyUserStory >> asMinimalStoryCard [
 	^ BlElement new
 		layout: BlLinearLayout vertical;
 		addChild:
@@ -157,52 +231,7 @@ MyUserStory >> asStoryCard [
 				look: BrGlamorousLabelLook;
 				beLargeSize;
 				margin: (BlInsets right: 3);
-				text: 'As a';
-				yourself);
-		addChild:
-			(BrEditableLabel new
-				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
-				text: role;
-				when: BrEditorAcceptWish do: [ :aWish | role := aWish text ];
-				yourself);
-		addChild:
-			(BrLabel new
-				look: BrGlamorousLabelLook;
-				beLargeSize;
-				margin: (BlInsets right: 3);
-				text: 'I want';
-				yourself);
-		addChild:
-			(BrEditableLabel new
-				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
-				text: means;
-				when: BrEditorAcceptWish do: [ :aWish | means := aWish text ];
-				yourself);
-		addChild:
-			(BrLabel new
-				look: BrGlamorousLabelLook;
-				beLargeSize;
-				margin: (BlInsets right: 3);
-				text: 'so that';
-				yourself);
-		addChild:
-			(BrEditableLabel new
-				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
-				text: benefit;
-				when: BrEditorAcceptWish do: [ :aWish | benefit := aWish text ];
-				yourself);
-		addChild:
-			(BrLabel new
-				look: BrGlamorousLabelLook;
-				beLargeSize;
-				margin: (BlInsets right: 3);
-				text: 'Status:';
-				yourself);
-		addChild:
-			(BrButton new
-				label: self status;
-				look: BrGlamorousButtonWithLabelAndIconLook + aWithDropdownLook;
-				icon: BrGlamorousIcons menu;
+				text: self description;
 				yourself);
 		yourself
 ]
@@ -294,12 +323,45 @@ MyUserStory >> gtDescriptionFor: aView [
 	document := GtDocument new text: self description.
 	^ (document gtTextFor: aView)
 		title: 'Description';
+		priority: 2;
 		actionButtonIcon: BrGlamorousVectorIcons accept
 			label: 'Save'
 			action: [ self description: document text asString
 			"self announcer announce: ERequirementStateChangedAnnouncement new" ];
 		"updateWhen: ERequirementStateChangedAnnouncement in: self announcer;"
 			priority: 1
+]
+
+{ #category : #accessing }
+MyUserStory >> gtDetailedStoryCardFor: aView [
+	<gtView>
+	^ aView explicit
+		title: 'Story card';
+		priority: 0;
+		stencil: [ self asDetailedStoryCard
+				look: BrShadowLook;
+				background: Color white;
+				constraintsDo: [ :c | 
+					c horizontal fitContent.
+					c vertical fitContent ];
+				padding: (BlInsets all: 5);
+				yourself ]
+]
+
+{ #category : #accessing }
+MyUserStory >> gtMinimalStoryCardFor: aView [
+	<gtView>
+	^ aView explicit
+		title: 'Minimal';
+		priority: 1;
+		stencil: [ self asMinimalStoryCard
+				look: BrShadowLook;
+				background: Color white;
+				constraintsDo: [ :c | 
+					c horizontal fitContent.
+					c vertical fitContent ];
+				padding: (BlInsets all: 5);
+				yourself ]
 ]
 
 { #category : #accessing }
@@ -350,22 +412,6 @@ MyUserStory >> gtScenariosFor: aView [
 						action: [ scenarios add:
 								(MyScenario id: nil description: label text asString) ];
 						yourself);
-				yourself ]
-]
-
-{ #category : #accessing }
-MyUserStory >> gtStoryCardFor: aView [
-	<gtView>
-	^ aView explicit
-		title: 'Story card';
-		priority: 1;
-		stencil: [ self asStoryCard
-				look: BrShadowLook;
-				background: Color white;
-				constraintsDo: [ :c | 
-					c horizontal fitContent.
-					c vertical fitContent ];
-				padding: (BlInsets all: 5);
 				yourself ]
 ]
 
