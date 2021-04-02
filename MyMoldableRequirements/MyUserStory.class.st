@@ -12,7 +12,8 @@ Class {
 		'means',
 		'benefit',
 		'epic',
-		'checklist'
+		'checklist',
+		'assignees'
 	],
 	#category : #MyMoldableRequirements
 }
@@ -29,6 +30,8 @@ MyUserStory class >> fromRawData: userStoryDict [
 		scenarios:
 			((userStoryDict at: #scenarios)
 				collect: [ :scenariosDict | MyScenario fromRawData: scenariosDict ])
+		assignees: ((userStoryDict at: #assignees)
+				collect: [ :assigneesDict | MyAssignees fromRawData: assigneesDict])
 		checklist: 
 		((userStoryDict at: #checklist)
 		collect: [:checklistDict | MyChecklist fromRawData: checklistDict])
@@ -48,7 +51,7 @@ MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString
 ]
 
 { #category : #accessing }
-MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 status: anotherString points: aNumber scenarios: anArray checklist: anObject [
+MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 status: anotherString points: aNumber scenarios: anArray assignees: anotherArray checklist: anObject [
 	^ self new
 		id: aString;
 		role: aString1;
@@ -57,6 +60,7 @@ MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString
 		status: anotherString;
 		points: aNumber;
 		scenarios: anArray asOrderedCollection;
+		assignees: anotherArray asOrderedCollection;
 		checklist: anObject
 		yourself
 ]
@@ -238,6 +242,11 @@ MyUserStory >> asMinimalStoryCard [
 				text: self description;
 				yourself);
 		yourself
+]
+
+{ #category : #accessing }
+MyUserStory >> assignees: anArray [
+ assignees := anArray
 ]
 
 { #category : #accessing }
