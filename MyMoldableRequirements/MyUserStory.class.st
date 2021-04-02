@@ -38,20 +38,7 @@ MyUserStory class >> fromRawData: userStoryDict [
 ]
 
 { #category : #accessing }
-MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 status: anotherString points: aNumber scenarios: anArray [ 
-	^ self new
-		id: aString;
-		role: aString1;
-		means: aString2;
-		benefit: aString3;
-		status: anotherString;
-		points: aNumber;
-		scenarios: anArray asOrderedCollection;
-		yourself
-]
-
-{ #category : #accessing }
-MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 status: anotherString points: aNumber scenarios: anArray assignees: anotherArray checklist: anObject [
+MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 status: anotherString points: aNumber scenarios: anArray assignees: anotherArray checklist: yetAnotherArray [
 	^ self new
 		id: aString;
 		role: aString1;
@@ -61,7 +48,7 @@ MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString
 		points: aNumber;
 		scenarios: anArray asOrderedCollection;
 		assignees: anotherArray asOrderedCollection;
-		checklist: anObject
+		checklist: yetAnotherArray asOrderedCollection
 		yourself
 ]
 

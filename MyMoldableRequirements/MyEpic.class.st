@@ -88,7 +88,9 @@ MyEpic >> gtUserStoriesFor: aView [
 				benefit: ''
 				status: ''
 				points: nil
-				scenarios: nil.
+				scenarios: nil
+				assignees: nil
+				checklist: nil.
 			story asFormElement: [ userStories add: story ] ]
 ]
 
