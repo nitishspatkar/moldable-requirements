@@ -15,7 +15,25 @@
             "benefit": "",
             "status": "in-progress",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                  {
+                    "id": "1",
+                    "description": "Add more to button",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
           },
           {
             "id": "2",
@@ -24,7 +42,25 @@
             "benefit": "",
             "status": "in-progress",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "3",
@@ -33,7 +69,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           }
         ]
       },
@@ -49,7 +103,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "2",
@@ -58,7 +130,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           }
         ]
       },
@@ -74,7 +164,25 @@
             "benefit": "the project team knows who is working on this user story",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "2",
@@ -83,7 +191,25 @@
             "benefit": "the developers will have a better understanding of the user",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "3",
@@ -92,7 +218,25 @@
             "benefit": "I know what has to be done",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "4",
@@ -101,7 +245,25 @@
             "benefit": "it gains more information about what to do with it",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "5",
@@ -110,7 +272,25 @@
             "benefit": "I can communicate with other assignees on the specific user story",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "6",
@@ -119,7 +299,25 @@
             "benefit": "time management becomes easier",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "6",
@@ -128,7 +326,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           }
         ]
       },
@@ -144,7 +360,25 @@
             "benefit": "the project team has the same mental model",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "2",
@@ -153,7 +387,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           }
         ]
       },
@@ -169,7 +421,25 @@
             "benefit": "the view isn’t overloaded",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "2",
@@ -178,7 +448,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "3",
@@ -187,7 +475,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "4",
@@ -196,7 +502,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           }
         ]
       },
@@ -212,7 +536,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "2",
@@ -221,7 +563,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "3",
@@ -230,7 +590,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "4",
@@ -239,7 +617,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "5",
@@ -248,7 +644,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "6",
@@ -257,7 +671,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "7",
@@ -266,7 +698,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "8",
@@ -275,7 +725,25 @@
             "benefit": "I can manage the time in the project team properly",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "9",
@@ -284,7 +752,25 @@
             "benefit": "I can manage my development time",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "10",
@@ -293,7 +779,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           }
         ]
       }
@@ -315,7 +819,25 @@
             "benefit": "",
             "status": "in-progress",
             "points": "10",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "2",
@@ -324,7 +846,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "20",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           }
         ]
       },
@@ -340,7 +880,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "10",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "4",
@@ -349,7 +907,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "20",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "5",
@@ -358,7 +934,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "20",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           }
         ]
       },
@@ -374,7 +968,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "10",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "7",
@@ -383,7 +995,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "20",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           }
         ]
       }
@@ -405,7 +1035,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "10",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "2",
@@ -414,7 +1062,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "10",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "3",
@@ -423,7 +1089,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "10",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "4",
@@ -432,7 +1116,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "10",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           }
         ]
       },
@@ -448,7 +1150,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "10",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "6",
@@ -457,7 +1177,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "10",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "7",
@@ -466,7 +1204,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "10",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           }
         ]
       },
@@ -482,7 +1238,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "10",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "9",
@@ -491,7 +1265,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "10",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "10",
@@ -500,7 +1292,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "10",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           },
           {
             "id": "11",
@@ -509,7 +1319,25 @@
             "benefit": "",
             "status": "not-started",
             "points": "10",
-            "scenarios": []
+            "scenarios": [],
+            "checklist": [
+              {
+                "tasks": [
+                {
+                  "id": "1",
+                    "description": "Sample",
+                    "done": "false",
+                    "end": "01.08.2021",
+                    "assignees": [
+                      {
+                        "name": "Melina Meyer",
+                        "shorthand": "MM"
+                      }
+                    ]
+                }
+              ]
+              }
+            ]
           }
         ]
       }

@@ -1,0 +1,518 @@
+[
+  {
+    "id": "1",
+    "title": "Living User Stories",
+    "epics": [
+      {
+        "id": "1",
+        "title": "Create Project Requirements",
+        "description": "Project Requirements consist of Epics, User Stories and Scenarios which are done in Sprints",
+        "user-stories":[
+          {
+            "id": "1",
+            "role": "product owner",
+            "means": "to create user stories",
+            "benefit": "",
+            "status": "in-progress",
+            "points": "",
+            "scenarios": []
+          },
+          {
+            "id": "2",
+            "role": "product owner",
+            "means": "to add epics to a project",
+            "benefit": "",
+            "status": "in-progress",
+            "points": "",
+            "scenarios": []
+          },
+          {
+            "id": "3",
+            "role": "product owner",
+            "means": "to create sprints with a start and end date",
+            "benefit": "",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "title": "Create Project Attributes",
+        "description": "Project Attributes like Team Members or Personas can be created to give more infomation",
+        "user-stories": [
+          {
+            "id": "1",
+            "role": "product owner",
+            "means": "to assign team members to a project",
+            "benefit": "",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          },
+          {
+            "id": "2",
+            "role": "product owner",
+            "means": "to create various personas for a specific project",
+            "benefit": "",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "title": "Add User Story Attributes",
+        "description": "Attributes like assignees, status, notes etc can be added to user stories to give more informantion",
+        "user-stories": [
+          {
+            "id": "1",
+            "role": "product owner",
+            "means": "to add assignees to a specific user story",
+            "benefit": "the project team knows who is working on this user story",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          },
+          {
+            "id": "2",
+            "role": "product owner",
+            "means": "to add personas to specific user stories",
+            "benefit": "the developers will have a better understanding of the user",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          },
+          {
+            "id": "3",
+            "role": "developer",
+            "means": "to add tasks to a specific user story",
+            "benefit": "I know what has to be done",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          },
+          {
+            "id": "4",
+            "role": "developer or product owner",
+            "means": " to add labels to a user story",
+            "benefit": "it gains more information about what to do with it",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          },
+          {
+            "id": "5",
+            "role": "assignee",
+            "means": "to add notes to a user story",
+            "benefit": "I can communicate with other assignees on the specific user story",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          },
+          {
+            "id": "6",
+            "role": "product owner",
+            "means": "to add a start and end date to a specific user story",
+            "benefit": "time management becomes easier",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          },
+          {
+            "id": "6",
+            "role": "product owner",
+            "means": "to add acceptance criteria to a user story",
+            "benefit": "",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "title": "Edit User Story Attributes",
+        "description": "Attributes like assignees, status, notes etc can be edited",
+        "user-stories": [
+          {
+            "id": "1",
+            "role": "product owner",
+            "means": "to annotate words in a user story as a class or as a method",
+            "benefit": "the project team has the same mental model",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          },
+          {
+            "id": "2",
+            "role": "tester",
+            "means": "to be able to add tests to a specific user story",
+            "benefit": "",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "title": "Storyboard Functionality",
+        "description": "The Kanban Board should have similar functionality like in Trello or Jira",
+        "user-stories": [
+          {
+            "id": "1",
+            "role": "developer or product owner",
+            "means": "the Kanban board story cards to be minimalistic",
+            "benefit": "the view isn’t overloaded",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          },
+          {
+            "id": "2",
+            "role": "developer or product owner",
+            "means": "to click on the Kanban board story cards to get more information about a specific story card",
+            "benefit": "",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          },
+          {
+            "id": "3",
+            "role": "developer or product owner",
+            "means": "to filter story cards in a kanban board according to various criteria, such as label, assignee, etc.",
+            "benefit": "",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          },
+          {
+            "id": "4",
+            "role": "developer or product owner",
+            "means": "to drag and drop story cards into one of the columns, i.e., not-started, in-progress and done",
+            "benefit": "",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "title": "Get Overview",
+        "description": "To have a project overview",
+        "user-stories": [
+          {
+            "id": "1",
+            "role": "project team member",
+            "means": "to be able to see which is the current sprint",
+            "benefit": "",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          },
+          {
+            "id": "2",
+            "role": "developer",
+            "means": "to see which classes in a specific user story are already created and which aren't",
+            "benefit": "",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          },
+          {
+            "id": "3",
+            "role": "product owner",
+            "means": "to see which classes belong or relate to a specific user story",
+            "benefit": "",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          },
+          {
+            "id": "4",
+            "role": "tester",
+            "means": "to see how many tests pass and fail for a specific user story",
+            "benefit": "",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          },
+          {
+            "id": "5",
+            "role": "product owner",
+            "means": "to have a quick overview if the acceptance criteria of a user story is fulfilled",
+            "benefit": "",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          },
+          {
+            "id": "6",
+            "role": "product owner",
+            "means": "to have a quick overview on the progress and status of a specific project",
+            "benefit": "",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          },
+          {
+            "id": "7",
+            "role": "product owner",
+            "means": "to have a quick overview on the progress of a specific epic’s user stories",
+            "benefit": "",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          },
+          {
+            "id": "8",
+            "role": "product owner",
+            "means": "to see if epics start and end date overlap",
+            "benefit": "I can manage the time in the project team properly",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          },
+          {
+            "id": "9",
+            "role": "developer",
+            "means": "to see if user stories start and end date overlap",
+            "benefit": "I can manage my development time",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          },
+          {
+            "id": "10",
+            "role": "developer",
+            "means": "and need to obtain a feedback when a class or a method name referred in a user story changes",
+            "benefit": "",
+            "status": "not-started",
+            "points": "",
+            "scenarios": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Address Book Application",
+    "epics": [
+      {
+        "id": "1",
+        "title": "Add a contact",
+        "description": "sample description",
+        "user-stories": [
+          {
+            "id": "1",
+            "role": "user",
+            "means": "to add a new contact to an address book",
+            "benefit": "",
+            "status": "in-progress",
+            "points": "10",
+            "scenarios": []
+          },
+          {
+            "id": "2",
+            "role": "user",
+            "means": "to add a new phone number to a contact",
+            "benefit": "",
+            "status": "not-started",
+            "points": "20",
+            "scenarios": []
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "title": "Edit a contact",
+        "description": "sample description",
+        "user-stories": [
+          {
+            "id": "3",
+            "role": "user",
+            "means": "to edit the first name of a specific contact",
+            "benefit": "",
+            "status": "not-started",
+            "points": "10",
+            "scenarios": []
+          },
+          {
+            "id": "4",
+            "role": "user",
+            "means": "to edit the last name of a specific contact",
+            "benefit": "",
+            "status": "not-started",
+            "points": "20",
+            "scenarios": []
+          },
+          {
+            "id": "5",
+            "role": "user",
+            "means": "to edit a specific phone number of a specific contact",
+            "benefit": "",
+            "status": "not-started",
+            "points": "20",
+            "scenarios": []
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "title": "Remove a contact",
+        "description": "sample description",
+        "user-stories": [
+          {
+            "id": "6",
+            "role": "user",
+            "means": "to remove an entire contact",
+            "benefit": "",
+            "status": "not-started",
+            "points": "10",
+            "scenarios": []
+          },
+          {
+            "id": "7",
+            "role": "user",
+            "means": "to remove a specific property, such as a specific phone number, of a specific contact",
+            "benefit": "",
+            "status": "not-started",
+            "points": "20",
+            "scenarios": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Restaurant Application",
+    "epics": [
+      {
+        "id": "1",
+        "title": "Place an online order",
+        "description": "This epic covers requirements that specify how can one place an online order",
+        "user-stories": [
+          {
+            "id": "1",
+            "role": "registered or unregistered user",
+            "means": "to explore the online menu",
+            "benefit": "",
+            "status": "not-started",
+            "points": "10",
+            "scenarios": []
+          },
+          {
+            "id": "2",
+            "role": "registered or unregistered user",
+            "means": "to add the menu items to the shopping cart",
+            "benefit": "",
+            "status": "not-started",
+            "points": "10",
+            "scenarios": []
+          },
+          {
+            "id": "3",
+            "role": "registered user",
+            "means": "to do one click payment",
+            "benefit": "",
+            "status": "not-started",
+            "points": "10",
+            "scenarios": []
+          },
+          {
+            "id": "4",
+            "role": "unregistered user",
+            "means": "to enter my delivery and payment details to make the payment",
+            "benefit": "",
+            "status": "not-started",
+            "points": "10",
+            "scenarios": []
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "title": "Place an order in a restaurant",
+        "description": "This epic covers requirements that specify how can one place an order in a restaurant",
+        "user-stories": [
+          {
+            "id": "5",
+            "role": "waiter",
+            "means": "to enter the selected menu items by guests to prepare an order",
+            "benefit": "",
+            "status": "not-started",
+            "points": "10",
+            "scenarios": []
+          },
+          {
+            "id": "6",
+            "role": "waiter",
+            "means": "to be able to forward the received order to the chef",
+            "benefit": "",
+            "status": "not-started",
+            "points": "10",
+            "scenarios": []
+          },
+          {
+            "id": "7",
+            "role": "waiter",
+            "means": "to be able to customize the order by modifying the default menu items",
+            "benefit": "",
+            "status": "not-started",
+            "points": "10",
+            "scenarios": []
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "title": "Invoicing",
+        "description": "This epic covers requirements that specify how invoices are calculated",
+        "user-stories": [
+          {
+            "id": "8",
+            "role": "restaurant owner",
+            "means": "to update the tax values for both online and offline orders, in case they legally change",
+            "benefit": "",
+            "status": "not-started",
+            "points": "10",
+            "scenarios": []
+          },
+          {
+            "id": "9",
+            "role": "restaurant owner",
+            "means": "to update the tax values for individual menu items",
+            "benefit": "",
+            "status": "not-started",
+            "points": "10",
+            "scenarios": []
+          },
+          {
+            "id": "10",
+            "role": "waiter",
+            "means": "to be able to view the invoice before printing it to check if the correct prices and tax is applied",
+            "benefit": "",
+            "status": "not-started",
+            "points": "10",
+            "scenarios": []
+          },
+          {
+            "id": "11",
+            "role": "waiter",
+            "means": "to be able to view the total price before printing the invoice",
+            "benefit": "",
+            "status": "not-started",
+            "points": "10",
+            "scenarios": []
+          }
+        ]
+      }
+    ]
+  }
+]
