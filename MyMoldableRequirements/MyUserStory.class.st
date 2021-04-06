@@ -95,7 +95,7 @@ MyUserStory >> allStati [
 MyUserStory >> asDetailedStoryCard [
 	"Returns a bloc element that renders a card"
 
-	| task taskDescription card |
+	| task taskDescription card checkbox |
 	card := BlElement new
 		layout: BlLinearLayout vertical;
 		margin: (BlInsets all: 20);
@@ -118,7 +118,6 @@ MyUserStory >> asDetailedStoryCard [
 				label: 'status';
 				look: self aButtonCircularLook create + self aWithAllStatiDropdownLook;
 				yourself).
-				
 	task := BlElement new
 		layout: BlLinearLayout vertical;
 		constraintsDo: [ :c | 
@@ -130,17 +129,36 @@ MyUserStory >> asDetailedStoryCard [
 				beLargeSize;
 				text: 'Checklist:';
 				yourself).
+
+	"makes tasklist for checklist"
 	checklist
-		collect: [ :ch | 
-			ch tasks
+		collect: [ :list | 
+			list tasks
 				collect: [ :aTask | 
-					taskDescription := BrLabel new
-						text: aTask description;
-						look: BrGlamorousLabelLook;
-						beNormalSize;
+					taskDescription := BlElement new
+						layout: BlLinearLayout horizontal;
 						constraintsDo: [ :c | 
 							c horizontal matchParent.
 							c vertical fitContent ].
+							
+					checkbox := BrCheckbox new
+								look: BrGlamorousCheckboxLook;
+								margin: (BlInsets right: 10);
+								whenCheckedDo: [ aTask done: true ];
+								whenUncheckedDo: [ aTask done: false ].
+					(aTask done) ifTrue: [ checkbox check ] ifFalse: [ checkbox uncheck ].
+							
+						
+					taskDescription
+						addChild: checkbox;
+						addChild:
+							(BrLabel new
+								text: aTask description;
+								look: BrGlamorousLabelLook;
+								beNormalSize;
+								constraintsDo: [ :c | 
+									c horizontal matchParent.
+									c vertical fitContent ]).
 					task addChild: taskDescription.
 					card addChild: task ] ].
 	^ card

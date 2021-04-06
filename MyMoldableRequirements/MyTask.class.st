@@ -26,7 +26,7 @@ MyTask class >> id: aNumber description: aString done: aBoolean end: aDate assig
 ^self new
 	id: aNumber; 
 	description: aString; 
-	done: aBoolean;
+	done: aBoolean asBoolean;
 	end: aDate asDate;
 	assignees: anArray asOrderedCollection
 	yourself 
@@ -45,6 +45,11 @@ MyTask >> description [
 { #category : #accessing }
 MyTask >> description: aString [ 
 description := aString
+]
+
+{ #category : #accessing }
+MyTask >> done [
+^done
 ]
 
 { #category : #accessing }
