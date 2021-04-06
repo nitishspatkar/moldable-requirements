@@ -20,19 +20,19 @@ MyChecklist class >> list: anArray [
 
 { #category : #accessing }
 MyChecklist >> addTaskDropdownLook [
-	^ BrGlamorousWithDropdownLook
+	^ BrGlamorousWithDropdownLook 
 	handle: [BrButton new
 				look: BrGlamorousButtonRectangularLook + BrGlamorousButtonIconLook;
-				icon: BrGlamorousIcons menu
+				icon: BrGlamorousIcons add
 	]
-	content: [ | t |
-			t := MyTask
+	content: [ | task |
+			task := MyTask
 				id: nil
 				description: ''
 				done: 'false'
 				end: '01.01.2021'
 				assignees: OrderedCollection new.
-			t asFormElement: [ tasks add: t ].
+			task asFormElement: [ tasks add: task ].
 	]
 ]
 

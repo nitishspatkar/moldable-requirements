@@ -46,10 +46,10 @@ MyTask >> asFormElement: aBlock [
 		geometry: (BlRectangle cornerRadius: 5).
 	^ BlElement new
 		layout: BlLinearLayout vertical;
+		padding: (BlInsets all: 5);
 		constraintsDo: [ :c | 
 			c vertical fitContent.
-			c horizontal fitContent ];
-		padding: (BlInsets all: 5);
+			c horizontal exact: 300 ];
 		addChild:
 			(BrLabel new
 				look: BrGlamorousLabelLook;

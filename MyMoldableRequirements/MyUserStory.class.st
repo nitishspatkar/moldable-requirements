@@ -125,27 +125,29 @@ MyUserStory >> asDetailedStoryCard [
 		constraintsDo: [ :c | 
 			c horizontal matchParent.
 			c vertical fitContent ].
-	
 	checkList := BlElement new
 		layout: BlLinearLayout horizontal;
 		constraintsDo: [ :c | 
 			c horizontal matchParent.
 			c vertical fitContent ];
-		addChild: (BrLabel new
+		addChild:
+			(BrLabel new
 				look: BrGlamorousLabelLook;
 				beLargeSize;
 				text: 'Checklist:';
 				margin: (BlInsets right: 20);
 				yourself).
-		
-	checklist collect: [:check | checkList addChild: (BrButton new
-				look: BrGlamorousButtonWithIconLook + check addTaskDropdownLook;
-				icon: BrGlamorousVectorIcons add;
-				label: 'Add a Task')].
-	
-	task addChild: checkList.
-				
 
+	checklist collect: [:aList | checkList
+						addChild:
+							(BrButton new
+								look: BrGlamorousButtonWithIconLook + aList addTaskDropdownLook;
+								icon: BrGlamorousVectorIcons add;
+								beTinySize;
+								label: 'Add a Task')].
+								
+	task addChild: checkList.			
+				
 	"makes tasklist for checklist"
 	checklist
 		collect: [ :list | 
@@ -174,8 +176,8 @@ MyUserStory >> asDetailedStoryCard [
 								constraintsDo: [ :c | 
 									c horizontal matchParent.
 									c vertical fitContent ]).
-					task addChild: taskDescription.
-					]. card addChild: task ].
+					task addChild: taskDescription ].
+			card addChild: task ].
 	^ card
 ]
 
