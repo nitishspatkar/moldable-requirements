@@ -53,16 +53,22 @@ MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString
 ]
 
 { #category : #accessing }
+MyUserStory >> aButtonCircularLook [
+^ [BrInteractiveCommonLook new
+							default: [:e | e
+								background: self statusColor]] asStencil.
+]
+
+{ #category : #accessing }
 MyUserStory >> aWithAllStatiDropdownLook [
 	"returns a dropdown of all stati"
 
 	| statusButton |
 	^ BrGlamorousWithDropdownLook
 		handle: [ BrButton new
-				label: self status;
-				look:
-					BrGlamorousButtonRectangularLook
-						+ BrGlamorousButtonWithLabelAndIconLook;
+				size: 20@20;
+				geometry: (BlRoundedRectangleGeometry cornerRadius: 10);
+				look: self aButtonCircularLook create;
 				icon: BrGlamorousIcons menu ]
 		content: [ BrSimpleList new
 				itemStencil: [ statusButton := BrButton new
@@ -73,7 +79,9 @@ MyUserStory >> aWithAllStatiDropdownLook [
 										selected: [ :aStyle | aStyle background: Color veryVeryLightGray ]);
 						padding: (BlInsets all: 5);
 						action: [:eachElement | self status:eachElement label asString]];
-				itemDataBinder: [ :eachElement :eachClass :eachIndex | eachElement label: eachClass ];
+				itemDataBinder: [ :eachElement :eachStatus :eachIndex |
+				(eachStatus = self status) ifTrue: [eachElement label: '> ', eachStatus]
+				ifFalse: [eachElement label: eachStatus] ];
 				items: (self allStati collect: [ :stati | stati ]) ]
 ]
 
@@ -104,39 +112,38 @@ MyUserStory >> asDetailedStoryCard [
 				yourself);
 		addChild:
 			(BrButton new
-				label: self status;
+				size: 20 @ 20;
 				margin: (BlInsets bottom: 20);
-				look: BrGlamorousButtonWithLabelAndIconLook + self aWithAllStatiDropdownLook;
-				icon: BrGlamorousIcons menu;
+				geometry: (BlRoundedRectangleGeometry cornerRadius: 10);
+				label: 'status';
+				look: self aButtonCircularLook create + self aWithAllStatiDropdownLook;
 				yourself).
 				
 	task := BlElement new
-				layout: BlLinearLayout vertical;
-				margin: (BlInsets right: 20);
-				constraintsDo: [ :c | 
-					c horizontal matchParent.
-					c vertical fitContent ];
-					addChild:
+		layout: BlLinearLayout vertical;
+		constraintsDo: [ :c | 
+			c horizontal matchParent.
+			c vertical fitContent ];
+		addChild:
 			(BrLabel new
 				look: BrGlamorousLabelLook;
 				beLargeSize;
 				text: 'Checklist:';
 				yourself).
-				
-	checklist collect: [:ch | ch tasks
-		collect:
-			[ :aTask | 
-			taskDescription := BrLabel new
-				text: aTask description;
-				look: BrGlamorousLabelLook;
-				beNormalSize;
-				constraintsDo: [ :c | 
-					c horizontal matchParent.
-					c vertical fitContent ].
-			task addChild: taskDescription.
-			card addChild: task.]].
-	
-	^card
+	checklist
+		collect: [ :ch | 
+			ch tasks
+				collect: [ :aTask | 
+					taskDescription := BrLabel new
+						text: aTask description;
+						look: BrGlamorousLabelLook;
+						beNormalSize;
+						constraintsDo: [ :c | 
+							c horizontal matchParent.
+							c vertical fitContent ].
+					task addChild: taskDescription.
+					card addChild: task ] ].
+	^ card
 ]
 
 { #category : #accessing }
