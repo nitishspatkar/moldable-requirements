@@ -87,49 +87,12 @@ MyUserStory >> allStati [
 MyUserStory >> asDetailedStoryCard [
 	"Returns a bloc element that renders a card"
 
-	| aWithDropdownLook |
-	aWithDropdownLook := self aWithAllStatiDropdownLook.
 	^ BlElement new
 		layout: BlLinearLayout vertical;
-		addChild:
-			(BrLabel new
-				look: BrGlamorousLabelLook;
-				beLargeSize;
-				margin: (BlInsets right: 3);
-				text: 'As a';
-				yourself);
-		addChild:
-			(BrEditableLabel new
-				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
-				text: role;
-				when: BrEditorAcceptWish do: [ :aWish | role := aWish text ];
-				yourself);
-		addChild:
-			(BrLabel new
-				look: BrGlamorousLabelLook;
-				beLargeSize;
-				margin: (BlInsets right: 3);
-				text: 'I want';
-				yourself);
-		addChild:
-			(BrEditableLabel new
-				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
-				text: means;
-				when: BrEditorAcceptWish do: [ :aWish | means := aWish text ];
-				yourself);
-		addChild:
-			(BrLabel new
-				look: BrGlamorousLabelLook;
-				beLargeSize;
-				margin: (BlInsets right: 3);
-				text: 'so that';
-				yourself);
-		addChild:
-			(BrEditableLabel new
-				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
-				text: benefit;
-				when: BrEditorAcceptWish do: [ :aWish | benefit := aWish text ];
-				yourself);
+		constraintsDo: [ :c | 
+			c horizontal matchParent.
+			c vertical fitContent ];
+		addChild: self userStoryEditable;
 		addChild:
 			(BrLabel new
 				look: BrGlamorousLabelLook;
@@ -140,9 +103,16 @@ MyUserStory >> asDetailedStoryCard [
 		addChild:
 			(BrButton new
 				label: self status;
-				look: BrGlamorousButtonWithLabelAndIconLook + aWithDropdownLook;
+				look:
+					BrGlamorousButtonWithLabelAndIconLook + self aWithAllStatiDropdownLook;
 				icon: BrGlamorousIcons menu;
 				yourself);
+		addChild:
+		(BrLabel new
+		look: BrGlamorousLabelLook;
+		beLargeSize; 
+		text: 'Checklist:';		
+		yourself);
 		yourself
 ]
 
@@ -346,10 +316,10 @@ MyUserStory >> gtDetailedStoryCardFor: aView [
 		stencil: [ self asDetailedStoryCard
 				look: BrShadowLook;
 				background: Color white;
-				constraintsDo: [ :c | 
-					c horizontal fitContent.
-					c vertical fitContent ];
 				padding: (BlInsets all: 5);
+				constraintsDo: [ :c | 
+					c horizontal matchParent.
+					c vertical fitContent ];
 				yourself ]
 ]
 
@@ -483,6 +453,79 @@ MyUserStory >> statusColor [
 ]
 
 { #category : #accessing }
+MyUserStory >> statusForDetailedCard [
+
+^BlElement new
+				layout: BlLinearLayout horizontal;
+				addChild:
+					(BrLabel new
+						look: BrGlamorousLabelLook;
+						beLargeSize;
+						margin: (BlInsets right: 3);
+						text: 'Status:';
+						yourself);
+				addChild:
+					(BrButton new
+						label: self status;
+						look: BrGlamorousButtonWithLabelAndIconLook + (self aWithAllStatiDropdownLook);
+						icon: BrGlamorousIcons menu;
+						yourself);
+				yourself.
+]
+
+{ #category : #accessing }
 MyUserStory >> subItems [
  ^ OrderedCollection new
+]
+
+{ #category : #accessing }
+MyUserStory >> userStoryEditable [
+"Returns a vertical element of a editable user story for the detailed story card"
+	^ BlElement new
+		geometry: (BlRectangle cornerRadius: 12);
+		layout: BlLinearLayout horizontal;
+		constraintsDo: [ :c | 
+			c horizontal matchParent.
+			c vertical fitContent.
+			 ];
+		addChild:
+			(BrLabel new
+				look: BrGlamorousLabelLook;
+				beLargeSize;
+				margin: (BlInsets right: 5);
+				text: 'As a';
+				yourself);
+		addChild:
+			(BrEditableLabel new
+				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
+				text: role;
+				when: BrEditorAcceptWish do: [ :aWish | role := aWish text ];
+				yourself);
+		addChild:
+			(BrLabel new
+				look: BrGlamorousLabelLook;
+				beLargeSize;
+				margin: (BlInsets right: 5);
+				text: ', I want';
+				yourself);
+		addChild:
+			(BrEditableLabel new
+				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
+				text: means;
+				when: BrEditorAcceptWish do: [ :aWish | means := aWish text ];
+				yourself);
+		addChild:
+			(BrLabel new
+				look: BrGlamorousLabelLook;
+				beLargeSize;
+				margin: (BlInsets right: 5);
+				text: 'so that';
+				yourself);
+		addChild:
+			(BrEditableLabel new
+				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
+				text: benefit;
+				when: BrEditorAcceptWish do: [ :aWish | benefit := aWish text ];
+				yourself);
+		yourself
 ]
