@@ -95,7 +95,7 @@ MyUserStory >> allStati [
 MyUserStory >> asDetailedStoryCard [
 	"Returns a bloc element that renders a card"
 
-	| task taskDescription card checkbox |
+	| task taskDescription card checkbox newTask checkList |
 	card := BlElement new
 		layout: BlLinearLayout vertical;
 		margin: (BlInsets all: 20);
@@ -118,17 +118,33 @@ MyUserStory >> asDetailedStoryCard [
 				label: 'status';
 				look: self aButtonCircularLook create + self aWithAllStatiDropdownLook;
 				yourself).
+
+	"checklist"
 	task := BlElement new
 		layout: BlLinearLayout vertical;
 		constraintsDo: [ :c | 
 			c horizontal matchParent.
+			c vertical fitContent ].
+	
+	checkList := BlElement new
+		layout: BlLinearLayout horizontal;
+		constraintsDo: [ :c | 
+			c horizontal matchParent.
 			c vertical fitContent ];
-		addChild:
-			(BrLabel new
+		addChild: (BrLabel new
 				look: BrGlamorousLabelLook;
 				beLargeSize;
 				text: 'Checklist:';
+				margin: (BlInsets right: 20);
 				yourself).
+		
+	checklist collect: [:check | checkList addChild: (BrButton new
+				look: BrGlamorousButtonWithIconLook + check addTaskDropdownLook;
+				icon: BrGlamorousVectorIcons add;
+				label: 'Add a Task')].
+	
+	task addChild: checkList.
+				
 
 	"makes tasklist for checklist"
 	checklist
@@ -140,15 +156,14 @@ MyUserStory >> asDetailedStoryCard [
 						constraintsDo: [ :c | 
 							c horizontal matchParent.
 							c vertical fitContent ].
-							
 					checkbox := BrCheckbox new
-								look: BrGlamorousCheckboxLook;
-								margin: (BlInsets right: 10);
-								whenCheckedDo: [ aTask done: 'true' ];
-								whenUncheckedDo: [ aTask done: 'false' ].
-					(aTask done = 'true') ifTrue: [ checkbox check ] ifFalse: [ checkbox uncheck ].
-							
-						
+						look: BrGlamorousCheckboxLook;
+						margin: (BlInsets right: 10);
+						whenCheckedDo: [ aTask done: 'true' ];
+						whenUncheckedDo: [ aTask done: 'false' ].
+					aTask done = 'true'
+						ifTrue: [ checkbox check ]
+						ifFalse: [ checkbox uncheck ].
 					taskDescription
 						addChild: checkbox;
 						addChild:
@@ -160,7 +175,7 @@ MyUserStory >> asDetailedStoryCard [
 									c horizontal matchParent.
 									c vertical fitContent ]).
 					task addChild: taskDescription.
-					card addChild: task ] ].
+					]. card addChild: task ].
 	^ card
 ]
 
