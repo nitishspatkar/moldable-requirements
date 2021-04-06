@@ -38,6 +38,11 @@ MyTask >> assignees: anArray [
 ]
 
 { #category : #accessing }
+MyTask >> description [
+^description
+]
+
+{ #category : #accessing }
 MyTask >> description: aString [ 
 description := aString
 ]

@@ -1,7 +1,7 @@
 Class {
 	#name : #MyChecklist,
 	#superclass : #Object,
-	#classInstVars : [
+	#instVars : [
 		'tasks'
 	],
 	#category : #MyMoldableRequirements
@@ -10,10 +10,20 @@ Class {
 { #category : #accessing }
 MyChecklist class >> fromRawData: checklistDict [ 
  ^self
- 	tasks: ((checklistDict at: #tasks) collect: [ :taskDict | MyTask fromRawData: taskDict])
+ 	list: ((checklistDict at: #tasks) collect: [ :taskDict | MyTask fromRawData: taskDict])
 ]
 
 { #category : #accessing }
-MyChecklist class >> tasks: anArray [
-	tasks := anArray asOrderedCollection
+MyChecklist class >> list: anArray [
+	^ self new tasks: anArray asOrderedCollection
+]
+
+{ #category : #accessing }
+MyChecklist >> tasks [
+^ tasks
+]
+
+{ #category : #accessing }
+MyChecklist >> tasks: anArray [
+ tasks := anArray
 ]
