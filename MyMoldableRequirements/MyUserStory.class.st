@@ -144,9 +144,9 @@ MyUserStory >> asDetailedStoryCard [
 					checkbox := BrCheckbox new
 								look: BrGlamorousCheckboxLook;
 								margin: (BlInsets right: 10);
-								whenCheckedDo: [ aTask done: true ];
-								whenUncheckedDo: [ aTask done: false ].
-					(aTask done) ifTrue: [ checkbox check ] ifFalse: [ checkbox uncheck ].
+								whenCheckedDo: [ aTask done: 'true' ];
+								whenUncheckedDo: [ aTask done: 'false' ].
+					(aTask done = 'true') ifTrue: [ checkbox check ] ifFalse: [ checkbox uncheck ].
 							
 						
 					taskDescription

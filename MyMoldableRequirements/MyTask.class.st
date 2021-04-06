@@ -26,7 +26,7 @@ MyTask class >> id: aNumber description: aString done: aBoolean end: aDate assig
 ^self new
 	id: aNumber; 
 	description: aString; 
-	done: aBoolean asBoolean;
+	done: aBoolean;
 	end: aDate asDate;
 	assignees: anArray asOrderedCollection
 	yourself 
