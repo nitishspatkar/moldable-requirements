@@ -13,7 +13,9 @@ Class {
 		'benefit',
 		'epic',
 		'checklist',
-		'assignees'
+		'assignees',
+		'acceptanceCriteria',
+		'notes'
 	],
 	#category : #MyMoldableRequirements
 }
@@ -25,6 +27,7 @@ MyUserStory class >> fromRawData: userStoryDict [
 		role: (userStoryDict at: #role)
 		means: (userStoryDict at: #means)
 		benefit: (userStoryDict at: #benefit)
+		acceptanceCriteria: (userStoryDict at: #acceptanceCriteria)
 		status: (userStoryDict at: #status)
 		points: (userStoryDict at: #points)
 		scenarios:
@@ -35,6 +38,40 @@ MyUserStory class >> fromRawData: userStoryDict [
 		checklist: 
 		((userStoryDict at: #checklist)
 		collect: [:checklistDict | MyChecklist fromRawData: checklistDict])
+		notes: ((userStoryDict at: #notes) collect: [:notesDict | MyNotes fromRawData: notesDict])
+]
+
+{ #category : #accessing }
+MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 acceptanceCriteria: aString4 status: anotherString points: aNumber scenarios: anArray assignees: anotherArray checklist: yetAnotherArray [
+	^ self new
+		id: aString;
+		role: aString1;
+		means: aString2;
+		benefit: aString3;
+		acceptanceCriteria: aString4;
+		status: anotherString;
+		points: aNumber;
+		scenarios: anArray asOrderedCollection;
+		assignees: anotherArray asOrderedCollection;
+		checklist: yetAnotherArray asOrderedCollection
+		yourself
+]
+
+{ #category : #accessing }
+MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 acceptanceCriteria: aString4 status: anotherString points: aNumber scenarios: anArray assignees: anotherArray checklist: yetAnotherArray notes: lastArray [
+	^ self new
+		id: aString;
+		role: aString1;
+		means: aString2;
+		benefit: aString3;
+		acceptanceCriteria: aString4;
+		status: anotherString;
+		points: aNumber;
+		scenarios: anArray asOrderedCollection;
+		assignees: anotherArray asOrderedCollection;
+		checklist: yetAnotherArray asOrderedCollection;
+		note: lastArray asOrderedCollection
+		yourself
 ]
 
 { #category : #accessing }
@@ -54,6 +91,7 @@ MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString
 
 { #category : #accessing }
 MyUserStory >> aButtonCircularLook [
+"returns with aWithAllStatiDropdownLook a circular button look for the status"
 ^ [BrInteractiveCommonLook new
 							default: [:e | e
 								background: self statusColor]] asStencil.
@@ -86,6 +124,11 @@ MyUserStory >> aWithAllStatiDropdownLook [
 ]
 
 { #category : #accessing }
+MyUserStory >> acceptanceCriteria: aString [
+acceptanceCriteria := aString
+]
+
+{ #category : #accessing }
 MyUserStory >> allStati [
 "returns an orderedCollection of stati"
  ^ #('not-started' 'in-progress' 'done')
@@ -95,29 +138,38 @@ MyUserStory >> allStati [
 MyUserStory >> asDetailedStoryCard [
 	"Returns a bloc element that renders a card"
 
-	| task taskDescription card checkbox newTask checkList |
+	| task taskDescription card checkbox newTask checkList statusElement |
 	card := BlElement new
 		layout: BlLinearLayout vertical;
 		margin: (BlInsets all: 20);
 		constraintsDo: [ :c | 
 			c horizontal matchParent.
 			c vertical fitContent ].
-	card
-		addChild: self asUserStoryEditable;
+	card addChild: self asUserStoryEditable.
+	
+	"status with dropdown"
+	statusElement := BlElement new
+		layout: BlLinearLayout horizontal;
+		margin: (BlInsets bottom: 20);
+		constraintsDo: [ :c | 
+			c horizontal matchParent.
+			c vertical fitContent ].
+	statusElement
 		addChild:
 			(BrLabel new
 				look: BrGlamorousLabelLook;
-				beLargeSize;
+				beNormalSize;
+				margin: (BlInsets right: 10);
 				text: 'Status:';
 				yourself);
 		addChild:
 			(BrButton new
 				size: 20 @ 20;
-				margin: (BlInsets bottom: 20);
 				geometry: (BlRoundedRectangleGeometry cornerRadius: 10);
 				label: 'status';
 				look: self aButtonCircularLook create + self aWithAllStatiDropdownLook;
 				yourself).
+	card addChild: statusElement.
 
 	"checklist"
 	task := BlElement new
@@ -135,19 +187,20 @@ MyUserStory >> asDetailedStoryCard [
 				look: BrGlamorousLabelLook;
 				beLargeSize;
 				text: 'Checklist:';
-				margin: (BlInsets right: 20);
+				margin: (BlInsets top: 0 left: 0 bottom: 5 right: 20);
 				yourself).
+	"add task button"
+	checklist
+		collect: [ :aList | 
+			checkList
+				addChild:
+					(BrButton new
+						look: BrGlamorousButtonWithIconLook + aList addTaskDropdownLook;
+						icon: BrGlamorousVectorIcons add;
+						beTinySize;
+						label: 'Add a Task') ].
+	task addChild: checkList.
 
-	checklist collect: [:aList | checkList
-						addChild:
-							(BrButton new
-								look: BrGlamorousButtonWithIconLook + aList addTaskDropdownLook;
-								icon: BrGlamorousVectorIcons add;
-								beTinySize;
-								label: 'Add a Task')].
-								
-	task addChild: checkList.			
-				
 	"makes tasklist for checklist"
 	checklist
 		collect: [ :list | 
@@ -256,6 +309,8 @@ MyUserStory >> asFormElement: aBlock [
 MyUserStory >> asMinimalStoryCard [
 	^ BlElement new
 		layout: BlLinearLayout vertical;
+		geometry: (BlRoundedRectangleGeometry cornerRadius: 10);
+		margin: (BlInsets all: 10);
 		addChild:
 			(BrLabel new
 				look: BrGlamorousLabelLook;
@@ -272,7 +327,7 @@ MyUserStory >> asUserStoryEditable [
 	^ BlElement new
 		geometry: (BlRectangle cornerRadius: 12);
 		layout: BlLinearLayout horizontal;
-		margin: (BlInsets bottom: 20);
+		margin: (BlInsets bottom: 10);
 		constraintsDo: [ :c | 
 			c horizontal matchParent.
 			c vertical fitContent.
@@ -517,6 +572,11 @@ MyUserStory >> id: aString [
 MyUserStory >> means: aString [
 "the part of a user story after 'I want' "
  means := aString
+]
+
+{ #category : #accessing }
+MyUserStory >> note: anArray [
+notes := anArray 
 ]
 
 { #category : #accessing }
