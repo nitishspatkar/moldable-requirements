@@ -170,6 +170,20 @@ MyUserStory >> asDetailedStoryCard [
 				look: self aButtonCircularLook create + self aWithAllStatiDropdownLook;
 				yourself).
 	card addChild: statusElement.
+	
+	card 
+		addChild: (BrLabel new
+				look: BrGlamorousLabelLook;
+				beLargeSize;
+				text: 'Acceptance Criteria:';
+				yourself);
+		addChild:
+			(BrEditableLabel new
+				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
+				margin: (BlInsets bottom: 20);
+				text: acceptanceCriteria;
+				when: BrEditorAcceptWish do: [ :aWish | acceptanceCriteria := aWish text ];
+				yourself).
 
 	"checklist"
 	task := BlElement new
