@@ -100,6 +100,37 @@ end := aDate
 ]
 
 { #category : #accessing }
+MyTask >> getTaskDescription: aTask [
+"gets taskdescription with checkbox"
+
+  | taskDescription checkbox |
+	taskDescription := BlElement new
+						layout: BlLinearLayout horizontal;
+						constraintsDo: [ :c | 
+							c horizontal matchParent.
+							c vertical fitContent ].
+					checkbox := BrCheckbox new
+						look: BrGlamorousCheckboxLook;
+						margin: (BlInsets right: 10);
+						whenCheckedDo: [ aTask done: 'true' ];
+						whenUncheckedDo: [ aTask done: 'false' ].
+					aTask done = 'true'
+						ifTrue: [ checkbox check ]
+						ifFalse: [ checkbox uncheck ].
+					taskDescription
+						addChild: checkbox;
+						addChild:
+							(BrLabel new
+								text: aTask description;
+								look: BrGlamorousLabelLook;
+								beNormalSize;
+								constraintsDo: [ :c | 
+									c horizontal matchParent.
+									c vertical fitContent ]).
+					^taskDescription
+]
+
+{ #category : #accessing }
 MyTask >> id: aNumber [ 
 is := aNumber
 ]

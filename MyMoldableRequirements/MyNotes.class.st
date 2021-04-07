@@ -21,9 +21,67 @@ MyNotes class >> fromRawData: notesDict [
 MyNotes class >> id: aNumber note: aString author: anotherString [
 ^ self new
 	id: aNumber;
-	note: aString;
+	notes: aString;
 	author: anotherString
 	yourself 
+]
+
+{ #category : #accessing }
+MyNotes >> asFormElement: aBlock [
+	"an epic presents itself as a form to be filled and save as an object"
+
+	| label textElementDescription authorElementDescription |
+	textElementDescription := GtDocument new asElementWithoutSaveAction
+		vFitContent;
+		hMatchParent;
+		border: (BlBorder paint: (Color fromHexString: 'eaeaea') width: 2);
+		padding: (BlInsets all: 3);
+		margin: (BlInsets top: 3 bottom: 3);
+		geometry: (BlRectangle cornerRadius: 5).
+	authorElementDescription := GtDocument new asElementWithoutSaveAction
+		vFitContent;
+		hMatchParent;
+		border: (BlBorder paint: (Color fromHexString: 'eaeaea') width: 2);
+		padding: (BlInsets all: 3);
+		margin: (BlInsets top: 3 bottom: 3);
+		geometry: (BlRectangle cornerRadius: 5).
+	^ BlElement new
+		layout: BlLinearLayout vertical;
+		padding: (BlInsets all: 5);
+		constraintsDo: [ :c | 
+			c vertical fitContent.
+			c horizontal exact: 300 ];
+		addChild:
+			(BrLabel new
+				look: BrGlamorousLabelLook;
+				text: 'Note:';
+				beNormalSize);
+		addChild: textElementDescription;
+		addChild:
+			(BrLabel new
+				look: BrGlamorousLabelLook;
+				text: 'Your Name:';
+				beNormalSize);
+		addChild: authorElementDescription;
+		addChild:
+			(BrButton new
+				look: BrGlamorousButtonWithIconLook;
+				icon: BrGlamorousVectorIcons accept;
+				beSmallSize;
+				label: 'Save';
+				action: [ 
+				note := textElementDescription document text asString.
+				author := authorElementDescription document text asString.
+				self assert:[author notEmpty].
+					"The following line means that when we click the save button, the arguement i.e., aBlock is evaluated"
+					aBlock value ];
+				yourself);
+		yourself
+]
+
+{ #category : #accessing }
+MyNotes >> author [
+^author
 ]
 
 { #category : #accessing }
@@ -32,11 +90,16 @@ author := aString
 ]
 
 { #category : #accessing }
+MyNotes >> description [
+^note
+]
+
+{ #category : #accessing }
 MyNotes >> id: aNumber [ 
 id := aNumber
 ]
 
 { #category : #accessing }
-MyNotes >> note: aString [
+MyNotes >> notes: aString [
 note := aString 
 ]

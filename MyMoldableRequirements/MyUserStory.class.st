@@ -42,22 +42,6 @@ MyUserStory class >> fromRawData: userStoryDict [
 ]
 
 { #category : #accessing }
-MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 acceptanceCriteria: aString4 status: anotherString points: aNumber scenarios: anArray assignees: anotherArray checklist: yetAnotherArray [
-	^ self new
-		id: aString;
-		role: aString1;
-		means: aString2;
-		benefit: aString3;
-		acceptanceCriteria: aString4;
-		status: anotherString;
-		points: aNumber;
-		scenarios: anArray asOrderedCollection;
-		assignees: anotherArray asOrderedCollection;
-		checklist: yetAnotherArray asOrderedCollection
-		yourself
-]
-
-{ #category : #accessing }
 MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 acceptanceCriteria: aString4 status: anotherString points: aNumber scenarios: anArray assignees: anotherArray checklist: yetAnotherArray notes: lastArray [
 	^ self new
 		id: aString;
@@ -70,22 +54,7 @@ MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString
 		scenarios: anArray asOrderedCollection;
 		assignees: anotherArray asOrderedCollection;
 		checklist: yetAnotherArray asOrderedCollection;
-		note: lastArray asOrderedCollection
-		yourself
-]
-
-{ #category : #accessing }
-MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 status: anotherString points: aNumber scenarios: anArray assignees: anotherArray checklist: yetAnotherArray [
-	^ self new
-		id: aString;
-		role: aString1;
-		means: aString2;
-		benefit: aString3;
-		status: anotherString;
-		points: aNumber;
-		scenarios: anArray asOrderedCollection;
-		assignees: anotherArray asOrderedCollection;
-		checklist: yetAnotherArray asOrderedCollection
+		notes: lastArray asOrderedCollection
 		yourself
 ]
 
@@ -129,6 +98,21 @@ acceptanceCriteria := aString
 ]
 
 { #category : #accessing }
+MyUserStory >> addNoteDropdownLook [
+^ BrGlamorousWithDropdownLook 
+	handle: [BrButton new
+				look: BrGlamorousButtonRectangularLook + BrGlamorousButtonIconLook;
+				icon: BrGlamorousIcons add
+	]
+	content: [ | note |
+			note := MyNotes
+				id: nil
+				note: ''
+				author: ''.
+			note asFormElement: [ notes add: note ]]
+]
+
+{ #category : #accessing }
 MyUserStory >> allStati [
 "returns an orderedCollection of stati"
  ^ #('not-started' 'in-progress' 'done')
@@ -138,7 +122,7 @@ MyUserStory >> allStati [
 MyUserStory >> asDetailedStoryCard [
 	"Returns a bloc element that renders a card"
 
-	| task taskDescription card checkbox newTask checkList statusElement |
+	| task taskDescription card checkbox newTask checkList statusElement notesContainer |
 	card := BlElement new
 		layout: BlLinearLayout vertical;
 		margin: (BlInsets all: 20);
@@ -148,27 +132,7 @@ MyUserStory >> asDetailedStoryCard [
 	card addChild: self asUserStoryEditable.
 	
 	"status with dropdown"
-	statusElement := BlElement new
-		layout: BlLinearLayout horizontal;
-		margin: (BlInsets bottom: 20);
-		constraintsDo: [ :c | 
-			c horizontal matchParent.
-			c vertical fitContent ].
-	statusElement
-		addChild:
-			(BrLabel new
-				look: BrGlamorousLabelLook;
-				beNormalSize;
-				margin: (BlInsets right: 10);
-				text: 'Status:';
-				yourself);
-		addChild:
-			(BrButton new
-				size: 20 @ 20;
-				geometry: (BlRoundedRectangleGeometry cornerRadius: 10);
-				label: 'status';
-				look: self aButtonCircularLook create + self aWithAllStatiDropdownLook;
-				yourself).
+	statusElement := self statusLabelAndDropdown.
 	card addChild: statusElement.
 	
 	card 
@@ -220,31 +184,23 @@ MyUserStory >> asDetailedStoryCard [
 		collect: [ :list | 
 			list tasks
 				collect: [ :aTask | 
-					taskDescription := BlElement new
-						layout: BlLinearLayout horizontal;
-						constraintsDo: [ :c | 
-							c horizontal matchParent.
-							c vertical fitContent ].
-					checkbox := BrCheckbox new
-						look: BrGlamorousCheckboxLook;
-						margin: (BlInsets right: 10);
-						whenCheckedDo: [ aTask done: 'true' ];
-						whenUncheckedDo: [ aTask done: 'false' ].
-					aTask done = 'true'
-						ifTrue: [ checkbox check ]
-						ifFalse: [ checkbox uncheck ].
-					taskDescription
-						addChild: checkbox;
-						addChild:
-							(BrLabel new
-								text: aTask description;
+					taskDescription := (aTask getTaskDescription: aTask).
+					task addChild: taskDescription ].
+			card addChild: task ].
+			
+	"notes"
+	notesContainer := (self notesContainerWithDropdown).
+						
+	card addChild: notesContainer.
+	notes collect: [ :note | card addChild: (BrLabel new
+								text: note author, ' says: ', note description;
 								look: BrGlamorousLabelLook;
 								beNormalSize;
 								constraintsDo: [ :c | 
 									c horizontal matchParent.
-									c vertical fitContent ]).
-					task addChild: taskDescription ].
-			card addChild: task ].
+									c vertical fitContent ]).].
+	
+	
 	^ card
 ]
 
@@ -589,8 +545,34 @@ MyUserStory >> means: aString [
 ]
 
 { #category : #accessing }
-MyUserStory >> note: anArray [
+MyUserStory >> notes [
+^notes
+]
+
+{ #category : #accessing }
+MyUserStory >> notes: anArray [
 notes := anArray 
+]
+
+{ #category : #accessing }
+MyUserStory >> notesContainerWithDropdown [
+| notesContainer |
+	notesContainer := BlElement new
+						layout: BlLinearLayout horizontal;
+						constraintsDo: [ :c | 
+									c horizontal matchParent.
+									c vertical fitContent ].
+	^ notesContainer addChild: (BrLabel new
+						text: 'Notes:';
+						look: BrGlamorousLabelLook;
+						margin: (BlInsets top: 20 left: 0 bottom: 5 right: 20);
+						beLargeSize);
+						addChild: (BrButton new 
+						look: BrGlamorousButtonWithIconLook + self addNoteDropdownLook;
+						icon: BrGlamorousVectorIcons add;
+						margin: (BlInsets top: 20 left: 0 bottom: 5 right: 0);
+						beTinySize;
+						label: 'Add a Note').
 ]
 
 { #category : #accessing }
@@ -663,6 +645,31 @@ MyUserStory >> statusForDetailedCard [
 						icon: BrGlamorousIcons menu;
 						yourself);
 				yourself.
+]
+
+{ #category : #accessing }
+MyUserStory >> statusLabelAndDropdown [
+| statusElement |
+	^ statusElement := BlElement new
+		layout: BlLinearLayout horizontal;
+		margin: (BlInsets bottom: 20);
+		constraintsDo: [ :c | 
+			c horizontal matchParent.
+			c vertical fitContent ];
+		addChild:
+			(BrLabel new
+				look: BrGlamorousLabelLook;
+				beNormalSize;
+				margin: (BlInsets right: 10);
+				text: 'Status:';
+				yourself);
+		addChild:
+			(BrButton new
+				size: 20 @ 20;
+				geometry: (BlRoundedRectangleGeometry cornerRadius: 10);
+				label: 'status';
+				look: self aButtonCircularLook create + self aWithAllStatiDropdownLook;
+				yourself).
 ]
 
 { #category : #accessing }
