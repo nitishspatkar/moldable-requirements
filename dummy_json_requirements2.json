@@ -13,6 +13,7 @@
             "role": "product owner",
             "means": "to create user stories",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "in-progress",
             "points": "",
             "scenarios": [],
@@ -39,6 +40,13 @@
                   }
                 ]
               }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
+              }
             ]
           },
           {
@@ -46,6 +54,7 @@
             "role": "product owner",
             "means": "to add epics to a project",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "in-progress",
             "points": "",
             "scenarios": [],
@@ -72,6 +81,13 @@
                 }
               ]
               }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
+              }
             ]
           },
           {
@@ -79,6 +95,7 @@
             "role": "product owner",
             "means": "to create sprints with a start and end date",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -104,6 +121,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           }
@@ -119,6 +143,7 @@
             "role": "product owner",
             "means": "to assign team members to a project",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -144,6 +169,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -152,6 +184,7 @@
             "role": "product owner",
             "means": "to create various personas for a specific project",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -177,6 +210,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           }
@@ -192,6 +232,7 @@
             "role": "product owner",
             "means": "to add assignees to a specific user story",
             "benefit": "the project team knows who is working on this user story",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -217,6 +258,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -225,6 +273,7 @@
             "role": "product owner",
             "means": "to add personas to specific user stories",
             "benefit": "the developers will have a better understanding of the user",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -250,6 +299,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -258,6 +314,7 @@
             "role": "developer",
             "means": "to add tasks to a specific user story",
             "benefit": "I know what has to be done",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -283,6 +340,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -291,6 +355,7 @@
             "role": "developer or product owner",
             "means": " to add labels to a user story",
             "benefit": "it gains more information about what to do with it",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -316,6 +381,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -324,6 +396,7 @@
             "role": "assignee",
             "means": "to add notes to a user story",
             "benefit": "I can communicate with other assignees on the specific user story",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -349,6 +422,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -357,6 +437,7 @@
             "role": "product owner",
             "means": "to add a start and end date to a specific user story",
             "benefit": "time management becomes easier",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -382,6 +463,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -390,6 +478,7 @@
             "role": "product owner",
             "means": "to add acceptance criteria to a user story",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -415,6 +504,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           }
@@ -430,6 +526,7 @@
             "role": "product owner",
             "means": "to annotate words in a user story as a class or as a method",
             "benefit": "the project team has the same mental model",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -455,6 +552,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -463,6 +567,7 @@
             "role": "tester",
             "means": "to be able to add tests to a specific user story",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -488,6 +593,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           }
@@ -503,6 +615,7 @@
             "role": "developer or product owner",
             "means": "the Kanban board story cards to be minimalistic",
             "benefit": "the view isn’t overloaded",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -528,6 +641,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -536,6 +656,7 @@
             "role": "developer or product owner",
             "means": "to click on the Kanban board story cards to get more information about a specific story card",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -561,6 +682,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -569,6 +697,7 @@
             "role": "developer or product owner",
             "means": "to filter story cards in a kanban board according to various criteria, such as label, assignee, etc.",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -594,6 +723,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -602,6 +738,7 @@
             "role": "developer or product owner",
             "means": "to drag and drop story cards into one of the columns, i.e., not-started, in-progress and done",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -627,6 +764,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           }
@@ -642,6 +786,7 @@
             "role": "project team member",
             "means": "to be able to see which is the current sprint",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -667,6 +812,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -675,6 +827,7 @@
             "role": "developer",
             "means": "to see which classes in a specific user story are already created and which aren't",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -700,6 +853,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -708,6 +868,7 @@
             "role": "product owner",
             "means": "to see which classes belong or relate to a specific user story",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -733,6 +894,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -741,6 +909,7 @@
             "role": "tester",
             "means": "to see how many tests pass and fail for a specific user story",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -766,6 +935,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -774,6 +950,7 @@
             "role": "product owner",
             "means": "to have a quick overview if the acceptance criteria of a user story is fulfilled",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -799,6 +976,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -807,6 +991,7 @@
             "role": "product owner",
             "means": "to have a quick overview on the progress and status of a specific project",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -832,6 +1017,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -840,6 +1032,7 @@
             "role": "product owner",
             "means": "to have a quick overview on the progress of a specific epic’s user stories",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -865,6 +1058,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -873,6 +1073,7 @@
             "role": "product owner",
             "means": "to see if epics start and end date overlap",
             "benefit": "I can manage the time in the project team properly",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -898,6 +1099,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -906,6 +1114,7 @@
             "role": "developer",
             "means": "to see if user stories start and end date overlap",
             "benefit": "I can manage my development time",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -931,6 +1140,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -939,6 +1155,7 @@
             "role": "developer",
             "means": "and need to obtain a feedback when a class or a method name referred in a user story changes",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "",
             "scenarios": [],
@@ -964,6 +1181,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           }
@@ -985,6 +1209,7 @@
             "role": "user",
             "means": "to add a new contact to an address book",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "in-progress",
             "points": "10",
             "scenarios": [],
@@ -1011,6 +1236,13 @@
                 }
               ]
               }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
+              }
             ]
           },
           {
@@ -1018,6 +1250,7 @@
             "role": "user",
             "means": "to add a new phone number to a contact",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "20",
             "scenarios": [],
@@ -1043,6 +1276,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           }
@@ -1058,6 +1298,7 @@
             "role": "user",
             "means": "to edit the first name of a specific contact",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "10",
             "scenarios": [],
@@ -1084,6 +1325,13 @@
                 }
               ]
               }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
+              }
             ]
           },
           {
@@ -1091,6 +1339,7 @@
             "role": "user",
             "means": "to edit the last name of a specific contact",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "20",
             "scenarios": [],
@@ -1116,6 +1365,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -1124,6 +1380,7 @@
             "role": "user",
             "means": "to edit a specific phone number of a specific contact",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "20",
             "scenarios": [],
@@ -1149,6 +1406,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           }
@@ -1164,6 +1428,7 @@
             "role": "user",
             "means": "to remove an entire contact",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "10",
             "scenarios": [],
@@ -1190,6 +1455,13 @@
                 }
               ]
               }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
+              }
             ]
           },
           {
@@ -1197,6 +1469,7 @@
             "role": "user",
             "means": "to remove a specific property, such as a specific phone number, of a specific contact",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "20",
             "scenarios": [],
@@ -1222,6 +1495,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           }
@@ -1243,6 +1523,7 @@
             "role": "registered or unregistered user",
             "means": "to explore the online menu",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "10",
             "scenarios": [],
@@ -1268,6 +1549,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -1276,6 +1564,7 @@
             "role": "registered or unregistered user",
             "means": "to add the menu items to the shopping cart",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "10",
             "scenarios": [],
@@ -1301,6 +1590,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -1309,6 +1605,7 @@
             "role": "registered user",
             "means": "to do one click payment",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "10",
             "scenarios": [],
@@ -1334,6 +1631,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -1342,6 +1646,7 @@
             "role": "unregistered user",
             "means": "to enter my delivery and payment details to make the payment",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "10",
             "scenarios": [],
@@ -1367,6 +1672,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           }
@@ -1382,6 +1694,7 @@
             "role": "waiter",
             "means": "to enter the selected menu items by guests to prepare an order",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "10",
             "scenarios": [],
@@ -1407,6 +1720,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -1415,6 +1735,7 @@
             "role": "waiter",
             "means": "to be able to forward the received order to the chef",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "10",
             "scenarios": [],
@@ -1440,6 +1761,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -1448,6 +1776,7 @@
             "role": "waiter",
             "means": "to be able to customize the order by modifying the default menu items",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "10",
             "scenarios": [],
@@ -1473,6 +1802,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           }
@@ -1488,6 +1824,7 @@
             "role": "restaurant owner",
             "means": "to update the tax values for both online and offline orders, in case they legally change",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "10",
             "scenarios": [],
@@ -1513,6 +1850,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -1521,6 +1865,7 @@
             "role": "restaurant owner",
             "means": "to update the tax values for individual menu items",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "10",
             "scenarios": [],
@@ -1546,6 +1891,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -1554,6 +1906,7 @@
             "role": "waiter",
             "means": "to be able to view the invoice before printing it to check if the correct prices and tax is applied",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "10",
             "scenarios": [],
@@ -1579,6 +1932,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           },
@@ -1587,6 +1947,7 @@
             "role": "waiter",
             "means": "to be able to view the total price before printing the invoice",
             "benefit": "",
+            "acceptanceCriteria": "sample criteria",
             "status": "not-started",
             "points": "10",
             "scenarios": [],
@@ -1612,6 +1973,13 @@
                     ]
                 }
               ]
+              }
+            ],
+            "notes": [
+              {
+                "id": "1",
+                "description": "Do something",
+                "author": "Melina"
               }
             ]
           }

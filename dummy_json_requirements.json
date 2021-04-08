@@ -2,6 +2,16 @@
   {
     "id": "1",
     "title": "Living User Stories",
+    "teamMembers": [
+      {
+        "name": "Melina Meyer",
+        "shorthand": "MM"
+      },
+      {
+        "name": "Nitish Patkar",
+        "shorthand": "NP"
+      }
+    ],
     "epics": [
       {
         "id": "1",
@@ -1193,11 +1203,27 @@
           }
         ]
       }
+    ],
+    "personas": [
+      {
+        "name": "Joe",
+        "description": "Sample description"
+      }
     ]
   },
   {
     "id": "2",
     "title": "Address Book Application",
+    "teamMembers": [
+      {
+        "name": "Melina Meyer",
+        "shorthand": "MM"
+      },
+      {
+        "name": "Nitish Patkar",
+        "shorthand": "NP"
+      }
+    ],
     "epics": [
       {
         "id": "1",
@@ -1507,11 +1533,27 @@
           }
         ]
       }
+    ],
+    "personas": [
+      {
+        "name": "Joe",
+        "description": "Sample description"
+      }
     ]
   },
   {
     "id": "3",
     "title": "Restaurant Application",
+    "teamMembers": [
+      {
+        "name": "Melina Meyer",
+        "shorthand": "MM"
+      },
+      {
+        "name": "Nitish Patkar",
+        "shorthand": "NP"
+      }
+    ],
     "epics": [
       {
         "id": "1",
@@ -1984,6 +2026,12 @@
             ]
           }
         ]
+      }
+    ],
+    "personas": [
+      {
+        "name": "Joe",
+        "description": "Sample description"
       }
     ]
   }
