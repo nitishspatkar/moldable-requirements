@@ -122,20 +122,34 @@ MyUserStory >> allStati [
 MyUserStory >> asDetailedStoryCard [
 	"Returns a bloc element that renders a card"
 
-	| task taskDescription card checkbox newTask checkList statusElement notesContainer |
+	| task taskDescription containerLeft checkbox newTask checkList statusElement notesContainer containerRight card |
+	
 	card := BlElement new
-		layout: BlLinearLayout vertical;
+		layout: BlLinearLayout horizontal;
 		margin: (BlInsets all: 20);
 		constraintsDo: [ :c | 
 			c horizontal matchParent.
 			c vertical fitContent ].
-	card addChild: self asUserStoryEditable.
+	
+	containerLeft := BlElement new
+		layout: BlLinearLayout vertical;
+		constraintsDo: [ :c | 
+			c horizontal matchParent.
+			c vertical fitContent ].
+	
+	containerRight := BlElement new
+		layout: BlLinearLayout vertical;
+		constraintsDo: [ :c | 
+			c horizontal fitContent.
+			c vertical matchParent ].
+			
+	containerLeft addChild: self asUserStoryEditable.
 	
 	"status with dropdown"
 	statusElement := self statusLabelAndDropdown.
-	card addChild: statusElement.
+	containerLeft addChild: statusElement.
 	
-	card 
+	containerLeft 
 		addChild: (BrLabel new
 				look: BrGlamorousLabelLook;
 				beLargeSize;
@@ -186,19 +200,31 @@ MyUserStory >> asDetailedStoryCard [
 				collect: [ :aTask | 
 					taskDescription := (aTask getTaskDescription: aTask).
 					task addChild: taskDescription ].
-			card addChild: task ].
+			containerLeft addChild: task ].
 			
 	"notes"
 	notesContainer := (self notesContainerWithDropdown).
 						
-	card addChild: notesContainer.
-	notes collect: [ :note | card addChild: (BrLabel new
+	containerLeft addChild: notesContainer.
+	notes collect: [ :note | containerLeft addChild: (BrLabel new
 								text: note author, ' says: ', note description;
 								look: BrGlamorousLabelLook;
 								beNormalSize;
 								constraintsDo: [ :c | 
 									c horizontal matchParent.
 									c vertical fitContent ]).].
+	
+	"right side"
+	containerRight addChild: (BrLabel new
+						text: 'Assignees:';
+						look: BrGlamorousLabelLook;
+						beLargeSize;
+						constraintsDo: [ :c | 
+									c horizontal matchParent.
+									c vertical fitContent ]).
+	assignees collect: [:each | containerRight addChild: each asShorthandCircle].
+	card addChild: containerLeft;
+			addChild: containerRight.
 	
 	
 	^ card

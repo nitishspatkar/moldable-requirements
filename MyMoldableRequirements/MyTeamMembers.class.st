@@ -79,15 +79,17 @@ MyTeamMembers >> asFormElement: aBlock [
 
 { #category : #accessing }
 MyTeamMembers >> asShorthandCircle [
-^ BlElement new
+^ BrButton new
 		layout: BlLinearLayout vertical;
 		size: 20@20;
 		geometry: (BlCircle new);
 		background: Color palePeach;
 		margin: (BlInsets all: 10);
+		action: [self inspect];
 		addChild: (BrLabel new
 				look: BrGlamorousLabelLook;
 				beLargeSize;
+				alignCenter;
 				text: shorthand;
 				beTinySize;
 				yourself)

@@ -79,6 +79,7 @@ MyEpic >> gtUserStoriesFor: aView [
 	<gtView>
 	^ (userStories gtItemsFor: aView)
 		title: 'User stories';
+		priority: 0;
 		actionDropdownButtonIcon: BrGlamorousVectorIcons add
 			tooltip: 'Add a user story'
 			content: [ | story |
@@ -101,7 +102,7 @@ MyEpic >> gtViewMindMapStoryTree: aView [
 	<gtView>
 	^ aView mondrian
 		title: 'Tree' translated;
-			priority: 2;
+			priority: 1;
 			painting: [ :view |
 				view nodes 
 					stencil: [ :x | 
