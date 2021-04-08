@@ -25,15 +25,6 @@ MyProject class >> fromRawData: projectDict [
 ]
 
 { #category : #accessing }
-MyProject class >> id: aString title: anotherString epics: anArray [
-	^ self new
-		id: aString;
-		title: anotherString;
-		epics: anArray;
-		yourself
-]
-
-{ #category : #accessing }
 MyProject class >> id: aString title: anotherString teamMembers: anArray epics: anotherArray personas: yetAnotherArray [
 	^ self new
 		id: aString;
@@ -54,6 +45,7 @@ MyProject >> gtEpicsFor: aView [
 	<gtView>
 	^ (epics gtItemsFor: aView)
 		title: 'Epics';
+		priority: 0;
 		actionDropdownButtonIcon: BrGlamorousVectorIcons add
 			tooltip: 'Add an epic'
 			content: [ | epic |
@@ -78,13 +70,60 @@ MyProject >> gtParseJSONExample [
 ]
 
 { #category : #accessing }
+MyProject >> gtPersonasFor: aView [
+	<gtView>
+	^ aView columnedList
+		title: 'Personas';
+		priority: 1;
+		items: [personas];
+		column: 'Index'
+			text: [:eachPersona :eachIndex | eachIndex]
+			width: 50;
+		column: 'Name'
+			text: [:eachPersona | eachPersona name]
+			width: 200;
+		column: 'Description'
+			text: [:eachPersona | eachPersona description];		
+		actionDropdownButtonIcon: BrGlamorousVectorIcons add
+			tooltip: 'Add a persona'
+			content: [ | persona |
+			persona := MyPersona
+				name: ''
+				description: ''.
+			persona asFormElement: [ personas add: persona ] ]
+]
+
+{ #category : #accessing }
+MyProject >> gtTeamMembersFor: aView [
+	<gtView>
+	^ aView columnedList
+		title: 'Teammembers';
+		priority: 2;
+		items: [teamMembers];
+		column: 'Index'
+			text: [:eachMember :eachIndex | eachIndex]
+			width: 50;
+		column: 'Name'
+			text: [:eachMember | eachMember name];
+		column: 'Shorthand'
+			text: [:eachMember | eachMember shorthand];
+		actionDropdownButtonIcon: BrGlamorousVectorIcons add
+			tooltip: 'Add a teammember'
+			content: [ | member |
+			member := MyTeamMembers
+				name: ''
+				shorthand: ''.
+			member asFormElement: [ teamMembers add: member ] ]
+]
+
+{ #category : #accessing }
 MyProject >> id: aString [
 	id := aString
 ]
 
 { #category : #accessing }
 MyProject >> personas: yetAnotherArray [ 
-personas := yetAnotherArray
+personas := yetAnotherArray asOrderedCollection
 ]
 
 { #category : #accessing }
@@ -94,7 +133,7 @@ MyProject >> printOn: aStream [
 
 { #category : #accessing }
 MyProject >> teamMembers: anArray [ 
-teamMembers := anArray
+teamMembers := anArray asOrderedCollection
 ]
 
 { #category : #accessing }
