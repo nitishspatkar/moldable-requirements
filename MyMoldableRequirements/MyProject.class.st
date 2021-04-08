@@ -4,7 +4,9 @@ Class {
 	#instVars : [
 		'id',
 		'title',
-		'epics'
+		'epics',
+		'teamMembers',
+		'personas'
 	],
 	#category : #MyMoldableRequirements
 }
@@ -14,9 +16,12 @@ MyProject class >> fromRawData: projectDict [
 	^ self
 		id: (projectDict at: #id)
 		title: (projectDict at: #title)
+		teamMembers: ((projectDict at: #teamMembers) collect: [ :teamDict | MyTeamMembers fromRawData: teamDict ])
 		epics:
 			((projectDict at: #epics)
 				collect: [ :featureDict | MyEpic fromRawData: featureDict ])
+		personas: ((projectDict at: #personas)
+				collect: [ :personaDict | MyPersona fromRawData: personaDict ])
 ]
 
 { #category : #accessing }
@@ -25,6 +30,17 @@ MyProject class >> id: aString title: anotherString epics: anArray [
 		id: aString;
 		title: anotherString;
 		epics: anArray;
+		yourself
+]
+
+{ #category : #accessing }
+MyProject class >> id: aString title: anotherString teamMembers: anArray epics: anotherArray personas: yetAnotherArray [
+	^ self new
+		id: aString;
+		title: anotherString;
+		teamMembers: anArray;
+		epics: anotherArray;
+		personas: yetAnotherArray;
 		yourself
 ]
 
@@ -67,8 +83,18 @@ MyProject >> id: aString [
 ]
 
 { #category : #accessing }
+MyProject >> personas: yetAnotherArray [ 
+personas := yetAnotherArray
+]
+
+{ #category : #accessing }
 MyProject >> printOn: aStream [
 	aStream nextPutAll: title
+]
+
+{ #category : #accessing }
+MyProject >> teamMembers: anArray [ 
+teamMembers := anArray
 ]
 
 { #category : #accessing }
