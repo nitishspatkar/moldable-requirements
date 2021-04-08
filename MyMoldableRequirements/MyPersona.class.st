@@ -86,7 +86,6 @@ MyPersona >> asPersonaCard [
 		addChild: (BrLabel new
 				look: BrGlamorousLabelLook;
 				beLargeSize;
-				margin: (BlInsets right: 3);
 				text: name;
 				beHugeSize;
 				yourself);

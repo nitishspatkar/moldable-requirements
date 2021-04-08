@@ -78,6 +78,37 @@ MyTeamMembers >> asFormElement: aBlock [
 ]
 
 { #category : #accessing }
+MyTeamMembers >> asShorthandCircle [
+^ BlElement new
+		layout: BlLinearLayout vertical;
+		size: 20@20;
+		geometry: (BlCircle new);
+		background: Color palePeach;
+		margin: (BlInsets all: 10);
+		addChild: (BrLabel new
+				look: BrGlamorousLabelLook;
+				beLargeSize;
+				text: shorthand;
+				beTinySize;
+				yourself)
+]
+
+{ #category : #accessing }
+MyTeamMembers >> gtCircleViewFor: aView [
+	<gtView>
+	^aView explicit
+		title: 'Shorthand View';
+		priority: 1;
+		stencil: [ self asShorthandCircle
+				look: BrShadowLook;
+				constraintsDo: [ :c | 
+					c horizontal fitContent.
+					c vertical fitContent ];
+				padding: (BlInsets all: 5);
+				yourself ]
+]
+
+{ #category : #accessing }
 MyTeamMembers >> name [ 
 ^name
 ]
