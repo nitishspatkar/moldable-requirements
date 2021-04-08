@@ -5,7 +5,8 @@ Class {
 		'id',
 		'title',
 		'description',
-		'userStories'
+		'userStories',
+		'statusColor'
 	],
 	#category : #MyMoldableRequirements
 }
@@ -105,10 +106,10 @@ MyEpic >> gtViewMindMapStoryTree: aView [
 				view nodes 
 					stencil: [ :x | 
 						BlElement new 
-							border: (BlBorder paint: Color black);
+							border: (BlBorder paint: Color black width: 0.5);
 							background: x statusColor;
 							geometry: BlEllipse new;
-							size: (50)@(50)];
+							size: (20)@(20)];
 					with: (self requirements).
 					view edges connectFrom: [ :x | x ] toAll: [ :x | x subItems ];
 		shape: [ :x | 
@@ -138,7 +139,23 @@ MyEpic >> requirements [
 
 { #category : #accessing }
 MyEpic >> statusColor [
-	^Color lightBlue
+	| countNot countDoing countDone |
+	countNot := 0.
+	countDoing := 0.
+	countDone := 0.
+	userStories
+		collect: [ :each | 
+			each status = 'not-started'
+				ifTrue: [ countNot := countNot + 1 ].
+			each status = 'in-progress'
+				ifTrue: [ countDoing := countDoing + 1 ].
+			each status = 'done'
+				ifTrue: [ countDone := countDone + 1 ] ].
+	countDoing ~= 0
+		ifTrue: [ ^Color lightYellow ]
+		ifFalse: [ countNot ~= 0
+				ifTrue: [ ^Color lightRed ]
+				ifFalse: [^Color lightGreen ] ]
 ]
 
 { #category : #accessing }

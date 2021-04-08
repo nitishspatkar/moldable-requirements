@@ -97,7 +97,7 @@ MyProject >> gtPersonasFor: aView [
 MyProject >> gtTeamMembersFor: aView [
 	<gtView>
 	^ aView columnedList
-		title: 'Teammembers';
+		title: 'Team';
 		priority: 2;
 		items: [teamMembers];
 		column: 'Index'
