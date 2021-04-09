@@ -15,7 +15,8 @@ Class {
 		'checklist',
 		'assignees',
 		'acceptanceCriteria',
-		'notes'
+		'notes',
+		'personas'
 	],
 	#category : #MyMoldableRequirements
 }
@@ -33,6 +34,8 @@ MyUserStory class >> fromRawData: userStoryDict [
 		scenarios:
 			((userStoryDict at: #scenarios)
 				collect: [ :scenariosDict | MyScenario fromRawData: scenariosDict ])
+		personas: ((userStoryDict at: #personas)
+				collect: [ :personasDict | MyPersona fromRawData: personasDict ])
 		assignees: ((userStoryDict at: #assignees)
 				collect: [ :assigneesDict | MyAssignees fromRawData: assigneesDict])
 		checklist: 
@@ -42,7 +45,7 @@ MyUserStory class >> fromRawData: userStoryDict [
 ]
 
 { #category : #accessing }
-MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 acceptanceCriteria: aString4 status: anotherString points: aNumber scenarios: anArray assignees: anotherArray checklist: yetAnotherArray notes: lastArray [
+MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 acceptanceCriteria: aString4 status: anotherString points: aNumber scenarios: anArray personas: anArray2 assignees: anotherArray checklist: yetAnotherArray notes: lastArray [
 	^ self new
 		id: aString;
 		role: aString1;
@@ -52,6 +55,7 @@ MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString
 		status: anotherString;
 		points: aNumber;
 		scenarios: anArray asOrderedCollection;
+		personas: anArray2 asOrderedCollection;
 		assignees: anotherArray asOrderedCollection;
 		checklist: yetAnotherArray asOrderedCollection;
 		notes: lastArray asOrderedCollection
@@ -223,6 +227,16 @@ MyUserStory >> asDetailedStoryCard [
 									c horizontal matchParent.
 									c vertical fitContent ]).
 	assignees collect: [:each | containerRight addChild: each asShorthandCircle].
+	
+	"Persona"
+	containerRight addChild: (BrLabel new
+						text: 'Persona:';
+						look: BrGlamorousLabelLook;
+						beLargeSize;
+						constraintsDo: [ :c | 
+									c horizontal matchParent.
+									c vertical fitContent ]).
+	personas collect: [:each | containerRight addChild: each asListElement].
 	card addChild: containerLeft;
 			addChild: containerRight.
 	
@@ -606,6 +620,16 @@ MyUserStory >> parseStory [
 	| aPRDocument |
 	aPRDocument := GtDocumenterParser new parse: self description.
 	^ aPRDocument
+]
+
+{ #category : #accessing }
+MyUserStory >> personas [
+^personas
+]
+
+{ #category : #accessing }
+MyUserStory >> personas: anArray [
+personas := anArray
 ]
 
 { #category : #accessing }

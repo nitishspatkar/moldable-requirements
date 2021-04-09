@@ -78,6 +78,18 @@ MyPersona >> asFormElement: aBlock [
 ]
 
 { #category : #accessing }
+MyPersona >> asListElement [
+^BrButton new
+	label: name;
+	look: BrGlamorousLabelLook;
+	beNormalSize;
+	constraintsDo: [ :c | 
+			c horizontal matchParent.
+			c vertical fitContent ];
+	action: [self inspect]
+]
+
+{ #category : #accessing }
 MyPersona >> asPersonaCard [
 	^ BlElement new
 		layout: BlLinearLayout vertical;

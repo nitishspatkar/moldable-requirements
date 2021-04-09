@@ -10,7 +10,7 @@ Class {
 
 { #category : #accessing }
 MyTeamMembers class >> fromRawData: teamDict [ 
-^ self 
+^self 
 	name: (teamDict at: #name)
 	shorthand: (teamDict at: #shorthand)
 ]
