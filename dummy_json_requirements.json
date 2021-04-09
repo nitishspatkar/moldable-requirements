@@ -27,6 +27,12 @@
             "status": "in-progress",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -68,6 +74,12 @@
             "status": "in-progress",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -109,6 +121,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -157,6 +175,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -198,6 +222,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -246,6 +276,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -287,6 +323,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -328,6 +370,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -369,6 +417,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -410,6 +464,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -451,6 +511,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -492,6 +558,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -540,6 +612,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -581,6 +659,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -629,6 +713,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -670,6 +760,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -711,6 +807,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -752,6 +854,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -800,6 +908,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -841,6 +955,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -882,6 +1002,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -923,6 +1049,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -964,6 +1096,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -1005,6 +1143,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -1046,6 +1190,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -1087,6 +1237,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -1128,6 +1284,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -1169,6 +1331,12 @@
             "status": "not-started",
             "points": "",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -1239,6 +1407,12 @@
             "status": "in-progress",
             "points": "10",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -1280,6 +1454,12 @@
             "status": "not-started",
             "points": "20",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -1328,6 +1508,12 @@
             "status": "not-started",
             "points": "10",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -1369,6 +1555,12 @@
             "status": "not-started",
             "points": "20",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -1410,6 +1602,12 @@
             "status": "not-started",
             "points": "20",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -1458,6 +1656,12 @@
             "status": "not-started",
             "points": "10",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -1499,6 +1703,12 @@
             "status": "not-started",
             "points": "20",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -1569,6 +1779,12 @@
             "status": "not-started",
             "points": "10",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -1610,6 +1826,12 @@
             "status": "not-started",
             "points": "10",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -1651,6 +1873,12 @@
             "status": "not-started",
             "points": "10",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -1692,6 +1920,12 @@
             "status": "not-started",
             "points": "10",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -1740,6 +1974,12 @@
             "status": "not-started",
             "points": "10",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -1781,6 +2021,12 @@
             "status": "not-started",
             "points": "10",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -1822,6 +2068,12 @@
             "status": "not-started",
             "points": "10",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -1870,6 +2122,12 @@
             "status": "not-started",
             "points": "10",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -1911,6 +2169,12 @@
             "status": "not-started",
             "points": "10",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -1952,6 +2216,12 @@
             "status": "not-started",
             "points": "10",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
@@ -1993,6 +2263,12 @@
             "status": "not-started",
             "points": "10",
             "scenarios": [],
+            "personas": [
+              {
+                "name": "Joe",
+                "description": "Sample description"
+              }
+            ],
             "assignees": [
               {
                 "name": "Melina Meyer",
