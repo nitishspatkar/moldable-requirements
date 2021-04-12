@@ -39,7 +39,7 @@ MyUserStory class >> fromRawData: userStoryDict [
 		personas: ((userStoryDict at: #personas)
 				collect: [ :personasDict | MyPersona fromRawData: personasDict ])
 		assignees: ((userStoryDict at: #assignees)
-				collect: [ :assigneesDict | MyAssignees fromRawData: assigneesDict])
+				collect: [ :assigneesDict | MyTeamMembers fromRawData: assigneesDict])
 		labels: ((userStoryDict at: #labels)
 				collect: [ :labelDict | MyLabel fromRawData: labelDict])
 		tasks: 
@@ -102,6 +102,17 @@ MyUserStory >> aWithAllStatiDropdownLook [
 ]
 
 { #category : #accessing }
+MyUserStory >> aWithAllTeamMembersDropdownLook [
+	"returns a dropdown of all team members"
+
+	^ BrGlamorousWithDropdownLook
+		handle: [ BrButton new
+				look: BrGlamorousButtonRectangularLook + BrGlamorousButtonIconLook;
+				icon: BrGlamorousIcons add ]
+		content: [ self teamMembersList ]
+]
+
+{ #category : #accessing }
 MyUserStory >> acceptanceCriteria: aString [
 acceptanceCriteria := aString
 ]
@@ -148,31 +159,19 @@ MyUserStory >> allStati [
 MyUserStory >> asDetailedStoryCard [
 	"Returns a bloc element that renders a card"
 
-	| task taskDescription containerLeft checkbox newTask checkList statusElement notesContainer containerRight card |
+	| task taskDescription containerLeft checkbox newTask checkList statusElement notesContainer containerRight card assigned |
 	card := BlElement new
-		layout: BlLinearLayout horizontal;
+		layout: BlLinearLayout vertical;
 		margin: (BlInsets all: 20);
 		constraintsDo: [ :c | 
 			c horizontal matchParent.
 			c vertical fitContent ].
-			
-	containerLeft := BlElement new
-		layout: BlLinearLayout vertical;
-		constraintsDo: [ :c | 
-			c horizontal matchParent.
-			c vertical fitContent ].
-			
-	containerRight := BlElement new
-		layout: BlLinearLayout vertical;
-		constraintsDo: [ :c | 
-			c horizontal fitContent.
-			c vertical matchParent ].
-	containerLeft addChild: self asUserStoryEditable.
+	card addChild: self asUserStoryEditable.
 
 	"status with dropdown"
 	statusElement := self statusLabelAndDropdown.
-	containerLeft addChild: statusElement.
-	containerLeft
+	card addChild: statusElement.
+	card
 		addChild:
 			(BrLabel new
 				look: BrGlamorousLabelLook;
@@ -200,14 +199,14 @@ MyUserStory >> asDetailedStoryCard [
 		collect: [ :aTask | 
 			taskDescription := aTask getTaskDescription: aTask.
 			task addChild: taskDescription ].
-	containerLeft addChild: task.
+	card addChild: task.
 
 	"notes"
 	notesContainer := self notesContainerWithDropdown.
-	containerLeft addChild: notesContainer.
+	card addChild: notesContainer.
 	notes
 		collect: [ :note | 
-			containerLeft
+			card
 				addChild:
 					(BrLabel new
 						text: note author , ' says: ' , note description;
@@ -217,21 +216,20 @@ MyUserStory >> asDetailedStoryCard [
 							c horizontal matchParent.
 							c vertical fitContent ]) ].
 
-	"right side"
-	containerRight
-		addChild:
-			(BrLabel new
-				text: 'Assignees:';
-				look: BrGlamorousLabelLook;
-				beLargeSize;
+	"assignees"
+	card addChild: self assigneeLabelAndDropdown.
+	assigned := BlElement new
+				layout: BlLinearLayout horizontal;
 				constraintsDo: [ :c | 
 					c horizontal matchParent.
-					c vertical fitContent ]).
+					c vertical fitContent ].
 	assignees
-		collect: [ :each | containerRight addChild: each asShorthandCircle ].
+		collect: [ :each | 
+				assigned addChild: each asShorthandCircle].
+	card addChild: assigned.
 
 	"Persona"
-	containerRight
+	card
 		addChild:
 			(BrLabel new
 				text: 'Persona:';
@@ -240,11 +238,7 @@ MyUserStory >> asDetailedStoryCard [
 				constraintsDo: [ :c | 
 					c horizontal matchParent.
 					c vertical fitContent ]).
-	personas
-		collect: [ :each | containerRight addChild: each asListElement ].
-	card
-		addChild: containerLeft;
-		addChild: containerRight.
+	personas collect: [ :each | card addChild: each asListElement ].
 	^ card
 ]
 
@@ -386,6 +380,36 @@ MyUserStory >> asUserStoryEditable [
 				when: BrEditorAcceptWish do: [ :aWish | benefit := aWish text ];
 				yourself);
 		yourself
+]
+
+{ #category : #accessing }
+MyUserStory >> assigneeLabelAndDropdown [
+| assignee |
+	^ assignee := BlElement new
+		layout: BlLinearLayout horizontal;
+		constraintsDo: [ :c | 
+			c horizontal matchParent.
+			c vertical fitContent ];
+		addChild:
+			(BrLabel new
+				look: BrGlamorousLabelLook;
+				beLargeSize;
+				margin: (BlInsets top: 20 left: 0 bottom: 5 right: 20);
+				text: 'Assignees:';
+				yourself);
+		addChild:
+			(BrButton new
+				label: 'Add a Team Member';
+				look: BrGlamorousButtonWithIconLook + self aWithAllTeamMembersDropdownLook;
+				icon: BrGlamorousVectorIcons add;
+				margin: (BlInsets top: 20 left: 0 bottom: 5 right: 0);
+				beTinySize;
+				yourself).
+]
+
+{ #category : #accessing }
+MyUserStory >> assignees [
+^assignees
 ]
 
 { #category : #accessing }
@@ -779,4 +803,21 @@ MyUserStory >> subItems [
 { #category : #accessing }
 MyUserStory >> tasks: anObject [ 
 tasks := anObject
+]
+
+{ #category : #accessing }
+MyUserStory >> teamMembersList [
+| dropdown |
+dropdown := BlElement new
+				layout: BlLinearLayout vertical;
+				constraintsDo: [ :c | 
+					c vertical fitContent.
+					c horizontal fitContent ];
+				padding: (BlInsets all: 5).
+			(self getTeamMembers) collect: [:member | dropdown addChild: (BrButton new
+				look: BrGlamorousLabelLook;
+				label: member name;
+				action: [ (assignees includes: member) ifFalse:[assignees add: member. announcer announce: MyUserStoryStatusChange] ];
+				yourself). ].
+			^dropdown
 ]
