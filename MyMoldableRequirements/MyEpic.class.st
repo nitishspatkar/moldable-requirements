@@ -181,6 +181,11 @@ MyEpic >> subItems [
 ]
 
 { #category : #accessing }
+MyEpic >> title [ 
+^title
+]
+
+{ #category : #accessing }
 MyEpic >> title: anotherString [
 	title := anotherString
 ]

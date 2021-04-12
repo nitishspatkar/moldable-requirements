@@ -176,8 +176,15 @@ MyUserStory >> asDetailedStoryCard [
 		margin: (BlInsets all: 20);
 		constraintsDo: [ :c | 
 			c horizontal matchParent.
-			c vertical fitContent ].
-	card addChild: self asUserStoryEditable.
+			c vertical fitContent ];
+		addChild: (BrButton new
+				look: BrGlamorousLabelLook;
+				label: 'Epic: ', epic title;
+				size: 20@20;
+				beSmallSize;
+				action: [:button | button phlow spawnObject: epic]
+				yourself);
+		addChild: self asUserStoryEditable.
 
 	"status with dropdown"
 	statusElement := self statusLabelAndDropdown.

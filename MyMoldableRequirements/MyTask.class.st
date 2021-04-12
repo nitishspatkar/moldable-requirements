@@ -18,7 +18,7 @@ MyTask class >> fromRawData: taskDict [
 		description: (taskDict at: #description)
 		done: (taskDict at: #done)
 		end: (taskDict at: #end)
-		assignees: ((taskDict at: #assignees) collect: [ :assigneesDict | MyAssignees fromRawData: assigneesDict])
+		assignees: ((taskDict at: #assignees) collect: [ :assigneesDict | MyTeamMembers fromRawData: assigneesDict])
 ]
 
 { #category : #accessing }
