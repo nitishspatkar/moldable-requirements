@@ -12,13 +12,13 @@ Class {
 		'means',
 		'benefit',
 		'epic',
-		'checklist',
 		'assignees',
 		'acceptanceCriteria',
 		'notes',
 		'personas',
 		'labels',
-		'announcer'
+		'announcer',
+		'tasks'
 	],
 	#category : #MyMoldableRequirements
 }
@@ -42,14 +42,14 @@ MyUserStory class >> fromRawData: userStoryDict [
 				collect: [ :assigneesDict | MyAssignees fromRawData: assigneesDict])
 		labels: ((userStoryDict at: #labels)
 				collect: [ :labelDict | MyLabel fromRawData: labelDict])
-		checklist: 
-		((userStoryDict at: #checklist)
-		collect: [:checklistDict | MyChecklist fromRawData: checklistDict])
+		tasks: 
+		((userStoryDict at: #tasks)
+		collect: [:taskDict | MyTask fromRawData: taskDict])
 		notes: ((userStoryDict at: #notes) collect: [:notesDict | MyNotes fromRawData: notesDict])
 ]
 
 { #category : #accessing }
-MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 acceptanceCriteria: aString4 status: anotherString points: aNumber scenarios: anArray personas: anArray2 assignees: anotherArray labels: anotherArray2 checklist: yetAnotherArray notes: lastArray [
+MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 acceptanceCriteria: aString4 status: anotherString points: aNumber scenarios: anArray personas: anArray2 assignees: anotherArray labels: anotherArray2 tasks: yetAnotherArray notes: lastArray [
 	^ self new
 		id: aString;
 		role: aString1;
@@ -62,7 +62,7 @@ MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString
 		personas: anArray2 asOrderedCollection;
 		assignees: anotherArray asOrderedCollection;
 		labels: anotherArray2 asOrderedCollection;
-		checklist: yetAnotherArray asOrderedCollection;
+		tasks: yetAnotherArray asOrderedCollection;
 		notes: lastArray asOrderedCollection
 		yourself
 ]
@@ -122,6 +122,23 @@ MyUserStory >> addNoteDropdownLook [
 ]
 
 { #category : #accessing }
+MyUserStory >> addTaskDropdownLook [
+	^ BrGlamorousWithDropdownLook 
+	handle: [BrButton new
+				look: BrGlamorousButtonRectangularLook + BrGlamorousButtonIconLook;
+				icon: BrGlamorousIcons add
+	]
+	content: [ | task |
+			task := MyTask
+				id: nil
+				description: ''
+				done: 'false'
+				end: '01.01.2021'
+				assignees: OrderedCollection new.
+			task asFormElement: [ tasks add: task ]].
+]
+
+{ #category : #accessing }
 MyUserStory >> allStati [
 "returns an orderedCollection of stati"
  ^ #('not-started' 'in-progress' 'done')
@@ -132,34 +149,32 @@ MyUserStory >> asDetailedStoryCard [
 	"Returns a bloc element that renders a card"
 
 	| task taskDescription containerLeft checkbox newTask checkList statusElement notesContainer containerRight card |
-	
 	card := BlElement new
 		layout: BlLinearLayout horizontal;
 		margin: (BlInsets all: 20);
 		constraintsDo: [ :c | 
 			c horizontal matchParent.
 			c vertical fitContent ].
-	
+			
 	containerLeft := BlElement new
 		layout: BlLinearLayout vertical;
 		constraintsDo: [ :c | 
 			c horizontal matchParent.
 			c vertical fitContent ].
-	
+			
 	containerRight := BlElement new
 		layout: BlLinearLayout vertical;
 		constraintsDo: [ :c | 
 			c horizontal fitContent.
 			c vertical matchParent ].
-			
 	containerLeft addChild: self asUserStoryEditable.
-	
+
 	"status with dropdown"
 	statusElement := self statusLabelAndDropdown.
 	containerLeft addChild: statusElement.
-	
-	containerLeft 
-		addChild: (BrLabel new
+	containerLeft
+		addChild:
+			(BrLabel new
 				look: BrGlamorousLabelLook;
 				beLargeSize;
 				text: 'Acceptance Criteria:';
@@ -167,9 +182,9 @@ MyUserStory >> asDetailedStoryCard [
 		addChild:
 			(BrEditableLabel new
 				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
-				margin: (BlInsets bottom: 20);
 				text: acceptanceCriteria;
-				when: BrEditorAcceptWish do: [ :aWish | acceptanceCriteria := aWish text ];
+				when: BrEditorAcceptWish
+					do: [ :aWish | acceptanceCriteria := aWish text ];
 				yourself).
 
 	"checklist"
@@ -178,74 +193,58 @@ MyUserStory >> asDetailedStoryCard [
 		constraintsDo: [ :c | 
 			c horizontal matchParent.
 			c vertical fitContent ].
-	checkList := BlElement new
-		layout: BlLinearLayout horizontal;
-		constraintsDo: [ :c | 
-			c horizontal matchParent.
-			c vertical fitContent ];
-		addChild:
-			(BrLabel new
-				look: BrGlamorousLabelLook;
-				beLargeSize;
-				text: 'Checklist:';
-				margin: (BlInsets top: 0 left: 0 bottom: 5 right: 20);
-				yourself).
-	"add task button"
-	checklist
-		collect: [ :aList | 
-			checkList
-				addChild:
-					(BrButton new
-						look: BrGlamorousButtonWithIconLook + aList addTaskDropdownLook;
-						icon: BrGlamorousVectorIcons add;
-						beTinySize;
-						label: 'Add a Task') ].
-	task addChild: checkList.
+	task addChild: self checklistContainerWithDropdown.
 
 	"makes tasklist for checklist"
-	checklist
-		collect: [ :list | 
-			list tasks
-				collect: [ :aTask | 
-					taskDescription := (aTask getTaskDescription: aTask).
-					task addChild: taskDescription ].
-			containerLeft addChild: task ].
-			
+	tasks
+		collect: [ :aTask | 
+			taskDescription := aTask getTaskDescription: aTask.
+			task addChild: taskDescription ].
+	containerLeft addChild: task.
+
 	"notes"
-	notesContainer := (self notesContainerWithDropdown).
-						
+	notesContainer := self notesContainerWithDropdown.
 	containerLeft addChild: notesContainer.
-	notes collect: [ :note | containerLeft addChild: (BrLabel new
-								text: note author, ' says: ', note description;
-								look: BrGlamorousLabelLook;
-								beNormalSize;
-								constraintsDo: [ :c | 
-									c horizontal matchParent.
-									c vertical fitContent ]).].
-	
+	notes
+		collect: [ :note | 
+			containerLeft
+				addChild:
+					(BrLabel new
+						text: note author , ' says: ' , note description;
+						look: BrGlamorousLabelLook;
+						beNormalSize;
+						constraintsDo: [ :c | 
+							c horizontal matchParent.
+							c vertical fitContent ]) ].
+
 	"right side"
-	containerRight addChild: (BrLabel new
-						text: 'Assignees:';
-						look: BrGlamorousLabelLook;
-						beLargeSize;
-						constraintsDo: [ :c | 
-									c horizontal matchParent.
-									c vertical fitContent ]).
-	assignees collect: [:each | containerRight addChild: each asShorthandCircle].
-	
+	containerRight
+		addChild:
+			(BrLabel new
+				text: 'Assignees:';
+				look: BrGlamorousLabelLook;
+				beLargeSize;
+				constraintsDo: [ :c | 
+					c horizontal matchParent.
+					c vertical fitContent ]).
+	assignees
+		collect: [ :each | containerRight addChild: each asShorthandCircle ].
+
 	"Persona"
-	containerRight addChild: (BrLabel new
-						text: 'Persona:';
-						look: BrGlamorousLabelLook;
-						beLargeSize;
-						constraintsDo: [ :c | 
-									c horizontal matchParent.
-									c vertical fitContent ]).
-	personas collect: [:each | containerRight addChild: each asListElement].
-	card addChild: containerLeft;
-			addChild: containerRight.
-	
-	
+	containerRight
+		addChild:
+			(BrLabel new
+				text: 'Persona:';
+				look: BrGlamorousLabelLook;
+				beLargeSize;
+				constraintsDo: [ :c | 
+					c horizontal matchParent.
+					c vertical fitContent ]).
+	personas
+		collect: [ :each | containerRight addChild: each asListElement ].
+	card
+		addChild: containerLeft;
+		addChild: containerRight.
 	^ card
 ]
 
@@ -401,8 +400,24 @@ MyUserStory >> benefit: aString [
 ]
 
 { #category : #accessing }
-MyUserStory >> checklist: anObject [ 
-checklist := anObject
+MyUserStory >> checklistContainerWithDropdown [
+| notesContainer |
+	notesContainer := BlElement new
+						layout: BlLinearLayout horizontal;
+						constraintsDo: [ :c | 
+									c horizontal matchParent.
+									c vertical fitContent ].
+	^ notesContainer addChild: (BrLabel new
+						text: 'Checklist:';
+						look: BrGlamorousLabelLook;
+						margin: (BlInsets top: 20 left: 0 bottom: 5 right: 20);
+						beLargeSize);
+						addChild: (BrButton new 
+						look: BrGlamorousButtonWithIconLook + self addTaskDropdownLook ;
+						icon: BrGlamorousVectorIcons add;
+						margin: (BlInsets top: 20 left: 0 bottom: 5 right: 0);
+						beTinySize;
+						label: 'Add a Note').
 ]
 
 { #category : #accessing }
@@ -568,6 +583,7 @@ MyUserStory >> gtReferencedEntitiesFor: aView [
 { #category : #accessing }
 MyUserStory >> gtScenariosFor: aView [
 	<gtView>
+	| scenario |
 	^ (scenarios gtItemsFor: aView)
 		title: 'Scenarios';
 		actionDropdownButtonIcon: BrGlamorousVectorIcons add
@@ -588,8 +604,9 @@ MyUserStory >> gtScenariosFor: aView [
 						look: BrGlamorousButtonWithIconLook;
 						icon: BrGlamorousVectorIcons accept;
 						label: 'Save';
-						action: [ scenarios add:
-								(MyScenario id: nil description: label text asString) ];
+						action: [ scenario := MyScenario id: nil description: label text asString.
+							scenario userStory: self.
+							scenarios add: scenario ];
 						yourself);
 				yourself ]
 ]
@@ -757,4 +774,9 @@ MyUserStory >> statusLabelAndDropdown [
 { #category : #accessing }
 MyUserStory >> subItems [
  ^ OrderedCollection new
+]
+
+{ #category : #accessing }
+MyUserStory >> tasks: anObject [ 
+tasks := anObject
 ]

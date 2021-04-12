@@ -162,6 +162,11 @@ MyScenario >> simpleExampleText: anObject [
 ]
 
 { #category : #accessing }
+MyScenario >> userStory [
+^userStory
+]
+
+{ #category : #accessing }
 MyScenario >> userStory: aUserStory [
 userStory := aUserStory
 ]

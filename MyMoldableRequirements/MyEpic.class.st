@@ -96,7 +96,7 @@ MyEpic >> gtUserStoriesFor: aView [
 				personas: OrderedCollection new
 				assignees: OrderedCollection new
 				labels: OrderedCollection new
-				checklist: OrderedCollection new
+				tasks: OrderedCollection new
 				notes: OrderedCollection new.
 			story epic: self.
 			story asFormElement: [ userStories add: story ] ]
