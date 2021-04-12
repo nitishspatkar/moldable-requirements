@@ -6,7 +6,8 @@ Class {
 		'title',
 		'description',
 		'userStories',
-		'statusColor'
+		'statusColor',
+		'project'
 	],
 	#category : #MyMoldableRequirements
 }
@@ -130,6 +131,16 @@ MyEpic >> printOn: aStream [
 ]
 
 { #category : #accessing }
+MyEpic >> project [ 
+^project
+]
+
+{ #category : #accessing }
+MyEpic >> project: aProject [
+project := aProject
+]
+
+{ #category : #accessing }
 MyEpic >> requirements [
 "requirements for the tree mind map view"
 	| requirements |
@@ -176,5 +187,5 @@ MyEpic >> userStories [
 
 { #category : #accessing }
 MyEpic >> userStories: anArray [
-	userStories := anArray
+	userStories := anArray do: [ :each | each epic: self]
 ]

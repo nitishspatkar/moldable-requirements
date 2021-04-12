@@ -8,7 +8,8 @@ Class {
 		'exampleMethods',
 		'parameterizedExamples',
 		'descriptionText',
-		'simpleExampleText'
+		'simpleExampleText',
+		'userStory'
 	],
 	#category : #MyMoldableRequirements
 }
@@ -158,4 +159,9 @@ MyScenario >> simpleExampleText [
 { #category : #accessing }
 MyScenario >> simpleExampleText: anObject [
 	simpleExampleText := anObject
+]
+
+{ #category : #accessing }
+MyScenario >> userStory: aUserStory [
+userStory := aUserStory
 ]

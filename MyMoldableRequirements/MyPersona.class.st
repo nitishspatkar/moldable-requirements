@@ -86,7 +86,7 @@ MyPersona >> asListElement [
 	constraintsDo: [ :c | 
 			c horizontal matchParent.
 			c vertical fitContent ];
-	action: [self inspect]
+	action: [ :button | button phlow spawnObject: self]
 ]
 
 { #category : #accessing }

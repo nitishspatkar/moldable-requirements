@@ -16,7 +16,9 @@ Class {
 		'assignees',
 		'acceptanceCriteria',
 		'notes',
-		'personas'
+		'personas',
+		'labels',
+		'announcer'
 	],
 	#category : #MyMoldableRequirements
 }
@@ -38,6 +40,8 @@ MyUserStory class >> fromRawData: userStoryDict [
 				collect: [ :personasDict | MyPersona fromRawData: personasDict ])
 		assignees: ((userStoryDict at: #assignees)
 				collect: [ :assigneesDict | MyAssignees fromRawData: assigneesDict])
+		labels: ((userStoryDict at: #labels)
+				collect: [ :labelDict | MyLabel fromRawData: labelDict])
 		checklist: 
 		((userStoryDict at: #checklist)
 		collect: [:checklistDict | MyChecklist fromRawData: checklistDict])
@@ -57,6 +61,25 @@ MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString
 		scenarios: anArray asOrderedCollection;
 		personas: anArray2 asOrderedCollection;
 		assignees: anotherArray asOrderedCollection;
+		checklist: yetAnotherArray asOrderedCollection;
+		notes: lastArray asOrderedCollection
+		yourself
+]
+
+{ #category : #accessing }
+MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 acceptanceCriteria: aString4 status: anotherString points: aNumber scenarios: anArray personas: anArray2 assignees: anotherArray labels: anotherArray2 checklist: yetAnotherArray notes: lastArray [
+	^ self new
+		id: aString;
+		role: aString1;
+		means: aString2;
+		benefit: aString3;
+		acceptanceCriteria: aString4;
+		status: anotherString;
+		points: aNumber;
+		scenarios: anArray asOrderedCollection;
+		personas: anArray2 asOrderedCollection;
+		assignees: anotherArray asOrderedCollection;
+		labels: anotherArray2 asOrderedCollection;
 		checklist: yetAnotherArray asOrderedCollection;
 		notes: lastArray asOrderedCollection
 		yourself
@@ -89,7 +112,7 @@ MyUserStory >> aWithAllStatiDropdownLook [
 									(BrStyleCommonLook new
 										selected: [ :aStyle | aStyle background: Color veryVeryLightGray ]);
 						padding: (BlInsets all: 5);
-						action: [:eachElement | self status:eachElement label asString]];
+						action: [:eachElement | self status:eachElement label asString. announcer announce: MyUserStoryStatusChange]];
 				itemDataBinder: [ :eachElement :eachStatus :eachIndex |
 				(eachStatus = self status) ifTrue: [eachElement label: '> ', eachStatus]
 				ifFalse: [eachElement label: eachStatus] ];
@@ -336,7 +359,7 @@ MyUserStory >> asUserStoryEditable [
 "Returns a vertical element of a editable user story for the detailed story card"
 	^ BlElement new
 		geometry: (BlRectangle cornerRadius: 12);
-		layout: BlLinearLayout horizontal;
+		layout: BlFlowLayout horizontal;
 		margin: (BlInsets bottom: 10);
 		constraintsDo: [ :c | 
 			c horizontal matchParent.
@@ -442,6 +465,11 @@ MyUserStory >> description: aString [
 ]
 
 { #category : #accessing }
+MyUserStory >> epic: anEpic [
+epic := anEpic
+]
+
+{ #category : #accessing }
 MyUserStory >> getReferencesFrom: aDocument [
 	"filter out all references to domain entities from a document"
 
@@ -475,6 +503,11 @@ MyUserStory >> getReferencesFrom: aDocument [
 ]
 
 { #category : #accessing }
+MyUserStory >> getTeamMembers [
+^epic project teamMembers
+]
+
+{ #category : #accessing }
 MyUserStory >> gtDescriptionFor: aView [
 	<gtView>
 	| document |
@@ -496,6 +529,7 @@ MyUserStory >> gtDetailedStoryCardFor: aView [
 	^ aView explicit
 		title: 'Story card';
 		priority: 0;
+		updateWhen: MyUserStoryStatusChange in: [announcer];
 		stencil: [ self asDetailedStoryCard
 				look: BrShadowLook;
 				background: Color white;
@@ -579,6 +613,17 @@ MyUserStory >> id: aString [
 ]
 
 { #category : #accessing }
+MyUserStory >> initialize [
+	super initialize.
+	announcer :=  Announcer new.
+]
+
+{ #category : #accessing }
+MyUserStory >> labels: anArray [
+labels := anArray
+]
+
+{ #category : #accessing }
 MyUserStory >> means: aString [
 "the part of a user story after 'I want' "
  means := aString
@@ -653,7 +698,7 @@ MyUserStory >> role: aString [
 
 { #category : #accessing }
 MyUserStory >> scenarios: anArray [
-	scenarios := anArray
+	scenarios := anArray do: [ :each | each userStory: self]
 ]
 
 { #category : #accessing }
@@ -663,7 +708,7 @@ MyUserStory >> status [
 
 { #category : #accessing }
 MyUserStory >> status: anotherString [
-	status := anotherString
+	status := anotherString.
 ]
 
 { #category : #accessing }

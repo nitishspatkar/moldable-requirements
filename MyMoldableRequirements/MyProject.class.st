@@ -30,14 +30,14 @@ MyProject class >> id: aString title: anotherString teamMembers: anArray epics: 
 		id: aString;
 		title: anotherString;
 		teamMembers: anArray;
-		epics: anotherArray;
+		epics: anotherArray asOrderedCollection;
 		personas: yetAnotherArray;
 		yourself
 ]
 
 { #category : #accessing }
 MyProject >> epics: anArray [
-	epics := anArray asOrderedCollection
+	epics := anArray do: [ :each | each project: self]
 ]
 
 { #category : #accessing }
@@ -129,6 +129,16 @@ personas := yetAnotherArray asOrderedCollection
 { #category : #accessing }
 MyProject >> printOn: aStream [
 	aStream nextPutAll: title
+]
+
+{ #category : #accessing }
+MyProject >> teamMember [
+^teamMembers
+]
+
+{ #category : #accessing }
+MyProject >> teamMembers [
+^teamMembers
 ]
 
 { #category : #accessing }
