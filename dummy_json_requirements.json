@@ -51,20 +51,16 @@
                 "color": "blue"
               }
             ],
-            "checklist": [
+            "tasks": [
               {
-                "tasks": [
+                "id": "1",
+                "description": "Add more to button",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
                   {
-                    "id": "1",
-                    "description": "Add more to button",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
                   }
                 ]
               }
@@ -110,22 +106,18 @@
                 "color": "blue"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -164,22 +156,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -225,22 +213,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -279,22 +263,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -340,22 +320,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -394,22 +370,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -448,22 +420,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -502,22 +470,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -556,22 +520,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -610,22 +570,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -664,22 +620,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -725,22 +677,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -779,22 +727,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -840,22 +784,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -894,22 +834,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -948,22 +884,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -1002,22 +934,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -1063,22 +991,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -1117,22 +1041,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -1171,22 +1091,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -1225,22 +1141,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -1279,22 +1191,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -1333,22 +1241,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -1387,22 +1291,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -1441,22 +1341,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -1495,22 +1391,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -1549,22 +1441,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -1632,22 +1520,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -1686,22 +1570,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -1747,22 +1627,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -1800,22 +1676,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -1854,22 +1726,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -1915,22 +1783,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -1969,22 +1833,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -2052,22 +1912,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -2106,22 +1962,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -2160,22 +2012,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -2214,22 +2062,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -2275,22 +2119,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -2329,22 +2169,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -2383,22 +2219,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -2444,22 +2276,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -2498,22 +2326,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -2552,22 +2376,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
@@ -2606,22 +2426,18 @@
                 "color": "yellow"
               }
             ],
-            "checklist": [
-              {
-                "tasks": [
+            "tasks": [
                 {
-                  "id": "1",
-                    "description": "Sample",
-                    "done": "false",
-                    "end": "01.08.2021",
-                    "assignees": [
-                      {
-                        "name": "Melina Meyer",
-                        "shorthand": "MM"
-                      }
-                    ]
-                }
-              ]
+                "id": "1",
+                "description": "Sample",
+                "done": "false",
+                "end": "01.08.2021",
+                "assignees": [
+                  {
+                    "name": "Melina Meyer",
+                    "shorthand": "MM"
+                  }
+                ]
               }
             ],
             "notes": [
