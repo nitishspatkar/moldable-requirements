@@ -84,7 +84,7 @@ MyTeamMembers >> asShorthandCircle [
 		size: 20@20;
 		geometry: (BlCircle new);
 		background: Color palePeach;
-		margin: (BlInsets top: 0 left: 0 bottom: 20 right: 10);
+		margin: (BlInsets right: 10);
 		action: [:button | button phlow spawnObject: self];
 		addChild: (BrLabel new
 				look: BrGlamorousLabelLook;

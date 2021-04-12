@@ -123,6 +123,11 @@ MyProject >> id: aString [
 ]
 
 { #category : #accessing }
+MyProject >> personas [
+^personas
+]
+
+{ #category : #accessing }
 MyProject >> personas: yetAnotherArray [ 
 personas := yetAnotherArray asOrderedCollection
 ]

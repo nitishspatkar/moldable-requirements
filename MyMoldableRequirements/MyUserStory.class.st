@@ -76,6 +76,17 @@ MyUserStory >> aButtonCircularLook [
 ]
 
 { #category : #accessing }
+MyUserStory >> aWithAllPersonasDropdownLook [
+"returns a dropdown of all personas"
+
+	^ BrGlamorousWithDropdownLook
+		handle: [ BrButton new
+				look: BrGlamorousButtonRectangularLook + BrGlamorousButtonIconLook;
+				icon: BrGlamorousIcons add ]
+		content: [ self personaListForDropdown  ]
+]
+
+{ #category : #accessing }
 MyUserStory >> aWithAllStatiDropdownLook [
 	"returns a dropdown of all stati"
 
@@ -109,7 +120,7 @@ MyUserStory >> aWithAllTeamMembersDropdownLook [
 		handle: [ BrButton new
 				look: BrGlamorousButtonRectangularLook + BrGlamorousButtonIconLook;
 				icon: BrGlamorousIcons add ]
-		content: [ self teamMembersList ]
+		content: [ self teamMembersListForDropdown ]
 ]
 
 { #category : #accessing }
@@ -228,16 +239,8 @@ MyUserStory >> asDetailedStoryCard [
 				assigned addChild: each asShorthandCircle].
 	card addChild: assigned.
 
-	"Persona"
-	card
-		addChild:
-			(BrLabel new
-				text: 'Persona:';
-				look: BrGlamorousLabelLook;
-				beLargeSize;
-				constraintsDo: [ :c | 
-					c horizontal matchParent.
-					c vertical fitContent ]).
+	"personas"
+	card addChild: self personaLabelAndDropdown.
 	personas collect: [ :each | card addChild: each asListElement ].
 	^ card
 ]
@@ -384,8 +387,7 @@ MyUserStory >> asUserStoryEditable [
 
 { #category : #accessing }
 MyUserStory >> assigneeLabelAndDropdown [
-| assignee |
-	^ assignee := BlElement new
+^BlElement new
 		layout: BlLinearLayout horizontal;
 		constraintsDo: [ :c | 
 			c horizontal matchParent.
@@ -493,6 +495,11 @@ MyUserStory >> epic [
 { #category : #accessing }
 MyUserStory >> epic: anEpic [
 epic := anEpic
+]
+
+{ #category : #accessing }
+MyUserStory >> getPersonas [
+^ self epic project personas
 ]
 
 { #category : #accessing }
@@ -696,6 +703,47 @@ MyUserStory >> parseStory [
 ]
 
 { #category : #accessing }
+MyUserStory >> personaLabelAndDropdown [
+^BlElement new
+		layout: BlLinearLayout horizontal;
+		constraintsDo: [ :c | 
+			c horizontal matchParent.
+			c vertical fitContent ];
+		addChild:
+			(BrLabel new
+				look: BrGlamorousLabelLook;
+				beLargeSize;
+				margin: (BlInsets top: 20 left: 0 bottom: 5 right: 20);
+				text: 'Personas:';
+				yourself);
+		addChild:
+			(BrButton new
+				label: 'Add a Persona';
+				look: BrGlamorousButtonWithIconLook + self aWithAllPersonasDropdownLook;
+				icon: BrGlamorousVectorIcons add;
+				margin: (BlInsets top: 20 left: 0 bottom: 5 right: 0);
+				beTinySize;
+				yourself).
+]
+
+{ #category : #accessing }
+MyUserStory >> personaListForDropdown [
+| dropdown |
+dropdown := BlElement new
+				layout: BlLinearLayout vertical;
+				constraintsDo: [ :c | 
+					c vertical fitContent.
+					c horizontal fitContent ];
+				padding: (BlInsets all: 5).
+			(self getPersonas) collect: [:person | dropdown addChild: (BrButton new
+				look: BrGlamorousLabelLook;
+				label: person name;
+				action: [ (personas includes: person) ifFalse:[personas add: person. announcer announce: MyUserStoryStatusChange] ];
+				yourself). ].
+			^dropdown
+]
+
+{ #category : #accessing }
 MyUserStory >> personas [
 ^personas
 ]
@@ -806,7 +854,7 @@ tasks := anObject
 ]
 
 { #category : #accessing }
-MyUserStory >> teamMembersList [
+MyUserStory >> teamMembersListForDropdown [
 | dropdown |
 dropdown := BlElement new
 				layout: BlLinearLayout vertical;
