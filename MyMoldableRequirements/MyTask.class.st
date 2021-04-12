@@ -120,10 +120,11 @@ MyTask >> getTaskDescription: aTask [
 					taskDescription
 						addChild: checkbox;
 						addChild:
-							(BrLabel new
-								text: aTask description;
+							(BrButton new
+								label: aTask description;
 								look: BrGlamorousLabelLook;
 								beNormalSize;
+								action: [:button | button phlow spawnObject: aTask];
 								constraintsDo: [ :c | 
 									c horizontal matchParent.
 									c vertical fitContent ]).
@@ -133,4 +134,9 @@ MyTask >> getTaskDescription: aTask [
 { #category : #accessing }
 MyTask >> id: aNumber [ 
 is := aNumber
+]
+
+{ #category : #accessing }
+MyTask >> printOn: aStream [
+	aStream nextPutAll: description
 ]

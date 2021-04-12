@@ -73,3 +73,8 @@ MyLabel >> gtCircleViewFor: aView [
 MyLabel >> id: aNumber [ 
 id := aNumber
 ]
+
+{ #category : #accessing }
+MyLabel >> printOn: aStream [
+	aStream nextPutAll: description
+]

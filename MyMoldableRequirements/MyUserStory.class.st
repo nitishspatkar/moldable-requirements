@@ -49,24 +49,6 @@ MyUserStory class >> fromRawData: userStoryDict [
 ]
 
 { #category : #accessing }
-MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 acceptanceCriteria: aString4 status: anotherString points: aNumber scenarios: anArray personas: anArray2 assignees: anotherArray checklist: yetAnotherArray notes: lastArray [
-	^ self new
-		id: aString;
-		role: aString1;
-		means: aString2;
-		benefit: aString3;
-		acceptanceCriteria: aString4;
-		status: anotherString;
-		points: aNumber;
-		scenarios: anArray asOrderedCollection;
-		personas: anArray2 asOrderedCollection;
-		assignees: anotherArray asOrderedCollection;
-		checklist: yetAnotherArray asOrderedCollection;
-		notes: lastArray asOrderedCollection
-		yourself
-]
-
-{ #category : #accessing }
 MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 acceptanceCriteria: aString4 status: anotherString points: aNumber scenarios: anArray personas: anArray2 assignees: anotherArray labels: anotherArray2 checklist: yetAnotherArray notes: lastArray [
 	^ self new
 		id: aString;
@@ -465,6 +447,11 @@ MyUserStory >> description: aString [
 ]
 
 { #category : #accessing }
+MyUserStory >> epic [
+^epic
+]
+
+{ #category : #accessing }
 MyUserStory >> epic: anEpic [
 epic := anEpic
 ]
@@ -698,7 +685,7 @@ MyUserStory >> role: aString [
 
 { #category : #accessing }
 MyUserStory >> scenarios: anArray [
-	scenarios := anArray do: [ :each | each userStory: self]
+	scenarios := anArray do: [ :each | each notNil ifTrue: [each userStory: self]]
 ]
 
 { #category : #accessing }

@@ -103,3 +103,8 @@ id := aNumber
 MyNotes >> notes: aString [
 note := aString 
 ]
+
+{ #category : #accessing }
+MyNotes >> printOn: aStream [
+	aStream nextPutAll: note
+]

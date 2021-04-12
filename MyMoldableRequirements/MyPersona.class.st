@@ -145,3 +145,8 @@ MyPersona >> name [
 MyPersona >> name: aString [
 name := aString 
 ]
+
+{ #category : #accessing }
+MyPersona >> printOn: aStream [
+	aStream nextPutAll: name
+]

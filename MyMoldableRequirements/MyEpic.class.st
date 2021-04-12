@@ -89,11 +89,16 @@ MyEpic >> gtUserStoriesFor: aView [
 				role: ''
 				means: ''
 				benefit: ''
+				acceptanceCriteria: ''
 				status: ''
 				points: nil
-				scenarios: nil
-				assignees: nil
-				checklist: nil.
+				scenarios: OrderedCollection new
+				personas: OrderedCollection new
+				assignees: OrderedCollection new
+				labels: OrderedCollection new
+				checklist: OrderedCollection new
+				notes: OrderedCollection new.
+			story epic: self.
 			story asFormElement: [ userStories add: story ] ]
 ]
 
@@ -187,5 +192,7 @@ MyEpic >> userStories [
 
 { #category : #accessing }
 MyEpic >> userStories: anArray [
-	userStories := anArray do: [ :each | each epic: self]
+	
+	userStories := anArray do: [ :each | each notNil ifTrue: [each epic: self]]
+		
 ]

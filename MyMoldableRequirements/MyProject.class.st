@@ -53,7 +53,8 @@ MyProject >> gtEpicsFor: aView [
 				id: nil
 				title: ''
 				description: ''
-				userStories: [  ].
+				userStories:OrderedCollection new.
+			epic project: self.
 			epic asFormElement: [ epics add: epic ] ]
 ]
 

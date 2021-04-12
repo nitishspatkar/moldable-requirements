@@ -84,15 +84,21 @@ MyTeamMembers >> asShorthandCircle [
 		size: 20@20;
 		geometry: (BlCircle new);
 		background: Color palePeach;
-		margin: (BlInsets all: 10);
-		action: [self inspect];
+		margin: (BlInsets top: 0 left: 0 bottom: 20 right: 10);
+		action: [:button | button phlow spawnObject: self];
 		addChild: (BrLabel new
 				look: BrGlamorousLabelLook;
 				beLargeSize;
 				alignCenter;
 				text: shorthand;
 				beTinySize;
-				yourself)
+				yourself);
+		look: BrShadowLook;
+		constraintsDo: [ :c | 
+					c horizontal fitContent.
+					c vertical fitContent ];
+		padding: (BlInsets all: 5);
+		yourself 
 ]
 
 { #category : #accessing }
@@ -101,13 +107,7 @@ MyTeamMembers >> gtCircleViewFor: aView [
 	^aView explicit
 		title: 'Shorthand View';
 		priority: 1;
-		stencil: [ self asShorthandCircle
-				look: BrShadowLook;
-				constraintsDo: [ :c | 
-					c horizontal fitContent.
-					c vertical fitContent ];
-				padding: (BlInsets all: 5);
-				yourself ]
+		stencil: [ self asShorthandCircle]
 ]
 
 { #category : #accessing }
@@ -118,6 +118,11 @@ MyTeamMembers >> name [
 { #category : #accessing }
 MyTeamMembers >> name: aString [ 
 name := aString
+]
+
+{ #category : #accessing }
+MyTeamMembers >> printOn: aStream [
+	aStream nextPutAll: name
 ]
 
 { #category : #accessing }
