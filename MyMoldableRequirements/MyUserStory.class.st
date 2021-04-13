@@ -627,6 +627,7 @@ MyUserStory >> gtDetailedStoryCardFor: aView [
 	^ aView explicit
 		title: 'Story card';
 		priority: 0;
+		updateWhen: MyUserStoryStatusChange in: [ announcer ];
 		stencil: [ self asDetailedStoryCard
 				aptitude: BrShadowAptitude;
 				background: Color white;

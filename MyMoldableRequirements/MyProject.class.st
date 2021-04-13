@@ -174,11 +174,6 @@ MyProject >> printOn: aStream [
 ]
 
 { #category : #accessing }
-MyProject >> teamMember [
-^teamMembers
-]
-
-{ #category : #accessing }
 MyProject >> teamMembers [
 ^teamMembers
 ]
