@@ -89,9 +89,8 @@ MyProject >> gtLabelsFor: aView [
 MyProject >> gtParseJSONExample [
 	<gtExample>
 	| rawData projectsDictionaries |
-	rawData := FileLocator imageDirectory asFileReference
-		/
-			'pharo-local/iceberg/nitishspatkar/GT-hands-on/dummy_json_requirements.json'.
+		
+	rawData := GtResourcesUtility uniqueInstance resourceAtPath: 'nitishspatkar/moldable-requirements/dummy_json_requirements.json'.
 	projectsDictionaries := STONJSON fromString: rawData.
 	^ projectsDictionaries
 		collect: [ :projectDict | MyProject fromRawData: projectDict ]

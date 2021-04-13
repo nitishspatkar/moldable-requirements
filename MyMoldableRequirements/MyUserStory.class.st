@@ -224,7 +224,7 @@ MyUserStory >> asDetailedStoryCard [
 
 	"checklist"
 	task := BlElement new
-		layout: BlLinearLayout vertical;
+		layout: BlLinearLayout vertical alignCenterLeft;
 		constraintsDo: [ :c | 
 			c horizontal matchParent.
 			c vertical fitContent ].
