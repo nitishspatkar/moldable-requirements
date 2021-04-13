@@ -6,7 +6,8 @@ Class {
 		'description',
 		'done',
 		'end',
-		'assignees'
+		'assignees',
+		'userStory'
 	],
 	#category : #MyMoldableRequirements
 }
@@ -62,7 +63,7 @@ MyTask >> asFormElement: aBlock [
 				icon: BrGlamorousVectorIcons accept;
 				beSmallSize;
 				label: 'Save';
-				action: [ description := textElementDescription document text asString.
+				action: [ description := textElementDescription document text asString. (self userStory announcer) announce: MyUserStoryStatusChange.
 					"The following line means that when we click the save button, the arguement i.e., aBlock is evaluated"
 					aBlock value ];
 				yourself);
@@ -139,4 +140,14 @@ is := aNumber
 { #category : #accessing }
 MyTask >> printOn: aStream [
 	aStream nextPutAll: description
+]
+
+{ #category : #accessing }
+MyTask >> userStory [
+^userStory
+]
+
+{ #category : #accessing }
+MyTask >> userStory: aStory [
+userStory := aStory
 ]

@@ -140,6 +140,7 @@ MyUserStory >> addNoteDropdownLook [
 				id: nil
 				note: ''
 				author: ''.
+				note userStory: self.
 			note asFormElement: [ notes add: note ]]
 ]
 
@@ -157,6 +158,7 @@ MyUserStory >> addTaskDropdownLook [
 				done: 'false'
 				end: '01.01.2021'
 				assignees: OrderedCollection new.
+				task userStory: self.
 			task asFormElement: [ tasks add: task ]].
 ]
 
@@ -164,6 +166,11 @@ MyUserStory >> addTaskDropdownLook [
 MyUserStory >> allStati [
 "returns an orderedCollection of stati"
  ^ #('not-started' 'in-progress' 'done')
+]
+
+{ #category : #accessing }
+MyUserStory >> announcer [
+^announcer
 ]
 
 { #category : #accessing }
@@ -434,13 +441,13 @@ MyUserStory >> benefit: aString [
 
 { #category : #accessing }
 MyUserStory >> checklistContainerWithDropdown [
-| notesContainer |
-	notesContainer := BlElement new
+| checklistContainer |
+	checklistContainer := BlElement new
 						layout: BlLinearLayout horizontal;
 						constraintsDo: [ :c | 
 									c horizontal matchParent.
 									c vertical fitContent ].
-	^ notesContainer addChild: (BrLabel new
+	^ checklistContainer addChild: (BrLabel new
 						text: 'Checklist:';
 						look: BrGlamorousLabelLook;
 						margin: (BlInsets top: 20 left: 0 bottom: 5 right: 20);
@@ -678,7 +685,7 @@ MyUserStory >> notes [
 
 { #category : #accessing }
 MyUserStory >> notes: anArray [
-notes := anArray 
+notes := anArray do: [ :each | each notNil ifTrue: [each userStory: self]]
 ]
 
 { #category : #accessing }
@@ -856,8 +863,8 @@ MyUserStory >> subItems [
 ]
 
 { #category : #accessing }
-MyUserStory >> tasks: anObject [ 
-tasks := anObject
+MyUserStory >> tasks: anArray [
+tasks := anArray do: [ :each | each notNil ifTrue: [each userStory: self]]
 ]
 
 { #category : #accessing }

@@ -4,7 +4,8 @@ Class {
 	#instVars : [
 		'note',
 		'author',
-		'id'
+		'id',
+		'userStory'
 	],
 	#category : #MyMoldableRequirements
 }
@@ -73,6 +74,7 @@ MyNotes >> asFormElement: aBlock [
 				note := textElementDescription document text asString.
 				author := authorElementDescription document text asString.
 				self assert:[author notEmpty].
+				(self userStory announcer) announce: MyUserStoryStatusChange.
 					"The following line means that when we click the save button, the arguement i.e., aBlock is evaluated"
 					aBlock value ];
 				yourself);
@@ -107,4 +109,14 @@ note := aString
 { #category : #accessing }
 MyNotes >> printOn: aStream [
 	aStream nextPutAll: note
+]
+
+{ #category : #accessing }
+MyNotes >> userStory [
+^userStory
+]
+
+{ #category : #accessing }
+MyNotes >> userStory: aStory [
+userStory := aStory
 ]
