@@ -1471,6 +1471,18 @@
         "name": "Joe",
         "description": "Sample description"
       }
+    ],
+    "labels": [
+      {
+        "id": "1",
+        "description": "Feature",
+        "color": "yellow"
+      },
+      {
+        "id": "2",
+        "description": "to-be-discussed",
+        "color": "blue"
+      }
     ]
   },
   {
@@ -1862,6 +1874,18 @@
       {
         "name": "Joe",
         "description": "Sample description"
+      }
+    ],
+    "labels": [
+      {
+        "id": "1",
+        "description": "Feature",
+        "color": "yellow"
+      },
+      {
+        "id": "2",
+        "description": "to-be-discussed",
+        "color": "blue"
       }
     ]
   },
@@ -2455,6 +2479,18 @@
       {
         "name": "Joe",
         "description": "Sample description"
+      }
+    ],
+    "labels": [
+      {
+        "id": "1",
+        "description": "Feature",
+        "color": "yellow"
+      },
+      {
+        "id": "2",
+        "description": "to-be-discussed",
+        "color": "blue"
       }
     ]
   }
