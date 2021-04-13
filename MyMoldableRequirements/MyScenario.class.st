@@ -11,7 +11,7 @@ Class {
 		'simpleExampleText',
 		'userStory'
 	],
-	#category : #MyMoldableRequirements
+	#category : #'MyMoldableRequirements-Models'
 }
 
 { #category : #accessing }

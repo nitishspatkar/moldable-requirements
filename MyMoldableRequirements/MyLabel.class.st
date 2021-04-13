@@ -6,7 +6,7 @@ Class {
 		'description',
 		'color'
 	],
-	#category : #MyMoldableRequirements
+	#category : #'MyMoldableRequirements-Models'
 }
 
 { #category : #accessing }

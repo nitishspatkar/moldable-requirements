@@ -10,7 +10,7 @@ Class {
 		'project',
 		'announcer'
 	],
-	#category : #MyMoldableRequirements
+	#category : #'MyMoldableRequirements-Models'
 }
 
 { #category : #accessing }
@@ -120,15 +120,22 @@ MyEpic >> gtViewMindMapStoryTree: aView [
 	^ aView mondrian
 		title: 'Tree' translated;
 			priority: 1;
-			updateWhen: MyUserStoryStatusChange in: [announcer];
+			updateWhen: MyUserStoryStatusChange in: [ announcer ];
 			painting: [ :view |
 				view nodes 
-					stencil: [ :x | 
-						BlElement new 
+					stencil: [ :eachUserStoryAndEpic | 
+						| aUserStoryElement |
+						aUserStoryElement := BlElement new 
 							border: (BlBorder paint: Color black width: 0.5);
-							background: x statusColor;
-							geometry: BlEllipse new;
-							size: (20)@(20)];
+							background: eachUserStoryAndEpic statusColor;
+							geometry: BlEllipseGeometry new;
+							size: (20)@(20).
+
+						eachUserStoryAndEpic announcer 
+							when: MyUserStoryStatusChange
+							do: [ aUserStoryElement background: eachUserStoryAndEpic statusColor ].
+
+						aUserStoryElement ];
 					with: (self requirements).
 					view edges connectFrom: [ :x | x ] toAll: [ :x | x subItems ];
 		shape: [ :x | 
@@ -146,6 +153,16 @@ MyEpic >> id: aString [
 MyEpic >> initialize [
 	super initialize.
 	announcer := Announcer new.
+]
+
+{ #category : #testing }
+MyEpic >> isFinished [
+	^ userStories allSatisfy: [ :eachUserStory | eachUserStory isDone ]
+]
+
+{ #category : #testing }
+MyEpic >> isInProgress [
+	^ userStories anySatisfy: [ :eachUserStory | eachUserStory isInProgress ]
 ]
 
 { #category : #accessing }
@@ -173,24 +190,14 @@ MyEpic >> requirements [
 ]
 
 { #category : #accessing }
-MyEpic >> statusColor [
-	| countNot countDoing countDone |
-	countNot := 0.
-	countDoing := 0.
-	countDone := 0.
-	userStories
-		collect: [ :each | 
-			each status = 'not-started'
-				ifTrue: [ countNot := countNot + 1 ].
-			each status = 'in-progress'
-				ifTrue: [ countDoing := countDoing + 1 ].
-			each status = 'done'
-				ifTrue: [ countDone := countDone + 1 ] ].
-	countDoing ~= 0
-		ifTrue: [ ^Color lightYellow ]
-		ifFalse: [ countNot ~= 0
-				ifTrue: [ ^Color lightRed ]
-				ifFalse: [^Color lightGreen ] ]
+MyEpic >> statusColor [	
+	self isFinished
+		ifTrue: [ ^ Color lightGreen ].
+		
+	self isInProgress
+		ifTrue: [ ^ Color lightYellow ].
+		
+	^ Color lightRed
 ]
 
 { #category : #accessing }

@@ -9,7 +9,7 @@ Class {
 		'assignees',
 		'userStory'
 	],
-	#category : #MyMoldableRequirements
+	#category : #'MyMoldableRequirements-Models'
 }
 
 { #category : #accessing }

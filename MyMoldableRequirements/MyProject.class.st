@@ -9,7 +9,7 @@ Class {
 		'personas',
 		'labels'
 	],
-	#category : #MyMoldableRequirements
+	#category : #'MyMoldableRequirements-Models'
 }
 
 { #category : #accessing }

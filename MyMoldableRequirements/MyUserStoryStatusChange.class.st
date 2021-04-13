@@ -1,5 +1,5 @@
 Class {
 	#name : #MyUserStoryStatusChange,
 	#superclass : #Announcement,
-	#category : #MyMoldableRequirements
+	#category : #'MyMoldableRequirements-Events'
 }

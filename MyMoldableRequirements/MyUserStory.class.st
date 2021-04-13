@@ -20,7 +20,7 @@ Class {
 		'announcer',
 		'tasks'
 	],
-	#category : #MyMoldableRequirements
+	#category : #'MyMoldableRequirements-Models'
 }
 
 { #category : #accessing }
@@ -31,7 +31,7 @@ MyUserStory class >> fromRawData: userStoryDict [
 		means: (userStoryDict at: #means)
 		benefit: (userStoryDict at: #benefit)
 		acceptanceCriteria: (userStoryDict at: #acceptanceCriteria)
-		status: (userStoryDict at: #status)
+		status: (MyUserStatus fromString: (userStoryDict at: #status))
 		points: (userStoryDict at: #points)
 		scenarios:
 			((userStoryDict at: #scenarios)
@@ -101,26 +101,29 @@ MyUserStory >> aWithAllPersonasDropdownAptitude [
 MyUserStory >> aWithAllStatiDropdownAptitude [
 	"returns a dropdown of all stati"
 
-	| statusButton |
 	^ BrGlamorousWithDropdownAptitude
 		handle: [ BrButton new
 				size: 20@20;
 				geometry: (BlRoundedRectangleGeometry cornerRadius: 10);
 				aptitude: self aButtonCircularAptitude create;
 				icon: BrGlamorousIcons menu ]
-		content: [ BrSimpleList new
-				itemStencil: [ statusButton := BrButton new
-						aptitude:
-							BrGlamorousLabelAptitude new
-								+
-									(BrStyleCommonAptitude new
-										selected: [ :aStyle | aStyle background: Color veryVeryLightGray ]);
+		content: [
+			BrSimpleList new
+				itemStencil: [
+					BrButton new
+						aptitude: BrGlamorousLabelAptitude new
+								+ (BrStyleCommonAptitude new selected: [ :aStyle | aStyle background: Color veryVeryLightGray ]);
 						padding: (BlInsets all: 5);
-						action: [:eachElement | self status:eachElement label asString. announcer announce: MyUserStoryStatusChange]];
-				itemDataBinder: [ :eachElement :eachStatus :eachIndex |
-				(eachStatus = self status) ifTrue: [eachElement label: '> ', eachStatus]
-				ifFalse: [eachElement label: eachStatus] ];
-				items: (self allStati collect: [ :stati | stati ]) ]
+						action: [ :aButton |
+							self status: aButton model.
+							aButton fireEvent: BrDropdownHideWish new ] ];
+				itemDataBinder: [ :eachButton :eachStatus |
+					(eachStatus = self status)
+						ifTrue: [ eachButton label: '> ', eachStatus label ]
+						ifFalse: [ eachButton label: eachStatus label ].
+						
+					eachButton model: eachStatus ];
+				items: self allStati ]
 ]
 
 { #category : #accessing }
@@ -175,8 +178,9 @@ MyUserStory >> addTaskDropdownAptitude [
 
 { #category : #accessing }
 MyUserStory >> allStati [
-"returns an orderedCollection of stati"
- ^ #('not-started' 'in-progress' 'done')
+	"returns an orderedCollection of stati"
+	
+	^ MyUserStatus allSubclasses collect: [ :eachStatusClass | eachStatusClass new ]
 ]
 
 { #category : #accessing }
@@ -184,11 +188,11 @@ MyUserStory >> announcer [
 ^announcer
 ]
 
-{ #category : #accessing }
+{ #category : #'private - instance creation' }
 MyUserStory >> asDetailedStoryCard [
 	"Returns a bloc element that renders a card"
-
 	| task taskDescription containerLeft checkbox newTask checkList statusElement notesContainer containerRight card assigned |
+
 	card := BlElement new
 		layout: BlLinearLayout vertical;
 		margin: (BlInsets all: 20);
@@ -602,7 +606,7 @@ MyUserStory >> getTeamMembers [
 ^epic project teamMembers
 ]
 
-{ #category : #accessing }
+{ #category : #'gt-extensions' }
 MyUserStory >> gtDescriptionFor: aView [
 	<gtView>
 	| document |
@@ -618,13 +622,12 @@ MyUserStory >> gtDescriptionFor: aView [
 			priority: 1
 ]
 
-{ #category : #accessing }
+{ #category : #'gt-extensions' }
 MyUserStory >> gtDetailedStoryCardFor: aView [
 	<gtView>
 	^ aView explicit
 		title: 'Story card';
 		priority: 0;
-		updateWhen: MyUserStoryStatusChange in: [announcer];
 		stencil: [ self asDetailedStoryCard
 				aptitude: BrShadowAptitude;
 				background: Color white;
@@ -635,7 +638,7 @@ MyUserStory >> gtDetailedStoryCardFor: aView [
 				yourself ]
 ]
 
-{ #category : #accessing }
+{ #category : #'gt-extensions' }
 MyUserStory >> gtMinimalStoryCardFor: aView [
 	<gtView>
 	^ aView explicit
@@ -651,7 +654,7 @@ MyUserStory >> gtMinimalStoryCardFor: aView [
 				yourself ]
 ]
 
-{ #category : #accessing }
+{ #category : #'gt-extensions' }
 MyUserStory >> gtReferencedEntitiesFor: aView [
 	<gtView>
 	| listView |
@@ -673,7 +676,7 @@ MyUserStory >> gtReferencedEntitiesFor: aView [
 	^ listView
 ]
 
-{ #category : #accessing }
+{ #category : #'gt-extensions' }
 MyUserStory >> gtScenariosFor: aView [
 	<gtView>
 	| scenario |
@@ -709,10 +712,21 @@ MyUserStory >> id: aString [
 	id := aString
 ]
 
-{ #category : #accessing }
+{ #category : #initialization }
 MyUserStory >> initialize [
 	super initialize.
+
 	announcer :=  Announcer new.
+]
+
+{ #category : #testing }
+MyUserStory >> isDone [
+	^ self status isDone
+]
+
+{ #category : #testing }
+MyUserStory >> isInProgress [
+	^ self status isInProgress
 ]
 
 { #category : #accessing }
@@ -886,18 +900,23 @@ MyUserStory >> status [
 ]
 
 { #category : #accessing }
-MyUserStory >> status: anotherString [
-	status := anotherString.
+MyUserStory >> status: myUserStatus [
+	self
+		assert: [ myUserStatus isKindOf: MyUserStatus ]
+		description: [ 'User status must be a domain object' ].
+
+	status = myUserStatus
+		ifTrue: [ ^ self ].
+
+	status := myUserStatus.
+	
+	epic ifNotNil: [ :anEpic | anEpic announcer announce: (MyUserStoryStatusChange new) ].
+	self announcer announce: (MyUserStoryStatusChange new)
 ]
 
 { #category : #accessing }
 MyUserStory >> statusColor [
-	status = 'not-started'
-		ifTrue: [ ^ Color lightRed ].
-	status = 'in-progress'
-		ifTrue: [ ^ Color lightYellow ].
-	status = 'done'
-		ifTrue: [ ^ Color lightGreen ]
+	^ status statusColor
 ]
 
 { #category : #accessing }
@@ -921,10 +940,11 @@ MyUserStory >> statusForDetailedCard [
 				yourself.
 ]
 
-{ #category : #accessing }
+{ #category : #'private - instance creation' }
 MyUserStory >> statusLabelAndDropdown [
-| statusElement |
-	^ statusElement := BlElement new
+	| statusElement |
+
+	statusElement := BlElement new
 		layout: BlLinearLayout horizontal;
 		margin: (BlInsets bottom: 20);
 		constraintsDo: [ :c | 
@@ -937,6 +957,7 @@ MyUserStory >> statusLabelAndDropdown [
 				margin: (BlInsets right: 10);
 				text: 'Status:';
 				yourself);
+		addChild: (MyUserStoryStatusButton new userStory: self; exact: 30@30);
 		addChild:
 			(BrButton new
 				size: 20 @ 20;
@@ -944,6 +965,10 @@ MyUserStory >> statusLabelAndDropdown [
 				label: 'status';
 				aptitude: self aButtonCircularAptitude create + self aWithAllStatiDropdownAptitude;
 				yourself).
+	
+	self announcer when: MyUserStoryStatusChange do: [ statusElement  ].	
+			
+	^ statusElement
 ]
 
 { #category : #accessing }

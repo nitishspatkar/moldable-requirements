@@ -5,7 +5,7 @@ Class {
 		'name',
 		'shorthand'
 	],
-	#category : #MyMoldableRequirements
+	#category : #'MyMoldableRequirements-Models'
 }
 
 { #category : #accessing }
