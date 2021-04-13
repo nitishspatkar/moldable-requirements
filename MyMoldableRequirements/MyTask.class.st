@@ -53,13 +53,13 @@ MyTask >> asFormElement: aBlock [
 			c horizontal exact: 300 ];
 		addChild:
 			(BrLabel new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				text: 'Task:';
 				beNormalSize);
 		addChild: textElementDescription;
 		addChild:
 			(BrButton new
-				look: BrGlamorousButtonWithIconLook;
+				aptitude: BrGlamorousButtonWithIconAptitude;
 				icon: BrGlamorousVectorIcons accept;
 				beSmallSize;
 				label: 'Save';
@@ -111,7 +111,7 @@ MyTask >> getTaskDescription: aTask [
 							c horizontal matchParent.
 							c vertical fitContent ].
 					checkbox := BrCheckbox new
-						look: BrGlamorousCheckboxLook;
+						aptitude: BrGlamorousCheckboxAptitude;
 						margin: (BlInsets right: 10);
 						whenCheckedDo: [ aTask done: 'true' ];
 						whenUncheckedDo: [ aTask done: 'false' ].
@@ -123,7 +123,7 @@ MyTask >> getTaskDescription: aTask [
 						addChild:
 							(BrButton new
 								label: aTask description;
-								look: BrGlamorousLabelLook;
+								aptitude: BrGlamorousLabelAptitude;
 								beNormalSize;
 								action: [:button | button phlow spawnObject: aTask];
 								constraintsDo: [ :c | 

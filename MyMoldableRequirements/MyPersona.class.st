@@ -50,21 +50,21 @@ MyPersona >> asFormElement: aBlock [
 		padding: (BlInsets all: 5);
 		addChild:
 			(BrLabel new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				beLargeSize;
 				text: 'Name:';
 				yourself);
 		addChild: nameElementDescription;
 		addChild:
 			(BrLabel new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				beLargeSize;
 				text: 'Description:';
 				yourself);
 		addChild: textElementDescription;
 		addChild:
 			(BrButton new
-				look: BrGlamorousButtonWithIconLook;
+				aptitude: BrGlamorousButtonWithIconAptitude;
 				icon: BrGlamorousVectorIcons accept;
 				label: 'Save';
 				action: [ name := nameElementDescription document text asString.
@@ -81,7 +81,7 @@ MyPersona >> asFormElement: aBlock [
 MyPersona >> asListElement [
 ^BrButton new
 	label: name;
-	look: BrGlamorousLabelLook;
+	aptitude: BrGlamorousLabelAptitude;
 	beNormalSize;
 	constraintsDo: [ :c | 
 			c horizontal matchParent.
@@ -96,14 +96,14 @@ MyPersona >> asPersonaCard [
 		geometry: (BlRoundedRectangleGeometry cornerRadius: 10);
 		margin: (BlInsets all: 10);
 		addChild: (BrLabel new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				beLargeSize;
 				text: name;
 				beHugeSize;
 				yourself);
 		addChild:
 			(BrEditableLabel new
-				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
+				aptitude: BrGlamorousEditableLabelAptitude new glamorousRegularFontAndSize;
 				text: description;
 				when: BrEditorAcceptWish do: [ :aWish | description := aWish text ];
 				yourself);
@@ -127,7 +127,7 @@ MyPersona >> gtPersonaFor: aView [
 		title: 'Persona';
 		priority: 1;
 		stencil: [ self asPersonaCard
-				look: BrShadowLook;
+				aptitude: BrShadowAptitude;
 				background: Color white;
 				constraintsDo: [ :c | 
 					c horizontal fitContent.

@@ -68,52 +68,52 @@ MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString
 ]
 
 { #category : #accessing }
-MyUserStory >> aButtonCircularLook [
-"returns with aWithAllStatiDropdownLook a circular button look for the status"
-^ [BrInteractiveCommonLook new
+MyUserStory >> aButtonCircularAptitude [
+"returns with aWithAllStatiDropdownAptitude a circular button aptitude for the status"
+^ [BrInteractiveCommonAptitude new
 							default: [:e | e
 								background: self statusColor]] asStencil.
 ]
 
 { #category : #accessing }
-MyUserStory >> aWithAllLabelsDropdownLook [
+MyUserStory >> aWithAllLabelsDropdownAptitude [
 "returns a dropdown of all labels"
 
-	^ BrGlamorousWithDropdownLook
+	^ BrGlamorousWithDropdownAptitude
 		handle: [ BrButton new
-				look: BrGlamorousButtonRectangularLook + BrGlamorousButtonIconLook;
+				aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousButtonIconAptitude;
 				icon: BrGlamorousIcons add ]
 		content: [ self labelListForDropdown  ]
 ]
 
 { #category : #accessing }
-MyUserStory >> aWithAllPersonasDropdownLook [
+MyUserStory >> aWithAllPersonasDropdownAptitude [
 "returns a dropdown of all personas"
 
-	^ BrGlamorousWithDropdownLook
+	^ BrGlamorousWithDropdownAptitude
 		handle: [ BrButton new
-				look: BrGlamorousButtonRectangularLook + BrGlamorousButtonIconLook;
+				aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousButtonIconAptitude;
 				icon: BrGlamorousIcons add ]
 		content: [ self personaListForDropdown  ]
 ]
 
 { #category : #accessing }
-MyUserStory >> aWithAllStatiDropdownLook [
+MyUserStory >> aWithAllStatiDropdownAptitude [
 	"returns a dropdown of all stati"
 
 	| statusButton |
-	^ BrGlamorousWithDropdownLook
+	^ BrGlamorousWithDropdownAptitude
 		handle: [ BrButton new
 				size: 20@20;
 				geometry: (BlRoundedRectangleGeometry cornerRadius: 10);
-				look: self aButtonCircularLook create;
+				aptitude: self aButtonCircularAptitude create;
 				icon: BrGlamorousIcons menu ]
 		content: [ BrSimpleList new
 				itemStencil: [ statusButton := BrButton new
-						look:
-							BrGlamorousLabelLook new
+						aptitude:
+							BrGlamorousLabelAptitude new
 								+
-									(BrStyleCommonLook new
+									(BrStyleCommonAptitude new
 										selected: [ :aStyle | aStyle background: Color veryVeryLightGray ]);
 						padding: (BlInsets all: 5);
 						action: [:eachElement | self status:eachElement label asString. announcer announce: MyUserStoryStatusChange]];
@@ -124,12 +124,12 @@ MyUserStory >> aWithAllStatiDropdownLook [
 ]
 
 { #category : #accessing }
-MyUserStory >> aWithAllTeamMembersDropdownLook [
+MyUserStory >> aWithAllTeamMembersDropdownAptitude [
 	"returns a dropdown of all team members"
 
-	^ BrGlamorousWithDropdownLook
+	^ BrGlamorousWithDropdownAptitude
 		handle: [ BrButton new
-				look: BrGlamorousButtonRectangularLook + BrGlamorousButtonIconLook;
+				aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousButtonIconAptitude;
 				icon: BrGlamorousIcons add ]
 		content: [ self teamMembersListForDropdown ]
 ]
@@ -140,10 +140,10 @@ acceptanceCriteria := aString
 ]
 
 { #category : #accessing }
-MyUserStory >> addNoteDropdownLook [
-^ BrGlamorousWithDropdownLook 
+MyUserStory >> addNoteDropdownAptitude [
+^ BrGlamorousWithDropdownAptitude 
 	handle: [BrButton new
-				look: BrGlamorousButtonRectangularLook + BrGlamorousButtonIconLook;
+				aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousButtonIconAptitude;
 				icon: BrGlamorousIcons add
 	]
 	content: [ | note |
@@ -156,10 +156,10 @@ MyUserStory >> addNoteDropdownLook [
 ]
 
 { #category : #accessing }
-MyUserStory >> addTaskDropdownLook [
-	^ BrGlamorousWithDropdownLook 
+MyUserStory >> addTaskDropdownAptitude [
+	^ BrGlamorousWithDropdownAptitude 
 	handle: [BrButton new
-				look: BrGlamorousButtonRectangularLook + BrGlamorousButtonIconLook;
+				aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousButtonIconAptitude;
 				icon: BrGlamorousIcons add
 	]
 	content: [ | task |
@@ -197,7 +197,7 @@ MyUserStory >> asDetailedStoryCard [
 			c vertical fitContent ];
 		addChild:
 			(BrButton new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				label: 'Epic: ' , epic title;
 				size: 20 @ 20;
 				beSmallSize;
@@ -210,13 +210,13 @@ MyUserStory >> asDetailedStoryCard [
 	card
 		addChild:
 			(BrLabel new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				beLargeSize;
 				text: 'Acceptance Criteria:';
 				yourself);
 		addChild:
 			(BrEditableLabel new
-				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
+				aptitude: BrGlamorousEditableLabelAptitude new glamorousRegularFontAndSize;
 				text: acceptanceCriteria;
 				when: BrEditorAcceptWish
 					do: [ :aWish | acceptanceCriteria := aWish text ];
@@ -246,7 +246,7 @@ MyUserStory >> asDetailedStoryCard [
 				addChild:
 					(BrLabel new
 						text: note author , ' says: ' , note description;
-						look: BrGlamorousLabelLook;
+						aptitude: BrGlamorousLabelAptitude;
 						beNormalSize;
 						constraintsDo: [ :c | 
 							c horizontal matchParent.
@@ -275,7 +275,7 @@ MyUserStory >> asDetailedStoryCard [
 				addChild:
 					(BrButton new
 						label:each description;
-						look: BrGlamorousLabelLook;
+						aptitude: BrGlamorousLabelAptitude;
 						beNormalSize;
 						constraintsDo: [ :c | 
 							c horizontal matchParent.
@@ -318,28 +318,28 @@ MyUserStory >> asFormElement: aBlock [
 		padding: (BlInsets all: 5);
 		addChild:
 			(BrLabel new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				beLargeSize;
 				text: 'As a';
 				yourself);
 		addChild: textElementRole;
 		addChild:
 			(BrLabel new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				beLargeSize;
 				text: 'I want';
 				yourself);
 		addChild: textElementMeans;
 		addChild:
 			(BrLabel new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				beLargeSize;
 				text: 'so that';
 				yourself);
 		addChild: textElementBenefit;
 		addChild:
 			(BrButton new
-				look: BrGlamorousButtonWithIconLook;
+				aptitude: BrGlamorousButtonWithIconAptitude;
 				icon: BrGlamorousVectorIcons accept;
 				label: 'Save';
 				action: [ role := textElementRole document text asString.
@@ -378,7 +378,7 @@ MyUserStory >> asMinimalStoryCard [
 			c vertical fitContent.
 			 ].
 	storyContainer addChild: (BrLabel new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				beLargeSize;
 				margin: (BlInsets right: 3);
 				text: self description;
@@ -402,40 +402,40 @@ MyUserStory >> asUserStoryEditable [
 			 ];
 		addChild:
 			(BrLabel new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				beLargeSize;
 				margin: (BlInsets right: 5);
 				text: 'As a';
 				yourself);
 		addChild:
 			(BrEditableLabel new
-				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
+				aptitude: BrGlamorousEditableLabelAptitude new glamorousRegularFontAndSize;
 				text: role;
 				when: BrEditorAcceptWish do: [ :aWish | role := aWish text ];
 				yourself);
 		addChild:
 			(BrLabel new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				beLargeSize;
 				margin: (BlInsets right: 5);
 				text: ', I want';
 				yourself);
 		addChild:
 			(BrEditableLabel new
-				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
+				aptitude: BrGlamorousEditableLabelAptitude new glamorousRegularFontAndSize;
 				text: means;
 				when: BrEditorAcceptWish do: [ :aWish | means := aWish text ];
 				yourself);
 		addChild:
 			(BrLabel new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				beLargeSize;
 				margin: (BlInsets right: 5);
 				text: 'so that';
 				yourself);
 		addChild:
 			(BrEditableLabel new
-				look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
+				aptitude: BrGlamorousEditableLabelAptitude new glamorousRegularFontAndSize;
 				text: benefit;
 				when: BrEditorAcceptWish do: [ :aWish | benefit := aWish text ];
 				yourself);
@@ -451,7 +451,7 @@ MyUserStory >> assigneeLabelAndDropdown [
 			c vertical fitContent ];
 		addChild:
 			(BrLabel new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				beLargeSize;
 				margin: (BlInsets top: 20 left: 0 bottom: 5 right: 20);
 				text: 'Assignees:';
@@ -459,7 +459,7 @@ MyUserStory >> assigneeLabelAndDropdown [
 		addChild:
 			(BrButton new
 				label: 'Add a Team Member';
-				look: BrGlamorousButtonWithIconLook + self aWithAllTeamMembersDropdownLook;
+				aptitude: BrGlamorousButtonWithIconAptitude + self aWithAllTeamMembersDropdownAptitude;
 				icon: BrGlamorousVectorIcons add;
 				margin: (BlInsets top: 20 left: 0 bottom: 5 right: 0);
 				beTinySize;
@@ -492,11 +492,11 @@ MyUserStory >> checklistContainerWithDropdown [
 									c vertical fitContent ].
 	^ checklistContainer addChild: (BrLabel new
 						text: 'Checklist:';
-						look: BrGlamorousLabelLook;
+						aptitude: BrGlamorousLabelAptitude;
 						margin: (BlInsets top: 20 left: 0 bottom: 5 right: 20);
 						beLargeSize);
 						addChild: (BrButton new 
-						look: BrGlamorousButtonWithIconLook + self addTaskDropdownLook ;
+						aptitude: BrGlamorousButtonWithIconAptitude + self addTaskDropdownAptitude ;
 						icon: BrGlamorousVectorIcons add;
 						margin: (BlInsets top: 20 left: 0 bottom: 5 right: 0);
 						beTinySize;
@@ -519,7 +519,7 @@ MyUserStory >> customEntityElementFor: aReference [
 			c horizontal matchParent.
 			c vertical fitContent ].
 	label := BrLabel new
-		look: BrGlamorousListLabelLook;
+		aptitude: BrGlamorousListLabelAptitude;
 		text: aReference asRopedText.
 
 	"button := RequirementClassAdditionInterface new initializeWithFutureClassName: referencedEntity andElement: self."
@@ -626,7 +626,7 @@ MyUserStory >> gtDetailedStoryCardFor: aView [
 		priority: 0;
 		updateWhen: MyUserStoryStatusChange in: [announcer];
 		stencil: [ self asDetailedStoryCard
-				look: BrShadowLook;
+				aptitude: BrShadowAptitude;
 				background: Color white;
 				padding: (BlInsets all: 5);
 				constraintsDo: [ :c | 
@@ -642,7 +642,7 @@ MyUserStory >> gtMinimalStoryCardFor: aView [
 		title: 'Minimal';
 		priority: 1;
 		stencil: [ self asMinimalStoryCard
-				look: BrShadowLook;
+				aptitude: BrShadowAptitude;
 				background: Color white;
 				constraintsDo: [ :c | 
 					c horizontal matchParent.
@@ -690,11 +690,11 @@ MyUserStory >> gtScenariosFor: aView [
 				padding: (BlInsets all: 5);
 				addChild:
 					(label := BrEditableLabel new
-						look: BrGlamorousEditableLabelLook new glamorousRegularFontAndSize;
+						aptitude: BrGlamorousEditableLabelAptitude new glamorousRegularFontAndSize;
 						yourself);
 				addChild:
 					(BrButton new
-						look: BrGlamorousButtonWithIconLook;
+						aptitude: BrGlamorousButtonWithIconAptitude;
 						icon: BrGlamorousVectorIcons accept;
 						label: 'Save';
 						action: [ scenario := MyScenario id: nil description: label text asString.
@@ -725,7 +725,7 @@ dropdown := BlElement new
 					c horizontal fitContent ];
 				padding: (BlInsets all: 5).
 			(self getLabels ) collect: [:label | dropdown addChild: (BrButton new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				label: label description;
 				action: [ (labels includes: label) ifFalse:[labels add: label. announcer announce: MyUserStoryStatusChange] ];
 				yourself). ].
@@ -746,7 +746,7 @@ MyUserStory >> labelsLabelAndDropdown [
 			c vertical fitContent ];
 		addChild:
 			(BrLabel new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				beLargeSize;
 				margin: (BlInsets top: 20 left: 0 bottom: 5 right: 20);
 				text: 'Labels:';
@@ -754,7 +754,7 @@ MyUserStory >> labelsLabelAndDropdown [
 		addChild:
 			(BrButton new
 				label: 'Add a Label';
-				look: BrGlamorousButtonWithIconLook + self aWithAllLabelsDropdownLook ;
+				aptitude: BrGlamorousButtonWithIconAptitude + self aWithAllLabelsDropdownAptitude ;
 				icon: BrGlamorousVectorIcons add;
 				margin: (BlInsets top: 20 left: 0 bottom: 5 right: 0);
 				beTinySize;
@@ -787,11 +787,11 @@ MyUserStory >> notesContainerWithDropdown [
 									c vertical fitContent ].
 	^ notesContainer addChild: (BrLabel new
 						text: 'Notes:';
-						look: BrGlamorousLabelLook;
+						aptitude: BrGlamorousLabelAptitude;
 						margin: (BlInsets top: 20 left: 0 bottom: 5 right: 20);
 						beLargeSize);
 						addChild: (BrButton new 
-						look: BrGlamorousButtonWithIconLook + self addNoteDropdownLook;
+						aptitude: BrGlamorousButtonWithIconAptitude + self addNoteDropdownAptitude;
 						icon: BrGlamorousVectorIcons add;
 						margin: (BlInsets top: 20 left: 0 bottom: 5 right: 0);
 						beTinySize;
@@ -814,7 +814,7 @@ MyUserStory >> personaLabelAndDropdown [
 			c vertical fitContent ];
 		addChild:
 			(BrLabel new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				beLargeSize;
 				margin: (BlInsets top: 20 left: 0 bottom: 5 right: 20);
 				text: 'Personas:';
@@ -822,7 +822,7 @@ MyUserStory >> personaLabelAndDropdown [
 		addChild:
 			(BrButton new
 				label: 'Add a Persona';
-				look: BrGlamorousButtonWithIconLook + self aWithAllPersonasDropdownLook;
+				aptitude: BrGlamorousButtonWithIconAptitude + self aWithAllPersonasDropdownAptitude;
 				icon: BrGlamorousVectorIcons add;
 				margin: (BlInsets top: 20 left: 0 bottom: 5 right: 0);
 				beTinySize;
@@ -839,7 +839,7 @@ dropdown := BlElement new
 					c horizontal fitContent ];
 				padding: (BlInsets all: 5).
 			(self getPersonas) collect: [:person | dropdown addChild: (BrButton new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				label: person name;
 				action: [ (personas includes: person) ifFalse:[personas add: person. announcer announce: MyUserStoryStatusChange] ];
 				yourself). ].
@@ -907,7 +907,7 @@ MyUserStory >> statusForDetailedCard [
 				layout: BlLinearLayout horizontal;
 				addChild:
 					(BrLabel new
-						look: BrGlamorousLabelLook;
+						aptitude: BrGlamorousLabelAptitude;
 						beLargeSize;
 						margin: (BlInsets right: 3);
 						text: 'Status:';
@@ -915,7 +915,7 @@ MyUserStory >> statusForDetailedCard [
 				addChild:
 					(BrButton new
 						label: self status;
-						look: BrGlamorousButtonWithLabelAndIconLook + (self aWithAllStatiDropdownLook);
+						aptitude: BrGlamorousButtonWithLabelAndIconAptitude + (self aWithAllStatiDropdownAptitude);
 						icon: BrGlamorousIcons menu;
 						yourself);
 				yourself.
@@ -932,7 +932,7 @@ MyUserStory >> statusLabelAndDropdown [
 			c vertical fitContent ];
 		addChild:
 			(BrLabel new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				beNormalSize;
 				margin: (BlInsets right: 10);
 				text: 'Status:';
@@ -942,7 +942,7 @@ MyUserStory >> statusLabelAndDropdown [
 				size: 20 @ 20;
 				geometry: (BlRoundedRectangleGeometry cornerRadius: 10);
 				label: 'status';
-				look: self aButtonCircularLook create + self aWithAllStatiDropdownLook;
+				aptitude: self aButtonCircularAptitude create + self aWithAllStatiDropdownAptitude;
 				yourself).
 ]
 
@@ -966,7 +966,7 @@ dropdown := BlElement new
 					c horizontal fitContent ];
 				padding: (BlInsets all: 5).
 			(self getTeamMembers) collect: [:member | dropdown addChild: (BrButton new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				label: member name;
 				action: [ (assignees includes: member) ifFalse:[assignees add: member. announcer announce: MyUserStoryStatusChange] ];
 				yourself). ].

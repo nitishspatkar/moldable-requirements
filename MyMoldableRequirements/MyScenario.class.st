@@ -37,7 +37,7 @@ MyScenario >> children [
 { #category : #accessing }
 MyScenario >> createAddExampleButton [
 	^ BrButton new
-		look: BrGlamorousButtonWithLabelLook new;
+		aptitude: BrGlamorousButtonWithLabelAptitude new;
 		label: 'New parameterized example';
 		action: [ ":button |
 			button phlow spawnObject: (EScenarioParametrizedExampleCreationHelper new asScrollableElement) " ];

@@ -46,14 +46,14 @@ MyLabel >> asFormElement: aBlock [
 		padding: (BlInsets all: 5);
 		addChild:
 			(BrLabel new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				beLargeSize;
 				text: 'Label Description';
 				yourself);
 		addChild: textElementDescription;
 		addChild:
 			(BrButton new
-				look: BrGlamorousButtonWithIconLook;
+				aptitude: BrGlamorousButtonWithIconAptitude;
 				icon: BrGlamorousVectorIcons accept;
 				label: 'Save';
 				action: [ description := textElementDescription document text asString.

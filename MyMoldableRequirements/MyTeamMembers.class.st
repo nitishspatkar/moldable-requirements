@@ -50,21 +50,21 @@ MyTeamMembers >> asFormElement: aBlock [
 		padding: (BlInsets all: 5);
 		addChild:
 			(BrLabel new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				beLargeSize;
 				text: 'Name';
 				yourself);
 		addChild: nameElementDescription;
 		addChild:
 			(BrLabel new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				beLargeSize;
 				text: 'Shorthand';
 				yourself);
 		addChild: shorthandElementDescription;
 		addChild:
 			(BrButton new
-				look: BrGlamorousButtonWithIconLook;
+				aptitude: BrGlamorousButtonWithIconAptitude;
 				icon: BrGlamorousVectorIcons accept;
 				label: 'Save';
 				action: [ name := nameElementDescription document text asString.
@@ -87,13 +87,13 @@ MyTeamMembers >> asShorthandCircle [
 		margin: (BlInsets right: 10);
 		action: [:button | button phlow spawnObject: self];
 		addChild: (BrLabel new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				beLargeSize;
 				alignCenter;
 				text: shorthand;
 				beTinySize;
 				yourself);
-		look: BrShadowLook;
+		aptitude: BrShadowAptitude;
 		constraintsDo: [ :c | 
 					c horizontal fitContent.
 					c vertical fitContent ];

@@ -54,19 +54,19 @@ MyNotes >> asFormElement: aBlock [
 			c horizontal exact: 300 ];
 		addChild:
 			(BrLabel new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				text: 'Note:';
 				beNormalSize);
 		addChild: textElementDescription;
 		addChild:
 			(BrLabel new
-				look: BrGlamorousLabelLook;
+				aptitude: BrGlamorousLabelAptitude;
 				text: 'Your Name:';
 				beNormalSize);
 		addChild: authorElementDescription;
 		addChild:
 			(BrButton new
-				look: BrGlamorousButtonWithIconLook;
+				aptitude: BrGlamorousButtonWithIconAptitude;
 				icon: BrGlamorousVectorIcons accept;
 				beSmallSize;
 				label: 'Save';
