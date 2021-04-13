@@ -12,6 +12,6 @@ BaselineOfMyMoldableRequirements >> baseline: spec [
 		do: [ 
 			spec
 				package: 'MyMoldableRequirements';
-				baseline: 'Epic'
-					with: [ spec repository: 'github://nitishspatkar/SCG_EpicGit' ] ]
+				package: 'Epic';
+				package: 'AddressBook' with: [ spec requires: #(Epic) ] ]
 ]
