@@ -76,6 +76,17 @@ MyUserStory >> aButtonCircularLook [
 ]
 
 { #category : #accessing }
+MyUserStory >> aWithAllLabelsDropdownLook [
+"returns a dropdown of all labels"
+
+	^ BrGlamorousWithDropdownLook
+		handle: [ BrButton new
+				look: BrGlamorousButtonRectangularLook + BrGlamorousButtonIconLook;
+				icon: BrGlamorousIcons add ]
+		content: [ self labelListForDropdown  ]
+]
+
+{ #category : #accessing }
 MyUserStory >> aWithAllPersonasDropdownLook [
 "returns a dropdown of all personas"
 
@@ -184,13 +195,13 @@ MyUserStory >> asDetailedStoryCard [
 		constraintsDo: [ :c | 
 			c horizontal matchParent.
 			c vertical fitContent ];
-		addChild: (BrButton new
+		addChild:
+			(BrButton new
 				look: BrGlamorousLabelLook;
-				label: 'Epic: ', epic title;
-				size: 20@20;
+				label: 'Epic: ' , epic title;
+				size: 20 @ 20;
 				beSmallSize;
-				action: [:button | button phlow spawnObject: epic]
-				yourself);
+				action: [ :button | button phlow spawnObject: epic ] yourself);
 		addChild: self asUserStoryEditable.
 
 	"status with dropdown"
@@ -244,18 +255,32 @@ MyUserStory >> asDetailedStoryCard [
 	"assignees"
 	card addChild: self assigneeLabelAndDropdown.
 	assigned := BlElement new
-				layout: BlLinearLayout horizontal;
-				constraintsDo: [ :c | 
-					c horizontal matchParent.
-					c vertical fitContent ].
+		layout: BlLinearLayout horizontal;
+		constraintsDo: [ :c | 
+			c horizontal matchParent.
+			c vertical fitContent ].
 	assignees
-		collect: [ :each | 
-				assigned addChild: each asShorthandCircle].
+		collect: [ :each | assigned addChild: each asShorthandCircle ].
 	card addChild: assigned.
 
 	"personas"
 	card addChild: self personaLabelAndDropdown.
 	personas collect: [ :each | card addChild: each asListElement ].
+
+	"labels"
+	card addChild: self labelsLabelAndDropdown.
+	labels
+		collect: [ :each | 
+			card
+				addChild:
+					(BrButton new
+						label:each description;
+						look: BrGlamorousLabelLook;
+						beNormalSize;
+						constraintsDo: [ :c | 
+							c horizontal matchParent.
+							c vertical fitContent ];
+						action: [ :button | button phlow spawnObject: self ]) ].
 	^ card
 ]
 
@@ -332,18 +357,36 @@ MyUserStory >> asFormElement: aBlock [
 
 { #category : #accessing }
 MyUserStory >> asMinimalStoryCard [
-	^ BlElement new
+	| card labelContainer storyContainer |
+	card := BlElement new
 		layout: BlLinearLayout vertical;
 		geometry: (BlRoundedRectangleGeometry cornerRadius: 10);
-		margin: (BlInsets all: 10);
-		addChild:
-			(BrLabel new
+		margin: (BlInsets all: 10).
+		
+	labelContainer := BlElement new
+		layout: BlFlowLayout horizontal;
+		constraintsDo: [ :c | 
+			c horizontal matchParent.
+			c vertical fitContent.
+			 ].
+	labels collect: [ :each | labelContainer addChild: each asLabel].
+	
+	storyContainer := BlElement new
+		layout: BlFlowLayout horizontal;
+		constraintsDo: [ :c | 
+			c horizontal matchParent.
+			c vertical fitContent.
+			 ].
+	storyContainer addChild: (BrLabel new
 				look: BrGlamorousLabelLook;
 				beLargeSize;
 				margin: (BlInsets right: 3);
 				text: self description;
-				yourself);
-		yourself
+				yourself).
+	
+	card addChild: labelContainer.
+	card addChild: storyContainer.
+	^card
 ]
 
 { #category : #accessing }
@@ -512,6 +555,11 @@ epic := anEpic
 ]
 
 { #category : #accessing }
+MyUserStory >> getLabels [
+^self epic project labels
+]
+
+{ #category : #accessing }
 MyUserStory >> getPersonas [
 ^ self epic project personas
 ]
@@ -597,7 +645,7 @@ MyUserStory >> gtMinimalStoryCardFor: aView [
 				look: BrShadowLook;
 				background: Color white;
 				constraintsDo: [ :c | 
-					c horizontal fitContent.
+					c horizontal matchParent.
 					c vertical fitContent ];
 				padding: (BlInsets all: 5);
 				yourself ]
@@ -668,8 +716,49 @@ MyUserStory >> initialize [
 ]
 
 { #category : #accessing }
+MyUserStory >> labelListForDropdown [
+| dropdown |
+dropdown := BlElement new
+				layout: BlLinearLayout vertical;
+				constraintsDo: [ :c | 
+					c vertical fitContent.
+					c horizontal fitContent ];
+				padding: (BlInsets all: 5).
+			(self getLabels ) collect: [:label | dropdown addChild: (BrButton new
+				look: BrGlamorousLabelLook;
+				label: label description;
+				action: [ (labels includes: label) ifFalse:[labels add: label. announcer announce: MyUserStoryStatusChange] ];
+				yourself). ].
+			^dropdown
+]
+
+{ #category : #accessing }
 MyUserStory >> labels: anArray [
 labels := anArray
+]
+
+{ #category : #accessing }
+MyUserStory >> labelsLabelAndDropdown [
+^BlElement new
+		layout: BlLinearLayout horizontal;
+		constraintsDo: [ :c | 
+			c horizontal matchParent.
+			c vertical fitContent ];
+		addChild:
+			(BrLabel new
+				look: BrGlamorousLabelLook;
+				beLargeSize;
+				margin: (BlInsets top: 20 left: 0 bottom: 5 right: 20);
+				text: 'Labels:';
+				yourself);
+		addChild:
+			(BrButton new
+				label: 'Add a Label';
+				look: BrGlamorousButtonWithIconLook + self aWithAllLabelsDropdownLook ;
+				icon: BrGlamorousVectorIcons add;
+				margin: (BlInsets top: 20 left: 0 bottom: 5 right: 0);
+				beTinySize;
+				yourself).
 ]
 
 { #category : #accessing }

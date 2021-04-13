@@ -27,17 +27,56 @@ MyLabel class >> id: aNumber description: aString color: anotherString [
 ]
 
 { #category : #accessing }
+MyLabel >> asFormElement: aBlock [
+	"a label presents itself as a form to be filled and save as an object"
+
+	| label textElementDescription |
+	textElementDescription := GtDocument new asElementWithoutSaveAction
+		vFitContent;
+		hMatchParent;
+		border: (BlBorder paint: (Color fromHexString: 'eaeaea') width: 2);
+		padding: (BlInsets all: 3);
+		margin: (BlInsets top: 3 bottom: 3);
+		geometry: (BlRectangle cornerRadius: 5).
+	^ BlElement new
+		layout: BlLinearLayout vertical;
+		constraintsDo: [ :c | 
+			c vertical fitContent.
+			c horizontal exact: 300 ];
+		padding: (BlInsets all: 5);
+		addChild:
+			(BrLabel new
+				look: BrGlamorousLabelLook;
+				beLargeSize;
+				text: 'Label Description';
+				yourself);
+		addChild: textElementDescription;
+		addChild:
+			(BrButton new
+				look: BrGlamorousButtonWithIconLook;
+				icon: BrGlamorousVectorIcons accept;
+				label: 'Save';
+				action: [ description := textElementDescription document text asString.
+					"The following line means that when we click the save button, the arguement i.e., aBlock is evaluated"
+					aBlock value ];
+				yourself);
+		yourself
+]
+
+{ #category : #accessing }
 MyLabel >> asLabel [
-^ BrLabel new
-	layout: BlLinearLayout horizontal;
-	size: 20@20;
-	geometry: (BlRectangleGeometry new);
-	background: Color white;
-	margin: (BlInsets all: 5);
-	text: self des
-	beTinySize;
-	constraintsDo: [ :c | c horizontal fitContent.
-											c vertical fitContent]
+	^ BlTextElement new
+		geometry: (BlRectangle cornerRadius: 6);
+		layout: BlLinearLayout horizontal alignCenter;
+		constraintsDo: [ :c | 
+			c horizontal fitContent.
+			c vertical fitContent ];
+		border: (BlBorder paint: (Color fromHexString: 'd9d9d9') width: 1);
+		padding: (BlInsets all: 5);
+		text: self description asRopedText;
+		constraintsDo: [ :c | 
+			c horizontal fitContent.
+			c vertical fitContent ]
 ]
 
 { #category : #accessing }
@@ -51,6 +90,11 @@ color := aString
 ]
 
 { #category : #accessing }
+MyLabel >> description [
+^description
+]
+
+{ #category : #accessing }
 MyLabel >> description: aString [ 
 description := aString
 ]
@@ -61,12 +105,9 @@ MyLabel >> gtCircleViewFor: aView [
 	^ aView explicit
 		title: 'Label';
 		priority: 0;
-		stencil: [ self asLabel
-					look: BrShadowLook;
-					constraintsDo: [ :c | c horizontal fitContent.
-											c vertical fitContent];
-					padding: (BlInsets all: 5);
-					yourself]
+		stencil: [ self asLabel constraintsDo: [ :c | 
+			c horizontal fitContent.
+			c vertical fitContent ] ]
 ]
 
 { #category : #accessing }

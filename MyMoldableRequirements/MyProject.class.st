@@ -6,7 +6,8 @@ Class {
 		'title',
 		'epics',
 		'teamMembers',
-		'personas'
+		'personas',
+		'labels'
 	],
 	#category : #MyMoldableRequirements
 }
@@ -22,16 +23,19 @@ MyProject class >> fromRawData: projectDict [
 				collect: [ :featureDict | MyEpic fromRawData: featureDict ])
 		personas: ((projectDict at: #personas)
 				collect: [ :personaDict | MyPersona fromRawData: personaDict ])
+		labels: ((projectDict at: #labels)
+				collect: [ :labelDict | MyLabel fromRawData: labelDict ])
 ]
 
 { #category : #accessing }
-MyProject class >> id: aString title: anotherString teamMembers: anArray epics: anotherArray personas: yetAnotherArray [
+MyProject class >> id: aString title: anotherString teamMembers: anArray epics: anotherArray personas: yetAnotherArray labels: labelArray [
 	^ self new
 		id: aString;
 		title: anotherString;
 		teamMembers: anArray;
 		epics: anotherArray asOrderedCollection;
 		personas: yetAnotherArray;
+		labels: labelArray asOrderedCollection;
 		yourself
 ]
 
@@ -56,6 +60,29 @@ MyProject >> gtEpicsFor: aView [
 				userStories:OrderedCollection new.
 			epic project: self.
 			epic asFormElement: [ epics add: epic ] ]
+]
+
+{ #category : #accessing }
+MyProject >> gtLabelsFor: aView [
+	<gtView>
+	^ aView columnedList
+		title: 'Labels';
+		priority: 3;
+		items: [labels];
+		column: 'Index'
+			text: [:eachLabel :eachIndex | eachIndex]
+			width: 50;
+		column: 'Description'
+			text: [:eachLabel | eachLabel description]
+			width: 200;	
+		actionDropdownButtonIcon: BrGlamorousVectorIcons add
+			tooltip: 'Add a label'
+			content: [ | label |
+			label := MyLabel
+				id: nil
+				description: ''
+				color: ''.
+			label asFormElement: [ labels add: label ] ]
 ]
 
 { #category : #accessing }
@@ -120,6 +147,16 @@ MyProject >> gtTeamMembersFor: aView [
 { #category : #accessing }
 MyProject >> id: aString [
 	id := aString
+]
+
+{ #category : #accessing }
+MyProject >> labels [
+^labels
+]
+
+{ #category : #accessing }
+MyProject >> labels: anArray [
+labels := anArray
 ]
 
 { #category : #accessing }
