@@ -7,7 +7,8 @@ Class {
 		'description',
 		'userStories',
 		'statusColor',
-		'project'
+		'project',
+		'announcer'
 	],
 	#category : #MyMoldableRequirements
 }
@@ -31,6 +32,16 @@ MyEpic class >> id: aString title: anotherString description: yetAnotherString u
 		description: yetAnotherString;
 		userStories: anArray asOrderedCollection;
 		yourself
+]
+
+{ #category : #accessing }
+MyEpic >> announcer [
+^announcer
+]
+
+{ #category : #accessing }
+MyEpic >> announcer: anAnnouncer [
+announcer := anAnnouncer
 ]
 
 { #category : #accessing }
@@ -109,6 +120,7 @@ MyEpic >> gtViewMindMapStoryTree: aView [
 	^ aView mondrian
 		title: 'Tree' translated;
 			priority: 1;
+			updateWhen: MyUserStoryStatusChange in: [announcer];
 			painting: [ :view |
 				view nodes 
 					stencil: [ :x | 
@@ -128,6 +140,12 @@ MyEpic >> gtViewMindMapStoryTree: aView [
 { #category : #accessing }
 MyEpic >> id: aString [
 	id := aString
+]
+
+{ #category : #accessing }
+MyEpic >> initialize [
+	super initialize.
+	announcer := Announcer new.
 ]
 
 { #category : #accessing }
