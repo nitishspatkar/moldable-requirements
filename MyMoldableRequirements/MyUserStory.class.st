@@ -283,8 +283,7 @@ MyUserStory >> asDetailedStoryCard [
 						beNormalSize;
 						constraintsDo: [ :c | 
 							c horizontal matchParent.
-							c vertical fitContent ];
-						action: [ :button | button phlow spawnObject: self ]) ].
+							c vertical fitContent ]) ].
 	^ card
 ]
 
@@ -957,10 +956,7 @@ MyUserStory >> statusLabelAndDropdown [
 				margin: (BlInsets right: 10);
 				text: 'Status:';
 				yourself);
-		addChild: (MyUserStoryStatusButton new userStory: self; exact: 30@30);
-		addChild:
-			(BrButton new
-				size: 20 @ 20;
+		addChild: (MyUserStoryStatusButton new userStory: self; size: 20 @ 20;
 				geometry: (BlRoundedRectangleGeometry cornerRadius: 10);
 				label: 'status';
 				aptitude: self aButtonCircularAptitude create + self aWithAllStatiDropdownAptitude;
