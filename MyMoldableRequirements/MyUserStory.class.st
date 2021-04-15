@@ -1101,7 +1101,6 @@ MyUserStory >> removeAssigneeDropdownAptitude [
 ^ BrGlamorousWithDropdownAptitude 
 	handle: [BrButton new
 				aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousButtonIconAptitude;
-				label: 'Will remove on click.';
 				icon: BrGlamorousIcons remove
 	]
 	content: [ self assigneeListForDropdown]
@@ -1112,7 +1111,6 @@ MyUserStory >> removeLabelDropdownAptitude [
 ^ BrGlamorousWithDropdownAptitude 
 	handle: [BrButton new
 				aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousButtonIconAptitude;
-				label: 'Will remove on click.';
 				icon: BrGlamorousIcons remove
 	]
 	content: [ self labelListForRemoveDropdown]
@@ -1123,7 +1121,6 @@ MyUserStory >> removeNoteDropdownAptitude [
 ^ BrGlamorousWithDropdownAptitude 
 	handle: [BrButton new
 				aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousButtonIconAptitude;
-				label: 'Will remove on click.';
 				icon: BrGlamorousIcons remove
 	]
 	content: [ self notesListForDropdown]
@@ -1134,7 +1131,6 @@ MyUserStory >> removePersonaDropdownAptitude [
 ^ BrGlamorousWithDropdownAptitude 
 	handle: [BrButton new
 				aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousButtonIconAptitude;
-				label: 'Will remove on click.';
 				icon: BrGlamorousIcons remove
 	]
 	content: [ self personaListForRemoveDropdown]
@@ -1145,7 +1141,6 @@ MyUserStory >> removeTaskDropdownAptitude [
 ^ BrGlamorousWithDropdownAptitude 
 	handle: [BrButton new
 				aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousButtonIconAptitude;
-				label: 'Will remove on click.';
 				icon: BrGlamorousIcons remove
 	]
 	content: [ self taskListForDropdown]
