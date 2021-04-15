@@ -361,11 +361,29 @@ MyUserStory >> asFormElement: aBlock [
 
 { #category : #accessing }
 MyUserStory >> asMinimalStoryCard [
-	| card labelContainer storyContainer assigneesContainer |
+	| card labelContainer storyContainer assigneesContainer cardLeft cardRight statusContainer |
 	card := BlElement new
-		layout: BlLinearLayout vertical;
+		layout: BlLinearLayout horizontal;
 		geometry: (BlRoundedRectangleGeometry cornerRadius: 10);
-		margin: (BlInsets all: 10).
+		margin: (BlInsets all: 10);
+		constraintsDo: [ :c | 
+			c horizontal matchParent.
+			c vertical fitContent.
+			 ].
+	
+	cardLeft := BlElement new
+		layout: BlLinearLayout vertical;
+		constraintsDo: [ :c | 
+			c horizontal matchParent.
+			c vertical fitContent.
+			 ].
+	
+	cardRight := BlElement new
+		layout: BlLinearLayout vertical;
+		constraintsDo: [ :c | 
+			c horizontal fitContent.
+			c vertical matchParent.
+			 ].
 		
 	labelContainer := BlElement new
 		layout: BlFlowLayout horizontal;
@@ -415,19 +433,52 @@ MyUserStory >> asMinimalStoryCard [
 				beLargeSize;
 				text: benefit;
 				yourself).].
+				
+	statusContainer := BrLabel new
+		aptitude: BrGlamorousLabelAptitude;
+		beNormalSize;
+		text: 'Status: ';
+		addChild: (BlElement new
+			geometry: BlCircle new;
+			size: 20@20;
+			margin: (BlInsets left: 5);
+			border: (BlBorder paint: Color lightGray width: 1);
+			background: self statusColor).
 	
 	assigneesContainer := BlElement new
-		layout: BlFlowLayout horizontal;
+		layout: BlLinearLayout horizontal;
 		constraintsDo: [ :c | 
-			c horizontal matchParent.
+			c horizontal fitContent.
 			c vertical fitContent.
 			 ]. 
 			 
-	assignees collect: [ :each | assigneesContainer addChild: each asShorthandCircle].
+	assignees collect: [ :each | assigneesContainer addChild: (BrButton new
+		layout: (BlLinearLayout horizontal) alignBottomRight;
+		size: 20@20;
+		geometry: (BlCircle new);
+		background: Color palePeach;
+		margin: (BlInsets right: 2);
+		action: [:button | button phlow spawnObject: assignees];
+		addChild: (BrLabel new
+				aptitude: BrGlamorousLabelAptitude;
+				beLargeSize;
+				alignCenter;
+				text: each shorthand;
+				beTinySize;
+				yourself);
+		aptitude: BrShadowAptitude;
+		constraintsDo: [ :c | 
+					c horizontal fitContent.
+					c vertical matchParent ];
+		padding: (BlInsets all: 5);
+		yourself )].
 	
-	card addChild: labelContainer.
-	card addChild: storyContainer.
-	card addChild: assigneesContainer.
+	cardLeft addChild: labelContainer.
+	cardLeft addChild: storyContainer.
+	cardLeft addChild: statusContainer.
+	cardRight addChild: assigneesContainer.
+	card addChild: cardLeft.
+	card addChild: cardRight.
 	^card
 ]
 

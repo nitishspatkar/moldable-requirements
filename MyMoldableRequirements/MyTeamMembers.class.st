@@ -98,7 +98,7 @@ MyTeamMembers >> asShorthandCircle [
 		aptitude: BrShadowAptitude;
 		constraintsDo: [ :c | 
 					c horizontal fitContent.
-					c vertical fitContent ];
+					c vertical matchParent ];
 		padding: (BlInsets all: 5);
 		yourself 
 ]
