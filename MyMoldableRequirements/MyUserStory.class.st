@@ -556,7 +556,30 @@ MyUserStory >> assigneeLabelAndDropdown [
 				icon: BrGlamorousVectorIcons add;
 				margin: (BlInsets top: 20 left: 0 bottom: 5 right: 0);
 				beTinySize;
-				yourself).
+				yourself);
+						addChild: (BrButton new 
+						aptitude: BrGlamorousButtonWithIconAptitude + self removeAssigneeDropdownAptitude;
+						icon: BrGlamorousVectorIcons remove;
+						margin: (BlInsets top: 20 left: 0 bottom: 5 right: 0);
+						beTinySize;
+						label: 'Remove a Team Member').
+]
+
+{ #category : #accessing }
+MyUserStory >> assigneeListForDropdown [
+| dropdown |
+dropdown := BlElement new
+				layout: BlLinearLayout vertical;
+				constraintsDo: [ :c | 
+					c vertical fitContent.
+					c horizontal fitContent ];
+				padding: (BlInsets all: 5).
+			(self assignees) collect: [:assign | dropdown addChild: (BrButton new
+				aptitude: BrGlamorousLabelAptitude;
+				label: 'Remove this assignee: "', assign name, '"';
+				action: [ assignees remove: assign. announcer announce: MyUserStoryStatusChange ];
+				yourself). ].
+			^dropdown
 ]
 
 { #category : #accessing }
@@ -593,7 +616,13 @@ MyUserStory >> checklistContainerWithDropdown [
 						icon: BrGlamorousVectorIcons add;
 						margin: (BlInsets top: 20 left: 0 bottom: 5 right: 0);
 						beTinySize;
-						label: 'Add a Note').
+						label: 'Add a Task');
+						addChild: (BrButton new 
+						aptitude: BrGlamorousButtonWithIconAptitude + self removeTaskDropdownAptitude;
+						icon: BrGlamorousVectorIcons remove;
+						margin: (BlInsets top: 20 left: 0 bottom: 5 right: 0);
+						beTinySize;
+						label: 'Remove a Task').
 ]
 
 { #category : #accessing }
@@ -837,6 +866,28 @@ dropdown := BlElement new
 ]
 
 { #category : #accessing }
+MyUserStory >> labelListForRemoveDropdown [
+| dropdown |
+dropdown := BlElement new
+				layout: BlLinearLayout vertical;
+				constraintsDo: [ :c | 
+					c vertical fitContent.
+					c horizontal fitContent ];
+				padding: (BlInsets all: 5).
+			(self labels) collect: [:label | dropdown addChild: (BrButton new
+				aptitude: BrGlamorousLabelAptitude;
+				label: 'Remove this label: "', label description, '"';
+				action: [ labels remove: label. announcer announce: MyUserStoryStatusChange ];
+				yourself). ].
+			^dropdown
+]
+
+{ #category : #accessing }
+MyUserStory >> labels [
+^labels
+]
+
+{ #category : #accessing }
 MyUserStory >> labels: anArray [
 labels := anArray
 ]
@@ -862,7 +913,13 @@ MyUserStory >> labelsLabelAndDropdown [
 				icon: BrGlamorousVectorIcons add;
 				margin: (BlInsets top: 20 left: 0 bottom: 5 right: 0);
 				beTinySize;
-				yourself).
+				yourself);
+						addChild: (BrButton new 
+						aptitude: BrGlamorousButtonWithIconAptitude + self removeLabelDropdownAptitude;
+						icon: BrGlamorousVectorIcons remove;
+						margin: (BlInsets top: 20 left: 0 bottom: 5 right: 0);
+						beTinySize;
+						label: 'Remove a Label').
 ]
 
 { #category : #accessing }
@@ -899,7 +956,30 @@ MyUserStory >> notesContainerWithDropdown [
 						icon: BrGlamorousVectorIcons add;
 						margin: (BlInsets top: 20 left: 0 bottom: 5 right: 0);
 						beTinySize;
-						label: 'Add a Note').
+						label: 'Add a Note');
+						addChild: (BrButton new 
+						aptitude: BrGlamorousButtonWithIconAptitude + self removeNoteDropdownAptitude;
+						icon: BrGlamorousVectorIcons remove;
+						margin: (BlInsets top: 20 left: 0 bottom: 5 right: 0);
+						beTinySize;
+						label: 'Remove a Note').
+]
+
+{ #category : #accessing }
+MyUserStory >> notesListForDropdown [
+| dropdown |
+dropdown := BlElement new
+				layout: BlLinearLayout vertical;
+				constraintsDo: [ :c | 
+					c vertical fitContent.
+					c horizontal fitContent ];
+				padding: (BlInsets all: 5).
+			(self notes) collect: [:note | dropdown addChild: (BrButton new
+				aptitude: BrGlamorousLabelAptitude;
+				label: 'Remove this note: "', note description, '"';
+				action: [ notes remove: note. announcer announce: MyUserStoryStatusChange ];
+				yourself). ].
+			^dropdown
 ]
 
 { #category : #accessing }
@@ -911,7 +991,7 @@ MyUserStory >> parseStory [
 
 { #category : #accessing }
 MyUserStory >> personaLabelAndDropdown [
-^BlElement new
+	^ BlElement new
 		layout: BlLinearLayout horizontal;
 		constraintsDo: [ :c | 
 			c horizontal matchParent.
@@ -920,17 +1000,43 @@ MyUserStory >> personaLabelAndDropdown [
 			(BrLabel new
 				aptitude: BrGlamorousLabelAptitude;
 				beLargeSize;
-				margin: (BlInsets top: 20 left: 0 bottom: 5 right: 20);
+				margin:
+					(BlInsets
+						top: 20
+						left: 0
+						bottom: 5
+						right: 20);
 				text: 'Personas:';
 				yourself);
 		addChild:
 			(BrButton new
 				label: 'Add a Persona';
-				aptitude: BrGlamorousButtonWithIconAptitude + self aWithAllPersonasDropdownAptitude;
+				aptitude:
+					BrGlamorousButtonWithIconAptitude
+						+ self aWithAllPersonasDropdownAptitude;
 				icon: BrGlamorousVectorIcons add;
-				margin: (BlInsets top: 20 left: 0 bottom: 5 right: 0);
+				margin:
+					(BlInsets
+						top: 20
+						left: 0
+						bottom: 5
+						right: 0);
 				beTinySize;
-				yourself).
+				yourself);
+		addChild:
+			(BrButton new
+				aptitude:
+					BrGlamorousButtonWithIconAptitude
+						+ self removePersonaDropdownAptitude;
+				icon: BrGlamorousVectorIcons remove;
+				margin:
+					(BlInsets
+						top: 20
+						left: 0
+						bottom: 5
+						right: 0);
+				beTinySize;
+				label: 'Remove a Persona')
 ]
 
 { #category : #accessing }
@@ -946,6 +1052,23 @@ dropdown := BlElement new
 				aptitude: BrGlamorousLabelAptitude;
 				label: person name;
 				action: [ (personas includes: person) ifFalse:[personas add: person. announcer announce: MyUserStoryStatusChange] ];
+				yourself). ].
+			^dropdown
+]
+
+{ #category : #accessing }
+MyUserStory >> personaListForRemoveDropdown [
+| dropdown |
+dropdown := BlElement new
+				layout: BlLinearLayout vertical;
+				constraintsDo: [ :c | 
+					c vertical fitContent.
+					c horizontal fitContent ];
+				padding: (BlInsets all: 5).
+			(self personas) collect: [:person | dropdown addChild: (BrButton new
+				aptitude: BrGlamorousLabelAptitude;
+				label: 'Remove this persona: "', person name, '"';
+				action: [ personas remove: person. announcer announce: MyUserStoryStatusChange ];
 				yourself). ].
 			^dropdown
 ]
@@ -971,6 +1094,61 @@ MyUserStory >> printOn: aStream [
 		ifTrue: [ description := 'As a ' , role , ', I want ' , means ]
 		ifFalse: [ description := 'As a ' , role , ', I want ' , means , ' so that '
 				, benefit ])
+]
+
+{ #category : #accessing }
+MyUserStory >> removeAssigneeDropdownAptitude [
+^ BrGlamorousWithDropdownAptitude 
+	handle: [BrButton new
+				aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousButtonIconAptitude;
+				label: 'Will remove on click.';
+				icon: BrGlamorousIcons remove
+	]
+	content: [ self assigneeListForDropdown]
+]
+
+{ #category : #accessing }
+MyUserStory >> removeLabelDropdownAptitude [
+^ BrGlamorousWithDropdownAptitude 
+	handle: [BrButton new
+				aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousButtonIconAptitude;
+				label: 'Will remove on click.';
+				icon: BrGlamorousIcons remove
+	]
+	content: [ self labelListForRemoveDropdown]
+]
+
+{ #category : #accessing }
+MyUserStory >> removeNoteDropdownAptitude [
+^ BrGlamorousWithDropdownAptitude 
+	handle: [BrButton new
+				aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousButtonIconAptitude;
+				label: 'Will remove on click.';
+				icon: BrGlamorousIcons remove
+	]
+	content: [ self notesListForDropdown]
+]
+
+{ #category : #accessing }
+MyUserStory >> removePersonaDropdownAptitude [
+^ BrGlamorousWithDropdownAptitude 
+	handle: [BrButton new
+				aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousButtonIconAptitude;
+				label: 'Will remove on click.';
+				icon: BrGlamorousIcons remove
+	]
+	content: [ self personaListForRemoveDropdown]
+]
+
+{ #category : #accessing }
+MyUserStory >> removeTaskDropdownAptitude [
+^ BrGlamorousWithDropdownAptitude 
+	handle: [BrButton new
+				aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousButtonIconAptitude;
+				label: 'Will remove on click.';
+				icon: BrGlamorousIcons remove
+	]
+	content: [ self taskListForDropdown]
 ]
 
 { #category : #accessing }
@@ -1066,6 +1244,28 @@ MyUserStory >> statusLabelAndDropdown [
 { #category : #accessing }
 MyUserStory >> subItems [
  ^ OrderedCollection new
+]
+
+{ #category : #accessing }
+MyUserStory >> taskListForDropdown [
+| dropdown |
+dropdown := BlElement new
+				layout: BlLinearLayout vertical;
+				constraintsDo: [ :c | 
+					c vertical fitContent.
+					c horizontal fitContent ];
+				padding: (BlInsets all: 5).
+			(self tasks) collect: [:task | dropdown addChild: (BrButton new
+				aptitude: BrGlamorousLabelAptitude;
+				label: 'Remove this task: "', task description, '"';
+				action: [ tasks remove: task. announcer announce: MyUserStoryStatusChange ];
+				yourself). ].
+			^dropdown
+]
+
+{ #category : #accessing }
+MyUserStory >> tasks [
+^tasks
 ]
 
 { #category : #accessing }
