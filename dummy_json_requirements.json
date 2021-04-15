@@ -107,7 +107,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -157,7 +157,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -214,7 +214,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -264,7 +264,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -321,7 +321,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -371,7 +371,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -421,7 +421,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -471,7 +471,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -521,7 +521,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -571,7 +571,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -621,7 +621,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -678,7 +678,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -728,7 +728,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -785,7 +785,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -835,7 +835,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -885,7 +885,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -935,7 +935,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -992,7 +992,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -1042,7 +1042,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -1092,7 +1092,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -1142,7 +1142,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -1192,7 +1192,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -1242,7 +1242,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -1292,7 +1292,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -1342,7 +1342,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -1392,7 +1392,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -1442,7 +1442,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -1533,7 +1533,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -1583,7 +1583,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -1640,7 +1640,7 @@
               }
             ],
             "tasks": [
-                {
+              {
                 "id": "1",
                 "description": "Sample",
                 "done": "false",
@@ -1681,817 +1681,1064 @@
                 "name": "Melina Meyer",
                 "shorthand": "MM"
               }
-            ],"labels": [
-              {
-                "id": "1",
-                "description": "Feature",
-                "color": "yellow"
-              }
-            ],
-            "tasks": [
+              ],"labels": [
                 {
-                "id": "1",
-                "description": "Sample",
-                "done": "false",
-                "end": "01.08.2021",
-                "assignees": [
-                  {
-                    "name": "Melina Meyer",
-                    "shorthand": "MM"
-                  }
-                ]
-              }
-            ],
-            "notes": [
-              {
-                "id": "1",
-                "description": "Do something",
-                "author": "Melina"
-              }
-            ]
-          },
-          {
-            "id": "5",
-            "role": "user",
-            "means": "to edit a specific phone number of a specific contact",
-            "benefit": "",
-            "acceptanceCriteria": "sample criteria",
-            "status": "not-started",
-            "points": "20",
-            "scenarios": [],
-            "personas": [
-              {
-                "name": "Joe",
-                "description": "Sample description"
-              }
-            ],
-            "assignees": [
-              {
-                "name": "Melina Meyer",
-                "shorthand": "MM"
-              }
-            ],
-            "labels": [
-              {
-                "id": "1",
-                "description": "Feature",
-                "color": "yellow"
-              }
-            ],
-            "tasks": [
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
                 {
-                "id": "1",
-                "description": "Sample",
-                "done": "false",
-                "end": "01.08.2021",
-                "assignees": [
-                  {
-                    "name": "Melina Meyer",
-                    "shorthand": "MM"
-                  }
-                ]
-              }
-            ],
-            "notes": [
-              {
-                "id": "1",
-                "description": "Do something",
-                "author": "Melina"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "3",
-        "title": "Remove a contact",
-        "description": "sample description",
-        "user-stories": [
-          {
-            "id": "6",
-            "role": "user",
-            "means": "to remove an entire contact",
-            "benefit": "",
-            "acceptanceCriteria": "sample criteria",
-            "status": "not-started",
-            "points": "10",
-            "scenarios": [],
-            "personas": [
-              {
-                "name": "Joe",
-                "description": "Sample description"
-              }
-            ],
-            "assignees": [
-              {
-                "name": "Melina Meyer",
-                "shorthand": "MM"
-              }
-            ],
-            "labels": [
-              {
-                "id": "1",
-                "description": "Feature",
-                "color": "yellow"
-              }
-            ],
-            "tasks": [
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
                 {
-                "id": "1",
-                "description": "Sample",
-                "done": "false",
-                "end": "01.08.2021",
-                "assignees": [
-                  {
-                    "name": "Melina Meyer",
-                    "shorthand": "MM"
-                  }
-                ]
-              }
-            ],
-            "notes": [
-              {
-                "id": "1",
-                "description": "Do something",
-                "author": "Melina"
-              }
-            ]
-          },
-          {
-            "id": "7",
-            "role": "user",
-            "means": "to remove a specific property, such as a specific phone number, of a specific contact",
-            "benefit": "",
-            "acceptanceCriteria": "sample criteria",
-            "status": "not-started",
-            "points": "20",
-            "scenarios": [],
-            "personas": [
-              {
-                "name": "Joe",
-                "description": "Sample description"
-              }
-            ],
-            "assignees": [
-              {
-                "name": "Melina Meyer",
-                "shorthand": "MM"
-              }
-            ],
-            "labels": [
-              {
-                "id": "1",
-                "description": "Feature",
-                "color": "yellow"
-              }
-            ],
-            "tasks": [
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            },
+            {
+              "id": "5",
+              "role": "user",
+              "means": "to edit a specific phone number of a specific contact",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "not-started",
+              "points": "20",
+              "scenarios": [],
+              "personas": [
                 {
-                "id": "1",
-                "description": "Sample",
-                "done": "false",
-                "end": "01.08.2021",
-                "assignees": [
-                  {
-                    "name": "Melina Meyer",
-                    "shorthand": "MM"
-                  }
-                ]
-              }
-            ],
-            "notes": [
-              {
-                "id": "1",
-                "description": "Do something",
-                "author": "Melina"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "personas": [
-      {
-        "name": "Joe",
-        "description": "Sample description"
-      }
-    ],
-    "labels": [
-      {
-        "id": "1",
-        "description": "Feature",
-        "color": "yellow"
-      },
-      {
-        "id": "2",
-        "description": "to-be-discussed",
-        "color": "blue"
-      }
-    ]
-  },
-  {
-    "id": "3",
-    "title": "Restaurant Application",
-    "teamMembers": [
-      {
-        "name": "Melina Meyer",
-        "shorthand": "MM"
-      },
-      {
-        "name": "Nitish Patkar",
-        "shorthand": "NP"
-      }
-    ],
-    "epics": [
-      {
-        "id": "1",
-        "title": "Place an online order",
-        "description": "This epic covers requirements that specify how can one place an online order",
-        "user-stories": [
-          {
-            "id": "1",
-            "role": "registered or unregistered user",
-            "means": "to explore the online menu",
-            "benefit": "",
-            "acceptanceCriteria": "sample criteria",
-            "status": "not-started",
-            "points": "10",
-            "scenarios": [],
-            "personas": [
-              {
-                "name": "Joe",
-                "description": "Sample description"
-              }
-            ],
-            "assignees": [
-              {
-                "name": "Melina Meyer",
-                "shorthand": "MM"
-              }
-            ],
-            "labels": [
-              {
-                "id": "1",
-                "description": "Feature",
-                "color": "yellow"
-              }
-            ],
-            "tasks": [
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
                 {
-                "id": "1",
-                "description": "Sample",
-                "done": "false",
-                "end": "01.08.2021",
-                "assignees": [
-                  {
-                    "name": "Melina Meyer",
-                    "shorthand": "MM"
-                  }
-                ]
-              }
-            ],
-            "notes": [
-              {
-                "id": "1",
-                "description": "Do something",
-                "author": "Melina"
-              }
-            ]
-          },
-          {
-            "id": "2",
-            "role": "registered or unregistered user",
-            "means": "to add the menu items to the shopping cart",
-            "benefit": "",
-            "acceptanceCriteria": "sample criteria",
-            "status": "not-started",
-            "points": "10",
-            "scenarios": [],
-            "personas": [
-              {
-                "name": "Joe",
-                "description": "Sample description"
-              }
-            ],
-            "assignees": [
-              {
-                "name": "Melina Meyer",
-                "shorthand": "MM"
-              }
-            ],
-            "labels": [
-              {
-                "id": "1",
-                "description": "Feature",
-                "color": "yellow"
-              }
-            ],
-            "tasks": [
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
                 {
-                "id": "1",
-                "description": "Sample",
-                "done": "false",
-                "end": "01.08.2021",
-                "assignees": [
-                  {
-                    "name": "Melina Meyer",
-                    "shorthand": "MM"
-                  }
-                ]
-              }
-            ],
-            "notes": [
-              {
-                "id": "1",
-                "description": "Do something",
-                "author": "Melina"
-              }
-            ]
-          },
-          {
-            "id": "3",
-            "role": "registered user",
-            "means": "to do one click payment",
-            "benefit": "",
-            "acceptanceCriteria": "sample criteria",
-            "status": "not-started",
-            "points": "10",
-            "scenarios": [],
-            "personas": [
-              {
-                "name": "Joe",
-                "description": "Sample description"
-              }
-            ],
-            "assignees": [
-              {
-                "name": "Melina Meyer",
-                "shorthand": "MM"
-              }
-            ],
-            "labels": [
-              {
-                "id": "1",
-                "description": "Feature",
-                "color": "yellow"
-              }
-            ],
-            "tasks": [
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
                 {
-                "id": "1",
-                "description": "Sample",
-                "done": "false",
-                "end": "01.08.2021",
-                "assignees": [
-                  {
-                    "name": "Melina Meyer",
-                    "shorthand": "MM"
-                  }
-                ]
-              }
-            ],
-            "notes": [
-              {
-                "id": "1",
-                "description": "Do something",
-                "author": "Melina"
-              }
-            ]
-          },
-          {
-            "id": "4",
-            "role": "unregistered user",
-            "means": "to enter my delivery and payment details to make the payment",
-            "benefit": "",
-            "acceptanceCriteria": "sample criteria",
-            "status": "not-started",
-            "points": "10",
-            "scenarios": [],
-            "personas": [
-              {
-                "name": "Joe",
-                "description": "Sample description"
-              }
-            ],
-            "assignees": [
-              {
-                "name": "Melina Meyer",
-                "shorthand": "MM"
-              }
-            ],
-            "labels": [
-              {
-                "id": "1",
-                "description": "Feature",
-                "color": "yellow"
-              }
-            ],
-            "tasks": [
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
                 {
-                "id": "1",
-                "description": "Sample",
-                "done": "false",
-                "end": "01.08.2021",
-                "assignees": [
-                  {
-                    "name": "Melina Meyer",
-                    "shorthand": "MM"
-                  }
-                ]
-              }
-            ],
-            "notes": [
-              {
-                "id": "1",
-                "description": "Do something",
-                "author": "Melina"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "2",
-        "title": "Place an order in a restaurant",
-        "description": "This epic covers requirements that specify how can one place an order in a restaurant",
-        "user-stories": [
-          {
-            "id": "5",
-            "role": "waiter",
-            "means": "to enter the selected menu items by guests to prepare an order",
-            "benefit": "",
-            "acceptanceCriteria": "sample criteria",
-            "status": "not-started",
-            "points": "10",
-            "scenarios": [],
-            "personas": [
-              {
-                "name": "Joe",
-                "description": "Sample description"
-              }
-            ],
-            "assignees": [
-              {
-                "name": "Melina Meyer",
-                "shorthand": "MM"
-              }
-            ],
-            "labels": [
-              {
-                "id": "1",
-                "description": "Feature",
-                "color": "yellow"
-              }
-            ],
-            "tasks": [
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "3",
+          "title": "Remove a contact",
+          "description": "sample description",
+          "user-stories": [
+            {
+              "id": "6",
+              "role": "user",
+              "means": "to remove an entire contact",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "not-started",
+              "points": "10",
+              "scenarios": [],
+              "personas": [
                 {
-                "id": "1",
-                "description": "Sample",
-                "done": "false",
-                "end": "01.08.2021",
-                "assignees": [
-                  {
-                    "name": "Melina Meyer",
-                    "shorthand": "MM"
-                  }
-                ]
-              }
-            ],
-            "notes": [
-              {
-                "id": "1",
-                "description": "Do something",
-                "author": "Melina"
-              }
-            ]
-          },
-          {
-            "id": "6",
-            "role": "waiter",
-            "means": "to be able to forward the received order to the chef",
-            "benefit": "",
-            "acceptanceCriteria": "sample criteria",
-            "status": "not-started",
-            "points": "10",
-            "scenarios": [],
-            "personas": [
-              {
-                "name": "Joe",
-                "description": "Sample description"
-              }
-            ],
-            "assignees": [
-              {
-                "name": "Melina Meyer",
-                "shorthand": "MM"
-              }
-            ],
-            "labels": [
-              {
-                "id": "1",
-                "description": "Feature",
-                "color": "yellow"
-              }
-            ],
-            "tasks": [
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
                 {
-                "id": "1",
-                "description": "Sample",
-                "done": "false",
-                "end": "01.08.2021",
-                "assignees": [
-                  {
-                    "name": "Melina Meyer",
-                    "shorthand": "MM"
-                  }
-                ]
-              }
-            ],
-            "notes": [
-              {
-                "id": "1",
-                "description": "Do something",
-                "author": "Melina"
-              }
-            ]
-          },
-          {
-            "id": "7",
-            "role": "waiter",
-            "means": "to be able to customize the order by modifying the default menu items",
-            "benefit": "",
-            "acceptanceCriteria": "sample criteria",
-            "status": "not-started",
-            "points": "10",
-            "scenarios": [],
-            "personas": [
-              {
-                "name": "Joe",
-                "description": "Sample description"
-              }
-            ],
-            "assignees": [
-              {
-                "name": "Melina Meyer",
-                "shorthand": "MM"
-              }
-            ],
-            "labels": [
-              {
-                "id": "1",
-                "description": "Feature",
-                "color": "yellow"
-              }
-            ],
-            "tasks": [
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
                 {
-                "id": "1",
-                "description": "Sample",
-                "done": "false",
-                "end": "01.08.2021",
-                "assignees": [
-                  {
-                    "name": "Melina Meyer",
-                    "shorthand": "MM"
-                  }
-                ]
-              }
-            ],
-            "notes": [
-              {
-                "id": "1",
-                "description": "Do something",
-                "author": "Melina"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "3",
-        "title": "Invoicing",
-        "description": "This epic covers requirements that specify how invoices are calculated",
-        "user-stories": [
-          {
-            "id": "8",
-            "role": "restaurant owner",
-            "means": "to update the tax values for both online and offline orders, in case they legally change",
-            "benefit": "",
-            "acceptanceCriteria": "sample criteria",
-            "status": "not-started",
-            "points": "10",
-            "scenarios": [],
-            "personas": [
-              {
-                "name": "Joe",
-                "description": "Sample description"
-              }
-            ],
-            "assignees": [
-              {
-                "name": "Melina Meyer",
-                "shorthand": "MM"
-              }
-            ],
-            "labels": [
-              {
-                "id": "1",
-                "description": "Feature",
-                "color": "yellow"
-              }
-            ],
-            "tasks": [
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
                 {
-                "id": "1",
-                "description": "Sample",
-                "done": "false",
-                "end": "01.08.2021",
-                "assignees": [
-                  {
-                    "name": "Melina Meyer",
-                    "shorthand": "MM"
-                  }
-                ]
-              }
-            ],
-            "notes": [
-              {
-                "id": "1",
-                "description": "Do something",
-                "author": "Melina"
-              }
-            ]
-          },
-          {
-            "id": "9",
-            "role": "restaurant owner",
-            "means": "to update the tax values for individual menu items",
-            "benefit": "",
-            "acceptanceCriteria": "sample criteria",
-            "status": "not-started",
-            "points": "10",
-            "scenarios": [],
-            "personas": [
-              {
-                "name": "Joe",
-                "description": "Sample description"
-              }
-            ],
-            "assignees": [
-              {
-                "name": "Melina Meyer",
-                "shorthand": "MM"
-              }
-            ],
-            "labels": [
-              {
-                "id": "1",
-                "description": "Feature",
-                "color": "yellow"
-              }
-            ],
-            "tasks": [
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
                 {
-                "id": "1",
-                "description": "Sample",
-                "done": "false",
-                "end": "01.08.2021",
-                "assignees": [
-                  {
-                    "name": "Melina Meyer",
-                    "shorthand": "MM"
-                  }
-                ]
-              }
-            ],
-            "notes": [
-              {
-                "id": "1",
-                "description": "Do something",
-                "author": "Melina"
-              }
-            ]
-          },
-          {
-            "id": "10",
-            "role": "waiter",
-            "means": "to be able to view the invoice before printing it to check if the correct prices and tax is applied",
-            "benefit": "",
-            "acceptanceCriteria": "sample criteria",
-            "status": "not-started",
-            "points": "10",
-            "scenarios": [],
-            "personas": [
-              {
-                "name": "Joe",
-                "description": "Sample description"
-              }
-            ],
-            "assignees": [
-              {
-                "name": "Melina Meyer",
-                "shorthand": "MM"
-              }
-            ],
-            "labels": [
-              {
-                "id": "1",
-                "description": "Feature",
-                "color": "yellow"
-              }
-            ],
-            "tasks": [
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            },
+            {
+              "id": "7",
+              "role": "user",
+              "means": "to remove a specific property, such as a specific phone number, of a specific contact",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "not-started",
+              "points": "20",
+              "scenarios": [],
+              "personas": [
                 {
-                "id": "1",
-                "description": "Sample",
-                "done": "false",
-                "end": "01.08.2021",
-                "assignees": [
-                  {
-                    "name": "Melina Meyer",
-                    "shorthand": "MM"
-                  }
-                ]
-              }
-            ],
-            "notes": [
-              {
-                "id": "1",
-                "description": "Do something",
-                "author": "Melina"
-              }
-            ]
-          },
-          {
-            "id": "11",
-            "role": "waiter",
-            "means": "to be able to view the total price before printing the invoice",
-            "benefit": "",
-            "acceptanceCriteria": "sample criteria",
-            "status": "not-started",
-            "points": "10",
-            "scenarios": [],
-            "personas": [
-              {
-                "name": "Joe",
-                "description": "Sample description"
-              }
-            ],
-            "assignees": [
-              {
-                "name": "Melina Meyer",
-                "shorthand": "MM"
-              }
-            ],
-            "labels": [
-              {
-                "id": "1",
-                "description": "Feature",
-                "color": "yellow"
-              }
-            ],
-            "tasks": [
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
                 {
-                "id": "1",
-                "description": "Sample",
-                "done": "false",
-                "end": "01.08.2021",
-                "assignees": [
-                  {
-                    "name": "Melina Meyer",
-                    "shorthand": "MM"
-                  }
-                ]
-              }
-            ],
-            "notes": [
-              {
-                "id": "1",
-                "description": "Do something",
-                "author": "Melina"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "personas": [
-      {
-        "name": "Joe",
-        "description": "Sample description"
-      }
-    ],
-    "labels": [
-      {
-        "id": "1",
-        "description": "Feature",
-        "color": "yellow"
-      },
-      {
-        "id": "2",
-        "description": "to-be-discussed",
-        "color": "blue"
-      }
-    ]
-  }
-]
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
+                {
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
+                {
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
+                {
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "personas": [
+        {
+          "name": "Joe",
+          "description": "Sample description"
+        }
+      ],
+      "labels": [
+        {
+          "id": "1",
+          "description": "Feature",
+          "color": "yellow"
+        },
+        {
+          "id": "2",
+          "description": "to-be-discussed",
+          "color": "blue"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Restaurant Application",
+      "teamMembers": [
+        {
+          "name": "Melina Meyer",
+          "shorthand": "MM"
+        },
+        {
+          "name": "Nitish Patkar",
+          "shorthand": "NP"
+        }
+      ],
+      "epics": [
+        {
+          "id": "1",
+          "title": "Place an online order",
+          "description": "This epic covers requirements that specify how can one place an online order",
+          "user-stories": [
+            {
+              "id": "1",
+              "role": "registered or unregistered user",
+              "means": "to explore the online menu",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "not-started",
+              "points": "10",
+              "scenarios": [],
+              "personas": [
+                {
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
+                {
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
+                {
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
+                {
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
+                {
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            },
+            {
+              "id": "2",
+              "role": "registered or unregistered user",
+              "means": "to add the menu items to the shopping cart",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "not-started",
+              "points": "10",
+              "scenarios": [],
+              "personas": [
+                {
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
+                {
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
+                {
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
+                {
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
+                {
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            },
+            {
+              "id": "3",
+              "role": "registered user",
+              "means": "to do one click payment",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "not-started",
+              "points": "10",
+              "scenarios": [],
+              "personas": [
+                {
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
+                {
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
+                {
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
+                {
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
+                {
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            },
+            {
+              "id": "4",
+              "role": "unregistered user",
+              "means": "to enter my delivery and payment details to make the payment",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "not-started",
+              "points": "10",
+              "scenarios": [],
+              "personas": [
+                {
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
+                {
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
+                {
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
+                {
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
+                {
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "title": "Place an order in a restaurant",
+          "description": "This epic covers requirements that specify how can one place an order in a restaurant",
+          "user-stories": [
+            {
+              "id": "5",
+              "role": "waiter",
+              "means": "to enter the selected menu items by guests to prepare an order",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "not-started",
+              "points": "10",
+              "scenarios": [],
+              "personas": [
+                {
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
+                {
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
+                {
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
+                {
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
+                {
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            },
+            {
+              "id": "6",
+              "role": "waiter",
+              "means": "to be able to forward the received order to the chef",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "not-started",
+              "points": "10",
+              "scenarios": [],
+              "personas": [
+                {
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
+                {
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
+                {
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
+                {
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
+                {
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            },
+            {
+              "id": "7",
+              "role": "waiter",
+              "means": "to be able to customize the order by modifying the default menu items",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "not-started",
+              "points": "10",
+              "scenarios": [],
+              "personas": [
+                {
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
+                {
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
+                {
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
+                {
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
+                {
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "3",
+          "title": "Invoicing",
+          "description": "This epic covers requirements that specify how invoices are calculated",
+          "user-stories": [
+            {
+              "id": "8",
+              "role": "restaurant owner",
+              "means": "to update the tax values for both online and offline orders, in case they legally change",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "not-started",
+              "points": "10",
+              "scenarios": [],
+              "personas": [
+                {
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
+                {
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
+                {
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
+                {
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
+                {
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            },
+            {
+              "id": "9",
+              "role": "restaurant owner",
+              "means": "to update the tax values for individual menu items",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "not-started",
+              "points": "10",
+              "scenarios": [],
+              "personas": [
+                {
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
+                {
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
+                {
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
+                {
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
+                {
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            },
+            {
+              "id": "10",
+              "role": "waiter",
+              "means": "to be able to view the invoice before printing it to check if the correct prices and tax is applied",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "not-started",
+              "points": "10",
+              "scenarios": [],
+              "personas": [
+                {
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
+                {
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
+                {
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
+                {
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
+                {
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            },
+            {
+              "id": "11",
+              "role": "waiter",
+              "means": "to be able to view the total price before printing the invoice",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "not-started",
+              "points": "10",
+              "scenarios": [],
+              "personas": [
+                {
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
+                {
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
+                {
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
+                {
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
+                {
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "personas": [
+        {
+          "name": "Joe",
+          "description": "Sample description"
+        }
+      ],
+      "labels": [
+        {
+          "id": "1",
+          "description": "Feature",
+          "color": "yellow"
+        },
+        {
+          "id": "2",
+          "description": "to-be-discussed",
+          "color": "blue"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Hospital management system",
+      "teamMembers": [
+        {
+          "name": "Melina Meyer",
+          "shorthand": "MM"
+        },
+        {
+          "name": "Nitish Patkar",
+          "shorthand": "NP"
+        }
+      ],
+      "epics": [
+        {
+          "id": "1",
+          "title": "Scheduling shifts",
+          "description": "This epic covers the functionality to manage the scheduling of staff shifts.",
+          "user-stories": [
+            {
+              "id": "1",
+              "role": "assistant doctor",
+              "means": "to give my preference for holidays for the next three months",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "in-progress",
+              "points": "10",
+              "scenarios": [],
+              "personas": [
+                {
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
+                {
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
+                {
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
+                {
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
+                {
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            },
+            {
+              "id": "2",
+              "role": "assistant doctor",
+              "means": "to select at least three specialization workshop days for every two months",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "not-started",
+              "points": "20",
+              "scenarios": [],
+              "personas": [
+                {
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
+                {
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
+                {
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
+                {
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
+                {
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            },
+            {
+              "id": "3",
+              "role": "chief medical officer",
+              "means": "to assign one chief doctor and three assistant doctors to each working shift for the next two weeks",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "not-started",
+              "points": "20",
+              "scenarios": [],
+              "personas": [
+                {
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
+                {
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
+                {
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
+                {
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
+                {
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            },
+            {
+              "id": "4",
+              "role": "chief medical officer",
+              "means": "to see the availability of all doctors for the next two weeks while preparing the schedule for the next two weeks",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "not-started",
+              "points": "20",
+              "scenarios": [],
+              "personas": [
+                {
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
+                {
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
+                {
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
+                {
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
+                {
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "title": "Patient database",
+          "description": "This epic covers the database management for the patient records.",
+          "user-stories": []
+        }
+      ],
+      "personas": [
+        {
+          "name": "Joe",
+          "description": "Sample description"
+        }
+      ],
+      "labels": [
+        {
+          "id": "1",
+          "description": "Feature",
+          "color": "yellow"
+        },
+        {
+          "id": "2",
+          "description": "to-be-discussed",
+          "color": "blue"
+        }
+      ]
+    }
+  ]
