@@ -361,7 +361,7 @@ MyUserStory >> asFormElement: aBlock [
 
 { #category : #accessing }
 MyUserStory >> asMinimalStoryCard [
-	| card labelContainer storyContainer |
+	| card labelContainer storyContainer assigneesContainer |
 	card := BlElement new
 		layout: BlLinearLayout vertical;
 		geometry: (BlRoundedRectangleGeometry cornerRadius: 10);
@@ -369,14 +369,17 @@ MyUserStory >> asMinimalStoryCard [
 		
 	labelContainer := BlElement new
 		layout: BlFlowLayout horizontal;
+		margin: (BlInsets bottom: 20);
 		constraintsDo: [ :c | 
 			c horizontal matchParent.
 			c vertical fitContent.
 			 ].
 	labels collect: [ :each | labelContainer addChild: each asLabel].
 	
-	storyContainer := BlElement new
+	storyContainer := BrButton new
 		layout: BlFlowLayout horizontal;
+		margin: (BlInsets bottom: 20);
+		action: [:button | button phlow spawnObject: self];
 		constraintsDo: [ :c | 
 			c horizontal matchParent.
 			c vertical fitContent.
@@ -384,12 +387,47 @@ MyUserStory >> asMinimalStoryCard [
 	storyContainer addChild: (BrLabel new
 				aptitude: BrGlamorousLabelAptitude;
 				beLargeSize;
-				margin: (BlInsets right: 3);
-				text: self description;
+				text: 'As a ';
+				yourself);
+				addChild: (BrLabel new
+				aptitude: BrGlamorousLabelAptitude;
+				beLargeSize;
+				text: role;
+				yourself);
+				addChild: (BrLabel new
+				aptitude: BrGlamorousLabelAptitude;
+				beLargeSize;
+				text: ', I want ';
+				yourself);
+				addChild: (BrLabel new
+				aptitude: BrGlamorousLabelAptitude;
+				beLargeSize;
+				text: means;
 				yourself).
+	(benefit isEmpty)
+		ifFalse: [ storyContainer addChild: (BrLabel new
+				aptitude: BrGlamorousLabelAptitude;
+				beLargeSize;
+				text: ' so that ';
+				yourself);
+				addChild: (BrLabel new
+				aptitude: BrGlamorousLabelAptitude;
+				beLargeSize;
+				text: benefit;
+				yourself).].
+	
+	assigneesContainer := BlElement new
+		layout: BlFlowLayout horizontal;
+		constraintsDo: [ :c | 
+			c horizontal matchParent.
+			c vertical fitContent.
+			 ]. 
+			 
+	assignees collect: [ :each | assigneesContainer addChild: each asShorthandCircle].
 	
 	card addChild: labelContainer.
 	card addChild: storyContainer.
+	card addChild: assigneesContainer.
 	^card
 ]
 
@@ -882,6 +920,11 @@ MyUserStory >> printOn: aStream [
 		ifTrue: [ description := 'As a ' , role , ', I want ' , means ]
 		ifFalse: [ description := 'As a ' , role , ', I want ' , means , ' so that '
 				, benefit ])
+]
+
+{ #category : #accessing }
+MyUserStory >> role [
+^role
 ]
 
 { #category : #accessing }

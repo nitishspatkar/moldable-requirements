@@ -75,6 +75,7 @@ MyLabel >> asLabel [
 			c vertical fitContent ];
 		border: (BlBorder paint: (Color fromHexString: 'd9d9d9') width: 1);
 		padding: (BlInsets all: 5);
+		margin: (BlInsets right: 3);
 		text: self description asRopedText;
 		constraintsDo: [ :c | 
 			c horizontal fitContent.
