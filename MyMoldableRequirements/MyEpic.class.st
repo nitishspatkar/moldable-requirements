@@ -75,6 +75,7 @@ MyEpic >> asFormElement: aBlock [
 				icon: BrGlamorousVectorIcons accept;
 				label: 'Save';
 				action: [ title := textElementDescription document text asString.
+				project ifNotNil: [ :aProject | aProject announcer announce: (MyUserStoryStatusChange new) ].
 					"The following line means that when we click the save button, the arguement i.e., aBlock is evaluated"
 					aBlock value ];
 				yourself);
@@ -92,6 +93,7 @@ MyEpic >> gtUserStoriesFor: aView [
 	^ (userStories gtItemsFor: aView)
 		title: 'User stories';
 		priority: 0;
+		updateWhen: MyUserStoryStatusChange in: [ announcer ];
 		actionDropdownButtonIcon: BrGlamorousVectorIcons add
 			tooltip: 'Add a user story'
 			content: [ | story |
@@ -101,7 +103,7 @@ MyEpic >> gtUserStoriesFor: aView [
 				means: ''
 				benefit: ''
 				acceptanceCriteria: ''
-				status: ''
+				status: MyUserStatusNotStarted new
 				points: nil
 				scenarios: OrderedCollection new
 				personas: OrderedCollection new

@@ -4,7 +4,8 @@ Class {
 	#instVars : [
 		'id',
 		'description',
-		'color'
+		'color',
+		'project'
 	],
 	#category : #'MyMoldableRequirements-Models'
 }
@@ -57,6 +58,7 @@ MyLabel >> asFormElement: aBlock [
 				icon: BrGlamorousVectorIcons accept;
 				label: 'Save';
 				action: [ description := textElementDescription document text asString.
+				project ifNotNil: [ :aProject | aProject announcer announce: (MyUserStoryStatusChange new) ].
 					"The following line means that when we click the save button, the arguement i.e., aBlock is evaluated"
 					aBlock value ];
 				yourself);
@@ -118,4 +120,14 @@ id := aNumber
 { #category : #accessing }
 MyLabel >> printOn: aStream [
 	aStream nextPutAll: description
+]
+
+{ #category : #accessing }
+MyLabel >> project [
+^project
+]
+
+{ #category : #accessing }
+MyLabel >> project: aProject [
+project := aProject
 ]

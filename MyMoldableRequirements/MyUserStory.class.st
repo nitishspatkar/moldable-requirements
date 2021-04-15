@@ -352,7 +352,8 @@ MyUserStory >> asFormElement: aBlock [
 						ifTrue: [ description := 'As a ' , role , ', I want ' , means ]
 						ifFalse: [ description := 'As a ' , role , ', I want ' , means , ' so that '
 								, benefit ].
-								status := 'not-started'. aBlock value
+						epic ifNotNil: [ :anEpic | anEpic announcer announce: (MyUserStoryStatusChange new) ].
+								aBlock value
 					"The following line means that when we click the save button, the arguement i.e., aBlock is evaluated" ];
 				yourself);
 		yourself

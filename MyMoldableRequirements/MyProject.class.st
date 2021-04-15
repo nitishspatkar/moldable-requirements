@@ -7,7 +7,8 @@ Class {
 		'epics',
 		'teamMembers',
 		'personas',
-		'labels'
+		'labels',
+		'announcer'
 	],
 	#category : #'MyMoldableRequirements-Models'
 }
@@ -32,11 +33,21 @@ MyProject class >> id: aString title: anotherString teamMembers: anArray epics: 
 	^ self new
 		id: aString;
 		title: anotherString;
-		teamMembers: anArray;
+		teamMembers: anArray asOrderedCollection;
 		epics: anotherArray asOrderedCollection;
-		personas: yetAnotherArray;
+		personas: yetAnotherArray asOrderedCollection;
 		labels: labelArray asOrderedCollection;
 		yourself
+]
+
+{ #category : #accessing }
+MyProject >> announcer [
+^announcer
+]
+
+{ #category : #accessing }
+MyProject >> announcer: anAnnouncer [
+announcer := anAnnouncer
 ]
 
 { #category : #accessing }
@@ -50,6 +61,7 @@ MyProject >> gtEpicsFor: aView [
 	^ (epics gtItemsFor: aView)
 		title: 'Epics';
 		priority: 0;
+		updateWhen: MyUserStoryStatusChange in: [ announcer ];
 		actionDropdownButtonIcon: BrGlamorousVectorIcons add
 			tooltip: 'Add an epic'
 			content: [ | epic |
@@ -68,6 +80,7 @@ MyProject >> gtLabelsFor: aView [
 	^ aView columnedList
 		title: 'Labels';
 		priority: 3;
+		updateWhen: MyUserStoryStatusChange in: [ announcer ];
 		items: [labels];
 		column: 'Index'
 			text: [:eachLabel :eachIndex | eachIndex]
@@ -82,6 +95,7 @@ MyProject >> gtLabelsFor: aView [
 				id: nil
 				description: ''
 				color: ''.
+			label project: self.
 			label asFormElement: [ labels add: label ] ]
 ]
 
@@ -102,6 +116,7 @@ MyProject >> gtPersonasFor: aView [
 	^ aView columnedList
 		title: 'Personas';
 		priority: 1;
+		updateWhen: MyUserStoryStatusChange in: [announcer];
 		items: [personas];
 		column: 'Index'
 			text: [:eachPersona :eachIndex | eachIndex]
@@ -117,6 +132,7 @@ MyProject >> gtPersonasFor: aView [
 			persona := MyPersona
 				name: ''
 				description: ''.
+			persona project: self.
 			persona asFormElement: [ personas add: persona ] ]
 ]
 
@@ -126,6 +142,7 @@ MyProject >> gtTeamMembersFor: aView [
 	^ aView columnedList
 		title: 'Team';
 		priority: 2;
+		updateWhen: MyUserStoryStatusChange in: [ announcer ];
 		items: [teamMembers];
 		column: 'Index'
 			text: [:eachMember :eachIndex | eachIndex]
@@ -140,6 +157,7 @@ MyProject >> gtTeamMembersFor: aView [
 			member := MyTeamMembers
 				name: ''
 				shorthand: ''.
+			member project: self.
 			member asFormElement: [ teamMembers add: member ] ]
 ]
 
@@ -149,13 +167,19 @@ MyProject >> id: aString [
 ]
 
 { #category : #accessing }
+MyProject >> initialize [
+	super initialize.
+	announcer:= Announcer new
+]
+
+{ #category : #accessing }
 MyProject >> labels [
 ^labels
 ]
 
 { #category : #accessing }
 MyProject >> labels: anArray [
-labels := anArray
+labels := anArray do: [ :each | each project: self]
 ]
 
 { #category : #accessing }
@@ -165,7 +189,7 @@ MyProject >> personas [
 
 { #category : #accessing }
 MyProject >> personas: yetAnotherArray [ 
-personas := yetAnotherArray asOrderedCollection
+personas := yetAnotherArray do: [ :each | each project: self]
 ]
 
 { #category : #accessing }
@@ -180,7 +204,7 @@ MyProject >> teamMembers [
 
 { #category : #accessing }
 MyProject >> teamMembers: anArray [ 
-teamMembers := anArray asOrderedCollection
+teamMembers := anArray do: [ :each | each project: self]
 ]
 
 { #category : #accessing }

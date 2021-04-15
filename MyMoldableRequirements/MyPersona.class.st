@@ -3,7 +3,9 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'name',
-		'description'
+		'description',
+		'project',
+		'announcer'
 	],
 	#category : #'MyMoldableRequirements-Models'
 }
@@ -71,6 +73,7 @@ MyPersona >> asFormElement: aBlock [
 				description := textElementDescription document text asString.
 				self assert: name notEmpty.
 				self assert: description notEmpty.
+				project ifNotNil: [ :aProject | aProject announcer announce: (MyUserStoryStatusChange new) ].
 					"The following line means that when we click the save button, the arguement i.e., aBlock is evaluated"
 					aBlock value ];
 				yourself);
@@ -149,4 +152,14 @@ name := aString
 { #category : #accessing }
 MyPersona >> printOn: aStream [
 	aStream nextPutAll: name
+]
+
+{ #category : #accessing }
+MyPersona >> project [
+^project
+]
+
+{ #category : #accessing }
+MyPersona >> project: aProject [
+project := aProject
 ]
