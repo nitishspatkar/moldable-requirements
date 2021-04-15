@@ -28,10 +28,21 @@ MyLabel class >> id: aNumber description: aString color: anotherString [
 ]
 
 { #category : #accessing }
+MyLabel >> addColorDropdownAptitude [
+"returns a dropdown of all colors"
+
+	^ BrGlamorousWithDropdownAptitude
+		handle: [ BrButton new
+				aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousButtonIconAptitude;
+				icon: BrGlamorousIcons add ]
+		content: [ self colorListForDropdown ]
+]
+
+{ #category : #accessing }
 MyLabel >> asFormElement: aBlock [
 	"a label presents itself as a form to be filled and save as an object"
 
-	| label textElementDescription |
+	| label textElementDescription form colorContainer |
 	textElementDescription := GtDocument new asElementWithoutSaveAction
 		vFitContent;
 		hMatchParent;
@@ -39,7 +50,7 @@ MyLabel >> asFormElement: aBlock [
 		padding: (BlInsets all: 3);
 		margin: (BlInsets top: 3 bottom: 3);
 		geometry: (BlRectangle cornerRadius: 5).
-	^ BlElement new
+	form:=  BlElement new
 		layout: BlLinearLayout vertical;
 		constraintsDo: [ :c | 
 			c vertical fitContent.
@@ -53,16 +64,29 @@ MyLabel >> asFormElement: aBlock [
 				yourself);
 		addChild: textElementDescription;
 		addChild:
-			(BrButton new
-				aptitude: BrGlamorousButtonWithIconAptitude;
-				icon: BrGlamorousVectorIcons accept;
-				label: 'Save';
-				action: [ description := textElementDescription document text asString.
+			(BrLabel new
+				aptitude: BrGlamorousLabelAptitude;
+				beLargeSize;
+				text: 'Choose a Color:';
+				yourself).
+	colorContainer := (BlElement new
+						layout: BlFlowLayout horizontal;
+						constraintsDo: [ :c | 
+			c vertical fitContent.
+			c horizontal exact: 300 ]).
+	(self colorList) collect: [:each | colorContainer addChild:(BrButton new
+				aptitude: BrGlamorousButtonWithLabelAptitude;
+				margin: (BlInsets top: 0 left: 0 bottom: 2 right:2);
+				beNormalSize;
+				label: each;
+				action: [ self color: each asString. description := textElementDescription document text asString.
+				self assert: (self color notNil).
 				project ifNotNil: [ :aProject | aProject announcer announce: (MyUserStoryStatusChange new) ].
 					"The following line means that when we click the save button, the arguement i.e., aBlock is evaluated"
 					aBlock value ];
-				yourself);
-		yourself
+				yourself) ].
+	form addChild: colorContainer.
+	^form
 ]
 
 { #category : #accessing }
@@ -76,6 +100,7 @@ MyLabel >> asLabel [
 		border: (BlBorder paint: (Color fromHexString: 'd9d9d9') width: 1);
 		padding: (BlInsets all: 5);
 		margin: (BlInsets right: 3);
+		background: self color veryMuchLighter;
 		text: self description asRopedText;
 		constraintsDo: [ :c | 
 			c horizontal fitContent.
@@ -89,7 +114,60 @@ MyLabel >> color [
 
 { #category : #accessing }
 MyLabel >> color: aString [
-color := aString
+| aColor |
+	
+	aColor := { 
+		#'yellow' -> (Color yellow).
+		#'green' -> (Color green).
+		#'blue' -> (Color blue).
+		#'orange' -> (Color orange).
+		#'red' -> (Color red).
+		#'cyan' -> (Color cyan).
+		#'' -> (nil).
+	}	asDictionary
+			at: aString asSymbol.
+	
+	color := aColor
+]
+
+{ #category : #accessing }
+MyLabel >> colorDropdownButton [
+	^ BrButton new
+		aptitude: BrGlamorousButtonWithIconAptitude + self addColorDropdownAptitude;
+		icon: BrGlamorousVectorIcons add;
+		margin:
+			(BlInsets
+				top: 20
+				left: 0
+				bottom: 5
+				right: 0);
+		beTinySize;
+		label: 'Add a Color'
+]
+
+{ #category : #accessing }
+MyLabel >> colorList [
+^ #('yellow' 'green' 'blue' 'orange' 'red' 'cyan')
+]
+
+{ #category : #accessing }
+MyLabel >> colorListForDropdown [
+| dropdown colorList |
+
+colorList := #('yellow' 'green' 'blue' 'orange' 'red' 'cyan').
+
+dropdown := BlElement new
+				layout: BlLinearLayout vertical;
+				constraintsDo: [ :c | 
+					c vertical fitContent.
+					c horizontal fitContent ];
+				padding: (BlInsets all: 5).
+			(colorList) collect: [:each | dropdown addChild: (BrButton new
+				aptitude: BrGlamorousLabelAptitude;
+				label: each asText;
+				action: [ self color:each asString ];
+				yourself). ].
+			^dropdown
 ]
 
 { #category : #accessing }
