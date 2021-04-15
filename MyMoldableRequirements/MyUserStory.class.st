@@ -385,9 +385,10 @@ MyUserStory >> asMinimalStoryCard [
 			c vertical matchParent.
 			 ].
 		
-	labelContainer := BlElement new
+	labelContainer := BrButton new
 		layout: BlFlowLayout horizontal;
 		margin: (BlInsets bottom: 20);
+		action: [:button | button phlow spawnObject: labels];
 		constraintsDo: [ :c | 
 			c horizontal matchParent.
 			c vertical fitContent.
