@@ -744,7 +744,7 @@ MyUserStory >> gtDescriptionFor: aView [
 { #category : #'gt-extensions' }
 MyUserStory >> gtDetailedStoryCardFor: aView [
 	<gtView>
-	^ aView explicit
+	^aView explicit
 		title: 'Story card';
 		priority: 0;
 		updateWhen: MyUserStoryStatusChange in: [ announcer ];
@@ -1186,27 +1186,6 @@ MyUserStory >> status: myUserStatus [
 { #category : #accessing }
 MyUserStory >> statusColor [
 	^ status statusColor
-]
-
-{ #category : #accessing }
-MyUserStory >> statusForDetailedCard [
-
-^BlElement new
-				layout: BlLinearLayout horizontal;
-				addChild:
-					(BrLabel new
-						aptitude: BrGlamorousLabelAptitude;
-						beLargeSize;
-						margin: (BlInsets right: 3);
-						text: 'Status:';
-						yourself);
-				addChild:
-					(BrButton new
-						label: self status;
-						aptitude: BrGlamorousButtonWithLabelAndIconAptitude + (self aWithAllStatiDropdownAptitude);
-						icon: BrGlamorousIcons menu;
-						yourself);
-				yourself.
 ]
 
 { #category : #'private - instance creation' }

@@ -8,7 +8,8 @@ Class {
 		'teamMembers',
 		'personas',
 		'labels',
-		'announcer'
+		'announcer',
+		'board'
 	],
 	#category : #'MyMoldableRequirements-Models'
 }
@@ -18,6 +19,7 @@ MyProject class >> fromRawData: projectDict [
 	^ self
 		id: (projectDict at: #id)
 		title: (projectDict at: #title)
+		board: (projectDict at: #board)
 		teamMembers: ((projectDict at: #teamMembers) collect: [ :teamDict | MyTeamMembers fromRawData: teamDict ])
 		epics:
 			((projectDict at: #epics)
@@ -26,6 +28,19 @@ MyProject class >> fromRawData: projectDict [
 				collect: [ :personaDict | MyPersona fromRawData: personaDict ])
 		labels: ((projectDict at: #labels)
 				collect: [ :labelDict | MyLabel fromRawData: labelDict ])
+]
+
+{ #category : #accessing }
+MyProject class >> id: aString title: anotherString board: aBoard teamMembers: anArray epics: anotherArray personas: yetAnotherArray labels: labelArray [
+	^ self new
+		id: aString;
+		title: anotherString;
+		board: aBoard;
+		teamMembers: anArray asOrderedCollection;
+		epics: anotherArray asOrderedCollection;
+		personas: yetAnotherArray asOrderedCollection;
+		labels: labelArray asOrderedCollection;
+		yourself
 ]
 
 { #category : #accessing }
@@ -48,6 +63,11 @@ MyProject >> announcer [
 { #category : #accessing }
 MyProject >> announcer: anAnnouncer [
 announcer := anAnnouncer
+]
+
+{ #category : #accessing }
+MyProject >> board: aBoard [
+board := MyBoard new fromRawData: aBoard
 ]
 
 { #category : #accessing }
