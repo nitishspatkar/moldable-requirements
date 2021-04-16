@@ -67,7 +67,14 @@ announcer := anAnnouncer
 
 { #category : #accessing }
 MyProject >> board: aBoard [
-board := MyBoard new fromRawData: aBoard
+board := MyBoard new fromRawData: aBoard.
+board project: self.
+
+]
+
+{ #category : #accessing }
+MyProject >> epics [
+^epics
 ]
 
 { #category : #accessing }
@@ -225,6 +232,11 @@ MyProject >> teamMembers [
 { #category : #accessing }
 MyProject >> teamMembers: anArray [ 
 teamMembers := anArray do: [ :each | each project: self]
+]
+
+{ #category : #accessing }
+MyProject >> title [
+^title
 ]
 
 { #category : #accessing }

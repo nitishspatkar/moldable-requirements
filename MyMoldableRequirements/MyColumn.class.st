@@ -34,6 +34,11 @@ MyColumn >> printOn: aStream [
 ]
 
 { #category : #accessing }
+MyColumn >> title [
+^title
+]
+
+{ #category : #accessing }
 MyColumn >> title: aString [
 title := aString
 ]
