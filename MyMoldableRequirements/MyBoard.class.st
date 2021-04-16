@@ -46,6 +46,7 @@ board addChild: headerContainer.
 		collect: [ :eachCol | 
 		column := (BlElement new 
 				layout: BlLinearLayout vertical;
+				geometry: (BlRoundedRectangleGeometry cornerRadius: 10);
 				aptitude: BrShadowAptitude;
 				background: Color white;
 				constraintsDo: [ :c | 
@@ -102,7 +103,9 @@ MyBoard >> gtBoardFor: aView [
 	^ aView explicit
 		title: 'Story Board';
 		priority: 1;
-		stencil: [ self asBoard constraintsDo: [ :c | 
+		stencil: [ self asBoard 
+				margin: (BlInsets all: 10);
+		constraintsDo: [ :c | 
 			c horizontal matchParent.
 			c vertical fitContent ].]
 ]
