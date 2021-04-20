@@ -83,6 +83,19 @@ MyProject >> epics: anArray [
 ]
 
 { #category : #accessing }
+MyProject >> gtBoardFor: aView [
+	<gtView>
+	^ aView explicit
+		title: 'Story Board';
+		priority: 0.1;
+		stencil: [ board asBoard 
+				margin: (BlInsets all: 10);
+		constraintsDo: [ :c | 
+			c horizontal matchParent.
+			c vertical fitContent ].]
+]
+
+{ #category : #accessing }
 MyProject >> gtEpicsFor: aView [
 	<gtView>
 	^ (epics gtItemsFor: aView)

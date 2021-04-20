@@ -94,6 +94,7 @@ MyBoard >> fromRawData: aBoard [
 
 { #category : #accessing }
 MyBoard >> getUserStories [
+userStories := OrderedCollection new.
 project epics collect: [:each | self userStories: (each userStories)]
 ]
 
@@ -113,12 +114,6 @@ MyBoard >> gtBoardFor: aView [
 { #category : #accessing }
 MyBoard >> id: aNumber [
 id := aNumber
-]
-
-{ #category : #accessing }
-MyBoard >> initialize [
-	super initialize.
-	userStories := OrderedCollection new
 ]
 
 { #category : #accessing }
