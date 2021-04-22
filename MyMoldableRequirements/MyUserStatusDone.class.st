@@ -1,6 +1,6 @@
 Class {
 	#name : #MyUserStatusDone,
-	#superclass : #MyUserStatus,
+	#superclass : #MyUserStatusOld,
 	#category : #'MyMoldableRequirements-Models'
 }
 

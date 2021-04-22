@@ -27,7 +27,7 @@ MyProject class >> fromRawData: projectDict [
 		personas: ((projectDict at: #personas)
 				collect: [ :personaDict | MyPersona fromRawData: personaDict ])
 		labels: ((projectDict at: #labels)
-				collect: [ :labelDict | MyLabel fromRawData: labelDict ])
+				collect: [ :labelDict | MyLabelOld fromRawData: labelDict ])
 ]
 
 { #category : #accessing }
@@ -88,11 +88,13 @@ MyProject >> gtBoardFor: aView [
 	^ aView explicit
 		title: 'Story Board';
 		priority: 0.1;
-		stencil: [ board asBoard 
-				margin: (BlInsets all: 10);
-		constraintsDo: [ :c | 
-			c horizontal matchParent.
-			c vertical fitContent ].]
+		stencil: [
+		board asBoard 
+			margin: (BlInsets all: 10);
+			constraintsDo: [ :c | 
+				c horizontal matchParent.
+				c vertical matchParent ] ];
+		actionUpdateButton
 ]
 
 { #category : #accessing }
@@ -101,7 +103,7 @@ MyProject >> gtEpicsFor: aView [
 	^ (epics gtItemsFor: aView)
 		title: 'Epics';
 		priority: 0;
-		updateWhen: MyUserStoryStatusChange in: [ announcer ];
+		updateWhen: MyUserStoryStatusChanged in: [ announcer ];
 		actionDropdownButtonIcon: BrGlamorousVectorIcons add
 			tooltip: 'Add an epic'
 			content: [ | epic |
@@ -120,7 +122,7 @@ MyProject >> gtLabelsFor: aView [
 	^ aView columnedList
 		title: 'Labels';
 		priority: 3;
-		updateWhen: MyUserStoryStatusChange in: [ announcer ];
+		updateWhen: MyUserStoryStatusChanged in: [ announcer ];
 		items: [labels];
 		column: 'Index'
 			text: [:eachLabel :eachIndex | eachIndex]
@@ -131,7 +133,7 @@ MyProject >> gtLabelsFor: aView [
 		actionDropdownButtonIcon: BrGlamorousVectorIcons add
 			tooltip: 'Add a label'
 			content: [ | label |
-			label := MyLabel
+			label := MyLabelOld
 				id: nil
 				description: ''
 				color: ''.
@@ -156,7 +158,7 @@ MyProject >> gtPersonasFor: aView [
 	^ aView columnedList
 		title: 'Personas';
 		priority: 1;
-		updateWhen: MyUserStoryStatusChange in: [announcer];
+		updateWhen: MyUserStoryStatusChanged in: [announcer];
 		items: [personas];
 		column: 'Index'
 			text: [:eachPersona :eachIndex | eachIndex]
@@ -182,7 +184,7 @@ MyProject >> gtTeamMembersFor: aView [
 	^ aView columnedList
 		title: 'Team';
 		priority: 2;
-		updateWhen: MyUserStoryStatusChange in: [ announcer ];
+		updateWhen: MyUserStoryStatusChanged in: [ announcer ];
 		items: [teamMembers];
 		column: 'Index'
 			text: [:eachMember :eachIndex | eachIndex]

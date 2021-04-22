@@ -1,8 +1,8 @@
 Class {
-	#name : #MyNotes,
+	#name : #MyLabels,
 	#superclass : #Object,
 	#instVars : [
-		'notes',
+		'labels',
 		'parentUserStory',
 		'announcer'
 	],
@@ -10,21 +10,21 @@ Class {
 }
 
 { #category : #generated }
-MyNotes >> addNote: aNote [
+MyLabels >> addLabel: aLabel [
 	"Add a given object as a child to the receiver and notify subscribers about it.
 	Do nothing if an object is already one of my children."
-	<objectAdder: #note>
+	<objectAdder: #label>
 	<generatedFrom: #'TGtRobocoderMetamodelAdditionForManyTemplate>>#addObjectTemplate'>
 
-	(self includesNote: aNote)
+	(self includesLabel: aLabel)
 		ifTrue: [ ^ self ].
 
-	self notes add: aNote.
-	self onNoteAdded: aNote
+	self labels add: aLabel.
+	self onLabelAdded: aLabel
 ]
 
 { #category : #'api - announcer' }
-MyNotes >> announce: anAnnouncement [
+MyLabels >> announce: anAnnouncement [
 	<generatedFrom: #'GtRobocoderMetamodelNotifierDerive>>#announceTemplate'>
 	announcer ifNotNil: [ :anAnnouncer | anAnnouncer announce: anAnnouncement ].
 
@@ -34,42 +34,42 @@ MyNotes >> announce: anAnnouncement [
 ]
 
 { #category : #'private - instance creation' }
-MyNotes >> createNotes [
+MyLabels >> createLabels [
 	"For each child from the domain model create an object and return a resulting collection"
-	<return: #Collection of: #MyNote>
+	<return: #Collection of: #MyLabel>
 	<generatedFrom: #'TGtRobocoderMetamodelChildrenForManyTemplate>>#createChildObjectsTemplate'>
 
 	^ self yourself yourself collect: [ :eachModel |
 		| eachChild |
-		eachChild := MyNote new.
-		eachChild parentNotes: self.
+		eachChild := MyLabel new.
+		eachChild parentLabels: self.
 		
 		eachChild ] as: OrderedCollection
 ]
 
 { #category : #'gt-extentions' }
-MyNotes >> gtNoteListViewFor: aView [
+MyLabels >> gtLabelListViewFor: aView [
 	<gtView>
 	<generatedFrom: #'GtRobocoderMetamodelPhlowListViewDerive>>#listForManyTemplate'>
 
 	^ aView list
 		priority: 5;
-		title: 'Note';
-		items: [ self notes ]
+		title: 'Label';
+		items: [ self labels ]
 ]
 
-{ #category : #'api - notes' }
-MyNotes >> hasNotes [
+{ #category : #'api - labels' }
+MyLabels >> hasLabels [
 	"Return a true if nil is assigned to the receiver, false otherwise"
 	<return: #Boolean>
-	<objectTester: #notes>
+	<objectTester: #labels>
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#hasObjectTemplate'>
 
-	^ notes notNil
+	^ labels notNil
 ]
 
 { #category : #'api - accessing' }
-MyNotes >> hasParentUserStory [
+MyLabels >> hasParentUserStory [
 	"Return true if the parent object is attached"
 	<return: #Boolean>
 	<parentObjectTester: #userStory>
@@ -79,26 +79,19 @@ MyNotes >> hasParentUserStory [
 ]
 
 { #category : #generated }
-MyNotes >> includesNote: aNote [
+MyLabels >> includesLabel: aLabel [
 	"Check and return true if a given child object exists among my children, false otherwise.
 	The comparison happens by identity"
 	<return: #Boolean>
-	<childObjectFinder: #note>
+	<childObjectFinder: #label>
 	<generatedFrom: #'TGtRobocoderMetamodelChildrenForManyTemplate>>#includesObjectTemplate'>
 
-	^ self notes anySatisfy: [ :eachNote |
-		eachNote == aNote ]
-]
-
-{ #category : #initialization }
-MyNotes >> initialize [
-	super initialize.
-	
-	notes := OrderedCollection new
+	^ self labels anySatisfy: [ :eachLabel |
+		eachLabel == aLabel ]
 ]
 
 { #category : #'api - testing' }
-MyNotes >> isLabel [
+MyLabels >> isLabel [
 	"Return true if the receiver represents Label, false otherwise"
 	<return: #Boolean>
 	<generatedFrom: #'GtRobocoderMetamodelTypeTestDerive>>#typeTesterTemplate'>
@@ -107,16 +100,16 @@ MyNotes >> isLabel [
 ]
 
 { #category : #'api - testing' }
-MyNotes >> isLabels [
+MyLabels >> isLabels [
 	"Return true if the receiver represents Labels, false otherwise"
 	<return: #Boolean>
 	<generatedFrom: #'GtRobocoderMetamodelTypeTestDerive>>#typeTesterTemplate'>
 
-	^ false
+	^ true
 ]
 
 { #category : #'api - testing' }
-MyNotes >> isNote [
+MyLabels >> isNote [
 	"Return true if the receiver represents Note, false otherwise"
 	<return: #Boolean>
 	<generatedFrom: #'GtRobocoderMetamodelTypeTestDerive>>#typeTesterTemplate'>
@@ -125,16 +118,16 @@ MyNotes >> isNote [
 ]
 
 { #category : #'api - testing' }
-MyNotes >> isNotes [
+MyLabels >> isNotes [
 	"Return true if the receiver represents Notes, false otherwise"
 	<return: #Boolean>
 	<generatedFrom: #'GtRobocoderMetamodelTypeTestDerive>>#typeTesterTemplate'>
 
-	^ true
+	^ false
 ]
 
 { #category : #'api - testing' }
-MyNotes >> isTask [
+MyLabels >> isTask [
 	"Return true if the receiver represents Task, false otherwise"
 	<return: #Boolean>
 	<generatedFrom: #'GtRobocoderMetamodelTypeTestDerive>>#typeTesterTemplate'>
@@ -143,7 +136,7 @@ MyNotes >> isTask [
 ]
 
 { #category : #'api - testing' }
-MyNotes >> isTasks [
+MyLabels >> isTasks [
 	"Return true if the receiver represents Tasks, false otherwise"
 	<return: #Boolean>
 	<generatedFrom: #'GtRobocoderMetamodelTypeTestDerive>>#typeTesterTemplate'>
@@ -152,7 +145,7 @@ MyNotes >> isTasks [
 ]
 
 { #category : #'api - testing' }
-MyNotes >> isUserStory [
+MyLabels >> isUserStory [
 	"Return true if the receiver represents UserStory, false otherwise"
 	<return: #Boolean>
 	<generatedFrom: #'GtRobocoderMetamodelTypeTestDerive>>#typeTesterTemplate'>
@@ -161,99 +154,98 @@ MyNotes >> isUserStory [
 ]
 
 { #category : #'api - accessing' }
-MyNotes >> notes [
-	"Return a collection of objects (${class:MyNote}$) created for each child from the domain model.
+MyLabels >> labels [
+	"Return a collection of objects (${class:MyLabel}$) created for each child from the domain model.
 	Note: The children are lazily instantiated."
-	<return: #Collection of: #MyNote>
-	<childObjectGetter: #note>
+	<return: #Collection of: #MyLabel>
+	<childObjectGetter: #label>
 	<generatedFrom: #'TGtRobocoderMetamodelChildrenForManyTemplate>>#childObjectsTemplate'>
 
-	^  notes ifNil: [ notes := self createNotes ]
+	^  labels ifNil: [ labels := self createLabels ]
 ]
 
-{ #category : #'api - notes' }
-MyNotes >> notes: aNotes [
-	"Set a not-null notes assigned to the receiver"
-	<objectSetter: #notes>
+{ #category : #'api - labels' }
+MyLabels >> labels: aLabels [
+	"Set a not-null labels assigned to the receiver"
+	<objectSetter: #labels>
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#objectSetterTemplate'>
 	self
-		assert: [ aNotes notNil ]
-		description: [ 'notes must not be nil' ].
+		assert: [ aLabels notNil ]
+		description: [ 'labels must not be nil' ].
 
-	notes == aNotes
+	labels == aLabels
 		ifTrue: [ ^ self ].
 
-	notes ifNotNil: [ self unsubscribeFromNotes ].
-	notes := aNotes.
+	labels ifNotNil: [ self unsubscribeFromLabels ].
+	labels := aLabels.
 
-	self onNotesChanged.
-	self subscribeToNotes.
-	self onPostNotesChanged
+	self onLabelsChanged.
+	self subscribeToLabels.
+	self onPostLabelsChanged
 ]
 
 { #category : #generated }
-MyNotes >> notifyNoteAdded: aNote [
+MyLabels >> notifyLabelAdded: aLabel [
 	"Notifies that a given child object was added to the receiver"
 	
 	<generatedFrom: #'TGtRobocoderMetamodelAdditionForManyTemplate>>#notifyObjectAddedTemplate'>
-	self announce: (MyNoteAddedAnnouncement new
-		note: aNote) 
+	self announce: (MyLabelAddedAnnouncement new
+		label: aLabel) 
 ]
 
 { #category : #generated }
-MyNotes >> notifyNoteRemoved: aNote [
+MyLabels >> notifyLabelRemoved: aLabel [
 	"Notifies that a given child object was removed from the receiver"
 	<generatedFrom: #'TGtRobocoderMetamodelRemovalForManyTemplate>>#notifyObjectRemovedTemplate'>
 ]
 
 { #category : #'api - accessing' }
-MyNotes >> objectName [
+MyLabels >> objectName [
 	"Return a symbolic name of the receiver which helps to create various type based mappings.
 	Note: The symbolic name of the object is the exact name that was used
 	in the metamodel declaration from which this class was generated"
 	<return: #Symbol>
 	<generatedFrom: #'GtRobocoderMetamodelNameDerive>>#objectNameTemplate'>
 
-	^ #notes
+	^ #labels
 ]
 
 { #category : #generated }
-MyNotes >> onNoteAdded: aNote [
+MyLabels >> onLabelAdded: aLabel [
 	"Is sent after a given child object was added to the receiver"
 
 	<generatedFrom: #'TGtRobocoderMetamodelAdditionForManyTemplate>>#objectAddedHookTemplate'>
-	self notifyNoteAdded: aNote.
-	aNote parentNotes: self
+	self notifyLabelAdded: aLabel.
 ]
 
 { #category : #generated }
-MyNotes >> onNoteRemoved: aNote [
+MyLabels >> onLabelRemoved: aLabel [
 	"Is sent after a given child object was removed from the receiver"
 
 	<generatedFrom: #'TGtRobocoderMetamodelRemovalForManyTemplate>>#objectRemovedHookTemplate'>
-	self notifyNoteRemoved: aNote.
+	self notifyLabelRemoved: aLabel.
 ]
 
-{ #category : #'api - notes' }
-MyNotes >> onNotesChanged [
-	"Is sent when a new notes is assigned to the receiver.
-	Note: #onNotesChanged is sent before #subscribeToNotes
+{ #category : #'api - labels' }
+MyLabels >> onLabelsChanged [
+	"Is sent when a new labels is assigned to the receiver.
+	Note: #onLabelsChanged is sent before #subscribeToLabels
 	which means that if you perform any operation that triggers an announcement it will be ignored because the receiver
-	didn't get a chance to subscribe to any announcement. Override #onPostNotesChanged if you
+	didn't get a chance to subscribe to any announcement. Override #onPostLabelsChanged if you
 	wish to perform an operation that requires an announcement, but keep in mind that this is not the most efficient way"
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onObjectChangedTemplate'>
 ]
 
-{ #category : #'api - notes' }
-MyNotes >> onPostNotesChanged [
-	"I am an optional hook method that is sent after #subscribeToNotes.
+{ #category : #'api - labels' }
+MyLabels >> onPostLabelsChanged [
+	"I am an optional hook method that is sent after #subscribeToLabels.
 	I do nothing by default but allow users to perform update operations when a receiver object is already
 	subscribed to announcements."
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onPostObjectChangedTemplate'>
 ]
 
 { #category : #'api - accessing' }
-MyNotes >> parentUserStory [
+MyLabels >> parentUserStory [
 	"Return a parent object which is used to access various state properties,
 	for example parent may be responsible for knowing a selected child object.
 	In order for the child to know if it is selected, that child should know the parent object."
@@ -269,7 +261,7 @@ MyNotes >> parentUserStory [
 ]
 
 { #category : #'api - accessing' }
-MyNotes >> parentUserStory: aMyUserStory [
+MyLabels >> parentUserStory: aMyUserStory [
 	"Assign a parent object (${class:MyUserStory}$) which is used to access various state properties,
 	for example parent may be responsible for knowing a selected child object.
 	In order for the child to know if it is selected, that child should know the parent object."
@@ -284,57 +276,57 @@ MyNotes >> parentUserStory: aMyUserStory [
 ]
 
 { #category : #printing }
-MyNotes >> printOn: aStream [
+MyLabels >> printOn: aStream [
 	<generatedFrom: #'GtRobocoderMetamodelPrintDerive>>#printOnTemplate'>
 	super printOn: aStream
 ]
 
 { #category : #generated }
-MyNotes >> removeNote: aNote [
+MyLabels >> removeLabel: aLabel [
 	"Removed a given child object from the receiver and notify subscribers about it.
 	Do nothing if an object is not one of my children."
-	<objectAdder: #note>
+	<objectAdder: #label>
 	<generatedFrom: #'TGtRobocoderMetamodelRemovalForManyTemplate>>#removeObjectTemplate'>
 
-	(self includesNote: aNote)
+	(self includesLabel: aLabel)
 		ifFalse: [ ^ self ].
 
-	self notes remove: aNote.
-	self onNoteRemoved: aNote
+	self labels remove: aLabel.
+	self onLabelRemoved: aLabel
 ]
 
-{ #category : #'api - notes' }
-MyNotes >> subscribeToNotes [
-	"Is sent after a new notes is assigned to the receiver.
+{ #category : #'api - labels' }
+MyLabels >> subscribeToLabels [
+	"Is sent after a new labels is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
-	#unsubscribeFromNotes if the receiver subscribes to them"
+	#unsubscribeFromLabels if the receiver subscribes to them"
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#subscribeToObjectTemplate'>
 ]
 
 { #category : #'api - announcer' }
-MyNotes >> unsubscribe: anObject [
+MyLabels >> unsubscribe: anObject [
 	"Unsubscribe all subscriptions of anObject from the receiver"
 
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#unsubscribeTemplate'>
 	^ announcer ifNotNil: [ :anAnnouncer | anAnnouncer unsubscribe: anObject ]
 ]
 
-{ #category : #'api - notes' }
-MyNotes >> unsubscribeFromNotes [
-	"Is sent before a new notes is assigned to the receiver.
-	Objects that subscribe to notes are required to implement this method."
+{ #category : #'api - labels' }
+MyLabels >> unsubscribeFromLabels [
+	"Is sent before a new labels is assigned to the receiver.
+	Objects that subscribe to labels are required to implement this method."
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#unsubscribeFromObjectTemplate'>
 ]
 
 { #category : #'api - announcer' }
-MyNotes >> when: anAnnouncementClass do: aBlock [
+MyLabels >> when: anAnnouncementClass do: aBlock [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenDoTemplate'>
 	(announcer ifNil: [ announcer := Announcer new ])
 		when: anAnnouncementClass do: aBlock
 ]
 
 { #category : #'api - announcer' }
-MyNotes >> when: anAnnouncementClass send: aSelector to: anObject [
+MyLabels >> when: anAnnouncementClass send: aSelector to: anObject [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenSendToTemplate'>
 	(announcer ifNil: [ announcer := Announcer new ]) weak
 		when: anAnnouncementClass send: aSelector to: anObject

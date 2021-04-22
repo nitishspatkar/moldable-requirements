@@ -13,56 +13,39 @@ Class {
 { #category : #accessing }
 MyBoard >> asBoard [
 	| board headerContainer columnContainer column |
-	board := BlElement new
-		layout: BlLinearLayout vertical;
-		geometry: (BlRoundedRectangleGeometry cornerRadius: 10);
-		margin: (BlInsets all: 10);
-		constraintsDo: [ :c | 
-			c horizontal matchParent.
-			c vertical fitContent ].
+
+	headerContainer := BrHorizontalPane new
+		hMatchParent;
+		vExact: 50.
 			
-	headerContainer := BlElement new
-		layout: BlLinearLayout horizontal;
-		constraintsDo: [ :c | 
-			c horizontal matchParent.
-			c vertical exact: 50 ].
-			
-	columnContainer := BlElement new
-		layout: BlLinearLayout horizontal;
-		constraintsDo: [ :c | 
-			c horizontal matchParent.
-			c vertical fitContent ].
+	columnContainer := BrHorizontalPane new
+		hMatchParent;
+		vFitContent;
+		cellSpacing: 10;
+		padding: (BlInsets top: 10 bottom: 10).
 	
-	headerContainer
-		addChild:
-			(BrLabel new
-				aptitude: BrGlamorousLabelAptitude;
-				beNormalSize;
-				text: project title;
-				yourself).	
-board addChild: headerContainer.
+	headerContainer addChild:
+		(BrLabel new
+			aptitude: BrGlamorousLabelAptitude;
+			beNormalSize;
+			text: project title).
 				
-	columns
+	columnContainer addChildren: (columns
 		collect: [ :eachCol | 
-		column := (BlElement new 
-				layout: BlLinearLayout vertical;
+		column := BrVerticalPane new
+				alignTopCenter;
 				geometry: (BlRoundedRectangleGeometry cornerRadius: 10);
 				aptitude: BrShadowAptitude;
 				background: Color white;
-				constraintsDo: [ :c | 
-					c horizontal matchParent.
-					c vertical fitContent ];
-				padding: (BlInsets all: 5);
-				margin: (BlInsets top: 0 left: 5 bottom: 0 right: 5);
-				yourself).
+				hMatchParent;
+				vFitContent;
+				padding: (BlInsets all: 5).
+				
 		column addChild: (BrLabel new
 				aptitude: BrGlamorousLabelAptitude;
 				beLargeSize;
 				margin: (BlInsets top: 15 left: 15 bottom: 15 right: 0);
 				text: eachCol title;
-				constraintsDo: [ :c | 
-			c linear vertical alignCenter.
-			c linear horizontal alignCenter ]
 				yourself).
 		self getUserStories.
 		userStories collect: [ :eachStory | eachStory status label = eachCol title 
@@ -73,7 +56,15 @@ board addChild: headerContainer.
 					c vertical fitContent ];
 				padding: (BlInsets all: 5);
 				yourself )]].
-		columnContainer addChild: column asScrollableElement.].
+		column ]).
+				
+	board := BrVerticalPane new
+		geometry: (BlRoundedRectangleGeometry cornerRadius: 10);
+		margin: (BlInsets all: 10);
+		hMatchParent;
+		vFitContent.			
+	
+	board addChild: headerContainer.
 	board addChild: columnContainer.
 	
 	^ board asScrollableElement

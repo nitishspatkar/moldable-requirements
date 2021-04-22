@@ -1,10 +1,11 @@
 Class {
 	#name : #MyUserStory,
 	#superclass : #Object,
+	#traits : 'TMyWithAcceptanceCriteria + TMyWithStatus',
+	#classTraits : 'TMyWithAcceptanceCriteria classTrait + TMyWithStatus classTrait',
 	#instVars : [
 		'id',
 		'description',
-		'status',
 		'points',
 		'scenarios',
 		'references',
@@ -13,14 +14,13 @@ Class {
 		'benefit',
 		'epic',
 		'assignees',
-		'acceptanceCriteria',
 		'notes',
 		'personas',
 		'labels',
 		'announcer',
 		'tasks'
 	],
-	#category : #'MyMoldableRequirements-Models'
+	#category : #'MyMoldableRequirements-User Story - Models'
 }
 
 { #category : #accessing }
@@ -31,7 +31,7 @@ MyUserStory class >> fromRawData: userStoryDict [
 		means: (userStoryDict at: #means)
 		benefit: (userStoryDict at: #benefit)
 		acceptanceCriteria: (userStoryDict at: #acceptanceCriteria)
-		status: (MyUserStatus fromString: (userStoryDict at: #status))
+		status: (MyUserStatusOld fromString: (userStoryDict at: #status))
 		points: (userStoryDict at: #points)
 		scenarios:
 			((userStoryDict at: #scenarios)
@@ -41,11 +41,11 @@ MyUserStory class >> fromRawData: userStoryDict [
 		assignees: ((userStoryDict at: #assignees)
 				collect: [ :assigneesDict | MyTeamMembers fromRawData: assigneesDict])
 		labels: ((userStoryDict at: #labels)
-				collect: [ :labelDict | MyLabel fromRawData: labelDict])
+				collect: [ :labelDict | MyLabelOld fromRawData: labelDict])
 		tasks: 
 		((userStoryDict at: #tasks)
-		collect: [:taskDict | MyTask fromRawData: taskDict])
-		notes: ((userStoryDict at: #notes) collect: [:notesDict | MyNotes fromRawData: notesDict])
+		collect: [:taskDict | MyTaskOld fromRawData: taskDict])
+		notes: ((userStoryDict at: #notes) collect: [:notesDict | MyNote fromRawData: notesDict])
 ]
 
 { #category : #accessing }
@@ -98,35 +98,6 @@ MyUserStory >> aWithAllPersonasDropdownAptitude [
 ]
 
 { #category : #accessing }
-MyUserStory >> aWithAllStatiDropdownAptitude [
-	"returns a dropdown of all stati"
-
-	^ BrGlamorousWithDropdownAptitude
-		handle: [ BrButton new
-				size: 20@20;
-				geometry: (BlRoundedRectangleGeometry cornerRadius: 10);
-				aptitude: self aButtonCircularAptitude create;
-				icon: BrGlamorousIcons menu ]
-		content: [
-			BrSimpleList new
-				itemStencil: [
-					BrButton new
-						aptitude: BrGlamorousLabelAptitude new
-								+ (BrStyleCommonAptitude new selected: [ :aStyle | aStyle background: Color veryVeryLightGray ]);
-						padding: (BlInsets all: 5);
-						action: [ :aButton |
-							self status: aButton model.
-							aButton fireEvent: BrDropdownHideWish new ] ];
-				itemDataBinder: [ :eachButton :eachStatus |
-					(eachStatus = self status)
-						ifTrue: [ eachButton label: '> ', eachStatus label ]
-						ifFalse: [ eachButton label: eachStatus label ].
-						
-					eachButton model: eachStatus ];
-				items: self allStati ]
-]
-
-{ #category : #accessing }
 MyUserStory >> aWithAllTeamMembersDropdownAptitude [
 	"returns a dropdown of all team members"
 
@@ -138,11 +109,6 @@ MyUserStory >> aWithAllTeamMembersDropdownAptitude [
 ]
 
 { #category : #accessing }
-MyUserStory >> acceptanceCriteria: aString [
-acceptanceCriteria := aString
-]
-
-{ #category : #accessing }
 MyUserStory >> addNoteDropdownAptitude [
 ^ BrGlamorousWithDropdownAptitude 
 	handle: [BrButton new
@@ -150,12 +116,11 @@ MyUserStory >> addNoteDropdownAptitude [
 				icon: BrGlamorousIcons add
 	]
 	content: [ | note |
-			note := MyNotes
+			note := MyNote
 				id: nil
-				note: ''
+				description: ''
 				author: ''.
-				note userStory: self.
-			note asFormElement: [ notes add: note ]]
+			note asFormElement: [ notes addNote: note ]]
 ]
 
 { #category : #accessing }
@@ -166,21 +131,27 @@ MyUserStory >> addTaskDropdownAptitude [
 				icon: BrGlamorousIcons add
 	]
 	content: [ | task |
-			task := MyTask
+			task := MyTaskOld
 				id: nil
 				description: ''
 				done: 'false'
 				end: '01.01.2021'
 				assignees: OrderedCollection new.
 				task userStory: self.
-			task asFormElement: [ tasks add: task ]].
+			task asFormElement: [ tasks addTask: task ]].
 ]
 
 { #category : #accessing }
 MyUserStory >> allStati [
 	"returns an orderedCollection of stati"
 	
-	^ MyUserStatus allSubclasses collect: [ :eachStatusClass | eachStatusClass new ]
+	^ MyUserStatusOld allSubclasses collect: [ :eachStatusClass | eachStatusClass new ]
+]
+
+{ #category : #'api - announcer' }
+MyUserStory >> announce: anAnnouncement [
+	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#announceTemplate'>
+	announcer ifNotNil: [ :anAnnouncer | anAnnouncer announce: anAnnouncement ]
 ]
 
 { #category : #accessing }
@@ -191,7 +162,7 @@ MyUserStory >> announcer [
 { #category : #'private - instance creation' }
 MyUserStory >> asDetailedStoryCard [
 	"Returns a bloc element that renders a card"
-	| task taskDescription containerLeft checkbox newTask checkList statusElement notesContainer containerRight card assigned |
+	| task taskDescription notesContainer card assigned |
 
 	card := BlElement new
 		layout: BlLinearLayout vertical;
@@ -208,23 +179,7 @@ MyUserStory >> asDetailedStoryCard [
 				action: [ :button | button phlow spawnObject: epic ] yourself);
 		addChild: self asUserStoryEditable.
 
-	"status with dropdown"
-	statusElement := self statusLabelAndDropdown.
-	card addChild: statusElement.
-	card
-		addChild:
-			(BrLabel new
-				aptitude: BrGlamorousLabelAptitude;
-				beLargeSize;
-				text: 'Acceptance Criteria:';
-				yourself);
-		addChild:
-			(BrEditableLabel new
-				aptitude: BrGlamorousEditableLabelAptitude new glamorousRegularFontAndSize;
-				text: acceptanceCriteria;
-				when: BrEditorAcceptWish
-					do: [ :aWish | acceptanceCriteria := aWish text ];
-				yourself).
+	card addChild: (MyUserStoryElement new userStoryModel: self).
 
 	"checklist"
 	task := BlElement new
@@ -235,7 +190,7 @@ MyUserStory >> asDetailedStoryCard [
 	task addChild: self checklistContainerWithDropdown.
 
 	"makes tasklist for checklist"
-	tasks
+	tasks tasks
 		collect: [ :aTask | 
 			taskDescription := aTask getTaskDescription: aTask.
 			task addChild: taskDescription ].
@@ -244,7 +199,7 @@ MyUserStory >> asDetailedStoryCard [
 	"notes"
 	notesContainer := self notesContainerWithDropdown.
 	card addChild: notesContainer.
-	notes
+	notes notes
 		collect: [ :note | 
 			card
 				addChild:
@@ -273,7 +228,7 @@ MyUserStory >> asDetailedStoryCard [
 
 	"labels"
 	card addChild: self labelsLabelAndDropdown.
-	labels
+	labels labels
 		collect: [ :each | 
 			card
 				addChild:
@@ -352,7 +307,7 @@ MyUserStory >> asFormElement: aBlock [
 						ifTrue: [ description := 'As a ' , role , ', I want ' , means ]
 						ifFalse: [ description := 'As a ' , role , ', I want ' , means , ' so that '
 								, benefit ].
-						epic ifNotNil: [ :anEpic | anEpic announcer announce: (MyUserStoryStatusChange new) ].
+						epic ifNotNil: [ :anEpic | anEpic announcer announce: (MyUserStoryStatusChanged new) ].
 								aBlock value
 					"The following line means that when we click the save button, the arguement i.e., aBlock is evaluated" ];
 				yourself);
@@ -393,7 +348,7 @@ MyUserStory >> asMinimalStoryCard [
 			c horizontal matchParent.
 			c vertical fitContent.
 			 ].
-	labels collect: [ :each | labelContainer addChild: each asLabel].
+	labels labels collect: [ :each | labelContainer addChild: each asLabel].
 	
 	storyContainer := BrButton new
 		layout: BlFlowLayout horizontal;
@@ -459,6 +414,7 @@ MyUserStory >> asMinimalStoryCard [
 		geometry: (BlCircle new);
 		background: Color palePeach;
 		margin: (BlInsets right: 2);
+		id: #'spawn-assignees';
 		action: [:button | button phlow spawnObject: assignees];
 		addChild: (BrLabel new
 				aptitude: BrGlamorousLabelAptitude;
@@ -578,7 +534,7 @@ dropdown := BlElement new
 			(self assignees) collect: [:assign | dropdown addChild: (BrButton new
 				aptitude: BrGlamorousLabelAptitude;
 				label: 'Remove this assignee: "', assign name, '"';
-				action: [ assignees remove: assign. announcer announce: MyUserStoryStatusChange ];
+				action: [ assignees remove: assign. announcer announce: MyUserStoryStatusChanged ];
 				yourself). ].
 			^dropdown
 ]
@@ -624,6 +580,45 @@ MyUserStory >> checklistContainerWithDropdown [
 						margin: (BlInsets top: 20 left: 0 bottom: 5 right: 0);
 						beTinySize;
 						label: 'Remove a Task').
+]
+
+{ #category : #'private - instance creation' }
+MyUserStory >> createLabels [
+	"Create a nested child object for a domain child (or children) and return the result"
+	<return: #MyLabels>
+	<generatedFrom: #'TGtRobocoderMetamodelChildrenForOneTemplate>>#createChildObjectsTemplate'>
+	| childObject |
+
+	childObject := MyLabels new.
+	childObject parentUserStory: self.
+	childObject labels: self userStory notes.
+	^ childObject
+]
+
+{ #category : #'private - instance creation' }
+MyUserStory >> createNotes [
+	"Create a nested child object for a domain child (or children) and return the result"
+	<return: #MyNotes>
+	<generatedFrom: #'TGtRobocoderMetamodelChildrenForOneTemplate>>#createChildObjectsTemplate'>
+	| childObject |
+
+	childObject := MyNotes new.
+	childObject parentUserStory: self.
+	childObject notes: self userStory notes.
+	^ childObject
+]
+
+{ #category : #'private - instance creation' }
+MyUserStory >> createTasks [
+	"Create a nested child object for a domain child (or children) and return the result"
+	<return: #MyTasks>
+	<generatedFrom: #'TGtRobocoderMetamodelChildrenForOneTemplate>>#createChildObjectsTemplate'>
+	| childObject |
+
+	childObject := MyTasks new.
+	childObject parentUserStory: self.
+	childObject tasks: self userStory notes.
+	^ childObject
 ]
 
 { #category : #accessing }
@@ -679,7 +674,7 @@ epic := anEpic
 
 { #category : #accessing }
 MyUserStory >> getLabels [
-^self epic project labels
+^self epic project labels labels
 ]
 
 { #category : #accessing }
@@ -747,8 +742,8 @@ MyUserStory >> gtDetailedStoryCardFor: aView [
 	^aView explicit
 		title: 'Story card';
 		priority: 0;
-		updateWhen: MyUserStoryStatusChange in: [ announcer ];
-		stencil: [ self asDetailedStoryCard
+		stencil: [
+			self asDetailedStoryCard
 				aptitude: BrShadowAptitude;
 				background: Color white;
 				padding: (BlInsets all: 5);
@@ -756,6 +751,17 @@ MyUserStory >> gtDetailedStoryCardFor: aView [
 					c horizontal matchParent.
 					c vertical fitContent ];
 				yourself ]
+]
+
+{ #category : #'gt-extentions' }
+MyUserStory >> gtLabelsListViewFor: aView [
+	<gtView>
+	<generatedFrom: #'GtRobocoderMetamodelPhlowListViewDerive>>#listForOneTemplate'>
+
+	^ aView list
+		priority: 5;
+		title: 'Labels';
+		items: [ self labels labels ]
 ]
 
 { #category : #'gt-extensions' }
@@ -772,6 +778,17 @@ MyUserStory >> gtMinimalStoryCardFor: aView [
 					c vertical fitContent ];
 				padding: (BlInsets all: 5);
 				yourself ]
+]
+
+{ #category : #'gt-extentions' }
+MyUserStory >> gtNotesListViewFor: aView [
+	<gtView>
+	<generatedFrom: #'GtRobocoderMetamodelPhlowListViewDerive>>#listForOneTemplate'>
+
+	^ aView list
+		priority: 5;
+		title: 'Notes';
+		items: [ self notes notes ]
 ]
 
 { #category : #'gt-extensions' }
@@ -827,6 +844,17 @@ MyUserStory >> gtScenariosFor: aView [
 				yourself ]
 ]
 
+{ #category : #'gt-extentions' }
+MyUserStory >> gtTasksListViewFor: aView [
+	<gtView>
+	<generatedFrom: #'GtRobocoderMetamodelPhlowListViewDerive>>#listForOneTemplate'>
+
+	^ aView list
+		priority: 5;
+		title: 'Tasks';
+		items: [ self tasks tasks ]
+]
+
 { #category : #accessing }
 MyUserStory >> id: aString [
 	id := aString
@@ -837,6 +865,14 @@ MyUserStory >> initialize [
 	super initialize.
 
 	announcer :=  Announcer new.
+
+	status := MyUserStatusNotStarted new.
+	acceptanceCriteria := ''.
+	description := ''.
+	
+	notes := MyNotes new.
+	tasks := MyTasks new.
+	labels := MyLabels new
 ]
 
 { #category : #testing }
@@ -847,6 +883,69 @@ MyUserStory >> isDone [
 { #category : #testing }
 MyUserStory >> isInProgress [
 	^ self status isInProgress
+]
+
+{ #category : #'api - testing' }
+MyUserStory >> isLabel [
+	"Return true if the receiver represents Label, false otherwise"
+	<return: #Boolean>
+	<generatedFrom: #'GtRobocoderMetamodelTypeTestDerive>>#typeTesterTemplate'>
+
+	^ false
+]
+
+{ #category : #'api - testing' }
+MyUserStory >> isLabels [
+	"Return true if the receiver represents Labels, false otherwise"
+	<return: #Boolean>
+	<generatedFrom: #'GtRobocoderMetamodelTypeTestDerive>>#typeTesterTemplate'>
+
+	^ false
+]
+
+{ #category : #'api - testing' }
+MyUserStory >> isNote [
+	"Return true if the receiver represents Note, false otherwise"
+	<return: #Boolean>
+	<generatedFrom: #'GtRobocoderMetamodelTypeTestDerive>>#typeTesterTemplate'>
+
+	^ false
+]
+
+{ #category : #'api - testing' }
+MyUserStory >> isNotes [
+	"Return true if the receiver represents Notes, false otherwise"
+	<return: #Boolean>
+	<generatedFrom: #'GtRobocoderMetamodelTypeTestDerive>>#typeTesterTemplate'>
+
+	^ false
+]
+
+{ #category : #'api - testing' }
+MyUserStory >> isTask [
+	"Return true if the receiver represents Task, false otherwise"
+	<return: #Boolean>
+	<generatedFrom: #'GtRobocoderMetamodelTypeTestDerive>>#typeTesterTemplate'>
+
+	^ false
+]
+
+{ #category : #'api - testing' }
+MyUserStory >> isTasks [
+	"Return true if the receiver represents Tasks, false otherwise"
+	<return: #Boolean>
+	<generatedFrom: #'GtRobocoderMetamodelTypeTestDerive>>#typeTesterTemplate'>
+
+	^ false
+]
+
+{ #category : #'api - testing' }
+MyUserStory >> isUserStory [
+	"Return true if the receiver represents UserStory, false otherwise"
+	<return: #Boolean>
+	<generatedFrom: #'GtRobocoderMetamodelTypeTestDerive>>#typeTesterTemplate'>
+
+	^ true
 ]
 
 { #category : #accessing }
@@ -861,7 +960,7 @@ dropdown := BlElement new
 			(self getLabels ) collect: [:label | dropdown addChild: (BrButton new
 				aptitude: BrGlamorousLabelAptitude;
 				label: label description;
-				action: [ (labels includes: label) ifFalse:[labels add: label. announcer announce: MyUserStoryStatusChange] ];
+				action: [ (labels includesLabel: label) ifFalse:[labels addLabel: label. announcer announce: MyUserStoryStatusChanged] ];
 				yourself). ].
 			^dropdown
 ]
@@ -875,22 +974,28 @@ dropdown := BlElement new
 					c vertical fitContent.
 					c horizontal fitContent ];
 				padding: (BlInsets all: 5).
-			(self labels) collect: [:label | dropdown addChild: (BrButton new
+			(self labels labels) collect: [:label | dropdown addChild: (BrButton new
 				aptitude: BrGlamorousLabelAptitude;
 				label: 'Remove this label: "', label description, '"';
-				action: [ labels remove: label. announcer announce: MyUserStoryStatusChange ];
+				action: [ labels removeLabel: label. announcer announce: MyUserStoryStatusChanged ];
 				yourself). ].
 			^dropdown
 ]
 
-{ #category : #accessing }
+{ #category : #'api - accessing' }
 MyUserStory >> labels [
-^labels
+	"Return a composite object (${class:nil}$) created for a collection of children from the domain model.
+	Note: The object is lazily instantiated."
+	<return: #MyLabels>
+	<childObjectGetter: #labels>
+	<generatedFrom: #'TGtRobocoderMetamodelChildrenForOneTemplate>>#childObjectsTemplate'>
+
+	^ labels ifNil: [ labels := self createLabels ]
 ]
 
 { #category : #accessing }
 MyUserStory >> labels: anArray [
-labels := anArray
+	labels labels: anArray asOrderedCollection
 ]
 
 { #category : #accessing }
@@ -931,12 +1036,14 @@ MyUserStory >> means: aString [
 
 { #category : #accessing }
 MyUserStory >> notes [
-^notes
+	<return: #MyNotes>
+
+	^ notes
 ]
 
 { #category : #accessing }
 MyUserStory >> notes: anArray [
-notes := anArray do: [ :each | each notNil ifTrue: [each userStory: self]]
+	notes notes: (anArray select: #notNil) asOrderedCollection
 ]
 
 { #category : #accessing }
@@ -978,9 +1085,39 @@ dropdown := BlElement new
 			(self notes) collect: [:note | dropdown addChild: (BrButton new
 				aptitude: BrGlamorousLabelAptitude;
 				label: 'Remove this note: "', note description, '"';
-				action: [ notes remove: note. announcer announce: MyUserStoryStatusChange ];
+				action: [ notes remove: note. announcer announce: MyUserStoryStatusChanged ];
 				yourself). ].
 			^dropdown
+]
+
+{ #category : #'api - acceptance criteria' }
+MyUserStory >> notifyAcceptanceCriteriaChanged [
+	"Override this notify method to announce changes to the property"
+	<propertyChangeNotifier: #acceptanceCriteria>
+	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#notifyPropertyChangedTemplate'>
+	
+	self announcer announce: MyUserStoryAcceptanceCriteriaChanged new
+]
+
+{ #category : #'api - status' }
+MyUserStory >> notifyStatusChanged [
+	"Override this notify method to announce changes to the property"
+	<propertyChangeNotifier: #status>
+	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#notifyPropertyChangedTemplate'>
+	
+	epic ifNotNil: [ :anEpic | anEpic announcer announce: (MyUserStoryStatusChanged new) ].
+	self announcer announce: (MyUserStoryStatusChanged new)
+]
+
+{ #category : #'api - accessing' }
+MyUserStory >> objectName [
+	"Return a symbolic name of the receiver which helps to create various type based mappings.
+	Note: The symbolic name of the object is the exact name that was used
+	in the metamodel declaration from which this class was generated"
+	<return: #Symbol>
+	<generatedFrom: #'GtRobocoderMetamodelNameDerive>>#objectNameTemplate'>
+
+	^ #userStory
 ]
 
 { #category : #accessing }
@@ -1052,7 +1189,7 @@ dropdown := BlElement new
 			(self getPersonas) collect: [:person | dropdown addChild: (BrButton new
 				aptitude: BrGlamorousLabelAptitude;
 				label: person name;
-				action: [ (personas includes: person) ifFalse:[personas add: person. announcer announce: MyUserStoryStatusChange] ];
+				action: [ (personas includes: person) ifFalse:[personas add: person. announcer announce: MyUserStoryStatusChanged] ];
 				yourself). ].
 			^dropdown
 ]
@@ -1069,7 +1206,7 @@ dropdown := BlElement new
 			(self personas) collect: [:person | dropdown addChild: (BrButton new
 				aptitude: BrGlamorousLabelAptitude;
 				label: 'Remove this persona: "', person name, '"';
-				action: [ personas remove: person. announcer announce: MyUserStoryStatusChange ];
+				action: [ personas remove: person. announcer announce: MyUserStoryStatusChanged ];
 				yourself). ].
 			^dropdown
 ]
@@ -1089,12 +1226,11 @@ MyUserStory >> points: aNumber [
 	points := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : #printing }
 MyUserStory >> printOn: aStream [
-	aStream nextPutAll: (benefit isEmpty
-		ifTrue: [ description := 'As a ' , role , ', I want ' , means ]
-		ifFalse: [ description := 'As a ' , role , ', I want ' , means , ' so that '
-				, benefit ])
+	<generatedFrom: #'GtRobocoderMetamodelPrintDerive>>#printOnTemplate'>
+
+	aStream print: self description
 ]
 
 { #category : #accessing }
@@ -1163,24 +1299,13 @@ MyUserStory >> scenarios: anArray [
 	scenarios := anArray do: [ :each | each notNil ifTrue: [each userStory: self]]
 ]
 
-{ #category : #accessing }
+{ #category : #'api - status' }
 MyUserStory >> status [
- ^status
-]
+	<return: #MyUserStatusOld>
+	<propertyGetter: #status>
+	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#propertyGetterTemplate'>
 
-{ #category : #accessing }
-MyUserStory >> status: myUserStatus [
-	self
-		assert: [ myUserStatus isKindOf: MyUserStatus ]
-		description: [ 'User status must be a domain object' ].
-
-	status = myUserStatus
-		ifTrue: [ ^ self ].
-
-	status := myUserStatus.
-	
-	epic ifNotNil: [ :anEpic | anEpic announcer announce: (MyUserStoryStatusChange new) ].
-	self announcer announce: (MyUserStoryStatusChange new)
+	^ status
 ]
 
 { #category : #accessing }
@@ -1205,13 +1330,11 @@ MyUserStory >> statusLabelAndDropdown [
 				margin: (BlInsets right: 10);
 				text: 'Status:';
 				yourself);
-		addChild: (MyUserStoryStatusButton new userStory: self; size: 20 @ 20;
-				geometry: (BlRoundedRectangleGeometry cornerRadius: 10);
-				label: 'status';
-				aptitude: self aButtonCircularAptitude create + self aWithAllStatiDropdownAptitude;
+		addChild: (MyUserStoryStatusButton new
+				userStoryModel: self;
 				yourself).
 	
-	self announcer when: MyUserStoryStatusChange do: [ statusElement  ].	
+	self announcer when: MyUserStoryStatusChanged do: [ statusElement  ].	
 			
 	^ statusElement
 ]
@@ -1230,22 +1353,28 @@ dropdown := BlElement new
 					c vertical fitContent.
 					c horizontal fitContent ];
 				padding: (BlInsets all: 5).
-			(self tasks) collect: [:task | dropdown addChild: (BrButton new
+			(self tasks tasks) collect: [:task | dropdown addChild: (BrButton new
 				aptitude: BrGlamorousLabelAptitude;
 				label: 'Remove this task: "', task description, '"';
-				action: [ tasks remove: task. announcer announce: MyUserStoryStatusChange ];
+				action: [ tasks removeTask: task. announcer announce: MyUserStoryStatusChanged ];
 				yourself). ].
 			^dropdown
 ]
 
-{ #category : #accessing }
+{ #category : #'api - accessing' }
 MyUserStory >> tasks [
-^tasks
+	"Return a composite object (${class:nil}$) created for a collection of children from the domain model.
+	Note: The object is lazily instantiated."
+	<return: #MyTasks>
+	<childObjectGetter: #tasks>
+	<generatedFrom: #'TGtRobocoderMetamodelChildrenForOneTemplate>>#childObjectsTemplate'>
+
+	^ tasks ifNil: [ tasks := self createTasks ]
 ]
 
 { #category : #accessing }
 MyUserStory >> tasks: anArray [
-tasks := anArray do: [ :each | each notNil ifTrue: [each userStory: self]]
+	tasks tasks: (anArray select: #notNil) asOrderedCollection
 ]
 
 { #category : #accessing }
@@ -1260,7 +1389,29 @@ dropdown := BlElement new
 			(self getTeamMembers) collect: [:member | dropdown addChild: (BrButton new
 				aptitude: BrGlamorousLabelAptitude;
 				label: member name;
-				action: [ (assignees includes: member) ifFalse:[assignees add: member. announcer announce: MyUserStoryStatusChange] ];
+				action: [ (assignees includes: member) ifFalse:[assignees add: member. announcer announce: MyUserStoryStatusChanged] ];
 				yourself). ].
 			^dropdown
+]
+
+{ #category : #'api - announcer' }
+MyUserStory >> unsubscribe: anObject [
+	"Unsubscribe all subscriptions of anObject from the receiver"
+
+	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#unsubscribeTemplate'>
+	^ announcer ifNotNil: [ :anAnnouncer | anAnnouncer unsubscribe: anObject ]
+]
+
+{ #category : #'api - announcer' }
+MyUserStory >> when: anAnnouncementClass do: aBlock [
+	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenDoTemplate'>
+	(announcer ifNil: [ announcer := Announcer new ])
+		when: anAnnouncementClass do: aBlock
+]
+
+{ #category : #'api - announcer' }
+MyUserStory >> when: anAnnouncementClass send: aSelector to: anObject [
+	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenSendToTemplate'>
+	(announcer ifNil: [ announcer := Announcer new ]) weak
+		when: anAnnouncementClass send: aSelector to: anObject
 ]

@@ -72,7 +72,7 @@ MyTeamMembers >> asFormElement: aBlock [
 				shorthand := shorthandElementDescription document text asString.
 				self assert: name notEmpty.
 				self assert: shorthand notEmpty.
-				project ifNotNil: [ :aProject | aProject announcer announce: (MyUserStoryStatusChange new) ].
+				project ifNotNil: [ :aProject | aProject announcer announce: (MyUserStoryStatusChanged new) ].
 					"The following line means that when we click the save button, the arguement i.e., aBlock is evaluated"
 					aBlock value ];
 				yourself);

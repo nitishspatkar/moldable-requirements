@@ -1,56 +1,46 @@
 Class {
-	#name : #MyUserStoryStatusButton,
-	#superclass : #BrButton,
+	#name : #MyUserStoryAcceptanceCriteriaElement,
+	#superclass : #BrVerticalPane,
 	#traits : 'TMyWithUserStoryModel',
 	#classTraits : 'TMyWithUserStoryModel classTrait',
+	#instVars : [
+		'label',
+		'editor'
+	],
 	#category : #'MyMoldableRequirements-Views'
 }
 
 { #category : #initialization }
-MyUserStoryStatusButton >> createDropdownContent [
-	
-	^ BrSimpleList new
-		itemStencil: [
-			BrButton new
-				aptitude: BrGlamorousLabelAptitude new
-						+ (BrStyleCommonAptitude new selected: [ :aStyle | aStyle background: Color veryVeryLightGray ]);
-				padding: (BlInsets all: 5);
-				action: [ :aButton |
-					self userStoryModel status: aButton model.
-					aButton fireEvent: BrDropdownHideWish new ] ];
-		itemDataBinder: [ :eachButton :eachStatus |
-			(eachStatus = self userStoryModel status)
-				ifTrue: [ eachButton label: '> ', eachStatus label ]
-				ifFalse: [ eachButton label: eachStatus label ].
-				
-			eachButton model: eachStatus ];
-		items: self userStoryModel allStati
-]
-
-{ #category : #initialization }
-MyUserStoryStatusButton >> initialize [
+MyUserStoryAcceptanceCriteriaElement >> initialize [
 	super initialize.
 	
-	self
-		size: 20 @ 20;
-		geometry: (BlRoundedRectangleGeometry cornerRadius: 10);
-		label: 'Status'.
+	self hMatchParent.
+	self vFitContent.
 	
-	self addAptitude: (BrGlamorousWithDropdownAptitude
-		handle: [ BrButton new
-				size: 20@20;
-				geometry: (BlRoundedRectangleGeometry cornerRadius: 10);
-				icon: BrGlamorousIcons menu ]
-		content: [ self createDropdownContent ])
+	label := BrLabel new
+		aptitude: BrGlamorousLabelAptitude;
+		beLargeSize;
+		text: 'Acceptance Criteria:'.
+	
+	editor := BrEditableLabel new
+		aptitude: BrGlamorousEditableLabelAptitude new glamorousRegularFontAndSize;
+		when: BrEditorAcceptWish do: [ :aWish | self userStoryModel acceptanceCriteria: aWish text ].
+		
+	self addChildren: { 
+		label.
+		editor
+	}
 ]
 
 { #category : #'private - event handling' }
-MyUserStoryStatusButton >> onStatusChanged: anAnnouncement [
-	self updateStatusColor
+MyUserStoryAcceptanceCriteriaElement >> onAcceptanceCriteriaChanged [
+	"Is sent when acceptance criteria of the user story changes"
+
+	self updateAcceptanceCriteria
 ]
 
 { #category : #'api - user story model' }
-MyUserStoryStatusButton >> onUserStoryModelChanged [
+MyUserStoryAcceptanceCriteriaElement >> onUserStoryModelChanged [
 	"Is sent when a new userStoryModel is assigned to the receiver.
 	Note: #onUserStoryModelChanged is sent before #subscribeToUserStoryModel
 	which means that if you perform any operation that triggers an announcement it will be ignored because the receiver
@@ -58,24 +48,24 @@ MyUserStoryStatusButton >> onUserStoryModelChanged [
 	wish to perform an operation that requires an announcement, but keep in mind that this is not the most efficient way"
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onObjectChangedTemplate'>
 	
-	self updateStatusColor
+	self updateAcceptanceCriteria
 ]
 
 { #category : #'api - user story model' }
-MyUserStoryStatusButton >> subscribeToUserStoryModel [
+MyUserStoryAcceptanceCriteriaElement >> subscribeToUserStoryModel [
 	"Is sent after a new userStoryModel is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
 	#unsubscribeFromUserStoryModel if the receiver subscribes to them"
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#subscribeToObjectTemplate'>
 	
 	self userStoryModel announcer weak
-		when: MyUserStoryStatusChanged
-		send: #onStatusChanged:
+		when: MyUserStoryAcceptanceCriteriaChanged
+		send: #onAcceptanceCriteriaChanged
 		to: self
 ]
 
 { #category : #'api - user story model' }
-MyUserStoryStatusButton >> unsubscribeFromUserStoryModel [
+MyUserStoryAcceptanceCriteriaElement >> unsubscribeFromUserStoryModel [
 	"Is sent before a new userStoryModel is assigned to the receiver.
 	Objects that subscribe to userStoryModel are required to implement this method."
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#unsubscribeFromObjectTemplate'>
@@ -84,6 +74,6 @@ MyUserStoryStatusButton >> unsubscribeFromUserStoryModel [
 ]
 
 { #category : #'private - updating' }
-MyUserStoryStatusButton >> updateStatusColor [
-	self background: self userStoryModel statusColor
+MyUserStoryAcceptanceCriteriaElement >> updateAcceptanceCriteria [
+	editor text: self userStoryModel acceptanceCriteria
 ]

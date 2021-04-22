@@ -1,11 +1,11 @@
 Class {
-	#name : #MyUserStatus,
+	#name : #MyUserStatusOld,
 	#superclass : #Object,
 	#category : #'MyMoldableRequirements-Models'
 }
 
 { #category : #'instance creation' }
-MyUserStatus class >> fromString: aString [
+MyUserStatusOld class >> fromString: aString [
 	| aStatusClass |
 	
 	aStatusClass := { 
@@ -20,7 +20,7 @@ MyUserStatus class >> fromString: aString [
 ]
 
 { #category : #comparing }
-MyUserStatus >> = anObject [
+MyUserStatusOld >> = anObject [
 	self == anObject
 		ifTrue: [ ^ true ].
 		
@@ -28,31 +28,31 @@ MyUserStatus >> = anObject [
 ]
 
 { #category : #comparing }
-MyUserStatus >> hash [
+MyUserStatusOld >> hash [
 	^ self class hash
 ]
 
 { #category : #testing }
-MyUserStatus >> isDone [
+MyUserStatusOld >> isDone [
 	^ false
 ]
 
 { #category : #testing }
-MyUserStatus >> isInProgress [
+MyUserStatusOld >> isInProgress [
 	^ false
 ]
 
 { #category : #accessing }
-MyUserStatus >> label [
+MyUserStatusOld >> label [
 	^ self subclassResponsibility
 ]
 
 { #category : #printing }
-MyUserStatus >> printOn: aStream [
+MyUserStatusOld >> printOn: aStream [
 	aStream nextPutAll: 'Status:'; space; nextPutAll: self label
 ]
 
 { #category : #accessing }
-MyUserStatus >> statusColor [
+MyUserStatusOld >> statusColor [
 	^ self subclassResponsibility
 ]

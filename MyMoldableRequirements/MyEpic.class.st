@@ -75,7 +75,7 @@ MyEpic >> asFormElement: aBlock [
 				icon: BrGlamorousVectorIcons accept;
 				label: 'Save';
 				action: [ title := textElementDescription document text asString.
-				project ifNotNil: [ :aProject | aProject announcer announce: (MyUserStoryStatusChange new) ].
+				project ifNotNil: [ :aProject | aProject announcer announce: (MyUserStoryStatusChanged new) ].
 					"The following line means that when we click the save button, the arguement i.e., aBlock is evaluated"
 					aBlock value ];
 				yourself);
@@ -93,7 +93,7 @@ MyEpic >> gtUserStoriesFor: aView [
 	^ (userStories gtItemsFor: aView)
 		title: 'User stories';
 		priority: 0;
-		updateWhen: MyUserStoryStatusChange in: [ announcer ];
+		updateWhen: MyUserStoryStatusChanged in: [ announcer ];
 		actionDropdownButtonIcon: BrGlamorousVectorIcons add
 			tooltip: 'Add a user story'
 			content: [ | story |
@@ -122,7 +122,7 @@ MyEpic >> gtViewMindMapStoryTree: aView [
 	^ aView mondrian
 		title: 'Tree' translated;
 			priority: 1;
-			updateWhen: MyUserStoryStatusChange in: [ announcer ];
+			updateWhen: MyUserStoryStatusChanged in: [ announcer ];
 			painting: [ :view |
 				view nodes 
 					stencil: [ :eachUserStoryAndEpic | 
@@ -134,7 +134,7 @@ MyEpic >> gtViewMindMapStoryTree: aView [
 							size: (20)@(20).
 
 						eachUserStoryAndEpic announcer 
-							when: MyUserStoryStatusChange
+							when: MyUserStoryStatusChanged
 							do: [ aUserStoryElement background: eachUserStoryAndEpic statusColor ].
 
 						aUserStoryElement ];
