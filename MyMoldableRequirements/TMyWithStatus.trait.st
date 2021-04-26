@@ -3,7 +3,7 @@ Trait {
 	#instVars : [
 		'status'
 	],
-	#category : #'MyMoldableRequirements-Models'
+	#category : #'MyMoldableRequirements-User Story - Support'
 }
 
 { #category : #'api - status' }

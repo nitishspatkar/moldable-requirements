@@ -7,7 +7,7 @@ Class {
 		'label',
 		'editor'
 	],
-	#category : #'MyMoldableRequirements-Views'
+	#category : #'MyMoldableRequirements-User Story - Views'
 }
 
 { #category : #initialization }
@@ -16,6 +16,7 @@ MyUserStoryAcceptanceCriteriaElement >> initialize [
 	
 	self hMatchParent.
 	self vFitContent.
+	self padding: (BlInsets bottom: 20).
 	
 	label := BrLabel new
 		aptitude: BrGlamorousLabelAptitude;

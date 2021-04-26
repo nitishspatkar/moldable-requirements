@@ -3,7 +3,7 @@ Class {
 	#superclass : #BrButton,
 	#traits : 'TMyWithUserStoryModel',
 	#classTraits : 'TMyWithUserStoryModel classTrait',
-	#category : #'MyMoldableRequirements-Views'
+	#category : #'MyMoldableRequirements-User Story - Views'
 }
 
 { #category : #initialization }

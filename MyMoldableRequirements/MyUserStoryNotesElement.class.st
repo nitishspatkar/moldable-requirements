@@ -4,7 +4,9 @@ Class {
 	#traits : 'TMyWithNotes',
 	#classTraits : 'TMyWithNotes classTrait',
 	#instVars : [
-		'list'
+		'list',
+		'notesLabel',
+		'notesButton'
 	],
 	#category : #'MyMoldableRequirements-User Story - Views'
 }
@@ -14,6 +16,7 @@ MyUserStoryNotesElement >> initialize [
 	super initialize.
 	
 	self matchParent.
+	self padding: (BlInsets bottom: 20).
 	
 	list := BrSimpleList new
 		itemStencil: [
@@ -25,7 +28,9 @@ MyUserStoryNotesElement >> initialize [
 		itemDataBinder: [ :eachLabelElement :eachNoteModel |
 			eachLabelElement text: eachNoteModel author , ' says: ' , eachNoteModel description ].
 		
-	self addChild: list
+	self addChild:
+		list.
+	
 ]
 
 { #category : #'api - notes' }
@@ -38,6 +43,17 @@ MyUserStoryNotesElement >> onNotesChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onObjectChangedTemplate'>
 	
 	list items: self notes notes
+]
+
+{ #category : #'api - user story model' }
+MyUserStoryNotesElement >> onUserStoryModelChanged [
+	"Is sent when a new userStoryModel is assigned to the receiver.
+	Note: #onUserStoryModelChanged is sent before #subscribeToUserStoryModel
+	which means that if you perform any operation that triggers an announcement it will be ignored because the receiver
+	didn't get a chance to subscribe to any announcement. Override #onPostUserStoryModelChanged if you
+	wish to perform an operation that requires an announcement, but keep in mind that this is not the most efficient way"
+	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onObjectChangedTemplate'>
+	notes notes: self userStoryModel notes
 ]
 
 { #category : #'api - notes' }

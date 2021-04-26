@@ -3,7 +3,7 @@ Trait {
 	#instVars : [
 		'acceptanceCriteria'
 	],
-	#category : #'MyMoldableRequirements-Models'
+	#category : #'MyMoldableRequirements-User Story - Support'
 }
 
 { #category : #'api - acceptance criteria' }

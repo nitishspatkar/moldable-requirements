@@ -1,13 +1,13 @@
 Class {
 	#name : #MyUserStoryStatusElement,
-	#superclass : #BrVerticalPane,
+	#superclass : #BrHorizontalPane,
 	#traits : 'TMyWithUserStoryModel',
 	#classTraits : 'TMyWithUserStoryModel classTrait',
 	#instVars : [
 		'label',
 		'statusButton'
 	],
-	#category : #'MyMoldableRequirements-Views'
+	#category : #'MyMoldableRequirements-User Story - Views'
 }
 
 { #category : #initialization }
@@ -16,11 +16,12 @@ MyUserStoryStatusElement >> initialize [
 	
 	self hMatchParent.
 	self vFitContent.
+	self padding: (BlInsets bottom: 20).
 	
 	label := BrLabel new
 		aptitude: BrGlamorousLabelAptitude;
 		beLargeSize;
-		text: 'Satus:'.
+		text: 'Status:'.
 	
 	statusButton := MyUserStoryStatusButton new.
 		
