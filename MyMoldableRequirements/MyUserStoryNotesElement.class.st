@@ -4,9 +4,7 @@ Class {
 	#traits : 'TMyWithNotes',
 	#classTraits : 'TMyWithNotes classTrait',
 	#instVars : [
-		'list',
-		'notesLabel',
-		'notesButton'
+		'list'
 	],
 	#category : #'MyMoldableRequirements-User Story - Views'
 }

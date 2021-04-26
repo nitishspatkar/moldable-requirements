@@ -52,7 +52,7 @@ MyUserStoryElement >> initialize [
 		aptitude: BrGlamorousLabelAptitude;
 		margin:
 			(BlInsets
-				top: 20
+				top: 0
 				left: 0
 				bottom: 5
 				right: 20);
@@ -63,10 +63,7 @@ MyUserStoryElement >> initialize [
 		icon: BrGlamorousVectorIcons add;
 		margin:
 			(BlInsets
-				top: 20
-				left: 0
-				bottom: 5
-				right: 0);
+				bottom: 5);
 		beTinySize;
 		label: 'Add a Note'.
 		
