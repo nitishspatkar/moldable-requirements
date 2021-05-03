@@ -662,9 +662,9 @@ MyUserStory >> customEntityElementFor: aReference [
 MyUserStory >> description [
 "returns user story with benefit if defined, otherwise without"
 	(benefit isEmpty
-		ifTrue: [ description := 'As a ' , role , ', I want ' , means ]
+		ifTrue: [ description := 'As a ' , role , ', I want ' , means, '.' ]
 		ifFalse: [ description := 'As a ' , role , ', I want ' , means , ' so that '
-				, benefit ]).
+				, benefit, '.' ]).
 	^ description
 ]
 
@@ -747,12 +747,9 @@ MyUserStory >> gtDescriptionFor: aView [
 	<gtView>
 
 	^ aView explicit
-		title: 'Description';
+		title: 'Domain concepts';
 		priority: 5;
-		stencil: [
-			MyUserStoryAnnotationCoder new
-				forString: self description;
-				userStoryAnnotations: self annotations ]
+		stencil: [ MyUserStoryAnnotatingElement new userStory: self ]
 ]
 
 { #category : #'gt-extentions' }

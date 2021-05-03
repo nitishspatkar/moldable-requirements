@@ -112,5 +112,8 @@ MyUserStoryExamples >> waiterUserStory [
 	aUserStory := MyUserStory new.
 	aUserStory role: 'waiter'.
 	aUserStory means: 'to add Pizza and Cappuccino to an order'.
+	
+	self assert: aUserStory description equals: 'As a waiter, I want to add Pizza and Cappuccino to an order.'. 
+	
 	^ aUserStory
 ]
