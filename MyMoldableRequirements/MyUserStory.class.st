@@ -18,7 +18,8 @@ Class {
 		'personas',
 		'labels',
 		'announcer',
-		'tasks'
+		'tasks',
+		'annotations'
 	],
 	#category : #'MyMoldableRequirements-User Story - Models'
 }
@@ -146,6 +147,11 @@ MyUserStory >> allStati [
 	"returns an orderedCollection of stati"
 	
 	^ MyUserStatusOld allSubclasses collect: [ :eachStatusClass | eachStatusClass new ]
+]
+
+{ #category : #'api - annotations' }
+MyUserStory >> annotations [
+	^ annotations ifNil: [ annotations := self createAnnotations ]
 ]
 
 { #category : #'api - announcer' }
@@ -583,6 +589,11 @@ MyUserStory >> checklistContainerWithDropdown [
 ]
 
 { #category : #'private - instance creation' }
+MyUserStory >> createAnnotations [
+	^ MyUserStoryAnnotations new
+]
+
+{ #category : #'private - instance creation' }
 MyUserStory >> createLabels [
 	"Create a nested child object for a domain child (or children) and return the result"
 	<return: #MyLabels>
@@ -720,23 +731,31 @@ MyUserStory >> getTeamMembers [
 ^epic project teamMembers
 ]
 
-{ #category : #'gt-extensions' }
-MyUserStory >> gtDescriptionFor: aView [
+{ #category : #'gt-extentions' }
+MyUserStory >> gtAnnotationsFor: aView [
 	<gtView>
-	| document |
-	document := GtDocument new text: self description.
-	^ (document gtTextFor: aView)
-		title: 'Description';
-		priority: 2;
-		actionButtonIcon: BrGlamorousVectorIcons accept
-			label: 'Save'
-			action: [ self description: document text asString
-			"self announcer announce: ERequirementStateChangedAnnouncement new" ];
-		"updateWhen: ERequirementStateChangedAnnouncement in: self announcer;"
-			priority: 1
+
+	^ aView list
+		priority: 5;
+		title: 'Annotations';
+		items: [ self annotations userStoryAnnotations ];
+		updateWhen: MyUserStoryAnnotationAddedAnnouncement, MyUserStoryAnnotationRemovedAnnouncement in: self annotations
 ]
 
-{ #category : #'gt-extensions' }
+{ #category : #'gt-extentions' }
+MyUserStory >> gtDescriptionFor: aView [
+	<gtView>
+
+	^ aView explicit
+		title: 'Description';
+		priority: 5;
+		stencil: [
+			MyUserStoryAnnotationCoder new
+				forString: self description;
+				userStoryAnnotations: self annotations ]
+]
+
+{ #category : #'gt-extentions' }
 MyUserStory >> gtDetailedStoryCardFor: aView [
 	<gtView>
 	^aView explicit
@@ -764,7 +783,7 @@ MyUserStory >> gtLabelsListViewFor: aView [
 		items: [ self labels labels ]
 ]
 
-{ #category : #'gt-extensions' }
+{ #category : #'gt-extentions' }
 MyUserStory >> gtMinimalStoryCardFor: aView [
 	<gtView>
 	^ aView explicit
@@ -791,7 +810,7 @@ MyUserStory >> gtNotesListViewFor: aView [
 		items: [ self notes notes ]
 ]
 
-{ #category : #'gt-extensions' }
+{ #category : #'gt-extentions' }
 MyUserStory >> gtReferencedEntitiesFor: aView [
 	<gtView>
 	| listView |
@@ -813,7 +832,7 @@ MyUserStory >> gtReferencedEntitiesFor: aView [
 	^ listView
 ]
 
-{ #category : #'gt-extensions' }
+{ #category : #'gt-extentions' }
 MyUserStory >> gtScenariosFor: aView [
 	<gtView>
 	| scenario |
@@ -869,7 +888,10 @@ MyUserStory >> initialize [
 	status := MyUserStatusNotStarted new.
 	acceptanceCriteria := ''.
 	description := ''.
-	
+	role := 'user'.
+	means := 'to achieve'.
+	benefit := ''.
+
 	notes := MyNotes new.
 	tasks := MyTasks new.
 	labels := MyLabels new

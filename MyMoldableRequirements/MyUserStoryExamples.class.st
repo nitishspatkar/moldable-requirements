@@ -103,3 +103,14 @@ MyUserStoryExamples >> newUserStory [
 
 	^ aUserStory
 ]
+
+{ #category : #examples }
+MyUserStoryExamples >> waiterUserStory [
+	<gtExample>
+	| aUserStory |
+	
+	aUserStory := MyUserStory new.
+	aUserStory role: 'waiter'.
+	aUserStory means: 'to add Pizza and Cappuccino to an order'.
+	^ aUserStory
+]
