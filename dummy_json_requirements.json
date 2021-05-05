@@ -2545,7 +2545,7 @@
             {
               "id": "1",
               "role": "assistant doctor",
-              "means": "to select two weekly offs of my choice for every month",
+              "means": "to mark weekly offs of my choice in the schedule",
               "benefit": "",
               "acceptanceCriteria": "sample criteria",
               "status": "in-progress",
@@ -2795,7 +2795,7 @@
             {
               "id": "6",
               "role": "shift manager",
-              "means": "need an overview for individual staff members of the already assigned working hours",
+              "means": "an overview of the already assigned working hours for individual staff member",
               "benefit": "",
               "acceptanceCriteria": "sample criteria",
               "status": "not-started",
@@ -2895,7 +2895,7 @@
             {
               "id": "8",
               "role": "shift manager",
-              "means": "to have an overview of the remaining night shift compensation time of each doctor while preparing schedule",
+              "means": "to have an overview of the remaining night shift compensation time of each staff member",
               "benefit": "",
               "acceptanceCriteria": "sample criteria",
               "status": "not-started",
