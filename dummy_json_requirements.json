@@ -2545,7 +2545,7 @@
             {
               "id": "1",
               "role": "assistant doctor",
-              "means": "to give my preference for holidays for the next three months",
+              "means": "to make a wish for two weekly offs of my choice for every month",
               "benefit": "",
               "acceptanceCriteria": "sample criteria",
               "status": "in-progress",
@@ -2694,8 +2694,308 @@
             },
             {
               "id": "4",
-              "role": "chief medical officer",
-              "means": "to see the availability of all doctors for the next two weeks while preparing the schedule for the next two weeks",
+              "role": "shift manager",
+              "means": "to have an access to and overview of the vacation plans and wishes of the doctors and nurses",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "not-started",
+              "points": "20",
+              "scenarios": [],
+              "personas": [
+                {
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
+                {
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
+                {
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
+                {
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
+                {
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            },
+            {
+              "id": "5",
+              "role": "shift manager",
+              "means": "I need to assign both experienced and inexperienced doctors and nurses in balance in a shift",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "not-started",
+              "points": "20",
+              "scenarios": [],
+              "personas": [
+                {
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
+                {
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
+                {
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
+                {
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
+                {
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            },
+            {
+              "id": "6",
+              "role": "shift manager",
+              "means": "need an overview for individual doctors and nurses of how many working hours I have assigned them and in case exceeds the maximum permissible limit",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "not-started",
+              "points": "20",
+              "scenarios": [],
+              "personas": [
+                {
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
+                {
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
+                {
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
+                {
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
+                {
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            },
+            {
+              "id": "7",
+              "role": "shift manager",
+              "means": "to get feedback in case I assign doctors and nurses in non-permissible shifts",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "not-started",
+              "points": "20",
+              "scenarios": [],
+              "personas": [
+                {
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
+                {
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
+                {
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
+                {
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
+                {
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            },
+            {
+              "id": "8",
+              "role": "shift manager",
+              "means": "to have an overview of the remaining compensation time of each doctor while planning shifts",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "not-started",
+              "points": "20",
+              "scenarios": [],
+              "personas": [
+                {
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
+                {
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
+                {
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
+                {
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
+                {
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            },
+            {
+              "id": "9",
+              "role": "shift manager",
+              "means": "to assign health staff in total five shifts",
+              "benefit": "",
+              "acceptanceCriteria": "sample criteria",
+              "status": "not-started",
+              "points": "20",
+              "scenarios": [],
+              "personas": [
+                {
+                  "name": "Joe",
+                  "description": "Sample description"
+                }
+              ],
+              "assignees": [
+                {
+                  "name": "Melina Meyer",
+                  "shorthand": "MM"
+                }
+              ],
+              "labels": [
+                {
+                  "id": "1",
+                  "description": "Feature",
+                  "color": "yellow"
+                }
+              ],
+              "tasks": [
+                {
+                  "id": "1",
+                  "description": "Sample",
+                  "done": "false",
+                  "end": "01.08.2021",
+                  "assignees": [
+                    {
+                      "name": "Melina Meyer",
+                      "shorthand": "MM"
+                    }
+                  ]
+                }
+              ],
+              "notes": [
+                {
+                  "id": "1",
+                  "description": "Do something",
+                  "author": "Melina"
+                }
+              ]
+            },
+            {
+              "id": "10",
+              "role": "assistant doctor",
+              "means": "to have an overview of my compensation hours",
               "benefit": "",
               "acceptanceCriteria": "sample criteria",
               "status": "not-started",
