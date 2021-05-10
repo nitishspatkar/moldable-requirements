@@ -55,6 +55,16 @@ MyUserStoryAnnotations >> announce: anAnnouncement [
 	announcer ifNotNil: [ :anAnnouncer | anAnnouncer announce: anAnnouncement ]
 ]
 
+{ #category : #converting }
+MyUserStoryAnnotations >> asDomainConcepts [
+	| theDomainConcepts |
+	
+	theDomainConcepts := MyUserStoryDomainConcepts new.
+	self userStoryAnnotations
+		do: [ :eachUserStoryAnnotation | theDomainConcepts addUserStoryDomainConcept:  eachUserStoryAnnotation asDomainConcept ].
+	^ theDomainConcepts
+]
+
 { #category : #'gt-extentions' }
 MyUserStoryAnnotations >> gtAnnotationListViewFor: aView [
 	<gtView>

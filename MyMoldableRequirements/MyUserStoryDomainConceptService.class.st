@@ -1,31 +1,26 @@
 Class {
-	#name : #MyUserStoryAnnotation,
+	#name : #MyUserStoryDomainConceptService,
 	#superclass : #Object,
 	#instVars : [
+		'parentUserStoryDomainConceptServices',
 		'name',
-		'parentUserStoryAnnotations',
 		'announcer'
 	],
 	#category : #'MyMoldableRequirements-User Story - Models'
 }
 
 { #category : #'api - announcer' }
-MyUserStoryAnnotation >> announce: anAnnouncement [
+MyUserStoryDomainConceptService >> announce: anAnnouncement [
 	<generatedFrom: #'GtRobocoderMetamodelNotifierDerive>>#announceTemplate'>
 	announcer ifNotNil: [ :anAnnouncer | anAnnouncer announce: anAnnouncement ].
 
 	"Dispatch anAnnouncement to the parent objects if they are assigned"
-	self hasParentUserStoryAnnotations
-		ifTrue: [ self parentUserStoryAnnotations announce: anAnnouncement ].
-]
-
-{ #category : #converting }
-MyUserStoryAnnotation >> asDomainConcept [
-	^ MyUserStoryDomainConcept new name: self name
+	self hasParentUserStoryDomainConceptServices
+		ifTrue: [ self parentUserStoryDomainConceptServices announce: anAnnouncement ].
 ]
 
 { #category : #'api - name' }
-MyUserStoryAnnotation >> hasName [
+MyUserStoryDomainConceptService >> hasName [
 	<return: #Boolean>
 	<propertyTester: #name>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#propertyTesterTemplate'>
@@ -34,35 +29,17 @@ MyUserStoryAnnotation >> hasName [
 ]
 
 { #category : #'api - testing' }
-MyUserStoryAnnotation >> hasParentUserStoryAnnotations [
+MyUserStoryDomainConceptService >> hasParentUserStoryDomainConceptServices [
 	"Return true if the parent object is attached"
 	<return: #Boolean>
-	<parentObjectTester: #annotations>
+	<parentObjectTester: #domainConceptServices>
 	<generatedFrom: #'TGtRobocoderMetamodelParentAccessorTemplate>>#parentObjectTesterTemplate'>
 
-	^ parentUserStoryAnnotations notNil
-]
-
-{ #category : #'api - testing' }
-MyUserStoryAnnotation >> isUserStoryAnnotation [
-	"Return true if the receiver represents userStoryAnnotation, false otherwise"
-	<return: #Boolean>
-	<generatedFrom: #'GtRobocoderMetamodelTypeTestDerive>>#typeTesterTemplate'>
-
-	^ true
-]
-
-{ #category : #'api - testing' }
-MyUserStoryAnnotation >> isUserStoryAnnotations [
-	"Return true if the receiver represents userStoryAnnotations, false otherwise"
-	<return: #Boolean>
-	<generatedFrom: #'GtRobocoderMetamodelTypeTestDerive>>#typeTesterTemplate'>
-
-	^ false
+	^ parentUserStoryDomainConceptServices notNil
 ]
 
 { #category : #'api - name' }
-MyUserStoryAnnotation >> name [
+MyUserStoryDomainConceptService >> name [
 	<return: #Object>
 	<propertyGetter: #name>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#propertyGetterTemplate'>
@@ -71,7 +48,7 @@ MyUserStoryAnnotation >> name [
 ]
 
 { #category : #'api - name' }
-MyUserStoryAnnotation >> name: aNewName [
+MyUserStoryDomainConceptService >> name: aNewName [
 	<propertySetter: #name>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#propertySetterTemplate'>
 
@@ -91,79 +68,65 @@ MyUserStoryAnnotation >> name: aNewName [
 ]
 
 { #category : #'api - name' }
-MyUserStoryAnnotation >> notifyNameChanged [
+MyUserStoryDomainConceptService >> notifyNameChanged [
 	"Override this notify method to announce changes to the property"
 	<propertyChangeNotifier: #name>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#notifyPropertyChangedTemplate'>
-	
-	self announce: (MyUserStoryAnnotationNameChanged new userStoryAnnotation: self)
-]
-
-{ #category : #'api - accessing' }
-MyUserStoryAnnotation >> objectName [
-	"Return a symbolic name of the receiver which helps to create various type based mappings.
-	Note: The symbolic name of the object is the exact name that was used
-	in the metamodel declaration from which this class was generated"
-	<return: #Symbol>
-	<generatedFrom: #'GtRobocoderMetamodelNameDerive>>#objectNameTemplate'>
-
-	^ #annotation
 ]
 
 { #category : #'api - name' }
-MyUserStoryAnnotation >> onNewNameSet: aNewName [
+MyUserStoryDomainConceptService >> onNewNameSet: aNewName [
 	"Is sent after a new value of the name is assigned"
 	<propertySetHook: #name>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#onNewPropertySetHookTemplate'>
 ]
 
 { #category : #'api - name' }
-MyUserStoryAnnotation >> onPreviousNameUnset: aPreviousName [
+MyUserStoryDomainConceptService >> onPreviousNameUnset: aPreviousName [
 	"Is sent after a previous value of the name is de-assigned"
 	<propertyUnsetHook: #name>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#onPreviousPropertyUnsetHookTemplate'>
 ]
 
 { #category : #'api - accessing' }
-MyUserStoryAnnotation >> parentUserStoryAnnotations [
+MyUserStoryDomainConceptService >> parentUserStoryDomainConceptServices [
 	"Return a parent object which is used to access various state properties,
 	for example parent may be responsible for knowing a selected child object.
 	In order for the child to know if it is selected, that child should know the parent object."
-	<return: #MyUserStoryAnnotations>
-	<parentObjectGetter: #annotations>
+	<return: #MyUserStoryDomainConceptServices>
+	<parentObjectGetter: #domainConceptServices>
 	<generatedFrom: #'TGtRobocoderMetamodelParentAccessorTemplate>>#parentObjectGetterTemplate'>
 
 	self
-		assert: [ parentUserStoryAnnotations notNil ]
+		assert: [ parentUserStoryDomainConceptServices notNil ]
 		description: [ 'Parent is not assigned!' ].
 
-	^ parentUserStoryAnnotations
+	^ parentUserStoryDomainConceptServices
 ]
 
 { #category : #'api - accessing' }
-MyUserStoryAnnotation >> parentUserStoryAnnotations: aMyUserStoryAnnotations [
-	"Assign a parent object (${class:MyUserStoryAnnotations}$) which is used to access various state properties,
+MyUserStoryDomainConceptService >> parentUserStoryDomainConceptServices: aMyUserStoryDomainConceptServices [
+	"Assign a parent object (${class:MyUserStoryDomainConceptServices}$) which is used to access various state properties,
 	for example parent may be responsible for knowing a selected child object.
 	In order for the child to know if it is selected, that child should know the parent object."
-	<parentObjectSetter: #annotations>
+	<parentObjectSetter: #domainConceptServices>
 	<generatedFrom: #'TGtRobocoderMetamodelParentAccessorTemplate>>#parentObjectSetterTemplate'>
 
 	self
-		assert: [ aMyUserStoryAnnotations notNil ]
+		assert: [ aMyUserStoryDomainConceptServices notNil ]
 		description: [ 'Parent view model must not be nil' ].
 
-	parentUserStoryAnnotations := aMyUserStoryAnnotations
+	parentUserStoryDomainConceptServices := aMyUserStoryDomainConceptServices
 ]
 
 { #category : #printing }
-MyUserStoryAnnotation >> printOn: aStream [
+MyUserStoryDomainConceptService >> printOn: aStream [
 	<generatedFrom: #'GtRobocoderMetamodelPrintDerive>>#printOnTemplate'>
-	
-	aStream print: self name
+	super printOn: aStream
 ]
 
 { #category : #'api - name' }
-MyUserStoryAnnotation >> unsetName [
+MyUserStoryDomainConceptService >> unsetName [
 	<propertyUnsetter: #name>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#propertyUnsetterTemplate'>
 	| aPreviousName |
@@ -178,7 +141,7 @@ MyUserStoryAnnotation >> unsetName [
 ]
 
 { #category : #'api - announcer' }
-MyUserStoryAnnotation >> unsubscribe: anObject [
+MyUserStoryDomainConceptService >> unsubscribe: anObject [
 	"Unsubscribe all subscriptions of anObject from the receiver"
 
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#unsubscribeTemplate'>
@@ -186,14 +149,14 @@ MyUserStoryAnnotation >> unsubscribe: anObject [
 ]
 
 { #category : #'api - announcer' }
-MyUserStoryAnnotation >> when: anAnnouncementClass do: aBlock [
+MyUserStoryDomainConceptService >> when: anAnnouncementClass do: aBlock [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenDoTemplate'>
 	^ (announcer ifNil: [ announcer := Announcer new ])
 		when: anAnnouncementClass do: aBlock
 ]
 
 { #category : #'api - announcer' }
-MyUserStoryAnnotation >> when: anAnnouncementClass send: aSelector to: anObject [
+MyUserStoryDomainConceptService >> when: anAnnouncementClass send: aSelector to: anObject [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenSendToTemplate'>
 	^ (announcer ifNil: [ announcer := Announcer new ]) weak
 		when: anAnnouncementClass send: aSelector to: anObject

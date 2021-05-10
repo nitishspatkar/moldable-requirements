@@ -24,7 +24,7 @@ MyUserStoryAnnotatingElement >> initialize [
 	title := BrLabel new
 		aptitude: (BrGlamorousLabelAptitude new foreground: Color gray);
 		text: 'Annotate the main domain concepts in the story:'.
-	
+
 	annotationsCoder := MyUserStoryAnnotationCoder new.
 	annotationsCoderElement := annotationsCoder asElement.
 	annotationsCoderElement
@@ -33,10 +33,17 @@ MyUserStoryAnnotatingElement >> initialize [
 		padding: (BlInsets all: 5);
 		geometry: (BlRoundedRectangleGeometry cornerRadius: 4);
 		addAptitude: BrGlamorousEditorSpacingAptitude.
-	
+
 	sanitizeButton := BrButton new
 		aptitude: BrGlamorousButtonWithLabelAptitude new;
-		label: 'Sanitize'.
+		label: 'Sanitize';
+		action: [ :aButton |
+			| theDomainConceptsElement |
+			
+			theDomainConceptsElement := MyUserStoryDomainConceptsSanitizerElement new.
+			theDomainConceptsElement userStoryDomainConcepts: self userStory annotations asDomainConcepts.
+			
+			aButton phlow spawnTool: (GtPhlowValuableTool new valuable: theDomainConceptsElement) ].
 	
 	self addChildren: { title. annotationsCoderElement . sanitizeButton }
 ]
