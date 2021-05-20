@@ -11,29 +11,6 @@ Class {
 }
 
 { #category : #accessing }
-HMDay >> aDayWithFiveShifts [
-	<gtExample>
-	| aDay |
-	aDay := HMDay new.
-	aDay shifts do: [ :each | each startTime: '06 AM' ].
-	^ aDay shifts
-]
-
-{ #category : #accessing }
-HMDay >> aDayWithWishes [
-	<gtExample>
-	| aDay wishes |
-	aDay := HMDay new.
-	wishes := Dictionary
-		newFrom:
-			{(1 -> 'A').
-			(2 -> 'B').
-			(3 -> 'C')}.
-	aDay recordOfWishes: wishes.
-	^ aDay
-]
-
-{ #category : #accessing }
 HMDay >> gtShiftsFor: aView [
 	<gtView>
 	^ aView columnedList
@@ -94,4 +71,9 @@ HMDay >> recordOfWishes: aDictionary [
 { #category : #accessing }
 HMDay >> shifts [
 	^ shifts
+]
+
+{ #category : #accessing }
+HMDay >> shifts: aCollection [
+	shifts := aCollection
 ]

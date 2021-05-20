@@ -16,25 +16,7 @@ HMSchedule >> days [
 HMSchedule >> days: aNumber [
 	"return a number of specified days"
 
-	days := (1 to: aNumber) collect: [ :each | HMDay new aDayWithWishes]
-]
-
-{ #category : #accessing }
-HMSchedule >> forOneDay [
-	<gtExample>
-	| aSchedule |
-	aSchedule := HMSchedule new.
-	aSchedule days: 1.
-	^ aSchedule
-]
-
-{ #category : #accessing }
-HMSchedule >> forOneWeek [
-	<gtExample>
-	| aSchedule |
-	aSchedule := HMSchedule new.
-	aSchedule days: 7.
-	^ aSchedule
+	days := (1 to: aNumber) collect: [ :each | HMDay new]
 ]
 
 { #category : #accessing }

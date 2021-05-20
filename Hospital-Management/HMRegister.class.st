@@ -14,7 +14,7 @@ Class {
 HMRegister >> days: aNumber [
 	"return a number of specified days"
 
-	days := (1 to: aNumber) collect: [ :each | HMDay new aDayWithWishes ]
+	days := (1 to: aNumber) collect: [ :each | HMDay new]
 ]
 
 { #category : #accessing }

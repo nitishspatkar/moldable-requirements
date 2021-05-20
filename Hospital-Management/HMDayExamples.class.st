@@ -5,7 +5,22 @@ Class {
 }
 
 { #category : #accessing }
-HMDayExamples >> aSampleDay [
+HMDayExamples >> aDay [
 	<gtExample>
-	^ HMDay new
+	^ HMDay new shifts: HMShiftExamples new allShifts
+]
+
+{ #category : #accessing }
+HMDayExamples >> aDayWithTwoWishes [
+	<gtExample>
+	| aDay wishes |
+	aDay := HMDay new.
+	wishes := Array
+		newFrom:
+			{{HMDoctor new.
+			'Seminar'}.
+			{HMDoctor new.
+			'Vacation'}}.
+	aDay recordOfWishes: wishes.
+	^ aDay
 ]
