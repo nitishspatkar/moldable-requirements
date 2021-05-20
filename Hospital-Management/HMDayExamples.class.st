@@ -7,14 +7,16 @@ Class {
 { #category : #accessing }
 HMDayExamples >> aDay [
 	<gtExample>
-	^ HMDay new shifts: HMShiftExamples new allShifts
+	| aDay shifts |
+	aDay := HMDay new shifts: HMShiftExamples new allShifts.
+	^ aDay
 ]
 
 { #category : #accessing }
 HMDayExamples >> aDayWithTwoWishes [
 	<gtExample>
 	| aDay wishes |
-	aDay := HMDay new.
+	aDay := HMDay new shifts: HMShiftExamples new allShifts.
 	wishes := Array
 		newFrom:
 			{{HMDoctor new.

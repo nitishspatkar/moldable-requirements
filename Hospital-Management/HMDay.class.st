@@ -42,14 +42,9 @@ HMDay >> gtWishesFor: aView [
 
 { #category : #accessing }
 HMDay >> initialize [
-	super initialize.
-	shifts := (1 to: 5) collect: [ :each | HMShift new ].
-	recordOfWishes := Dictionary new
-]
-
-{ #category : #accessing }
-HMDay >> isWeekendDay [
-	^ true
+	shifts := OrderedCollection new.
+	recordOfWishes := OrderedCollection new.
+	poolOfAvailableStaff := OrderedCollection new
 ]
 
 { #category : #accessing }

@@ -11,19 +11,13 @@ Class {
 }
 
 { #category : #accessing }
-HMRegister >> days: aNumber [
-	"return a number of specified days"
-
-	days := (1 to: aNumber) collect: [ :each | HMDay new]
+HMRegister >> days [
+	^ days
 ]
 
 { #category : #accessing }
-HMRegister >> forOneMonth [
-	<gtExample>
-	| aRegister |
-	aRegister := HMRegister new.
-	aRegister days: 30.
-	^ aRegister
+HMRegister >> days: aNumber [
+	days := (1 to: aNumber) collect: [ :each | HMDay new ]
 ]
 
 { #category : #accessing }
@@ -32,11 +26,17 @@ HMRegister >> gtRegisterFor: aView [
 	^ aView columnedList
 		title: 'Records';
 		priority: 1;
-		items: [ days ];
-		"actionUpdateButtonTooltip: 'Update item list';"
-			column: 'Index'
-			item:
-				[ :eachItem :eachIndex | eachIndex asRopedText foreground: Color gray ]
-			width: 45;
-		column: 'Item' text: [ :eachItem | eachItem gtDisplayText ]
+		items: [ self days ];
+		column: 'Day' text: [ :aDay | aDay ];
+		column: 'Records' text: [ :aDay | aDay recordOfWishes].
+]
+
+{ #category : #accessing }
+HMRegister >> initialize [
+	days := OrderedCollection new
+]
+
+{ #category : #accessing }
+HMRegister >> withTypeOfDay: suchDays [
+	days := suchDays
 ]
