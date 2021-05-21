@@ -2,7 +2,9 @@ Class {
 	#name : #HMStaffMember,
 	#superclass : #Object,
 	#instVars : [
-		'experienceInYears'
+		'experienceInYears',
+		'shifts',
+		'constraints'
 	],
 	#category : #'Hospital-Management-Model'
 }

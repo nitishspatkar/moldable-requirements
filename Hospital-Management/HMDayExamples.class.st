@@ -8,9 +8,10 @@ Class {
 HMDayExamples >> aDay [
 	<gtExample>
 	| aDay shifts |
-	aDay := HMDay new shifts: HMShiftExamples new allShifts.
-	HMDayExamples new singleDate
-		keysAndValuesDo: [ :key :value | aDay date: key ; givenName: value].
+	aDay := HMWorkingDay new 
+		shifts: HMShiftExamples new 
+			allShifts;
+		date: (Date year: 2021 month: 5 day: 3).
 	^ aDay
 ]
 
@@ -18,7 +19,7 @@ HMDayExamples >> aDay [
 HMDayExamples >> aDayWithTwoWishes [
 	<gtExample>
 	| aDay wishes |
-	aDay := HMDay new shifts: HMShiftExamples new allShifts.
+	aDay := HMWorkingDay new shifts: HMShiftExamples new allShifts.
 	wishes := Array
 		newFrom:
 			{{HMDoctor new.
@@ -35,7 +36,7 @@ HMDayExamples >> aDayWithTwoWishes [
 HMDayExamples >> aWeeek [
 	<gtExample>
 	| aWeek shifts |
-	aWeek := (1 to: 7) collect: [:each | HMDay new ].
+	aWeek := (1 to: 7) collect: [:each | HMWorkingDay new ].
 	^ aWeek
 ]
 
@@ -76,7 +77,7 @@ HMDayExamples >> sevenDays [
 	| aCollection |
 	aCollection := OrderedCollection new.
 	1 to: 7 do:
-		[ :each | aCollection add: (HMDay new shifts: HMShiftExamples new allShifts) ].
+		[ :each | aCollection add: (HMWorkingDay new shifts: HMShiftExamples new allShifts) ].
 	^ aCollection
 ]
 

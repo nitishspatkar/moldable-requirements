@@ -1,5 +1,5 @@
 Class {
-	#name : #HMDay,
+	#name : #HMWorkingDay,
 	#superclass : #Object,
 	#instVars : [
 		'poolOfAvailableStaff',
@@ -13,32 +13,35 @@ Class {
 }
 
 { #category : #accessing }
-HMDay >> date: aNumberAndMonth [
+HMWorkingDay >> date [
+	^ date
+]
+
+{ #category : #accessing }
+HMWorkingDay >> date: aNumberAndMonth [
 	date := aNumberAndMonth
 ]
 
 { #category : #accessing }
-HMDay >> givenName: aName [
+HMWorkingDay >> givenName: aName [
 	givenName := aName
 ]
 
 { #category : #accessing }
-HMDay >> gtShiftsFor: aView [
+HMWorkingDay >> gtShiftsFor: aView [
 	<gtView>
 	^ aView columnedList
 		title: 'Shifts';
 		priority: 1;
 		items: [ shifts ];
 		"actionUpdateButtonTooltip: 'Update item list';"
-			column: 'Index'
-			item:
-				[ :eachItem :eachIndex | eachIndex asRopedText foreground: Color gray ]
-			width: 45;
-		column: 'Item' text: [ :eachItem | eachItem gtDisplayText ]
+		column: 'Code' text: [ :aShift | aShift shiftCode ] width: 100;
+		column: 'Start Time' text: [ :aShift | aShift startTime ];
+		column: 'End Time' text: [ :aShift | aShift endTime ]
 ]
 
 { #category : #accessing }
-HMDay >> gtWishesFor: aView [
+HMWorkingDay >> gtWishesFor: aView [
 	<gtView>
 	^ aView columnedList
 		title: 'Wishes of the day';
@@ -52,35 +55,47 @@ HMDay >> gtWishesFor: aView [
 		column: 'Item' text: [ :eachItem | eachItem gtDisplayText ]
 ]
 
-{ #category : #accessing }
-HMDay >> initialize [
+{ #category : #initialize }
+HMWorkingDay >> initialize [
+	super initialize.
 	shifts := OrderedCollection new.
 	recordOfWishes := OrderedCollection new.
 	poolOfAvailableStaff := OrderedCollection new
 ]
 
 { #category : #accessing }
-HMDay >> poolOfAvailableStaff: aCollection [
+HMWorkingDay >> poolOfAvailableStaff: aCollection [
 	poolOfAvailableStaff := OrderedCollection new
 ]
 
+{ #category : #printing }
+HMWorkingDay >> printOn: aStream [
+	super printOn: aStream.
+	aStream
+		nextPutAll: ' (';
+		nextPutAll: self date weekday;
+		nextPutAll: ', ';
+		nextPutAll: self date asString;
+		nextPutAll: ')'
+]
+
 { #category : #accessing }
-HMDay >> recordOfWishes [
+HMWorkingDay >> recordOfWishes [
 	^ recordOfWishes
 ]
 
 { #category : #accessing }
-HMDay >> recordOfWishes: aDictionary [
+HMWorkingDay >> recordOfWishes: aDictionary [
 	recordOfWishes := aDictionary.
 	^ recordOfWishes
 ]
 
 { #category : #accessing }
-HMDay >> shifts [
+HMWorkingDay >> shifts [
 	^ shifts
 ]
 
 { #category : #accessing }
-HMDay >> shifts: aCollection [
+HMWorkingDay >> shifts: aCollection [
 	shifts := aCollection
 ]

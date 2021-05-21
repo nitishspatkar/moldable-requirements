@@ -17,7 +17,7 @@ HMRegister >> days [
 
 { #category : #accessing }
 HMRegister >> days: aNumber [
-	days := (1 to: aNumber) collect: [ :each | HMDay new ]
+	days := (1 to: aNumber) collect: [ :each | HMWorkingDay new ]
 ]
 
 { #category : #accessing }

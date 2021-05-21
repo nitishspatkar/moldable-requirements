@@ -10,8 +10,10 @@ HMShiftExamples >> aDayShift [
 	| aShift |
 	aShift := HMShift new.
 	aShift
-		startTime: '07:30';
-		endTime: '16:30'.
+		shiftCode: 'T';
+		description: 'Tagesdienst';
+		startTime: (Time hour: 7 minute: 30 second: 00);
+		endTime: (Time hour: 16 minute: 30 second: 00).
 	^ aShift
 ]
 
@@ -21,8 +23,8 @@ HMShiftExamples >> aLateLateShift [
 	| aShift |
 	aShift := HMShift new.
 	aShift
-		startTime: '16:00';
-		endTime: '01:00'.
+		startTime: (Time hour: 16 minute: 00 second: 00) ;
+		endTime: (Time hour: 1 minute: 00 second: 00).
 	^ aShift
 ]
 
@@ -32,8 +34,8 @@ HMShiftExamples >> aMidDayShift [
 	| aShift |
 	aShift := HMShift new.
 	aShift
-		startTime: '00:30';
-		endTime: '20:30'.
+		startTime: (Time hour: 12 minute: 30 second: 00);
+		endTime: (Time hour: 20 minute: 30 second: 00).
 	^ aShift
 ]
 
@@ -43,8 +45,8 @@ HMShiftExamples >> aNightShiftForExperienced [
 	| aShift |
 	aShift := HMShift new.
 	aShift
-		startTime: '22:30';
-		endTime: '07:45'.
+		startTime: (Time hour: 22 minute: 30 second: 00);
+		endTime: (Time hour: 7 minute: 45 second: 00).
 	^ aShift
 ]
 
@@ -54,8 +56,8 @@ HMShiftExamples >> aNightShiftForInexperienced [
 	| aShift |
 	aShift := HMShift new.
 	aShift
-		startTime: '20:00';
-		endTime: '05:00'.
+		startTime: (Time hour: 20 minute: 00 second: 00);
+		endTime: (Time hour: 5 minute: 00 second: 00).
 	^ aShift
 ]
 
@@ -80,7 +82,7 @@ HMShiftExamples >> anEarlyLateShift [
 	| aShift |
 	aShift := HMShift new.
 	aShift
-		startTime: '14:30';
-		endTime: '23:30'.
+		startTime: (Time hour: 14 minute: 30 second: 00);
+		endTime: (Time hour: 23 minute: 30 second: 00).
 	^ aShift
 ]

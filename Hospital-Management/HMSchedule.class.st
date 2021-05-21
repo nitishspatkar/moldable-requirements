@@ -16,7 +16,7 @@ HMSchedule >> days [
 HMSchedule >> days: aNumber [
 	"return a number of specified days"
 
-	days := (1 to: aNumber) collect: [ :each | HMDay new]
+	days := (1 to: aNumber) collect: [ :each | HMWorkingDay new]
 ]
 
 { #category : #accessing }
