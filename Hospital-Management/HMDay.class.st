@@ -5,10 +5,22 @@ Class {
 		'poolOfAvailableStaff',
 		'isWeekendDay',
 		'shifts',
-		'recordOfWishes'
+		'recordOfWishes',
+		'date',
+		'givenName'
 	],
 	#category : #'Hospital-Management-Model'
 }
+
+{ #category : #accessing }
+HMDay >> date: aNumberAndMonth [
+	date := aNumberAndMonth
+]
+
+{ #category : #accessing }
+HMDay >> givenName: aName [
+	givenName := aName
+]
 
 { #category : #accessing }
 HMDay >> gtShiftsFor: aView [
