@@ -44,7 +44,9 @@ HMHospitalSystem >> gtStaffFor: aView [
 		column: 'Experience in years'
 			text: [ :aStaffMember | aStaffMember experienceInYears ] width: 150;
 		column: 'Remaining working hours'
-			text: [ :aStaffMember | aStaffMember balanceWorkingHours ]
+			text: [ :aStaffMember | aStaffMember balanceWorkingHours ] width: 150;
+			column: 'Available compensation hours'
+			text: [ :aStaffMember | aStaffMember compensationHours ]
 ]
 
 { #category : #accessing }

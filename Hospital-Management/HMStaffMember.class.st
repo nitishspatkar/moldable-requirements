@@ -7,7 +7,8 @@ Class {
 		'constraints',
 		'lastName',
 		'firstName',
-		'balanceWorkinghours'
+		'balanceWorkinghours',
+		'compensationHours'
 	],
 	#category : #'Hospital-Management-Model'
 }
@@ -20,6 +21,16 @@ HMStaffMember >> balanceWorkingHours [
 { #category : #accessing }
 HMStaffMember >> balanceWorkingHours: aNumber [
 	balanceWorkinghours := aNumber
+]
+
+{ #category : #accessing }
+HMStaffMember >> compensationHours [
+	^ compensationHours
+]
+
+{ #category : #accessing }
+HMStaffMember >> compensationHours: aNumber [
+	compensationHours := aNumber
 ]
 
 { #category : #accessing }
@@ -52,7 +63,8 @@ HMStaffMember >> gtStaffMemberFor: aView [
 			('First Namme' -> self firstName).
 			('Last Namme' -> self lastName).
 			('Experience' -> self experienceInYears).
-			('Remaining Working hours' -> self balanceWorkingHours)} ];
+			('Remaining Working hours' -> self balanceWorkingHours).
+			('Available compensation hours' -> self compensationHours)} ];
 		column: 'Type' item: #key;
 		column: 'Experience' item: #value
 ]
