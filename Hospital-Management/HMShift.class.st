@@ -6,7 +6,8 @@ Class {
 		'startTime',
 		'staff',
 		'description',
-		'shiftCode'
+		'shiftCode',
+		'duration'
 	],
 	#category : #'Hospital-Management-Model'
 }
@@ -23,7 +24,12 @@ HMShift >> description: aString [
 
 { #category : #accessing }
 HMShift >> duration [
-	^ self endTime asDuration - self startTime asDuration
+	^ duration
+]
+
+{ #category : #accessing }
+HMShift >> duration: aNumber [
+	duration := aNumber
 ]
 
 { #category : #accessing }

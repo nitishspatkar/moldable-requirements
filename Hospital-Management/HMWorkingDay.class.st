@@ -29,7 +29,8 @@ HMWorkingDay >> gtShiftsFor: aView [
 		"actionUpdateButtonTooltip: 'Update item list';"
 		column: 'Code' text: [ :aShift | aShift shiftCode ] width: 100;
 		column: 'Start Time' text: [ :aShift | aShift startTime ];
-		column: 'End Time' text: [ :aShift | aShift endTime ]
+		column: 'End Time' text: [ :aShift | aShift endTime ];
+		column: 'Duration in hours' text: [:aShift | aShift duration].
 ]
 
 { #category : #initialize }
