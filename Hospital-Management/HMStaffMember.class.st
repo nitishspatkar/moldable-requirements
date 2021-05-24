@@ -4,7 +4,9 @@ Class {
 	#instVars : [
 		'experienceInYears',
 		'shifts',
-		'constraints'
+		'constraints',
+		'lastName',
+		'firstName'
 	],
 	#category : #'Hospital-Management-Model'
 }
@@ -20,12 +22,24 @@ HMStaffMember >> experienceInYears: aNumber [
 ]
 
 { #category : #accessing }
+HMStaffMember >> firstName [
+	^ firstName
+]
+
+{ #category : #accessing }
+HMStaffMember >> firstName: aString [
+	firstName := aString
+]
+
+{ #category : #accessing }
 HMStaffMember >> gtStaffMemberFor: aView [
 	<gtView>
 	^ aView columnedList
 		title: 'Staff member';
 		priority: 1;
 		items: [ {('Type' -> self class).
+			('First Namme' -> self firstName).
+			('Last Namme' -> self lastName).
 			('Experience' -> self experienceInYears)} ];
 		column: 'Type' item: #key;
 		column: 'Experience' item: #value
@@ -35,6 +49,16 @@ HMStaffMember >> gtStaffMemberFor: aView [
 HMStaffMember >> initialize [
 	super initialize.
 	shifts := OrderedCollection new
+]
+
+{ #category : #accessing }
+HMStaffMember >> lastName [
+	^ lastName
+]
+
+{ #category : #accessing }
+HMStaffMember >> lastName: aString [
+	lastName := aString
 ]
 
 { #category : #accessing }

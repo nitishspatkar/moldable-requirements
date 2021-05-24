@@ -2,8 +2,6 @@ Class {
 	#name : #HMWorkingDay,
 	#superclass : #Object,
 	#instVars : [
-		'poolOfAvailableStaff',
-		'isWeekendDay',
 		'shifts',
 		'recordOfWishes',
 		'date'
@@ -19,15 +17,6 @@ HMWorkingDay >> date [
 { #category : #accessing }
 HMWorkingDay >> date: aDate [
 	date := aDate
-]
-
-{ #category : #accessing }
-HMWorkingDay >> gtDayFor: aView [
-	"returna mondian view for a day with five shits in squares like in tthe actual schedule"
-
-	<gtView>
-	^ aView explicit
-		title: 'Day' translated.
 ]
 
 { #category : #accessing }
@@ -48,12 +37,6 @@ HMWorkingDay >> initialize [
 	super initialize.
 	shifts := OrderedCollection new.
 	recordOfWishes := OrderedCollection new.
-	poolOfAvailableStaff := OrderedCollection new
-]
-
-{ #category : #accessing }
-HMWorkingDay >> poolOfAvailableStaff: aCollection [
-	poolOfAvailableStaff := OrderedCollection new
 ]
 
 { #category : #printing }

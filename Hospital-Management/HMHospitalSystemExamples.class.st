@@ -5,25 +5,29 @@ Class {
 }
 
 { #category : #accessing }
-HMHospitalSystemExamples >> withOneDayScheduleAndTenDoctors [
+HMHospitalSystemExamples >> withOneDaySchedule [
 	<gtExample>
-	| hospitalManagementSystem schedule staff |
+	| hospitalManagementSystem schedule staff doctors nurses |
 	hospitalManagementSystem := HMHospitalSystem new.
-	"add one day and distribute ten doctors in five shifts"
 	schedule := HMScheduleExamples new forOneDay.
-	staff := HMStaffMemberExamples new poolOfTenRandomDoctors.
-	hospitalManagementSystem schedule: schedule; staff: staff.
+	HMStaffMemberExamples new poolOfTenRandomDoctors
+		do: [ :each | hospitalManagementSystem staff add: each ].
+	HMStaffMemberExamples new poolOfTenRandomNurses
+		do: [ :each | hospitalManagementSystem staff add: each ].
+	hospitalManagementSystem schedule: schedule.
 	^ hospitalManagementSystem
 ]
 
 { #category : #accessing }
-HMHospitalSystemExamples >> withOneWeekScheduleAndTenDoctors [
+HMHospitalSystemExamples >> withOneWeekSchedule [
 	<gtExample>
 	| hospitalManagementSystem schedule staff |
 	hospitalManagementSystem := HMHospitalSystem new.
-	"add one day and distribute ten doctors in five shifts"
 	schedule := HMScheduleExamples new forOneWeek.
-	staff := HMStaffMemberExamples new poolOfTenRandomDoctors.
-	hospitalManagementSystem schedule: schedule; staff: staff.
+	HMStaffMemberExamples new poolOfTenRandomDoctors
+		do: [ :each | hospitalManagementSystem staff add: each ].
+	HMStaffMemberExamples new poolOfTenRandomNurses
+		do: [ :each | hospitalManagementSystem staff add: each ].
+	hospitalManagementSystem schedule: schedule.
 	^ hospitalManagementSystem
 ]

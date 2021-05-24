@@ -9,13 +9,20 @@ Class {
 }
 
 { #category : #accessing }
+HMHospitalSystem >> Initialize [
+	super initialize.
+	staff := OrderedCollection new
+]
+
+{ #category : #accessing }
 HMHospitalSystem >> gtScheduleFor: aView [
 	<gtView>
 	^ aView columnedList
 		title: 'Schedule';
 		priority: 1;
 		items: [ schedule days ];
-		column: 'Day' text: [ :aDay | aDay date ]
+		column: 'Date' text: [ :aDay | aDay date ] width: 100;
+		column: 'Day' text: [ :aDay | aDay date weekday ]
 ]
 
 { #category : #accessing }
@@ -25,8 +32,23 @@ HMHospitalSystem >> gtStaffFor: aView [
 		title: 'Staff';
 		priority: 1;
 		items: [ staff ];
-		column: 'Staff' text: [ :aStaffMember | aStaffMember class ];
-		column: 'Experience in years' text: [ :aStaffMember | aStaffMember experienceInYears ].
+		column: 'TYpe'
+			text: [ :aStaffMember | aStaffMember class ]
+			width: 100;
+		column: 'First Name'
+			text: [ :aStaffMember | aStaffMember firstName ]
+			width: 100;
+		column: 'Last Name'
+			text: [ :aStaffMember | aStaffMember lastName ]
+			width: 100;
+		column: 'Experience in years'
+			text: [ :aStaffMember | aStaffMember experienceInYears ]
+]
+
+{ #category : #accessing }
+HMHospitalSystem >> initialize [
+	super initialize.
+	staff := OrderedCollection new
 ]
 
 { #category : #accessing }
