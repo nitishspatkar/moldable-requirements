@@ -5,6 +5,24 @@ Class {
 }
 
 { #category : #accessing }
+HMStaffMemberExamples >> balanceWorkingHoursForDoctors [
+	<gtExample>
+	| remainingWorkingHours |
+	remainingWorkingHours := {50 . 50 . 50 . 50 . 50 . 50 . 50 . 50 . 50.
+	50}.
+	^ remainingWorkingHours
+]
+
+{ #category : #accessing }
+HMStaffMemberExamples >> balanceWorkingHoursForNurses [
+	<gtExample>
+	| remainingWorkingHours |
+	remainingWorkingHours := {50 . 50 . 50 . 50 . 50 . 50 . 50 . 50 . 50.
+	50}.
+	^ remainingWorkingHours
+]
+
+{ #category : #accessing }
 HMStaffMemberExamples >> experienceInYearsForDoctors [
 	<gtExample>
 	| experienceInYears |
@@ -65,7 +83,8 @@ HMStaffMemberExamples >> poolOfTenRandomDoctors [
 			HMDoctor new
 				experienceInYears: (self experienceInYearsForDoctors at: index);
 				firstName: (self firstNamesForDoctors at: index);
-				lastName: (self lastNamesForDoctors at: index) ]
+				lastName: (self lastNamesForDoctors at: index);
+				balanceWorkingHours: (self balanceWorkingHoursForDoctors at: index) ]
 ]
 
 { #category : #accessing }
@@ -77,7 +96,8 @@ HMStaffMemberExamples >> poolOfTenRandomNurses [
 			HMNurse new
 				experienceInYears: (self experienceInYearsForNurses at: index);
 				firstName: (self firstNamesForNurses at: index);
-				lastName: (self lastNamesForNurses at: index) ]
+				lastName: (self lastNamesForNurses at: index);
+				balanceWorkingHours: (self balanceWorkingHoursForNurses at: index) ]
 ]
 
 { #category : #accessing }
