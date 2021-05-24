@@ -6,25 +6,28 @@ Class {
 		'isWeekendDay',
 		'shifts',
 		'recordOfWishes',
-		'date',
-		'givenName'
+		'date'
 	],
 	#category : #'Hospital-Management-Model'
 }
 
-{ #category : #accessing }
+{ #category : #printing }
 HMWorkingDay >> date [
 	^ date
 ]
 
 { #category : #accessing }
-HMWorkingDay >> date: aNumberAndMonth [
-	date := aNumberAndMonth
+HMWorkingDay >> date: aDate [
+	date := aDate
 ]
 
 { #category : #accessing }
-HMWorkingDay >> givenName: aName [
-	givenName := aName
+HMWorkingDay >> gtDayFor: aView [
+	"returna mondian view for a day with five shits in squares like in tthe actual schedule"
+
+	<gtView>
+	^ aView explicit
+		title: 'Day' translated.
 ]
 
 { #category : #accessing }
@@ -38,21 +41,6 @@ HMWorkingDay >> gtShiftsFor: aView [
 		column: 'Code' text: [ :aShift | aShift shiftCode ] width: 100;
 		column: 'Start Time' text: [ :aShift | aShift startTime ];
 		column: 'End Time' text: [ :aShift | aShift endTime ]
-]
-
-{ #category : #accessing }
-HMWorkingDay >> gtWishesFor: aView [
-	<gtView>
-	^ aView columnedList
-		title: 'Wishes of the day';
-		priority: 1;
-		items: [ recordOfWishes ];
-		"actionUpdateButtonTooltip: 'Update item list';"
-			column: 'Index'
-			item:
-				[ :eachItem :eachIndex | eachIndex asRopedText foreground: Color gray ]
-			width: 45;
-		column: 'Item' text: [ :eachItem | eachItem gtDisplayText ]
 ]
 
 { #category : #initialize }

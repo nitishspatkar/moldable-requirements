@@ -9,7 +9,7 @@ HMScheduleExamples >> forOneDay [
 	<gtExample>
 	| aSchedule |
 	aSchedule := HMSchedule new.
-	aSchedule days: 1.
+	aSchedule days add: HMWorkingDayExamples new aWorkingDay.
 	^ aSchedule
 ]
 
@@ -18,6 +18,12 @@ HMScheduleExamples >> forOneWeek [
 	<gtExample>
 	| aSchedule |
 	aSchedule := HMSchedule new.
-	aSchedule days: 7.
+	(1 to: 7)
+		do: [ :each | 
+			aSchedule days
+				add:
+					(HMWorkingDay new
+						shifts: HMShiftExamples new allShifts;
+						date: (Date year: 2021 month: 5 day: each)) ].
 	^ aSchedule
 ]
