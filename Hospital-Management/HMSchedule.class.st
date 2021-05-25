@@ -2,7 +2,8 @@ Class {
 	#name : #HMSchedule,
 	#superclass : #Object,
 	#instVars : [
-		'days'
+		'days',
+		'startDate'
 	],
 	#category : #'Hospital-Management-Model'
 }
@@ -26,4 +27,14 @@ HMSchedule >> gtScheduleFor: aView [
 HMSchedule >> initialize [
 	super initialize.
 	days := OrderedCollection new
+]
+
+{ #category : #accessing }
+HMSchedule >> startDate [
+	^ startDate
+]
+
+{ #category : #accessing }
+HMSchedule >> startDate: aDate [
+	startDate := aDate
 ]

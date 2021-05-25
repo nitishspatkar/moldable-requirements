@@ -9,12 +9,6 @@ Class {
 }
 
 { #category : #accessing }
-HMHospitalSystem >> Initialize [
-	super initialize.
-	staff := OrderedCollection new
-]
-
-{ #category : #accessing }
 HMHospitalSystem >> gtScheduleFor: aView [
 	<gtView>
 	^ aView columnedList
@@ -33,7 +27,7 @@ HMHospitalSystem >> gtStaffFor: aView [
 		priority: 1;
 		items: [ staff ];
 		column: 'TYpe'
-			text: [ :aStaffMember | aStaffMember class ]
+			text: [ :aStaffMember | aStaffMember class name removePrefix: 'HM' ]
 			width: 100;
 		column: 'First Name'
 			text: [ :aStaffMember | aStaffMember firstName ]

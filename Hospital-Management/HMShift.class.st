@@ -7,7 +7,8 @@ Class {
 		'staff',
 		'description',
 		'shiftCode',
-		'duration'
+		'duration',
+		'constraints'
 	],
 	#category : #'Hospital-Management-Model'
 }
