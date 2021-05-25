@@ -7,3 +7,40 @@ Class {
 	],
 	#category : #'Hospital-Management-Model'
 }
+
+{ #category : #accessing }
+HMStaffConstraint >> date [
+	^ date
+]
+
+{ #category : #accessing }
+HMStaffConstraint >> date: aDate [
+	date := aDate
+]
+
+{ #category : #accessing }
+HMStaffConstraint >> gtConstraintFor: aView [
+	<gtView>
+	^ aView columnedList
+		title: 'Constraint';
+		priority: 1;
+		items: [ {('Date' -> self date).
+			('Description' -> self type description)} ];
+		column: 'Date' item: #key;
+		column: 'Description' item: #value
+]
+
+{ #category : #accessing }
+HMStaffConstraint >> initialize [
+	super initialize
+]
+
+{ #category : #accessing }
+HMStaffConstraint >> type [
+	^ type
+]
+
+{ #category : #accessing }
+HMStaffConstraint >> type: aType [
+	type := aType
+]
