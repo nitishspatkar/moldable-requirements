@@ -9,7 +9,7 @@ HMStaffMemberExamples >> balanceWorkingHoursForDoctors [
 	<gtExample>
 	| remainingWorkingHours |
 	remainingWorkingHours := {50 . 50 . 50 . 50 . 50 . 50 . 50 . 50 . 50.
-	50 . 50 . 50}.
+	50}.
 	^ remainingWorkingHours
 ]
 
@@ -27,7 +27,7 @@ HMStaffMemberExamples >> compensationHoursForDoctors [
 	<gtExample>
 	| compensationHours |
 	compensationHours := {2.7 . 2.7 . 1.8 . 3.6 . 3.6 . 4.5 . 4.5 . 5.4.
-	1.8 . 4.5 . 1.8 . 3.6}.
+	1.8 . 4.5}.
 	^ compensationHours
 ]
 
@@ -44,7 +44,7 @@ HMStaffMemberExamples >> compensationHoursForNurses [
 HMStaffMemberExamples >> experienceInYearsForDoctors [
 	<gtExample>
 	| experienceInYears |
-	experienceInYears := {1 . 2 . 5 . 5 . 3 . 6 . 4 . 8 . 8 . 2 . 6 . 3}.
+	experienceInYears := {17 . 7 . 6 . 6 . 5 . 5 . 1 . 2 . 3 . 2}.
 	^ experienceInYears
 ]
 
@@ -60,8 +60,8 @@ HMStaffMemberExamples >> experienceInYearsForNurses [
 HMStaffMemberExamples >> firstNamesForDoctors [
 	<gtExample>
 	| firstNames |
-	firstNames := {'Simone' . 'Isabel' . 'Amir' . 'Shane' . 'Laura' . 'Iris'.
-	'Katharina' . 'Alexandra' . 'Baptist' . 'Tobias' . 'Sabine' . 'Marta'}.
+	firstNames := {'Amir' . 'Shane' . 'Iris' . 'Alexandra' . 'Baptist'.
+	'Sanjeet' . 'Simone' . 'Laura' . 'Katharina' . 'Tobias'}.
 	^ firstNames
 ]
 
@@ -79,7 +79,7 @@ HMStaffMemberExamples >> lastNamesForDoctors [
 	<gtExample>
 	| lastNames |
 	lastNames := {'Steiger' . 'Botros' . 'Sami' . 'Meuller' . 'Silva'.
-	'Murphy' . 'Hansen' . 'Smith' . 'Sieren' . 'Gruber' . 'Litto' . 'Thomas'}.
+	'Murphy' . 'Hansen' . 'Smith' . 'Sieren' . 'Gruber'}.
 	^ lastNames
 ]
 
@@ -93,10 +93,10 @@ HMStaffMemberExamples >> lastNamesForNurses [
 ]
 
 { #category : #accessing }
-HMStaffMemberExamples >> poolOfTwelveRandomDoctors [
+HMStaffMemberExamples >> poolOfTenRandomDoctors [
 	<gtExample>
 	| poolOfDoctors |
-	^ poolOfDoctors := (1 to: 12)
+	^ poolOfDoctors := (1 to: 10)
 		collect: [ :index | 
 			HMDoctor new
 				experienceInYears: (self experienceInYearsForDoctors at: index);
