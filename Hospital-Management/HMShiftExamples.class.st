@@ -9,7 +9,7 @@ HMShiftExamples >> aDayShift [
 	<gtExample>
 	| aShift staffMember |
 	aShift := HMShift new.
-	staffMember := HMStaffMemberExamples new poolOfTenRandomDoctors at: 1.
+	staffMember := HMStaffMemberExamples new doctorAmir.
 	aShift
 		shiftCode: 'T';
 		description: 'Tagesdienst';

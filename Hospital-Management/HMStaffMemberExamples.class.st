@@ -41,6 +41,20 @@ HMStaffMemberExamples >> compensationHoursForNurses [
 ]
 
 { #category : #accessing }
+HMStaffMemberExamples >> doctorAmir [
+	<gtExample>
+	| aDoctor |
+	aDoctor := HMDoctor new.
+	aDoctor
+		firstName: 'Amir';
+		lastName: 'Steiger';
+		experienceInYears: 17;
+		balanceWorkingHours: 50;
+		compensationHours: 2.7.
+	^ aDoctor
+]
+
+{ #category : #accessing }
 HMStaffMemberExamples >> experienceInYearsForDoctors [
 	<gtExample>
 	| experienceInYears |
