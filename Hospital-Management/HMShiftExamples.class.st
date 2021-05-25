@@ -7,14 +7,16 @@ Class {
 { #category : #accessing }
 HMShiftExamples >> aDayShift [
 	<gtExample>
-	| aShift |
+	| aShift staffMember |
 	aShift := HMShift new.
+	staffMember := HMStaffMemberExamples new poolOfTenRandomDoctors at: 1.
 	aShift
 		shiftCode: 'T';
 		description: 'Tagesdienst';
 		startTime: (Time hour: 7 minute: 30 second: 00);
 		endTime: (Time hour: 16 minute: 30 second: 00);
 		duration: 7.
+	aShift staff add: staffMember.
 	^ aShift
 ]
 

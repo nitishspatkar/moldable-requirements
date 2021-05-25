@@ -43,6 +43,12 @@ HMShift >> endTime: aTimestamp [
 ]
 
 { #category : #accessing }
+HMShift >> initialize [
+	super initialize.
+	staff := OrderedCollection new
+]
+
+{ #category : #accessing }
 HMShift >> printOn: aStream [
 	super printOn: aStream.
 	aStream
@@ -63,6 +69,16 @@ HMShift >> shiftCode [
 { #category : #accessing }
 HMShift >> shiftCode: aString [
 	shiftCode := aString
+]
+
+{ #category : #accessing }
+HMShift >> staff [
+	^ staff
+]
+
+{ #category : #accessing }
+HMShift >> staff: aMember [
+	staff add: aMember
 ]
 
 { #category : #accessing }
