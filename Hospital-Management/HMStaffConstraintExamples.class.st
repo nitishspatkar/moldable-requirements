@@ -43,6 +43,20 @@ HMStaffConstraintExamples >> customConstraint [
 ]
 
 { #category : #accessing }
+HMStaffConstraintExamples >> doctorAllowedToWork [
+	<gtExample>
+	| aDoctor aConstraint |
+	aDoctor := HMDoctor new
+		firstName: 'Amir';
+		lastName: 'Steiger';
+		experienceInYears: 17;
+		balanceWorkingHours: 17;
+		compensationHours: 2.7.
+	aConstraint := HMStaffMaximumWorkingHoursConstraint new.
+	^ aConstraint allowedToWork: aDoctor
+]
+
+{ #category : #accessing }
 HMStaffConstraintExamples >> seminarConstraint [
 	<gtExample>
 	| aConstraint constraintType |
