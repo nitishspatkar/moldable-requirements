@@ -123,6 +123,34 @@ HMStaffMemberExamples >> poolOfTenRandomDoctors [
 ]
 
 { #category : #accessing }
+HMStaffMemberExamples >> poolOfThreeExperiencedDoctors [
+	<gtExample>
+	| poolOfDoctors |
+	^ poolOfDoctors := (1 to: 3)
+		collect: [ :index | 
+			HMDoctor new
+				experienceInYears: 7;
+				firstName: 'Random First Name';
+				lastName: 'Random Last Name';
+				balanceWorkingHours: (self balanceWorkingHoursForDoctors at: index);
+				compensationHours: (self compensationHoursForDoctors at: index) ]
+]
+
+{ #category : #accessing }
+HMStaffMemberExamples >> poolOfThreeInExperiencedDoctors [
+	<gtExample>
+	| poolOfDoctors |
+	^ poolOfDoctors := (1 to: 3)
+		collect: [ :index | 
+			HMDoctor new
+				experienceInYears: 3;
+				firstName: 'Random First Name';
+				lastName: 'Random Last Name';
+				balanceWorkingHours: (self balanceWorkingHoursForDoctors at: index);
+				compensationHours: (self compensationHoursForDoctors at: index) ]
+]
+
+{ #category : #accessing }
 HMStaffMemberExamples >> poolOfTwelveRandomNurses [
 	<gtExample>
 	| poolOfNurses |
