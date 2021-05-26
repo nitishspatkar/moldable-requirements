@@ -34,6 +34,16 @@ HMStaffMember >> compensationHours: aNumber [
 ]
 
 { #category : #accessing }
+HMStaffMember >> constraints [
+	^ constraints
+]
+
+{ #category : #accessing }
+HMStaffMember >> constraints: someConstraints [
+	constraints := someConstraints
+]
+
+{ #category : #accessing }
 HMStaffMember >> experienceInYears [
 	^ experienceInYears
 ]
@@ -64,15 +74,18 @@ HMStaffMember >> gtStaffMemberFor: aView [
 			('Last Namme' -> self lastName).
 			('Experience' -> self experienceInYears).
 			('Remaining Working hours' -> self balanceWorkingHours).
-			('Available compensation hours' -> self compensationHours)} ];
-		column: 'Type' item: #key;
-		column: 'Experience' item: #value
+			('Available compensation hours' -> self compensationHours).
+			('Date' -> self constraints first date).
+			('Constraint' -> self constraints first type description)} ];
+		column: 'Attribute' item: #key;
+		column: 'Value' item: #value
 ]
 
 { #category : #accessing }
 HMStaffMember >> initialize [
 	super initialize.
-	shifts := OrderedCollection new
+	shifts := OrderedCollection new.
+	constraints := OrderedCollection new
 ]
 
 { #category : #accessing }

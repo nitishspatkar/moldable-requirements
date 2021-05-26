@@ -41,16 +41,18 @@ HMStaffMemberExamples >> compensationHoursForNurses [
 ]
 
 { #category : #accessing }
-HMStaffMemberExamples >> doctorAmir [
+HMStaffMemberExamples >> doctorWithConstraint [
 	<gtExample>
-	| aDoctor |
+	| aDoctor vacationConstraint |
 	aDoctor := HMDoctor new.
+	vacationConstraint := HMStaffConstraintExamples new vacationConstraint.
 	aDoctor
 		firstName: 'Amir';
 		lastName: 'Steiger';
 		experienceInYears: 17;
 		balanceWorkingHours: 50;
 		compensationHours: 2.7.
+	aDoctor constraints add: vacationConstraint.
 	^ aDoctor
 ]
 
