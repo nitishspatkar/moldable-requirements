@@ -5,6 +5,31 @@ Class {
 }
 
 { #category : #accessing }
+HMStaffConstraintExamples >> aCollectionOfConstraints [
+	<gtExample>
+	| aCollectionOfConstraints |
+	aCollectionOfConstraints := {{(HMDoctor new
+		firstName: 'Shane';
+		lastName: 'Botros';
+		experienceInYears: 5;
+		balanceWorkingHours: 50).
+	HMStaffConstraintExamples new vacationConstraint}.
+	{(HMDoctor new
+		firstName: 'Alexandra';
+		lastName: 'Meuller';
+		experienceInYears: 9;
+		balanceWorkingHours: 50).
+	HMStaffConstraintExamples new customConstraint}.
+	{(HMDoctor new
+		firstName: 'Sanjeet';
+		lastName: 'Murphy';
+		experienceInYears: 9;
+		balanceWorkingHours: 50).
+	HMStaffConstraintExamples new customConstraint}}.
+	^ aCollectionOfConstraints
+]
+
+{ #category : #accessing }
 HMStaffConstraintExamples >> customConstraint [
 	<gtExample>
 	| aConstraint constraintType |

@@ -36,6 +36,17 @@ HMStaffConstraint >> initialize [
 ]
 
 { #category : #accessing }
+HMStaffConstraint >> printOn: aStream [
+	super printOn: aStream.
+	aStream
+		nextPutAll: ' (';
+		nextPutAll: self date asString;
+		nextPutAll: ' ';
+		nextPutAll: self type description;
+		nextPutAll: ' )'
+]
+
+{ #category : #accessing }
 HMStaffConstraint >> type [
 	^ type
 ]
