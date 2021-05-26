@@ -10,18 +10,6 @@ HMShiftExperiencedAndInexperiencedConstraint >> nightShiftCheck: aCollectionOfDo
 
 	| experiencedDoctor inExperiencedDoctor totalExperienced totalInExperienced |
 	experiencedDoctor := HMDoctor new.
-	"experiencedDoctor
-		firstName: 'Nitish';
-		lastName: 'Patkar';
-		experienceInYears: 7.
-	inExperiencedDoctor := HMDoctor new.
-	inExperiencedDoctor
-		firstName: 'Rajas';
-		lastName: 'Something';
-		experienceInYears: 3.
-	aCollectionOfDoctors := OrderedCollection
-		with: experiencedDoctor
-		with: inExperiencedDoctor."
 	totalExperienced := aCollectionOfDoctors
 		count: [ :doctor | doctor experienceInYears > 5 ].
 	totalInExperienced := aCollectionOfDoctors
