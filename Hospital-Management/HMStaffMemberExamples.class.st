@@ -52,7 +52,22 @@ HMStaffMemberExamples >> doctorWithConstraint [
 		experienceInYears: 17;
 		balanceWorkingHours: 50;
 		compensationHours: 2.7.
+		aDoctor constraints removeFirst.
 	aDoctor constraints add: vacationConstraint.
+	^ aDoctor
+]
+
+{ #category : #accessing }
+HMStaffMemberExamples >> doctorWithoutConstraint [
+	<gtExample>
+	| aDoctor |
+	aDoctor := HMDoctor new.
+	aDoctor
+		firstName: 'Alexandra';
+		lastName: 'Meier';
+		experienceInYears: 5;
+		balanceWorkingHours: 50;
+		compensationHours: 2.7.
 	^ aDoctor
 ]
 

@@ -85,7 +85,14 @@ HMStaffMember >> gtStaffMemberFor: aView [
 HMStaffMember >> initialize [
 	super initialize.
 	shifts := OrderedCollection new.
-	constraints := OrderedCollection new
+	constraints := OrderedCollection new.
+	constraints
+		add:
+			(HMStaffConstraint new
+				date: (Date year: 2020 month: 4 day: 21);
+				type:
+					(HMStaffCustomConstraintType new
+						description: 'A dummy constraint day fromm the past year'))
 ]
 
 { #category : #accessing }
