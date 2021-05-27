@@ -6,7 +6,7 @@ Class {
 
 { #category : #accessing }
 HMStaffHolidayConstraintType >> aVacationConstraintForACollectionOfDoctors: aCollectionOfDoctors andForADate: aDay [
-	" accpets a set of doctors and a day, go through their constraints, and returns a set of doctors who are available on that day"
+	" accpets a set of doctors and a day, go through their vacation constraints, and returns a set of doctors who are available on that day"
 
 	| availableDoctors |
 	availableDoctors := OrderedCollection new.

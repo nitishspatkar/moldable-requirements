@@ -97,7 +97,7 @@ HMStaffMemberExamples >> doctorWithWeddingConstraint [
 ]
 
 { #category : #accessing }
-HMStaffMemberExamples >> doctorWithoutConstraint1 [
+HMStaffMemberExamples >> doctorWithoutConstraintAndEnoughWorkingHours [
 	<gtExample>
 	| aDoctor |
 	aDoctor := HMDoctor new.
@@ -111,7 +111,7 @@ HMStaffMemberExamples >> doctorWithoutConstraint1 [
 ]
 
 { #category : #accessing }
-HMStaffMemberExamples >> doctorWithoutConstraint2 [
+HMStaffMemberExamples >> doctorWithoutConstraintAndWithoutEnoughWorkingHours [
 	<gtExample>
 	| aDoctor |
 	aDoctor := HMDoctor new.
@@ -119,21 +119,7 @@ HMStaffMemberExamples >> doctorWithoutConstraint2 [
 		firstName: 'Isabel';
 		lastName: 'Murphy';
 		experienceInYears: 5;
-		balanceWorkingHours: 50;
-		compensationHours: 2.7.
-	^ aDoctor
-]
-
-{ #category : #accessing }
-HMStaffMemberExamples >> doctorWithoutConstraint3 [
-	<gtExample>
-	| aDoctor |
-	aDoctor := HMDoctor new.
-	aDoctor
-		firstName: 'Patrick';
-		lastName: 'Svazy';
-		experienceInYears: 10;
-		balanceWorkingHours: 50;
+		balanceWorkingHours: 7;
 		compensationHours: 2.7.
 	^ aDoctor
 ]

@@ -5,8 +5,14 @@ Class {
 }
 
 { #category : #accessing }
-HMStaffMaximumWorkingHoursConstraint >> allowedToWork: aStaffMember [
-	aStaffMember balanceWorkingHours > 8
-		ifTrue: [ ^ 'Can be assigned to a shift' ]
-		ifFalse: [ ^ 'Too less remaining working hours' ]
+HMStaffMaximumWorkingHoursConstraint >> withEnoughBalancedWorkingHours: aCollectionOfDoctors [
+	" accpets a set of doctors, go through their balanced working hours, and returns a set of doctors who are available on that day"
+
+	| availableDoctors |
+	availableDoctors := OrderedCollection new.
+	aCollectionOfDoctors
+		do: [ :each | 
+			each balanceWorkingHours > 8
+				ifTrue: [ availableDoctors add: each ] ].
+	^ availableDoctors
 ]
