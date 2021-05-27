@@ -49,6 +49,21 @@ HMShiftExamples >> aMidDayShift [
 ]
 
 { #category : #accessing }
+HMShiftExamples >> aNightShift [
+	<gtExample>
+	| aShift staffMember |
+	aShift := HMShift new.
+	"staffMember := HMStaffMemberExamples new doctorAmir."
+	aShift
+		shiftCode: 'N';
+		description: 'Nachtdienst';
+		startTime: (Time hour: 22 minute: 00 second: 00);
+		endTime: (Time hour: 05 minute: 00 second: 00);
+		duration: 7.
+	^ aShift
+]
+
+{ #category : #accessing }
 HMShiftExamples >> aNightShiftForExperienced [
 	<gtExample>
 	| aShift |
@@ -103,4 +118,24 @@ HMShiftExamples >> anEarlyLateShift [
 		endTime: (Time hour: 23 minute: 30 second: 00);
 		duration: 9.
 	^ aShift
+]
+
+{ #category : #accessing }
+HMShiftExamples >> assignADoctorToAShift [
+	<gtExample>
+	| aCollectionOfDoctors aShift |
+	aCollectionOfDoctors := HMWorkingDayExamples new
+		balancedWorkingHoursCheckPass.
+	aShift := self aDayShift.
+	^ aShift assignADoctorFrom: aCollectionOfDoctors to: aShift
+]
+
+{ #category : #accessing }
+HMShiftExamples >> assignADoctorsToANightShift [
+	<gtExample>
+	| aCollectionOfDoctors aShift |
+	aCollectionOfDoctors := HMWorkingDayExamples new
+		balancedWorkingHoursCheckPass.
+	aShift := self aNightShiftForExperienced.
+	^ aShift assignDoctorsFrom: aCollectionOfDoctors to: aShift
 ]

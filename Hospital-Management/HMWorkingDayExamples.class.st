@@ -78,7 +78,7 @@ HMWorkingDayExamples >> vacationDayCheckPass [
 { #category : #accessing }
 HMWorkingDayExamples >> weddingDayCheckPass [
 	<gtExample>
-	| aCollectionOfDoctors aWorkingDay doctorWithWeddingConstraint doctorWithVacationConstraint doctorWithSeminarConstraint doctorWithoutConstraintAndEnoughWorkingHours doctorWithoutConstraintAndWithoutEnoughWorkingHours aWeddingConstraint aConstraint test |
+	| aCollectionOfDoctors aWorkingDay doctorWithWeddingConstraint doctorWithVacationConstraint doctorWithSeminarConstraint doctorWithoutConstraintAndEnoughWorkingHours doctorWithoutConstraintAndEnoughWorkingHoursAnother doctorWithoutConstraintAndEnoughWorkingHoursYetAnother doctorWithoutConstraintAndWithoutEnoughWorkingHours aWeddingConstraint aConstraint test |
 	doctorWithWeddingConstraint := HMStaffMemberExamples new
 		doctorWithWeddingConstraint.
 	doctorWithVacationConstraint := HMStaffMemberExamples new
@@ -87,13 +87,22 @@ HMWorkingDayExamples >> weddingDayCheckPass [
 		doctorWithSeminarConstraint.
 	doctorWithoutConstraintAndEnoughWorkingHours := HMStaffMemberExamples
 		new doctorWithoutConstraintAndEnoughWorkingHours.
+	doctorWithoutConstraintAndEnoughWorkingHoursAnother := HMStaffMemberExamples
+		new doctorWithoutConstraintAndEnoughWorkingHoursAnother.
+	doctorWithoutConstraintAndEnoughWorkingHoursYetAnother := HMStaffMemberExamples
+		new doctorWithoutConstraintAndEnoughWorkingHoursYetAnother.
 	doctorWithoutConstraintAndWithoutEnoughWorkingHours := HMStaffMemberExamples
 		new doctorWithoutConstraintAndWithoutEnoughWorkingHours.
 	aCollectionOfDoctors := OrderedCollection
 		with: doctorWithWeddingConstraint
 		with: doctorWithVacationConstraint
 		with: doctorWithSeminarConstraint
-		with: doctorWithoutConstraintAndEnoughWorkingHours with: doctorWithoutConstraintAndWithoutEnoughWorkingHours.
+		with: doctorWithoutConstraintAndEnoughWorkingHours
+		with: doctorWithoutConstraintAndEnoughWorkingHoursAnother
+		with: doctorWithoutConstraintAndEnoughWorkingHoursYetAnother.
+	"with: doctorWithoutConstraintAndWithoutEnoughWorkingHours"
+	aCollectionOfDoctors
+		add: doctorWithoutConstraintAndWithoutEnoughWorkingHours.
 	aWorkingDay := HMWorkingDay new
 		date: (Date year: 2021 month: 5 day: 1).
 	aWeddingConstraint := HMStaffCustomConstraintType new.

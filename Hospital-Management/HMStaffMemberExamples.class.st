@@ -111,6 +111,34 @@ HMStaffMemberExamples >> doctorWithoutConstraintAndEnoughWorkingHours [
 ]
 
 { #category : #accessing }
+HMStaffMemberExamples >> doctorWithoutConstraintAndEnoughWorkingHoursAnother [
+	<gtExample>
+	| aDoctor |
+	aDoctor := HMDoctor new.
+	aDoctor
+		firstName: 'Marvin';
+		lastName: 'Thomas';
+		experienceInYears: 7;
+		balanceWorkingHours: 50;
+		compensationHours: 2.7.
+	^ aDoctor
+]
+
+{ #category : #accessing }
+HMStaffMemberExamples >> doctorWithoutConstraintAndEnoughWorkingHoursYetAnother [
+	<gtExample>
+	| aDoctor |
+	aDoctor := HMDoctor new.
+	aDoctor
+		firstName: 'Anna';
+		lastName: 'Botzdemm';
+		experienceInYears: 9;
+		balanceWorkingHours: 50;
+		compensationHours: 2.7.
+	^ aDoctor
+]
+
+{ #category : #accessing }
 HMStaffMemberExamples >> doctorWithoutConstraintAndWithoutEnoughWorkingHours [
 	<gtExample>
 	| aDoctor |
