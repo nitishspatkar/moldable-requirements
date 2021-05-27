@@ -41,31 +41,98 @@ HMStaffMemberExamples >> compensationHoursForNurses [
 ]
 
 { #category : #accessing }
-HMStaffMemberExamples >> doctorWithConstraint [
+HMStaffMemberExamples >> doctorWithSeminarConstraint [
+	<gtExample>
+	| aDoctor seminarConstraint |
+	aDoctor := HMDoctor new.
+	seminarConstraint := HMStaffConstraintTypeExamples new seminarConstraint.
+	seminarConstraint date: (Date year: 2021 month: 5 day: 1).
+	aDoctor
+		firstName: 'Alexandra';
+		lastName: 'Meier';
+		experienceInYears: 17;
+		balanceWorkingHours: 50;
+		compensationHours: 2.7.
+	aDoctor constraints removeFirst.
+	aDoctor constraints add: seminarConstraint.
+	^ aDoctor
+]
+
+{ #category : #accessing }
+HMStaffMemberExamples >> doctorWithVacationConstraint [
 	<gtExample>
 	| aDoctor vacationConstraint |
 	aDoctor := HMDoctor new.
-	vacationConstraint := HMStaffConstraintExamples new vacationConstraint.
+	vacationConstraint := HMStaffConstraintTypeExamples new
+		vacationConstraint.
+	vacationConstraint date: (Date year: 2021 month: 5 day: 1).
 	aDoctor
 		firstName: 'Amir';
 		lastName: 'Steiger';
 		experienceInYears: 17;
 		balanceWorkingHours: 50;
 		compensationHours: 2.7.
-		aDoctor constraints removeFirst.
+	aDoctor constraints removeFirst.
 	aDoctor constraints add: vacationConstraint.
 	^ aDoctor
 ]
 
 { #category : #accessing }
-HMStaffMemberExamples >> doctorWithoutConstraint [
+HMStaffMemberExamples >> doctorWithWeddingConstraint [
+	<gtExample>
+	| aDoctor weddingConstraint |
+	aDoctor := HMDoctor new.
+	weddingConstraint := HMStaffConstraintTypeExamples new
+		customWeddingConstraint.
+	weddingConstraint date: (Date year: 2021 month: 5 day: 1).
+	aDoctor
+		firstName: 'Shane';
+		lastName: 'Bottros';
+		experienceInYears: 7;
+		balanceWorkingHours: 50;
+		compensationHours: 2.7.
+	aDoctor constraints removeFirst.
+	aDoctor constraints add: weddingConstraint.
+	^ aDoctor
+]
+
+{ #category : #accessing }
+HMStaffMemberExamples >> doctorWithoutConstraint1 [
 	<gtExample>
 	| aDoctor |
 	aDoctor := HMDoctor new.
 	aDoctor
-		firstName: 'Alexandra';
-		lastName: 'Meier';
+		firstName: 'Sanjeet';
+		lastName: 'Pal';
+		experienceInYears: 3;
+		balanceWorkingHours: 50;
+		compensationHours: 2.7.
+	^ aDoctor
+]
+
+{ #category : #accessing }
+HMStaffMemberExamples >> doctorWithoutConstraint2 [
+	<gtExample>
+	| aDoctor |
+	aDoctor := HMDoctor new.
+	aDoctor
+		firstName: 'Isabel';
+		lastName: 'Murphy';
 		experienceInYears: 5;
+		balanceWorkingHours: 50;
+		compensationHours: 2.7.
+	^ aDoctor
+]
+
+{ #category : #accessing }
+HMStaffMemberExamples >> doctorWithoutConstraint3 [
+	<gtExample>
+	| aDoctor |
+	aDoctor := HMDoctor new.
+	aDoctor
+		firstName: 'Patrick';
+		lastName: 'Svazy';
+		experienceInYears: 10;
 		balanceWorkingHours: 50;
 		compensationHours: 2.7.
 	^ aDoctor

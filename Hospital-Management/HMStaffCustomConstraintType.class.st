@@ -13,6 +13,13 @@ HMStaffCustomConstraintType >> aWeddingConstraintForACollectionOfDoctors: aColle
 	aCollectionOfDoctors
 		do: [ :each | 
 			each constraints first date = aDay date
+				& (each constraints first type class = HMStaffCustomConstraintType)
 				ifFalse: [ availableDoctors add: each ] ].
 	^ availableDoctors
+]
+
+{ #category : #accessing }
+HMStaffCustomConstraintType >> initialize [
+	super initialize.
+	description := 'A wedding day for a staff member'
 ]
