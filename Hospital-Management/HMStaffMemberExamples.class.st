@@ -40,21 +40,31 @@ HMStaffMemberExamples >> compensationHoursForNurses [
 	^ compensationHours
 ]
 
-{ #category : #accessing }
-HMStaffMemberExamples >> doctorWithSeminarConstraint [
+{ #category : #'doctors basic' }
+HMStaffMemberExamples >> doctorAlexandaMeier [
 	<gtExample>
 	| aDoctor seminarConstraint |
 	aDoctor := HMDoctor new.
-	seminarConstraint := HMStaffConstraintTypeExamples new seminarConstraint.
-	seminarConstraint date: (Date year: 2021 month: 5 day: 1).
 	aDoctor
 		firstName: 'Alexandra';
 		lastName: 'Meier';
 		experienceInYears: 17;
 		balanceWorkingHours: 50;
 		compensationHours: 2.7.
-	aDoctor constraints removeFirst.
+	^ aDoctor
+]
+
+{ #category : #'doctors with constraints' }
+HMStaffMemberExamples >> doctorAlexandaMeierWithSeminarConstraint [
+	<gtExample>
+	| aDoctor seminarConstraint |
+	aDoctor := self doctorAlexandaMeier.
+	
+	seminarConstraint := HMStaffConstraintTypeExamples new 
+		seminarConstraint.
+	seminarConstraint date: (Date year: 2021 month: 5 day: 1).
 	aDoctor constraints add: seminarConstraint.
+	
 	^ aDoctor
 ]
 
@@ -154,18 +164,12 @@ HMStaffMemberExamples >> doctorWithoutConstraintAndWithoutEnoughWorkingHours [
 
 { #category : #accessing }
 HMStaffMemberExamples >> experienceInYearsForDoctors [
-	<gtExample>
-	| experienceInYears |
-	experienceInYears := {17 . 7 . 6 . 6 . 5 . 5 . 1 . 2 . 3 . 2}.
-	^ experienceInYears
+	^ {17 . 7 . 6 . 6 . 5 . 5 . 1 . 2 . 3 . 2}
 ]
 
 { #category : #accessing }
 HMStaffMemberExamples >> experienceInYearsForNurses [
-	<gtExample>
-	| experienceInYears |
-	experienceInYears := {1 . 1 . 3 . 4 . 5 . 5 . 5 . 7 . 9 . 2 . 6 . 3}.
-	^ experienceInYears
+ ^ {1 . 1 . 3 . 4 . 5 . 5 . 5 . 7 . 9 . 2 . 6 . 3}.
 ]
 
 { #category : #accessing }

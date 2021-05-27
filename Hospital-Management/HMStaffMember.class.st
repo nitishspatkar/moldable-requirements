@@ -78,7 +78,8 @@ HMStaffMember >> gtStaffMemberFor: aView [
 			('Date' -> self constraints first date).
 			('Constraint' -> self constraints first type description)} ];
 		column: 'Attribute' item: #key;
-		column: 'Value' item: #value
+		column: 'Value' item: #value;
+		send: #value
 ]
 
 { #category : #accessing }
@@ -93,6 +94,17 @@ HMStaffMember >> initialize [
 				type:
 					(HMStaffCustomConstraintType new
 						description: 'A dummy constraint day fromm the past year'))
+]
+
+{ #category : #accessing }
+HMStaffMember >> isAvailableOnDay: aWorkingDay [
+	^ (self isNotAvailableOnDay: aWorkingDay) not
+]
+
+{ #category : #accessing }
+HMStaffMember >> isNotAvailableOnDay: aWorkingDay [
+	^ self constraints anySatisfy: [ :aConstraint |
+		aConstraint isForDate: aWorkingDay date ].
 ]
 
 { #category : #accessing }

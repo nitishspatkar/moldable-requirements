@@ -27,12 +27,18 @@ HMStaffConstraint >> gtConstraintFor: aView [
 		items: [ {('Date' -> self date).
 			('Description' -> self type description)} ];
 		column: 'Date' item: #key;
-		column: 'Description' item: #value
+		column: 'Description' item: #value;
+		send: #value
 ]
 
 { #category : #accessing }
 HMStaffConstraint >> initialize [
 	super initialize
+]
+
+{ #category : #testing }
+HMStaffConstraint >> isForDate: aDate [
+	^ self date = aDate
 ]
 
 { #category : #accessing }
