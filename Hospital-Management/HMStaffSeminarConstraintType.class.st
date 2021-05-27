@@ -5,6 +5,20 @@ Class {
 }
 
 { #category : #accessing }
+HMStaffSeminarConstraintType >> aSeminarConstraintForACollectionOfDoctors: aCollectionOfDoctors andForADate: aDay [
+	" accpets a set of doctors and a day, go through their constraints, and returns a set of doctors who are available on that day"
+
+	| availableDoctors |
+	availableDoctors := OrderedCollection new.
+	aCollectionOfDoctors
+		do: [ :each | 
+			each constraints first date = aDay date
+				& (each constraints first type class = HMStaffSeminarConstraintType)
+				ifFalse: [ availableDoctors add: each ] ].
+	^ availableDoctors
+]
+
+{ #category : #accessing }
 HMStaffSeminarConstraintType >> initialize [
 	super initialize.
 	description := 'A seminar day for a staff member'

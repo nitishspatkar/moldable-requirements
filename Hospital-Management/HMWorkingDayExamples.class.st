@@ -29,6 +29,22 @@ HMWorkingDayExamples >> aWorkingWeek [
 ]
 
 { #category : #accessing }
+HMWorkingDayExamples >> seminarDayCheckPass [
+	<gtExample>
+	| aCollectionOfDoctors aDay aSeminarConstraint aConstraint test |
+	aCollectionOfDoctors := self vacationDayCheckPass.
+	aDay := HMWorkingDay new date: (Date year: 2021 month: 5 day: 1).
+	aSeminarConstraint := HMStaffSeminarConstraintType new
+		description: 'A seminar day for a staff member'.
+	aConstraint := HMStaffConstraint new
+		date: (Date year: 2021 month: 5 day: 1);
+		type: aSeminarConstraint.
+	^ aSeminarConstraint
+		aSeminarConstraintForACollectionOfDoctors: aCollectionOfDoctors
+		andForADate: aDay
+]
+
+{ #category : #accessing }
 HMWorkingDayExamples >> vacationDayCheckPass [
 	<gtExample>
 	| aCollectionOfDoctors aDay aVacationConstraint aConstraint test |

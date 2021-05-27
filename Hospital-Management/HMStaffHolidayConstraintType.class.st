@@ -13,6 +13,7 @@ HMStaffHolidayConstraintType >> aVacationConstraintForACollectionOfDoctors: aCol
 	aCollectionOfDoctors
 		do: [ :each | 
 			each constraints first date = aDay date
+				& (each constraints first type class = HMStaffHolidayConstraintType)
 				ifFalse: [ availableDoctors add: each ] ].
 	^ availableDoctors
 ]
