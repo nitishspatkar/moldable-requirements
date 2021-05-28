@@ -81,6 +81,17 @@ HMStaffMember >> gtBasicStaffMemberFor: aView [
 ]
 
 { #category : #accessing }
+HMStaffMember >> gtViewConstraintsFor: aView [
+	<gtView>
+	^ aView columnedList
+		title: 'Constraints';
+		priority: 2;
+		items: [self constraints];
+		column: 'Date' text: [ :each | each date ];
+		column: 'Description' text: [ :each | each type description ]
+]
+
+{ #category : #accessing }
 HMStaffMember >> hasEnoughWorkingHours [
 	^ self balanceWorkingHours > 9
 		ifTrue: [ ^ true ]

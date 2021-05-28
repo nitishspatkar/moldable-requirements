@@ -5,16 +5,6 @@ Class {
 }
 
 { #category : #accessing }
-HMDoctor >> gtViewConstraintsFor: aView [
-	<gtView>
-	^ aView columnedList
-		title: 'Constaints';
-		items: [self constraints];
-		column: 'Date' text: [ :each | each date ];
-		column: 'Description' text: [ :each | each type description ]
-]
-
-{ #category : #accessing }
 HMDoctor >> printOn: aStream [
 	super printOn: aStream.
 	aStream 
