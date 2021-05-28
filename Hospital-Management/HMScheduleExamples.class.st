@@ -5,12 +5,13 @@ Class {
 }
 
 { #category : #accessing }
-HMScheduleExamples >> forOneDay [
+HMScheduleExamples >> forOneDayMayOne [
 	<gtExample>
-	| aSchedule |
-	aSchedule := HMSchedule new.
-	aSchedule days add: HMWorkingDayExamples new aWorkingDay.
-	^ aSchedule
+	| schedule aDay staff doctors nurses |
+	aDay := HMWorkingDayExamples new aWorkingDay.
+	schedule := HMSchedule new.
+	schedule days add: aDay.
+	^ schedule
 ]
 
 { #category : #accessing }
