@@ -23,6 +23,27 @@ HMStaffMemberExamples >> allDoctors [
 	^ allDoctors
 ]
 
+{ #category : #accessing }
+HMStaffMemberExamples >> allDoctorsWithConstraints [
+	<gtExample>
+	| allDoctors |
+	allDoctors := OrderedCollection new.
+	allDoctors
+		add:
+			HMStaffMemberExamples new
+				doctorAmirSteigerWithAvailableWorkingHoursConstraint;
+		add: HMStaffMemberExamples new doctorAlexandaMeierWithSeminarConstraint;
+		add: HMStaffMemberExamples new doctorAnnaBauerWithVacationConstraint;
+		add: HMStaffMemberExamples new doctorBaptistCosta;
+		add: HMStaffMemberExamples new doctorChristianMondeWithSeminarConstraint;
+		add: HMStaffMemberExamples new doctorIsabelMurphy;
+		add: HMStaffMemberExamples new doctorKatharinaSieren;
+		add: HMStaffMemberExamples new doctorSanjeetKaurWithWeddingConstraint;
+		add: HMStaffMemberExamples new doctorShaneMeullerWithVacationConstraint;
+		add: HMStaffMemberExamples new doctorThomasSilva.
+	^ allDoctors
+]
+
 { #category : #'doctors basic' }
 HMStaffMemberExamples >> doctorAamirSteiger [
 	<gtExample>
@@ -83,6 +104,18 @@ HMStaffMemberExamples >> doctorAnnaBauer [
 		experienceInYears: 5;
 		balanceWorkingHours: 50;
 		compensationHours: 1.8.
+	^ aDoctor
+]
+
+{ #category : #'doctors with constraints' }
+HMStaffMemberExamples >> doctorAnnaBauerWithVacationConstraint [
+	<gtExample>
+	| aDoctor vacationConstraint |
+	aDoctor := self doctorAnnaBauer.
+	vacationConstraint := HMStaffConstraintTypeExamples new
+		vacationConstraint.
+	vacationConstraint date: (Date year: 2021 month: 5 day: 4).
+	aDoctor constraints add: vacationConstraint.
 	^ aDoctor
 ]
 
@@ -217,17 +250,5 @@ HMStaffMemberExamples >> doctorThomasSilva [
 		experienceInYears: 1;
 		balanceWorkingHours: 50;
 		compensationHours: 0.9.
-	^ aDoctor
-]
-
-{ #category : #'doctors with constraints' }
-HMStaffMemberExamples >> doctorannaBauerWithVacationConstraint [
-	<gtExample>
-	| aDoctor vacationConstraint |
-	aDoctor := self doctorAnnaBauer.
-	vacationConstraint := HMStaffConstraintTypeExamples new
-		vacationConstraint.
-	vacationConstraint date: (Date year: 2021 month: 5 day: 4).
-	aDoctor constraints add: vacationConstraint.
 	^ aDoctor
 ]

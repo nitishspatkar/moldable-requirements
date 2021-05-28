@@ -32,39 +32,35 @@ HMWorkingDayExamples >> aWorkingWeek [
 HMWorkingDayExamples >> availableDoctorsOnMayFirst [
 	<gtExample>
 	| aCollectionOfDoctors aWorkingDay |
-	
-	aCollectionOfDoctors := self doctoresWithVariousConstraints.
+	aCollectionOfDoctors := HMStaffMemberExamples new allDoctorsWithConstraints.
 	aWorkingDay := HMWorkingDay new
 		date: (Date year: 2021 month: 5 day: 1).
-	^ aCollectionOfDoctors select: [ :aDoctor | 
-		aDoctor isAvailableOnDay: aWorkingDay ].
+	^ aCollectionOfDoctors
+		select: [ :aDoctor | aDoctor isAvailableOnDay: aWorkingDay ]
 ]
 
 { #category : #accessing }
 HMWorkingDayExamples >> availableDoctorsOnMaySecond [
 	<gtExample>
 	| aCollectionOfDoctors aWorkingDay |
-	
-	aCollectionOfDoctors := self doctoresWithVariousConstraints.
+	aCollectionOfDoctors := HMStaffMemberExamples new
+		allDoctorsWithConstraints.
 	aWorkingDay := HMWorkingDay new
 		date: (Date year: 2021 month: 5 day: 2).
-	^ aCollectionOfDoctors select: [ :aDoctor | 
-		aDoctor isAvailableOnDay: aWorkingDay ].
+	^ aCollectionOfDoctors
+		select: [ :aDoctor | aDoctor isAvailableOnDay: aWorkingDay ]
 ]
 
 { #category : #accessing }
-HMWorkingDayExamples >> balancedWorkingHoursCheckPass [
+HMWorkingDayExamples >> availableDoctorsOnMayThird [
 	<gtExample>
-	| aCollectionOfDoctors aDay aBalancedWorkingHoursConstraint aConstraint test |
-	aCollectionOfDoctors := self seminarDayCheckPass.
-	aDay := HMWorkingDay new date: (Date year: 2021 month: 5 day: 1).
-	aBalancedWorkingHoursConstraint := HMStaffMaximumWorkingHoursConstraint
-		new description: 'A seminar day for a staff member'.
-	aConstraint := HMStaffConstraint new
-		date: (Date year: 2021 month: 5 day: 1);
-		type: aBalancedWorkingHoursConstraint.
-	^ aBalancedWorkingHoursConstraint
-		withEnoughBalancedWorkingHours: aCollectionOfDoctors
+	| aCollectionOfDoctors aWorkingDay |
+	aCollectionOfDoctors := HMStaffMemberExamples new
+		allDoctorsWithConstraints.
+	aWorkingDay := HMWorkingDay new
+		date: (Date year: 2021 month: 5 day: 3).
+	^ aCollectionOfDoctors
+		select: [ :aDoctor | aDoctor isAvailableOnDay: aWorkingDay ]
 ]
 
 { #category : #accessing }
