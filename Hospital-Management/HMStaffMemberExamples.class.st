@@ -5,39 +5,22 @@ Class {
 }
 
 { #category : #accessing }
-HMStaffMemberExamples >> balanceWorkingHoursForDoctors [
+HMStaffMemberExamples >> allDoctors [
 	<gtExample>
-	| remainingWorkingHours |
-	remainingWorkingHours := {50 . 50 . 50 . 50 . 50 . 50 . 50 . 50 . 50.
-	50}.
-	^ remainingWorkingHours
-]
-
-{ #category : #accessing }
-HMStaffMemberExamples >> balanceWorkingHoursForNurses [
-	<gtExample>
-	| remainingWorkingHours |
-	remainingWorkingHours := {50 . 50 . 50 . 50 . 50 . 50 . 50 . 50 . 50.
-	50 . 50 . 50}.
-	^ remainingWorkingHours
-]
-
-{ #category : #accessing }
-HMStaffMemberExamples >> compensationHoursForDoctors [
-	<gtExample>
-	| compensationHours |
-	compensationHours := {2.7 . 2.7 . 1.8 . 3.6 . 3.6 . 4.5 . 4.5 . 5.4.
-	1.8 . 4.5}.
-	^ compensationHours
-]
-
-{ #category : #accessing }
-HMStaffMemberExamples >> compensationHoursForNurses [
-	<gtExample>
-	| compensationHours |
-	compensationHours := {2.7 . 2.7 . 1.8 . 3.6 . 3.6 . 4.5 . 4.5 . 5.4.
-	1.8 . 4.5 . 1.8 . 3.6}.
-	^ compensationHours
+	| allDoctors |
+	allDoctors := OrderedCollection new.
+	allDoctors
+		add: HMStaffMemberExamples new doctorAamirSteiger;
+		add: HMStaffMemberExamples new doctorAlexandraMeier;
+		add: HMStaffMemberExamples new doctorAnnaBauer;
+		add: HMStaffMemberExamples new doctorBaptistCosta;
+		add: HMStaffMemberExamples new doctorChristianMonde;
+		add: HMStaffMemberExamples new doctorIsabelMurphy;
+		add: HMStaffMemberExamples new doctorKatharinaSieren;
+		add: HMStaffMemberExamples new doctorSanjeetKaur;
+		add: HMStaffMemberExamples new doctorShaneMeuller;
+		add: HMStaffMemberExamples new doctorThomasSilva.
+	^ allDoctors
 ]
 
 { #category : #'doctors basic' }
@@ -54,20 +37,6 @@ HMStaffMemberExamples >> doctorAamirSteiger [
 	^ aDoctor
 ]
 
-{ #category : #'doctors basic' }
-HMStaffMemberExamples >> doctorAlexandaMeier [
-	<gtExample>
-	| aDoctor |
-	aDoctor := HMDoctor new.
-	aDoctor
-		firstName: 'Alexandra';
-		lastName: 'Meier';
-		experienceInYears: 17;
-		balanceWorkingHours: 50;
-		compensationHours: 2.7.
-	^ aDoctor
-]
-
 { #category : #'doctors with constraints' }
 HMStaffMemberExamples >> doctorAlexandaMeierWithSeminarConstraint [
 	<gtExample>
@@ -77,6 +46,20 @@ HMStaffMemberExamples >> doctorAlexandaMeierWithSeminarConstraint [
 		seminarConstraint.
 	seminarConstraint date: (Date year: 2021 month: 5 day: 1).
 	aDoctor constraints add: seminarConstraint.
+	^ aDoctor
+]
+
+{ #category : #'doctors basic' }
+HMStaffMemberExamples >> doctorAlexandraMeier [
+	<gtExample>
+	| aDoctor |
+	aDoctor := HMDoctor new.
+	aDoctor
+		firstName: 'Alexandra';
+		lastName: 'Meier';
+		experienceInYears: 12;
+		balanceWorkingHours: 41;
+		compensationHours: 2.7.
 	^ aDoctor
 ]
 
@@ -130,8 +113,20 @@ HMStaffMemberExamples >> doctorChristianMonde [
 		firstName: 'Christian';
 		lastName: 'Monde';
 		experienceInYears: 12;
-		balanceWorkingHours: 50;
+		balanceWorkingHours: 10;
 		compensationHours: 1.8.
+	^ aDoctor
+]
+
+{ #category : #'doctors with constraints' }
+HMStaffMemberExamples >> doctorChristianMondeWithSeminarConstraint [
+	<gtExample>
+	| aDoctor seminarConstraint |
+	aDoctor := self doctorChristianMonde.
+	seminarConstraint := HMStaffConstraintTypeExamples new
+		seminarConstraint.
+	seminarConstraint date: (Date year: 2021 month: 5 day: 7).
+	aDoctor constraints add: seminarConstraint.
 	^ aDoctor
 ]
 
@@ -144,22 +139,8 @@ HMStaffMemberExamples >> doctorIsabelMurphy [
 		firstName: 'Isabel';
 		lastName: 'Murphy';
 		experienceInYears: 8;
-		balanceWorkingHours: 50;
+		balanceWorkingHours: 34;
 		compensationHours: 2.7.
-	^ aDoctor
-]
-
-{ #category : #accessing }
-HMStaffMemberExamples >> doctorIsabelMurphyWithAvailableWorkingHoursConstraint [
-	<gtExample>
-	| aDoctor availableWorkingHoursConstraint |
-	aDoctor := self doctorIsabelMurphy.
-	
-	availableWorkingHoursConstraint := HMStaffConstraintTypeExamples new 
-		seminarConstraint.
-	availableWorkingHoursConstraint date: (Date year: 2021 month: 5 day: 1).
-	aDoctor constraints add: availableWorkingHoursConstraint.
-	
 	^ aDoctor
 ]
 
@@ -172,22 +153,8 @@ HMStaffMemberExamples >> doctorKatharinaSieren [
 		firstName: 'Katharina';
 		lastName: 'Sieren';
 		experienceInYears: 4;
-		balanceWorkingHours: 50;
+		balanceWorkingHours: 44;
 		compensationHours: 2.7.
-	^ aDoctor
-]
-
-{ #category : #accessing }
-HMStaffMemberExamples >> doctorMarvinThomas [
-	<gtExample>
-	| aDoctor |
-	aDoctor := HMDoctor new.
-	aDoctor
-		firstName: 'Marvin';
-		lastName: 'Thomas';
-		experienceInYears: 2;
-		balanceWorkingHours: 50;
-		compensationHours: 1.8.
 	^ aDoctor
 ]
 
@@ -200,7 +167,7 @@ HMStaffMemberExamples >> doctorSanjeetKaur [
 		firstName: 'Sanjeet';
 		lastName: 'Kaur';
 		experienceInYears: 3;
-		balanceWorkingHours: 50;
+		balanceWorkingHours: 37;
 		compensationHours: 2.7.
 	^ aDoctor
 ]
@@ -226,7 +193,7 @@ HMStaffMemberExamples >> doctorShaneMeuller [
 		firstName: 'Shane';
 		lastName: 'Meuller';
 		experienceInYears: 4;
-		balanceWorkingHours: 50;
+		balanceWorkingHours: 24;
 		compensationHours: 3.6.
 	^ aDoctor
 ]
@@ -238,7 +205,7 @@ HMStaffMemberExamples >> doctorShaneMeullerWithVacationConstraint [
 	aDoctor := self doctorShaneMeuller.
 	vacationConstraint := HMStaffConstraintTypeExamples new
 		vacationConstraint.
-	vacationConstraint date: (Date year: 2021 month: 5 day: 1).
+	vacationConstraint date: (Date year: 2021 month: 5 day: 2).
 	aDoctor constraints add: vacationConstraint.
 	^ aDoctor
 ]
@@ -257,198 +224,14 @@ HMStaffMemberExamples >> doctorThomasSilva [
 	^ aDoctor
 ]
 
-{ #category : #accessing }
-HMStaffMemberExamples >> doctorWithVacationConstraint [
+{ #category : #'doctors with constraints' }
+HMStaffMemberExamples >> doctorannaBauerWithVacationConstraint [
 	<gtExample>
 	| aDoctor vacationConstraint |
-	aDoctor := HMDoctor new.
+	aDoctor := self doctorAnnaBauer.
 	vacationConstraint := HMStaffConstraintTypeExamples new
 		vacationConstraint.
-	vacationConstraint date: (Date year: 2021 month: 5 day: 1).
-	aDoctor
-		firstName: 'Amir';
-		lastName: 'Steiger';
-		experienceInYears: 17;
-		balanceWorkingHours: 50;
-		compensationHours: 2.7.
-	aDoctor constraints removeFirst.
+	vacationConstraint date: (Date year: 2021 month: 5 day: 4).
 	aDoctor constraints add: vacationConstraint.
 	^ aDoctor
-]
-
-{ #category : #accessing }
-HMStaffMemberExamples >> doctorWithWeddingConstraint [
-	<gtExample>
-	| aDoctor weddingConstraint |
-	aDoctor := HMDoctor new.
-	weddingConstraint := HMStaffConstraintTypeExamples new
-		customWeddingConstraint.
-	weddingConstraint date: (Date year: 2021 month: 5 day: 1).
-	aDoctor
-		firstName: 'Shane';
-		lastName: 'Bottros';
-		experienceInYears: 7;
-		balanceWorkingHours: 50;
-		compensationHours: 2.7.
-	aDoctor constraints removeFirst.
-	aDoctor constraints add: weddingConstraint.
-	^ aDoctor
-]
-
-{ #category : #accessing }
-HMStaffMemberExamples >> doctorWithoutConstraintAndEnoughWorkingHours [
-	<gtExample>
-	| aDoctor |
-	aDoctor := HMDoctor new.
-	aDoctor
-		firstName: 'Sanjeet';
-		lastName: 'Pal';
-		experienceInYears: 3;
-		balanceWorkingHours: 50;
-		compensationHours: 2.7.
-	^ aDoctor
-]
-
-{ #category : #accessing }
-HMStaffMemberExamples >> doctorWithoutConstraintAndEnoughWorkingHoursAnother [
-	<gtExample>
-	| aDoctor |
-	aDoctor := HMDoctor new.
-	aDoctor
-		firstName: 'Marvin';
-		lastName: 'Thomas';
-		experienceInYears: 7;
-		balanceWorkingHours: 50;
-		compensationHours: 2.7.
-	^ aDoctor
-]
-
-{ #category : #accessing }
-HMStaffMemberExamples >> doctorWithoutConstraintAndEnoughWorkingHoursYetAnother [
-	<gtExample>
-	| aDoctor |
-	aDoctor := HMDoctor new.
-	aDoctor
-		firstName: 'Anna';
-		lastName: 'Botzdemm';
-		experienceInYears: 9;
-		balanceWorkingHours: 50;
-		compensationHours: 2.7.
-	^ aDoctor
-]
-
-{ #category : #accessing }
-HMStaffMemberExamples >> doctorWithoutConstraintAndWithoutEnoughWorkingHours [
-	<gtExample>
-	| aDoctor |
-	aDoctor := HMDoctor new.
-	aDoctor
-		firstName: 'Isabel';
-		lastName: 'Murphy';
-		experienceInYears: 5;
-		balanceWorkingHours: 7;
-		compensationHours: 2.7.
-	^ aDoctor
-]
-
-{ #category : #accessing }
-HMStaffMemberExamples >> experienceInYearsForDoctors [
-	^ {17 . 7 . 6 . 6 . 5 . 5 . 1 . 2 . 3 . 2}
-]
-
-{ #category : #accessing }
-HMStaffMemberExamples >> experienceInYearsForNurses [
- ^ {1 . 1 . 3 . 4 . 5 . 5 . 5 . 7 . 9 . 2 . 6 . 3}.
-]
-
-{ #category : #accessing }
-HMStaffMemberExamples >> firstNamesForDoctors [
-	<gtExample>
-	| firstNames |
-	firstNames := {'Amir' . 'Shane' . 'Iris' . 'Alexandra' . 'Baptist'.
-	'Sanjeet' . 'Simone' . 'Laura' . 'Katharina' . 'Tobias'}.
-	^ firstNames
-]
-
-{ #category : #accessing }
-HMStaffMemberExamples >> firstNamesForNurses [
-	<gtExample>
-	| firstNames |
-	firstNames := {'Carina' . 'Theresa' . 'Imane' . 'Marie' . 'Manuel'.
-	'John' . 'Peter' . 'Daniel' . 'Malik' . 'Luis' . 'Jane' . 'Raj'}.
-	^ firstNames
-]
-
-{ #category : #accessing }
-HMStaffMemberExamples >> lastNamesForDoctors [
-	<gtExample>
-	| lastNames |
-	lastNames := {'Steiger' . 'Botros' . 'Sami' . 'Meuller' . 'Silva'.
-	'Murphy' . 'Hansen' . 'Smith' . 'Sieren' . 'Gruber'}.
-	^ lastNames
-]
-
-{ #category : #accessing }
-HMStaffMemberExamples >> lastNamesForNurses [
-	<gtExample>
-	| lastNames |
-	lastNames := {'Bauer' . 'Steiner' . 'Fuchs' . 'Cooper' . 'Petersen'.
-	'Thompsen' . 'Kask' . 'Petrov' . 'Lielsen' . 'Nymann'. 'Goldsmith'. 'Kaur'}.
-	^ lastNames
-]
-
-{ #category : #accessing }
-HMStaffMemberExamples >> poolOfTenRandomDoctors [
-	<gtExample>
-	| poolOfDoctors |
-	^ poolOfDoctors := (1 to: 10)
-		collect: [ :index | 
-			HMDoctor new
-				experienceInYears: (self experienceInYearsForDoctors at: index);
-				firstName: (self firstNamesForDoctors at: index);
-				lastName: (self lastNamesForDoctors at: index);
-				balanceWorkingHours: (self balanceWorkingHoursForDoctors at: index);
-				compensationHours: (self compensationHoursForDoctors at: index) ]
-]
-
-{ #category : #accessing }
-HMStaffMemberExamples >> poolOfThreeExperiencedDoctors [
-	<gtExample>
-	| poolOfDoctors |
-	^ poolOfDoctors := (1 to: 3)
-		collect: [ :index | 
-			HMDoctor new
-				experienceInYears: 7;
-				firstName: 'Random First Name';
-				lastName: 'Random Last Name';
-				balanceWorkingHours: (self balanceWorkingHoursForDoctors at: index);
-				compensationHours: (self compensationHoursForDoctors at: index) ]
-]
-
-{ #category : #accessing }
-HMStaffMemberExamples >> poolOfThreeInExperiencedDoctors [
-	<gtExample>
-	| poolOfDoctors |
-	^ poolOfDoctors := (1 to: 3)
-		collect: [ :index | 
-			HMDoctor new
-				experienceInYears: 3;
-				firstName: 'Random First Name';
-				lastName: 'Random Last Name';
-				balanceWorkingHours: (self balanceWorkingHoursForDoctors at: index);
-				compensationHours: (self compensationHoursForDoctors at: index) ]
-]
-
-{ #category : #accessing }
-HMStaffMemberExamples >> poolOfTwelveRandomNurses [
-	<gtExample>
-	| poolOfNurses |
-	^ poolOfNurses := (1 to: 12)
-		collect: [ :index | 
-			HMNurse new
-				experienceInYears: (self experienceInYearsForNurses at: index);
-				firstName: (self firstNamesForNurses at: index);
-				lastName: (self lastNamesForNurses at: index);
-				balanceWorkingHours: (self balanceWorkingHoursForNurses at: index);
-				compensationHours: (self compensationHoursForNurses at: index) ]
 ]

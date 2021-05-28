@@ -10,10 +10,10 @@ HMHospitalSystemExamples >> withOneDaySchedule [
 	| hospitalManagementSystem schedule staff doctors nurses |
 	hospitalManagementSystem := HMHospitalSystem new.
 	schedule := HMScheduleExamples new forOneDay.
-	HMStaffMemberExamples new poolOfTenRandomDoctors
+	HMStaffMemberExamples new allDoctors
 		do: [ :each | hospitalManagementSystem staff add: each ].
-	HMStaffMemberExamples new poolOfTwelveRandomNurses
-		do: [ :each | hospitalManagementSystem staff add: each ].
+	"HMStaffMemberExamples new poolOfTwelveRandomNurses
+		do: [ :each | hospitalManagementSystem staff add: each ]."
 	hospitalManagementSystem schedule: schedule.
 	^ hospitalManagementSystem
 ]
@@ -24,10 +24,10 @@ HMHospitalSystemExamples >> withOneMonthSchedule [
 	| hospitalManagementSystem schedule staff |
 	hospitalManagementSystem := HMHospitalSystem new.
 	schedule := HMScheduleExamples new forOneMonth.
-	HMStaffMemberExamples new poolOfTenRandomDoctors
+	HMStaffMemberExamples new allDoctors
 		do: [ :each | hospitalManagementSystem staff add: each ].
-	HMStaffMemberExamples new poolOfTwelveRandomNurses
-		do: [ :each | hospitalManagementSystem staff add: each ].
+	"HMStaffMemberExamples new poolOfTwelveRandomNurses
+		do: [ :each | hospitalManagementSystem staff add: each ]."
 	hospitalManagementSystem schedule: schedule.
 	^ hospitalManagementSystem
 ]
@@ -38,10 +38,10 @@ HMHospitalSystemExamples >> withOneWeekSchedule [
 	| hospitalManagementSystem schedule staff |
 	hospitalManagementSystem := HMHospitalSystem new.
 	schedule := HMScheduleExamples new forOneWeek.
-	HMStaffMemberExamples new poolOfTenRandomDoctors
+	HMStaffMemberExamples new allDoctors
 		do: [ :each | hospitalManagementSystem staff add: each ].
-	HMStaffMemberExamples new poolOfTwelveRandomNurses
-		do: [ :each | hospitalManagementSystem staff add: each ].
+	"HMStaffMemberExamples new poolOfTwelveRandomNurses
+		do: [ :each | hospitalManagementSystem staff add: each ]."
 	hospitalManagementSystem schedule: schedule.
 	^ hospitalManagementSystem
 ]
