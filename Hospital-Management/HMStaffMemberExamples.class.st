@@ -41,7 +41,7 @@ HMStaffMemberExamples >> doctorAamirSteiger [
 HMStaffMemberExamples >> doctorAlexandaMeierWithSeminarConstraint [
 	<gtExample>
 	| aDoctor seminarConstraint |
-	aDoctor := self doctorAlexandaMeier.
+	aDoctor := self doctorAlexandraMeier.
 	seminarConstraint := HMStaffConstraintTypeExamples new
 		seminarConstraint.
 	seminarConstraint date: (Date year: 2021 month: 5 day: 1).
@@ -68,11 +68,7 @@ HMStaffMemberExamples >> doctorAmirSteigerWithAvailableWorkingHoursConstraint [
 	<gtExample>
 	| aDoctor availableWorkingHoursConstraint |
 	aDoctor := self doctorAamirSteiger.
-	availableWorkingHoursConstraint := HMStaffConstraintTypeExamples new
-		availableWorkingHoursConstraint.
-	availableWorkingHoursConstraint
-		date: (Date year: 2021 month: 6 day: 1).
-	aDoctor constraints add: availableWorkingHoursConstraint.
+	aDoctor balanceWorkingHours: 7.
 	^ aDoctor
 ]
 

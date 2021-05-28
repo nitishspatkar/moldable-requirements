@@ -64,22 +64,27 @@ HMStaffMember >> firstName: aString [
 ]
 
 { #category : #accessing }
-HMStaffMember >> gtStaffMemberFor: aView [
+HMStaffMember >> gtBasicStaffMemberFor: aView [
 	<gtView>
 	^ aView columnedList
-		title: 'Staff member';
+		title: 'Basic details';
 		priority: 1;
 		items: [ {('Type' -> self class).
-			('First Namme' -> self firstName).
-			('Last Namme' -> self lastName).
+			('First Name' -> self firstName).
+			('Last Name' -> self lastName).
 			('Experience' -> self experienceInYears).
 			('Remaining Working hours' -> self balanceWorkingHours).
-			('Available compensation hours' -> self compensationHours).
-			('Date' -> self constraints first date).
-			('Constraint' -> self constraints first type description)} ];
+			('Available compensation hours' -> self compensationHours)} ];
 		column: 'Attribute' item: #key;
 		column: 'Value' item: #value;
 		send: #value
+]
+
+{ #category : #accessing }
+HMStaffMember >> hasEnoughWorkingHours [
+	^ self balanceWorkingHours > 9
+		ifTrue: [ ^ true ]
+		ifFalse: [ ^ false ]
 ]
 
 { #category : #accessing }

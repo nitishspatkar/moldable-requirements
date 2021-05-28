@@ -5,16 +5,6 @@ Class {
 }
 
 { #category : #accessing }
-HMStaffConstraintTypeExamples >> availableWorkingHoursConstraint [
-	<gtExample>
-	| aConstraint constraintType |
-	aConstraint := HMStaffConstraint new.
-	constraintType := HMStaffMaximumWorkingHoursConstraint new.
-	aConstraint type: constraintType.
-	^ aConstraint
-]
-
-{ #category : #accessing }
 HMStaffConstraintTypeExamples >> customWeddingConstraint [
 	<gtExample>
 	| aConstraint constraintType |
