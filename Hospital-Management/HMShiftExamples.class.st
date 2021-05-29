@@ -101,8 +101,7 @@ HMShiftExamples >> allShifts [
 			self aMidDayShift.
 			self anEarlyLateShift.
 			self aLateLateShift.
-			self aNightShiftForExperienced.
-			self aNightShiftForInexperienced}.
+			self aNightShift}.
 	^ allShifts
 ]
 

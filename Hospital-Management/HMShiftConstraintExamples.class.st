@@ -5,32 +5,17 @@ Class {
 }
 
 { #category : #accessing }
-HMShiftConstraintExamples >> assignOneDoctorToDayShiftMayOne [
-	"assigns a doctor to a shift, updates the  available doctors, and returns the list of available doctors"
-
+HMShiftConstraintExamples >> assignDoctorsToAllShiftsMayOne [
 	<gtExample>
-	| aCollectionOfAvailableDoctors aDayShift oneDoctorPerShiftConstraint assignedDoctor |
+	| aCollectionOfAvailableDoctors allShifts oneDoctorPerShiftConstraint assignedDoctor |
+	oneDoctorPerShiftConstraint := HMShiftOneDoctorConstraint new.
 	aCollectionOfAvailableDoctors := HMWorkingDayExamples new
 		availableDoctorsOnMayFirst.
-	aDayShift := HMShiftExamples new aDayShift.
-	oneDoctorPerShiftConstraint := HMShiftOneDoctorConstraint new.
-	assignedDoctor := oneDoctorPerShiftConstraint
-		assignDoctorFrom: aCollectionOfAvailableDoctors
-		toShift: aDayShift.
-	^ aCollectionOfAvailableDoctors
-]
-
-{ #category : #accessing }
-HMShiftConstraintExamples >> assignTwoDoctorsToNightShiftMayOne [
-	"assigns a doctor to a shift, updates the  available doctors, and returns the list of available doctors"
-
-	<gtExample>
-	| aCollectionOfAvailableDoctors twoDoctorsPerShiftConstraint aNightShift assignedDoctor |
-	aCollectionOfAvailableDoctors := self assignOneDoctorToDayShiftMayOne.
-	aNightShift := HMShiftExamples new aNightShift.
-	twoDoctorsPerShiftConstraint := HMShiftExperiencedAndInexperiencedConstraint
-		new.
-	^ twoDoctorsPerShiftConstraint
-		assignDoctorsFrom: aCollectionOfAvailableDoctors
-		toNightShift: aNightShift
+	allShifts := HMShiftExamples new allShifts.
+	allShifts
+		do: [ :aShift | 
+			"give shifts collection to model method that iteratively and progressively assigns doctors to all shifts"
+			oneDoctorPerShiftConstraint
+				assignDoctorFrom: aCollectionOfAvailableDoctors
+				toNonNightShifts: allShifts ]
 ]
