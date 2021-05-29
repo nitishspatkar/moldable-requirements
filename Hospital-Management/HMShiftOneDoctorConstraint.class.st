@@ -11,7 +11,7 @@ HMShiftOneDoctorConstraint >> assignDoctorFrom: aCollectionOfAvailableDoctors to
 			" check if the shift type/code is not night shift"
 			(aShift shiftCode ~= 'E-N' or: aShift shiftCode ~= 'I-N')
 				ifTrue: [ "assign doctor to each shift and modify the assigned doctor"
-					aShift shiftCode = 'T'
+					(aShift shiftCode = 'T' and: aShift staff size ~= 1)
 						ifTrue: [ | aDoctorForMorningShift |
 							aDoctorForMorningShift := aCollectionOfAvailableDoctors
 								detect: [ :aDoctor | aDoctor availableForAnotherShift ]
@@ -20,7 +20,7 @@ HMShiftOneDoctorConstraint >> assignDoctorFrom: aCollectionOfAvailableDoctors to
 							aDoctorForMorningShift
 								balanceWorkingHours: aDoctorForMorningShift balanceWorkingHours - aShift duration.
 							aDoctorForMorningShift availableForAnotherShift: false ].
-					aShift shiftCode = 'M'
+					(aShift shiftCode = 'M' and: aShift staff size ~= 1)
 						ifTrue: [ | aDoctorForMiddayShift |
 							aDoctorForMiddayShift := aCollectionOfAvailableDoctors
 								detect: [ :aDoctor | aDoctor availableForAnotherShift ]
@@ -29,7 +29,7 @@ HMShiftOneDoctorConstraint >> assignDoctorFrom: aCollectionOfAvailableDoctors to
 							aDoctorForMiddayShift
 								balanceWorkingHours: aDoctorForMiddayShift balanceWorkingHours - aShift duration.
 							aDoctorForMiddayShift availableForAnotherShift: false ].
-					aShift shiftCode = 'S1'
+					(aShift shiftCode = 'S1' and: aShift staff size ~= 1)
 						ifTrue: [ | aDoctorForEarlyLateShift |
 							aDoctorForEarlyLateShift := aCollectionOfAvailableDoctors
 								detect: [ :aDoctor | aDoctor availableForAnotherShift ]
@@ -38,7 +38,7 @@ HMShiftOneDoctorConstraint >> assignDoctorFrom: aCollectionOfAvailableDoctors to
 							aDoctorForEarlyLateShift
 								balanceWorkingHours: aDoctorForEarlyLateShift balanceWorkingHours - aShift duration.
 							aDoctorForEarlyLateShift availableForAnotherShift: false ].
-					aShift shiftCode = 'S2'
+					(aShift shiftCode = 'S2' and: aShift staff size ~= 1)
 						ifTrue: [ | aDoctorForLateLateShift |
 							aDoctorForLateLateShift := aCollectionOfAvailableDoctors
 								detect: [ :aDoctor | aDoctor availableForAnotherShift ]
