@@ -9,17 +9,9 @@ HMWorkingDayExamples >> aWorkingDayMayOne [
 	<gtExample>
 	| aDay shifts oneDoctorConstraint twoDoctorsNightShiftConstraint |
 	aDay := HMWorkingDay new
-		shifts: HMShiftExamples new allShifts;
+		shifts: HMShiftConstraintExamples new assignDoctorsToAllShiftsMayOne;
 		date: (Date year: 2021 month: 5 day: 1);
 		availableStaff: self availableDoctorsOnMayFirst.
-	"Iterate over shifts and assign doctors according to shift constraints from available doctors"
-	aDay shifts
-		do: [ :aShift | 
-			(aShift shiftCode ~= 'N')
-				ifTrue: [ aShift staff
-						add: HMShiftConstraintExamples new assignOneDoctorToDayShiftMayOne ]
-				ifFalse: [ aShift staff
-						add: HMShiftConstraintExamples new assignTwoDoctorsToNightShiftMayOne ] ].
 	^ aDay
 ]
 
