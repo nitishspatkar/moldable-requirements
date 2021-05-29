@@ -5,18 +5,25 @@ Class {
 }
 
 { #category : #accessing }
-HMShiftExperiencedAndInexperiencedConstraint >> nightShiftCheck: aCollectionOfDoctors [
-	"checks if the collection has at least one experienced and one inexperienced doctor"
+HMShiftExperiencedAndInexperiencedConstraint >> assignDoctorsFrom: aCollectionOfDoctors toNightShift: aShift [
+	" checks if the shift type/code is a night shift"
 
-	| experiencedDoctor inExperiencedDoctor totalExperienced totalInExperienced |
-	experiencedDoctor := HMDoctor new.
-	totalExperienced := aCollectionOfDoctors
-		count: [ :doctor | doctor experienceInYears > 5 ].
-	totalInExperienced := aCollectionOfDoctors
-		count: [ :doctor | doctor experienceInYears < 5 ].
-	totalExperienced >= 1
-		ifTrue: [ totalInExperienced >= 1
-				ifTrue: [ ^ 'We have both' ]
-				ifFalse: [ ^ 'No inexperienced doctor' ] ]
-		ifFalse: [ ^ 'No experienced doctor' ]
+	| availableDoctorsForNightShift experiencedDoctor inExperiencedDoctor totalExperienced totalInExperienced |
+	availableDoctorsForNightShift := aCollectionOfDoctors
+		select: [ :aDoctor | aDoctor availableForAnotherShift ].
+	experiencedDoctor := availableDoctorsForNightShift
+		detect: [ :aDoctor | aDoctor isExperienced ].
+	inExperiencedDoctor := availableDoctorsForNightShift
+		detect: [ :aDoctor | aDoctor isExperienced not ].
+	(aShift shiftCode = 'N')
+		ifTrue: [ aShift staff add: experiencedDoctor.
+			aShift staff add: inExperiencedDoctor.
+			"reduce the number of balance working hours of assigned doctors"
+			experiencedDoctor
+				balanceWorkingHours: (experiencedDoctor balanceWorkingHours - aShift duration);
+				availableForAnotherShift: false.
+			inExperiencedDoctor
+				balanceWorkingHours: (inExperiencedDoctor balanceWorkingHours - aShift duration);
+				availableForAnotherShift: false ].
+	^ availableDoctorsForNightShift
 ]

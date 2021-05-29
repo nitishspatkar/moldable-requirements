@@ -8,10 +8,21 @@ Class {
 		'lastName',
 		'firstName',
 		'balanceWorkinghours',
-		'compensationHours'
+		'compensationHours',
+		'availableForAnotherShift'
 	],
 	#category : #'Hospital-Management-Model'
 }
+
+{ #category : #accessing }
+HMStaffMember >> availableForAnotherShift [
+	^ availableForAnotherShift
+]
+
+{ #category : #accessing }
+HMStaffMember >> availableForAnotherShift: aBoolean [
+	availableForAnotherShift := aBoolean
+]
 
 { #category : #accessing }
 HMStaffMember >> balanceWorkingHours [
@@ -74,7 +85,8 @@ HMStaffMember >> gtBasicStaffMemberFor: aView [
 			('Last Name' -> self lastName).
 			('Experience' -> self experienceInYears).
 			('Remaining Working hours' -> self balanceWorkingHours).
-			('Available compensation hours' -> self compensationHours)} ];
+			('Available compensation hours' -> self compensationHours).
+			('Available for another shift' -> self availableForAnotherShift)} ];
 		column: 'Attribute' item: #key;
 		column: 'Value' item: #value;
 		send: #value
@@ -102,12 +114,20 @@ HMStaffMember >> hasEnoughWorkingHours [
 HMStaffMember >> initialize [
 	super initialize.
 	shifts := OrderedCollection new.
-	constraints := OrderedCollection new
+	constraints := OrderedCollection new.
+	availableForAnotherShift := true
+]
+
+{ #category : #initialize }
+HMStaffMember >> isAvailableOnDay: aWorkingDay [
+	^ (self isNotAvailableOnDay: aWorkingDay) not
 ]
 
 { #category : #accessing }
-HMStaffMember >> isAvailableOnDay: aWorkingDay [
-	^ (self isNotAvailableOnDay: aWorkingDay) not
+HMStaffMember >> isExperienced [
+	experienceInYears >= 5
+		ifTrue: [ ^ true ]
+		ifFalse: [ ^ false ]
 ]
 
 { #category : #accessing }

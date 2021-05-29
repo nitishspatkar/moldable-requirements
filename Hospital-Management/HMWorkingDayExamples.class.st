@@ -12,6 +12,8 @@ HMWorkingDayExamples >> aWorkingDayMayOne [
 		shifts: HMShiftExamples new allShifts;
 		date: (Date year: 2021 month: 5 day: 1);
 		availableStaff: self availableDoctorsOnMayFirst.
+	"Iterate over shifts and assign doctors according to shift constraints from available doctors"
+	shifts do: [:aShift | ].
 	^ aDay
 ]
 
@@ -45,31 +47,7 @@ HMWorkingDayExamples >> availableDoctorsOnMayFirst [
 	aWorkingDay := HMWorkingDay new
 		date: (Date year: 2021 month: 5 day: 1).
 	^ aCollectionOfDoctors
-		select: [ :aDoctor | aDoctor isAvailableOnDay: aWorkingDay ]
-]
-
-{ #category : #accessing }
-HMWorkingDayExamples >> availableDoctorsOnMaySecond [
-	<gtExample>
-	| aCollectionOfDoctors aWorkingDay |
-	aCollectionOfDoctors := HMStaffMemberExamples new
-		allDoctorsWithConstraints.
-	aWorkingDay := HMWorkingDay new
-		date: (Date year: 2021 month: 5 day: 2).
-	^ aCollectionOfDoctors
-		select: [ :aDoctor | aDoctor isAvailableOnDay: aWorkingDay ]
-]
-
-{ #category : #accessing }
-HMWorkingDayExamples >> availableDoctorsOnMayThird [
-	<gtExample>
-	| aCollectionOfDoctors aWorkingDay |
-	aCollectionOfDoctors := HMStaffMemberExamples new
-		allDoctorsWithConstraints.
-	aWorkingDay := HMWorkingDay new
-		date: (Date year: 2021 month: 5 day: 3).
-	^ aCollectionOfDoctors
-		select: [ :aDoctor | aDoctor isAvailableOnDay: aWorkingDay ]
+		select: [ :aDoctor | (aDoctor isAvailableOnDay: aWorkingDay) and: (aDoctor hasEnoughWorkingHours) ]
 ]
 
 { #category : #accessing }

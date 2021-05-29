@@ -8,7 +8,7 @@ Class {
 HMScheduleExamples >> forOneDayMayOne [
 	<gtExample>
 	| schedule aDay staff doctors nurses |
-	aDay := HMWorkingDayExamples new aWorkingDay.
+	aDay := HMWorkingDayExamples new aWorkingDayMayOne.
 	schedule := HMSchedule new.
 	schedule days add: aDay.
 	^ schedule

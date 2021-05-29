@@ -44,6 +44,9 @@ HMWorkingDay >> gtAvailableStaffFor: aView [
 			width: 100;
 		column: 'Experience'
 			text: [ :aStaffMember | aStaffMember experienceInYears ]
+			width: 100;
+		column: 'Balance working hours'
+			text: [ :aStaffMember | aStaffMember balanceWorkingHours ]
 			width: 100
 ]
 

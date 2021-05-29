@@ -14,34 +14,6 @@ Class {
 }
 
 { #category : #accessing }
-HMShift >> assignADoctorFrom: aCollectionOfDoctors to: aShift [
-	" accpets a collection of doctors and a shift, and assigns one to doctor one shift"
-
-	<gtExample>
-	(aShift shiftCode = 'E-N' or: aShift shiftCode = 'I-N')
-		ifFalse: [ aShift staff add: aCollectionOfDoctors first ].
-	^ aShift
-]
-
-{ #category : #accessing }
-HMShift >> assignDoctorsFrom: aCollectionOfDoctors to: aNightShift [
-	" accpets a collection of doctors and a night shift, and assigns two doctors to  shift"
-
-	<gtExample>
-	((aNightShift shiftCode = 'E-N' or: aNightShift shiftCode = 'I-N')
-		or: aNightShift shiftCode = 'N')
-		ifTrue:
-			[ "check for one experienced and one inexperienced doctor in a collection"
-			aNightShift staff
-				add:
-					(aCollectionOfDoctors detect: [ :each | each experienceInYears > 5 ]).
-			aNightShift staff
-				add:
-					(aCollectionOfDoctors detect: [ :each | each experienceInYears < 5 ]) ].
-	^ aNightShift
-]
-
-{ #category : #accessing }
 HMShift >> description [
 	^ description
 ]

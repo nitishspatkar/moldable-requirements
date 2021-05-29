@@ -119,23 +119,3 @@ HMShiftExamples >> anEarlyLateShift [
 		duration: 9.
 	^ aShift
 ]
-
-{ #category : #accessing }
-HMShiftExamples >> assignADoctorToAShift [
-	<gtExample>
-	| aCollectionOfDoctors aShift |
-	aCollectionOfDoctors := HMWorkingDayExamples new
-		balancedWorkingHoursCheckPass.
-	aShift := self aDayShift.
-	^ aShift assignADoctorFrom: aCollectionOfDoctors to: aShift
-]
-
-{ #category : #accessing }
-HMShiftExamples >> assignADoctorsToANightShift [
-	<gtExample>
-	| aCollectionOfDoctors aShift |
-	aCollectionOfDoctors := HMWorkingDayExamples new
-		balancedWorkingHoursCheckPass.
-	aShift := self aNightShiftForExperienced.
-	^ aShift assignDoctorsFrom: aCollectionOfDoctors to: aShift
-]
