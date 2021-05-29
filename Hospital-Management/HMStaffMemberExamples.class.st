@@ -19,7 +19,8 @@ HMStaffMemberExamples >> allDoctors [
 		add: HMStaffMemberExamples new doctorKatharinaSieren;
 		add: HMStaffMemberExamples new doctorSanjeetKaur;
 		add: HMStaffMemberExamples new doctorShaneMeuller;
-		add: HMStaffMemberExamples new doctorThomasSilva.
+		add: HMStaffMemberExamples new doctorThomasSilva;
+		add: HMStaffMemberExamples new doctorManuelaLitto.
 	^ allDoctors
 ]
 
@@ -40,7 +41,8 @@ HMStaffMemberExamples >> allDoctorsWithConstraints [
 		add: HMStaffMemberExamples new doctorKatharinaSieren;
 		add: HMStaffMemberExamples new doctorSanjeetKaurWithWeddingConstraint;
 		add: HMStaffMemberExamples new doctorShaneMeullerWithVacationConstraint;
-		add: HMStaffMemberExamples new doctorThomasSilva.
+		add: HMStaffMemberExamples new doctorThomasSilva;
+		add: HMStaffMemberExamples new doctorManuelaLitto.
 	^ allDoctors
 ]
 
@@ -184,6 +186,20 @@ HMStaffMemberExamples >> doctorKatharinaSieren [
 		experienceInYears: 4;
 		balanceWorkingHours: 44;
 		compensationHours: 2.7.
+	^ aDoctor
+]
+
+{ #category : #'doctors basic' }
+HMStaffMemberExamples >> doctorManuelaLitto [
+	<gtExample>
+	| aDoctor |
+	aDoctor := HMDoctor new.
+	aDoctor
+		firstName: 'Manuela';
+		lastName: 'Litto';
+		experienceInYears: 14;
+		balanceWorkingHours: 50;
+		compensationHours: 1.8.
 	^ aDoctor
 ]
 

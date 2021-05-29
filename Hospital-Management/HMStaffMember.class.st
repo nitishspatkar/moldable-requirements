@@ -137,6 +137,13 @@ HMStaffMember >> isNotAvailableOnDay: aWorkingDay [
 ]
 
 { #category : #accessing }
+HMStaffMember >> isNotExperienced [
+	experienceInYears < 5
+		ifTrue: [ ^ true ]
+		ifFalse: [ ^ false ]
+]
+
+{ #category : #accessing }
 HMStaffMember >> lastName [
 	^ lastName
 ]

@@ -44,9 +44,22 @@ HMShift >> endTime: aTimestamp [
 ]
 
 { #category : #accessing }
+HMShift >> gtAssignedStaffMemberFor: aView [
+	<gtView>
+	^ aView columnedList
+		title: 'Assigned doctor';
+		priority: 1;
+		items: [ {('First Name' -> staff first firstName).
+			('Last Name' -> staff first lastName)} ];
+		column: 'Attribute' item: #key;
+		column: 'Value' item: #value
+]
+
+{ #category : #initialize }
 HMShift >> initialize [
 	super initialize.
-	staff := OrderedCollection new
+	staff := OrderedCollection new.
+	availableStaffAfter := OrderedCollection new
 ]
 
 { #category : #accessing }

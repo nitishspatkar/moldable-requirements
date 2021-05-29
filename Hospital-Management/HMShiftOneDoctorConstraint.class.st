@@ -14,7 +14,8 @@ HMShiftOneDoctorConstraint >> assignDoctorFrom: aCollectionOfAvailableDoctors to
 					aShift shiftCode = 'T'
 						ifTrue: [ | aDoctorForMorningShift |
 							aDoctorForMorningShift := aCollectionOfAvailableDoctors
-								detect: [ :aDoctor | aDoctor availableForAnotherShift ].
+								detect: [ :aDoctor | aDoctor availableForAnotherShift ]
+								ifNone: [ ^ 'Day shift: No available doctor!' ].
 							aShift staff add: aDoctorForMorningShift.
 							aDoctorForMorningShift
 								balanceWorkingHours: aDoctorForMorningShift balanceWorkingHours - aShift duration.
@@ -22,7 +23,8 @@ HMShiftOneDoctorConstraint >> assignDoctorFrom: aCollectionOfAvailableDoctors to
 					aShift shiftCode = 'M'
 						ifTrue: [ | aDoctorForMiddayShift |
 							aDoctorForMiddayShift := aCollectionOfAvailableDoctors
-								detect: [ :aDoctor | aDoctor availableForAnotherShift ].
+								detect: [ :aDoctor | aDoctor availableForAnotherShift ]
+								ifNone: [ ^ 'Mid day shift: No available doctor!' ].
 							aShift staff add: aDoctorForMiddayShift.
 							aDoctorForMiddayShift
 								balanceWorkingHours: aDoctorForMiddayShift balanceWorkingHours - aShift duration.
@@ -30,7 +32,8 @@ HMShiftOneDoctorConstraint >> assignDoctorFrom: aCollectionOfAvailableDoctors to
 					aShift shiftCode = 'S1'
 						ifTrue: [ | aDoctorForEarlyLateShift |
 							aDoctorForEarlyLateShift := aCollectionOfAvailableDoctors
-								detect: [ :aDoctor | aDoctor availableForAnotherShift ].
+								detect: [ :aDoctor | aDoctor availableForAnotherShift ]
+								ifNone: [ ^ 'Earlt late shift: No available doctor!' ].
 							aShift staff add: aDoctorForEarlyLateShift.
 							aDoctorForEarlyLateShift
 								balanceWorkingHours: aDoctorForEarlyLateShift balanceWorkingHours - aShift duration.
@@ -38,7 +41,8 @@ HMShiftOneDoctorConstraint >> assignDoctorFrom: aCollectionOfAvailableDoctors to
 					aShift shiftCode = 'S2'
 						ifTrue: [ | aDoctorForLateLateShift |
 							aDoctorForLateLateShift := aCollectionOfAvailableDoctors
-								detect: [ :aDoctor | aDoctor availableForAnotherShift ].
+								detect: [ :aDoctor | aDoctor availableForAnotherShift ]
+								ifNone: [ ^ 'Late late shift: No available doctor!' ].
 							aShift staff add: aDoctorForLateLateShift.
 							aDoctorForLateLateShift
 								balanceWorkingHours: aDoctorForLateLateShift balanceWorkingHours - aShift duration.
