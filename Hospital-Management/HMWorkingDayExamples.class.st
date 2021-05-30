@@ -9,10 +9,32 @@ HMWorkingDayExamples >> aWorkingDayMayOne [
 	<gtExample>
 	| aDay shifts oneDoctorConstraint twoDoctorsNightShiftConstraint |
 	aDay := HMWorkingDay new
-		shifts: HMShiftConstraintExamples new assignDoctorsToAllShiftsMayOne;
+		shifts: HMShiftExamples new allShifts;
 		date: (Date year: 2021 month: 5 day: 1);
 		availableStaff: self availableDoctorsOnMayFirst.
 	^ aDay
+]
+
+{ #category : #accessing }
+HMWorkingDayExamples >> aWorkingMonthMay [
+	<gtExample>
+	| aCollectionOfDoctors aCollectionOfDays dayWiseAvailableDoctors |
+	aCollectionOfDays := (1 to: 30)
+		collect: [ :each | 
+			HMWorkingDay new
+				date: (Date year: 2021 month: 5 day: each);
+				shifts: HMShiftExamples new allShifts ].
+	dayWiseAvailableDoctors := OrderedCollection new.
+	aCollectionOfDoctors := HMStaffMemberExamples new
+		allDoctorsWithConstraints.
+	aCollectionOfDays
+		do: [ :aDay | 
+			aCollectionOfDoctors
+				do: [ :aDoctor | 
+					(aDoctor isAvailableOnDay: aDay)
+						ifTrue: [ aDay availableStaff add: aDoctor ] ].
+			dayWiseAvailableDoctors add: aDay ].
+	^ dayWiseAvailableDoctors
 ]
 
 { #category : #accessing }

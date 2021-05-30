@@ -9,6 +9,7 @@ HMScheduleExamples >> forOneDayMayOne [
 	<gtExample>
 	| schedule aDay staff doctors nurses |
 	aDay := HMWorkingDayExamples new aWorkingDayMayOne.
+	aDay shifts: HMShiftConstraintExamples new assignDoctorsToAllShiftsMayOne.
 	schedule := HMSchedule new.
 	schedule days add: aDay.
 	^ schedule
