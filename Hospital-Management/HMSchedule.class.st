@@ -3,7 +3,7 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'days',
-		'startDate'
+		'description'
 	],
 	#category : #'Hospital-Management-Model'
 }
@@ -14,12 +14,17 @@ HMSchedule >> days [
 ]
 
 { #category : #accessing }
-HMSchedule >> gtScheduleFor: aView [
+HMSchedule >> days: aCollection [
+	days := aCollection 
+]
+
+{ #category : #accessing }
+HMSchedule >> gViewWorkingDaysFor: aView [
 	<gtView>
 	^ aView columnedList
 		title: 'Schedule';
 		priority: 1;
-		items: [ days ];
+		items: [ self days ];
 		column: 'Index' text: [ :aDay | aDay date ].
 ]
 
@@ -27,14 +32,4 @@ HMSchedule >> gtScheduleFor: aView [
 HMSchedule >> initialize [
 	super initialize.
 	days := OrderedCollection new
-]
-
-{ #category : #accessing }
-HMSchedule >> startDate [
-	^ startDate
-]
-
-{ #category : #accessing }
-HMSchedule >> startDate: aDate [
-	startDate := aDate
 ]

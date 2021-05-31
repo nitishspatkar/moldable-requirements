@@ -10,6 +10,12 @@ Class {
 }
 
 { #category : #accessing }
+HMWorkingDay >> assignedDoctors [
+	^ self shifts  flatCollect: [:aShift |
+		aShift assignedDoctors ]
+]
+
+{ #category : #accessing }
 HMWorkingDay >> availableStaff [
 	^ availableStaff
 ]
@@ -27,6 +33,56 @@ HMWorkingDay >> date [
 { #category : #accessing }
 HMWorkingDay >> date: aDate [
 	date := aDate
+]
+
+{ #category : #accessing }
+HMWorkingDay >> dayShift [
+	^ self shifts select: [:aShift | aShift isDayShift ]
+]
+
+{ #category : #accessing }
+HMWorkingDay >> description [
+	^ String streamContents: [ :aStream |
+		self descriptionOn:  aStream ]
+]
+
+{ #category : #printing }
+HMWorkingDay >> descriptionOn: aStream [
+	aStream
+		nextPutAll: self date weekday;
+		nextPutAll: ', ';
+		nextPutAll: self date asString
+]
+
+{ #category : #accessing }
+HMWorkingDay >> gtAssignedDoctorsByShiftsFor: aView [
+	<gtView>
+	^ aView columnedList
+		title: 'Schedule';
+		priority: 2;
+		items: [ self shifts flatCollect: [:aShift |
+			aShift assignedDoctors collect: [ :aDoctor  |
+				aShift -> aDoctor ] ] ];
+		column: 'Shift' text: [ :assoc | assoc key description ];
+		column: 'Doctor' text: [ :assoc | assoc value fullName ];
+		column: 'Is experienced' text: [ :assoc  | 
+			assoc value isExperienced
+				ifTrue: [ 'Yes' ]
+				ifFalse: [ 'No' ] ]
+]
+
+{ #category : #accessing }
+HMWorkingDay >> gtAssignedDoctorsFor: aView [
+	<gtView>
+	^ aView columnedList
+		title: 'Assigned Doctors';
+		priority: 2;
+		items: [ self assignedDoctors ];
+		column: 'Name' text: [ :aStafMember | aStafMember fullName ];
+		column: 'Is experienced' text: [ :aStafMember  | 
+			aStafMember isExperienced
+				ifTrue: [ 'Yes' ]
+				ifFalse: [ 'No' ] ]
 ]
 
 { #category : #accessing }
@@ -71,14 +127,18 @@ HMWorkingDay >> initialize [
 	availableStaff := OrderedCollection new
 ]
 
+{ #category : #accessing }
+HMWorkingDay >> nightShift [
+	^ self shifts select: [:aShift | aShift isNightShift ]
+]
+
 { #category : #printing }
 HMWorkingDay >> printOn: aStream [
 	super printOn: aStream.
 	aStream
-		nextPutAll: ' (';
-		nextPutAll: self date weekday;
-		nextPutAll: ', ';
-		nextPutAll: self date asString;
+		nextPutAll: ' ('.
+	self descriptionOn: aStream.
+	aStream	
 		nextPutAll: ')'
 ]
 

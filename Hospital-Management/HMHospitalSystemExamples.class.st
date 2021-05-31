@@ -5,7 +5,7 @@ Class {
 }
 
 { #category : #accessing }
-HMHospitalSystemExamples >> aHospitalManagemmentSystemWithOneWeekScheduleAndDoctorsWithConstraints [
+HMHospitalSystemExamples >> hospitalManagemmentSystemWithOneWeekScheduleAndDoctorsWithConstraints [
 	<gtExample>
 	| hospitalManagementSystem schedule staff |
 	hospitalManagementSystem := HMHospitalSystem new.

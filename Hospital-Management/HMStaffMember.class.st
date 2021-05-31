@@ -75,6 +75,11 @@ HMStaffMember >> firstName: aString [
 ]
 
 { #category : #accessing }
+HMStaffMember >> fullName [
+	^ self firstName, ' ', self lastName
+]
+
+{ #category : #accessing }
 HMStaffMember >> gtBasicStaffMemberFor: aView [
 	<gtView>
 	^ aView columnedList

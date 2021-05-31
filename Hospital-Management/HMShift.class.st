@@ -15,6 +15,17 @@ Class {
 }
 
 { #category : #accessing }
+HMShift >> addStaffMember: aStaffMember [
+	self staff add: aStaffMember
+]
+
+{ #category : #accessing }
+HMShift >> assignedDoctors [
+	^ self staff select: [ :aStafMember |
+		aStafMember isDoctor ] 
+]
+
+{ #category : #accessing }
 HMShift >> day [
 	^ day
 ]
@@ -26,7 +37,13 @@ HMShift >> day: aDay [
 
 { #category : #accessing }
 HMShift >> description [
-	^ description
+	^ String streamContents: [ :aStream |
+		aStream
+			nextPutAll: (self shiftCode ifNil: [ '<>' ]);
+			nextPutAll: ', ';
+			nextPutAll: self startTime asString;
+			nextPutAll: ' - ';
+			nextPutAll: self endTime asString ]
 ]
 
 { #category : #accessing }
@@ -55,21 +72,34 @@ HMShift >> endTime: aTimestamp [
 ]
 
 { #category : #accessing }
-HMShift >> gtAssignedStaffMemberFor: aView [
+HMShift >> gtDoctorsFor: aView [
 	<gtView>
 	^ aView columnedList
-		title: 'Assigned doctor';
-		priority: 1;
-		items: [ {('First Name' -> staff first firstName).
-			('Last Name' -> staff first lastName)} ];
-		column: 'Attribute' item: #key;
-		column: 'Value' item: #value
+		title: 'Assigned Doctors';
+		items: [ self assignedDoctors ];
+		column: 'Name' text: [ :aStafMember | aStafMember fullName ];
+		column: 'Is experienced' text: [ :aStafMember  | 
+			aStafMember isExperienced
+				ifTrue: [ 'Yes' ]
+				ifFalse: [ 'No' ] ]
 ]
 
 { #category : #initialize }
 HMShift >> initialize [
 	super initialize.
 	staff := OrderedCollection new
+]
+
+{ #category : #accessing }
+HMShift >> isDayShift [
+	^ self isNightShift not
+]
+
+{ #category : #tesing }
+HMShift >> isNightShift [
+	^ self shiftCode = 'E-N' or: [ 
+		self shiftCode = 'I-N' or: [
+			self shiftCode = 'N'] ]
 ]
 
 { #category : #accessing }

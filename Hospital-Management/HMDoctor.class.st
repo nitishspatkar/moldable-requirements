@@ -5,6 +5,11 @@ Class {
 }
 
 { #category : #accessing }
+HMDoctor >> isDoctor [
+	^ true
+]
+
+{ #category : #accessing }
 HMDoctor >> printOn: aStream [
 	super printOn: aStream.
 	aStream 

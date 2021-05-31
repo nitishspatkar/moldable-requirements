@@ -9,10 +9,16 @@ Class {
 }
 
 { #category : #accessing }
-HMHospitalSystem >> gtScheduleFor: aView [
+HMHospitalSystem >> doctors [
+	^ self  staff select: [ :aStaffMember | 
+		aStaffMember isDoctor ]
+]
+
+{ #category : #accessing }
+HMHospitalSystem >> gViewWorkingDaysFor: aView [
 	<gtView>
 	^ aView columnedList
-		title: 'Schedule';
+		title: 'Working Days';
 		priority: 1;
 		items: [ schedule days ];
 		column: 'Date' text: [ :aDay | aDay date ] width: 100;
