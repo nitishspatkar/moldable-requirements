@@ -7,16 +7,29 @@ Class {
 { #category : #accessing }
 HMShiftExamples >> aDayShift [
 	<gtExample>
-	| aShift staffMember |
+	| aShift |
 	aShift := HMShift new.
-	"staffMember := HMStaffMemberExamples new doctorAmir."
 	aShift
 		shiftCode: 'T';
 		description: 'Tagesdienst';
 		startTime: (Time hour: 7 minute: 30 second: 00);
 		endTime: (Time hour: 16 minute: 30 second: 00);
 		duration: 7.
-	
+	^ aShift
+]
+
+{ #category : #accessing }
+HMShiftExamples >> aDayShiftForMayOne [
+	<gtExample>
+	| aShift |
+	aShift := HMShift new.
+	aShift
+		shiftCode: 'T';
+		description: 'Tagesdienst';
+		startTime: (Time hour: 7 minute: 30 second: 00);
+		endTime: (Time hour: 16 minute: 30 second: 00);
+		duration: 7;
+		day: HMWorkingDayExamples new aWorkingDayMayOne.
 	^ aShift
 ]
 
@@ -35,6 +48,21 @@ HMShiftExamples >> aLateLateShift [
 ]
 
 { #category : #accessing }
+HMShiftExamples >> aLateLateShiftForMayOne [
+	<gtExample>
+	| aShift |
+	aShift := HMShift new.
+	aShift
+		shiftCode: 'S2';
+		description: 'LateLate';
+		startTime: (Time hour: 16 minute: 00 second: 00);
+		endTime: (Time hour: 1 minute: 00 second: 00);
+		duration: 9;
+		day: HMWorkingDayExamples new aWorkingDayMayOne.
+	^ aShift
+]
+
+{ #category : #accessing }
 HMShiftExamples >> aMidDayShift [
 	<gtExample>
 	| aShift |
@@ -49,11 +77,25 @@ HMShiftExamples >> aMidDayShift [
 ]
 
 { #category : #accessing }
+HMShiftExamples >> aMidDayShiftForMayOne [
+	<gtExample>
+	| aShift |
+	aShift := HMShift new.
+	aShift
+		shiftCode: 'M';
+		description: 'Mitteldienst';
+		startTime: (Time hour: 12 minute: 30 second: 00);
+		endTime: (Time hour: 20 minute: 30 second: 00);
+		duration: 8;
+		day: HMWorkingDayExamples new aWorkingDayMayOne.
+	^ aShift
+]
+
+{ #category : #accessing }
 HMShiftExamples >> aNightShift [
 	<gtExample>
-	| aShift staffMember |
+	| aShift |
 	aShift := HMShift new.
-	"staffMember := HMStaffMemberExamples new doctorAmir."
 	aShift
 		shiftCode: 'N';
 		description: 'Nachtdienst';
@@ -92,6 +134,21 @@ HMShiftExamples >> aNightShiftForInexperienced [
 ]
 
 { #category : #accessing }
+HMShiftExamples >> aNightShiftForMayOne [
+	<gtExample>
+	| aShift |
+	aShift := HMShift new.
+	aShift
+		shiftCode: 'N';
+		description: 'Nachtdienst';
+		startTime: (Time hour: 22 minute: 00 second: 00);
+		endTime: (Time hour: 05 minute: 00 second: 00);
+		duration: 7;
+		day: HMWorkingDayExamples new aWorkingDayMayOne.
+	^ aShift
+]
+
+{ #category : #accessing }
 HMShiftExamples >> allShifts [
 	<gtExample>
 	| allShifts |
@@ -106,6 +163,20 @@ HMShiftExamples >> allShifts [
 ]
 
 { #category : #accessing }
+HMShiftExamples >> allShiftsForMayOne [
+	<gtExample>
+	| allShifts |
+	allShifts := OrderedCollection new
+		add:
+			{self aDayShiftForMayOne.
+			self aMidDayShiftForMayOne.
+			self anEarlyLateShiftForMayOne.
+			self aLateLateShiftForMayOne.
+			self aNightShiftForMayOne}.
+	^ allShifts
+]
+
+{ #category : #accessing }
 HMShiftExamples >> anEarlyLateShift [
 	<gtExample>
 	| aShift |
@@ -116,5 +187,20 @@ HMShiftExamples >> anEarlyLateShift [
 		startTime: (Time hour: 14 minute: 30 second: 00);
 		endTime: (Time hour: 23 minute: 30 second: 00);
 		duration: 9.
+	^ aShift
+]
+
+{ #category : #accessing }
+HMShiftExamples >> anEarlyLateShiftForMayOne [
+	<gtExample>
+	| aShift |
+	aShift := HMShift new.
+	aShift
+		shiftCode: 'S1';
+		description: 'EarlyLate';
+		startTime: (Time hour: 14 minute: 30 second: 00);
+		endTime: (Time hour: 23 minute: 30 second: 00);
+		duration: 9;
+		day: HMWorkingDayExamples new aWorkingDayMayOne.
 	^ aShift
 ]

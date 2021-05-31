@@ -8,10 +8,21 @@ Class {
 		'description',
 		'shiftCode',
 		'duration',
-		'constraints'
+		'constraints',
+		'day'
 	],
 	#category : #'Hospital-Management-Model'
 }
+
+{ #category : #accessing }
+HMShift >> day [
+	^ day
+]
+
+{ #category : #accessing }
+HMShift >> day: aDay [
+	day := aDay
+]
 
 { #category : #accessing }
 HMShift >> description [
@@ -58,8 +69,7 @@ HMShift >> gtAssignedStaffMemberFor: aView [
 { #category : #initialize }
 HMShift >> initialize [
 	super initialize.
-	staff := OrderedCollection new.
-	availableStaffAfter := OrderedCollection new
+	staff := OrderedCollection new
 ]
 
 { #category : #accessing }
@@ -67,7 +77,9 @@ HMShift >> printOn: aStream [
 	super printOn: aStream.
 	aStream
 		nextPutAll: ' (';
-		nextPutAll: (self shiftCode ifNil: ['<>']);
+		nextPutAll: self day asString;
+		nextPutAll: ', ';
+		nextPutAll: (self shiftCode ifNil: [ '<>' ]);
 		nextPutAll: ', ';
 		nextPutAll: self startTime asString;
 		nextPutAll: ' - ';
