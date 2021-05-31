@@ -5,20 +5,10 @@ Class {
 	#name : #HMRegister,
 	#superclass : #Object,
 	#instVars : [
-		'days'
+		'records'
 	],
 	#category : #'Hospital-Management-Model'
 }
-
-{ #category : #accessing }
-HMRegister >> days [
-	^ days
-]
-
-{ #category : #accessing }
-HMRegister >> days: aNumber [
-	days := (1 to: aNumber) collect: [ :each | HMWorkingDay new ]
-]
 
 { #category : #accessing }
 HMRegister >> gtRegisterFor: aView [
@@ -27,16 +17,20 @@ HMRegister >> gtRegisterFor: aView [
 		title: 'Records';
 		priority: 1;
 		items: [ self days ];
-		column: 'Day' text: [ :aDay | aDay ];
-		column: 'Records' text: [ :aDay | aDay recordOfWishes].
+		column: 'Day' text: [ :aDay | aDay ]
 ]
 
-{ #category : #accessing }
+{ #category : #initialize }
 HMRegister >> initialize [
-	days := OrderedCollection new
+	records := OrderedCollection new
 ]
 
 { #category : #accessing }
-HMRegister >> withTypeOfDay: suchDays [
-	days := suchDays
+HMRegister >> records [
+	^ records
+]
+
+{ #category : #accessing }
+HMRegister >> records: aCollectionOfRecords [
+	records := aCollectionOfRecords
 ]

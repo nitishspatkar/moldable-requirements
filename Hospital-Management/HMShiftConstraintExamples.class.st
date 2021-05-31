@@ -7,7 +7,8 @@ Class {
 { #category : #accessing }
 HMShiftConstraintExamples >> assignDoctorsToAllShiftsMayOne [
 	<gtExample>
-	| aCollectionOfAvailableDoctors allShifts oneDoctorPerShiftConstraint nightShiftConstraint assignedDoctor |
+	| aCollectionOfAvailableDoctors allShifts oneDoctorPerShiftConstraint nightShiftConstraint assignedDoctor aGlobalRegister |
+	aGlobalRegister := HMRegisterExamples new aGolbalRegister.
 	oneDoctorPerShiftConstraint := HMShiftOneDoctorConstraint new.
 	nightShiftConstraint := HMShiftExperiencedAndInexperiencedConstraint
 		new.
@@ -20,9 +21,11 @@ HMShiftConstraintExamples >> assignDoctorsToAllShiftsMayOne [
 			"give shifts collection to model method that iteratively and progressively assigns doctors to all shifts"
 			availableDoctorsAfterNonNightShifts := oneDoctorPerShiftConstraint
 				assignDoctorFrom: aCollectionOfAvailableDoctors
-				toNonNightShifts: allShifts.
+				toNonNightShifts: allShifts
+				andUpdateIn: aGlobalRegister.
 			nightShiftConstraint
 				assignDoctorsFrom: availableDoctorsAfterNonNightShifts
-				toNightShift: allShifts ].
+				toNightShift: allShifts
+				andUpdateIn: aGlobalRegister ].
 	^ allShifts
 ]

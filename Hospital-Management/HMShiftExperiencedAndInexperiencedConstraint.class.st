@@ -5,7 +5,7 @@ Class {
 }
 
 { #category : #accessing }
-HMShiftExperiencedAndInexperiencedConstraint >> assignDoctorsFrom: aCollectionOfDoctors toNightShift: shifts [
+HMShiftExperiencedAndInexperiencedConstraint >> assignDoctorsFrom: aCollectionOfDoctors toNightShift: shifts andUpdateIn: aRegister [
 	" checks if the shift type/code is a night shift"
 
 	| availableDoctors totalExperienced totalInExperienced aNightShift |
@@ -24,8 +24,16 @@ HMShiftExperiencedAndInexperiencedConstraint >> assignDoctorsFrom: aCollectionOf
 			experiencedDoctor
 				balanceWorkingHours: experiencedDoctor balanceWorkingHours - aNightShift duration;
 				availableForAnotherShift: false.
+			aRegister records
+				add:
+					{aNightShift.
+					experiencedDoctor}.
 			inExperiencedDoctor
 				balanceWorkingHours: inExperiencedDoctor balanceWorkingHours - aNightShift duration;
-				availableForAnotherShift: false ].
+				availableForAnotherShift: false.
+			aRegister records
+				add:
+					{aNightShift.
+					inExperiencedDoctor} ].
 	^ availableDoctors
 ]

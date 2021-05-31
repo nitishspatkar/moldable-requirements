@@ -5,6 +5,11 @@ Class {
 }
 
 { #category : #accessing }
+HMRegisterExamples >> aGolbalRegister [
+	^ HMRegister new
+]
+
+{ #category : #accessing }
 HMRegisterExamples >> aRegisterForOneDayWithWishes [
 	<gtExample>
 	| aRegister |

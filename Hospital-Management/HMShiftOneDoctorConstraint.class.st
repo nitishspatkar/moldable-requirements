@@ -5,7 +5,7 @@ Class {
 }
 
 { #category : #accessing }
-HMShiftOneDoctorConstraint >> assignDoctorFrom: aCollectionOfAvailableDoctors toNonNightShifts: shifts [
+HMShiftOneDoctorConstraint >> assignDoctorFrom: aCollectionOfAvailableDoctors toNonNightShifts: shifts andUpdateIn: aRegister [
 	shifts
 		do: [ :aShift | 
 			" check if the shift type/code is not night shift"
@@ -19,16 +19,24 @@ HMShiftOneDoctorConstraint >> assignDoctorFrom: aCollectionOfAvailableDoctors to
 							aShift staff add: aDoctorForMorningShift.
 							aDoctorForMorningShift
 								balanceWorkingHours: aDoctorForMorningShift balanceWorkingHours - aShift duration.
-							aDoctorForMorningShift availableForAnotherShift: false ].
+							aDoctorForMorningShift availableForAnotherShift: false.
+							aRegister records
+								add:
+									{aShift.
+									aDoctorForMorningShift} ].
 					(aShift shiftCode = 'M' and: aShift staff size ~= 1)
-						ifTrue: [ | aDoctorForMiddayShift |
-							aDoctorForMiddayShift := aCollectionOfAvailableDoctors
+						ifTrue: [ | aDoctorForMidDayShift |
+							aDoctorForMidDayShift := aCollectionOfAvailableDoctors
 								detect: [ :aDoctor | aDoctor availableForAnotherShift ]
 								ifNone: [ ^ 'Mid day shift: No available doctor!' ].
-							aShift staff add: aDoctorForMiddayShift.
-							aDoctorForMiddayShift
-								balanceWorkingHours: aDoctorForMiddayShift balanceWorkingHours - aShift duration.
-							aDoctorForMiddayShift availableForAnotherShift: false ].
+							aShift staff add: aDoctorForMidDayShift.
+							aDoctorForMidDayShift
+								balanceWorkingHours: aDoctorForMidDayShift balanceWorkingHours - aShift duration.
+							aDoctorForMidDayShift availableForAnotherShift: false.
+							aRegister records
+								add:
+									{aShift.
+									aDoctorForMidDayShift} ].
 					(aShift shiftCode = 'S1' and: aShift staff size ~= 1)
 						ifTrue: [ | aDoctorForEarlyLateShift |
 							aDoctorForEarlyLateShift := aCollectionOfAvailableDoctors
@@ -37,7 +45,11 @@ HMShiftOneDoctorConstraint >> assignDoctorFrom: aCollectionOfAvailableDoctors to
 							aShift staff add: aDoctorForEarlyLateShift.
 							aDoctorForEarlyLateShift
 								balanceWorkingHours: aDoctorForEarlyLateShift balanceWorkingHours - aShift duration.
-							aDoctorForEarlyLateShift availableForAnotherShift: false ].
+							aDoctorForEarlyLateShift availableForAnotherShift: false.
+							aRegister records
+								add:
+									{aShift.
+									aDoctorForEarlyLateShift} ].
 					(aShift shiftCode = 'S2' and: aShift staff size ~= 1)
 						ifTrue: [ | aDoctorForLateLateShift |
 							aDoctorForLateLateShift := aCollectionOfAvailableDoctors
@@ -46,7 +58,11 @@ HMShiftOneDoctorConstraint >> assignDoctorFrom: aCollectionOfAvailableDoctors to
 							aShift staff add: aDoctorForLateLateShift.
 							aDoctorForLateLateShift
 								balanceWorkingHours: aDoctorForLateLateShift balanceWorkingHours - aShift duration.
-							aDoctorForLateLateShift availableForAnotherShift: false ] ]
+							aDoctorForLateLateShift availableForAnotherShift: false.
+							aRegister records
+								add:
+									{aShift.
+									aDoctorForLateLateShift} ] ]
 				ifFalse: [ ^ 'Night shift' ] ].
 	^ aCollectionOfAvailableDoctors
 ]
