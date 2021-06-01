@@ -11,8 +11,12 @@ Class {
 
 { #category : #accessing }
 HMWorkingDay >> assignedDoctors [
-	^ self shifts  flatCollect: [:aShift |
-		aShift assignedDoctors ]
+	^ self shifts flatCollect: [ :aShift | aShift assignedDoctors ]
+]
+
+{ #category : #accessing }
+HMWorkingDay >> assignedNurses [
+	^ self shifts flatCollect: [ :aShift | aShift assignedNurses ]
 ]
 
 { #category : #accessing }
@@ -80,6 +84,21 @@ HMWorkingDay >> gtAssignedDoctorsFor: aView [
 		items: [ self assignedDoctors ];
 		column: 'Name' text: [ :aStafMember | aStafMember fullName ];
 		column: 'Is experienced' text: [ :aStafMember  | 
+			aStafMember isExperienced
+				ifTrue: [ 'Yes' ]
+				ifFalse: [ 'No' ] ]
+]
+
+{ #category : #accessing }
+HMWorkingDay >> gtAssignedNursesFor: aView [
+	<gtView>
+	^ aView columnedList
+		title: 'Assigned Nurses';
+		priority: 2;
+		items: [ self assignedNurses ];
+		column: 'Name' text: [ :aStafMember | aStafMember fullName ];
+		column: 'Is experienced'
+			text: [ :aStafMember | 
 			aStafMember isExperienced
 				ifTrue: [ 'Yes' ]
 				ifFalse: [ 'No' ] ]

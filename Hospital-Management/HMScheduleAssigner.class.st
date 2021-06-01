@@ -69,10 +69,10 @@ HMScheduleAssigner >> extractDoctorFrom: availableDoctors [
 ]
 
 { #category : #accessing }
-HMScheduleAssigner >> extractExperiencedDoctorFrom: availableDoctors [ 
+HMScheduleAssigner >> extractExperiencedDoctorFrom: availableDoctors [
 	| selectedDoctor |
-	selectedDoctor := availableDoctors detect: [ :aDoctor | 
-		aDoctor isExperienced ].
+	selectedDoctor := availableDoctors
+		detect: [ :aDoctor | aDoctor isExperienced ].
 	availableDoctors remove: selectedDoctor.
 	^ selectedDoctor
 ]
@@ -115,8 +115,10 @@ HMScheduleAssigner >> nurses: aCollection [
 
 { #category : #accessing }
 HMScheduleAssigner >> performAssignment [
-	self workingDays do: [:aWorkingDay |
-		self assignDoctorsToWorkingDay: aWorkingDay ]
+	self workingDays
+		do: [ :aWorkingDay | 
+			self assignDoctorsToWorkingDay: aWorkingDay.
+			self assignNursesToWorkingDay: aWorkingDay ]
 ]
 
 { #category : #accessing }
