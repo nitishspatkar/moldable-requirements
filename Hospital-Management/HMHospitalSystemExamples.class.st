@@ -30,11 +30,21 @@ HMHospitalSystemExamples >> hospitalManagementSystemWithOneMonthScheduleAndDocto
 { #category : #accessing }
 HMHospitalSystemExamples >> hospitalManagemmentSystemWithOneWeekScheduleAndDoctorsWithConstraints [
 	<gtExample>
-	| hospitalManagementSystem schedule staff |
+	| hospitalManagementSystem schedule staff assigner |
 	hospitalManagementSystem := HMHospitalSystem new.
 	schedule := HMScheduleExamples new forOneWeek.
 	HMStaffMemberExamples new allDoctorsWithConstraints
 		do: [ :each | hospitalManagementSystem staff add: each ].
+	HMStaffMemberExamples new allNursesWithConstraints
+		do: [ :each | hospitalManagementSystem staff add: each ].
+		
+	assigner := HMScheduleAssigner new.
+	assigner 
+		doctors: hospitalManagementSystem doctors;
+		nurses: hospitalManagementSystem nurses;
+		workingDays: schedule days.
+	assigner performAssignment.
+		
 	hospitalManagementSystem schedule: schedule.
 	^ hospitalManagementSystem
 ]

@@ -40,7 +40,7 @@ HMScheduleExamples >> forOneWeek [
 			aSchedule days
 				add:
 					(HMWorkingDay new
-						shifts: HMShiftExamples new allShifts;
+						addShifts: HMShiftExamples new allShifts;
 						date: (Date year: 2021 month: 5 day: each)) ].
 	^ aSchedule
 ]
