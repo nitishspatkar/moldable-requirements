@@ -25,8 +25,8 @@ HMWorkingDay >> availableStaff [
 ]
 
 { #category : #accessing }
-HMWorkingDay >> availableStaff: aCollectionOfDoctors [
-	availableStaff := aCollectionOfDoctors
+HMWorkingDay >> availableStaff: aCollectionOfStaffMembers [
+	availableStaff := aCollectionOfStaffMembers
 ]
 
 { #category : #printing }
@@ -100,6 +100,32 @@ HMWorkingDay >> gtAssignedNursesFor: aView [
 		column: 'Is experienced'
 			text: [ :aStafMember | 
 			aStafMember isExperienced
+				ifTrue: [ 'Yes' ]
+				ifFalse: [ 'No' ] ]
+]
+
+{ #category : #accessing }
+HMWorkingDay >> gtAssignedStaffMembersByShiftsFor: aView [
+	<gtView>
+	^ aView columnedList
+		title: 'Schedule';
+		priority: 2;
+		items: [ self shifts
+				flatCollect:
+						[ :aShift | aShift assignedDoctors collect: [ :aDoctor | aShift -> aDoctor ] ];
+				flatCollect:
+						[ :aShift | aShift assignedNurses collect: [ :aNurse | aShift -> aNurse ] ] ];
+		column: 'Shift' text: [ :assoc | assoc key description ];
+		column: 'Doctor' text: [ :assoc | assoc value fullName ];
+		column: 'Is experienced'
+			text: [ :assoc | 
+			assoc value isExperienced
+				ifTrue: [ 'Yes' ]
+				ifFalse: [ 'No' ] ];
+		column: 'Nurse' text: [ :assoc | assoc value fullName ];
+		column: 'Is experienced'
+			text: [ :assoc | 
+			assoc value isExperienced
 				ifTrue: [ 'Yes' ]
 				ifFalse: [ 'No' ] ]
 ]

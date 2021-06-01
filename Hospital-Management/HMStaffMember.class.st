@@ -108,8 +108,7 @@ HMStaffMember >> hasEnoughWorkingHours [
 HMStaffMember >> initialize [
 	super initialize.
 	shifts := OrderedCollection new.
-	constraints := OrderedCollection new.
-	availableForAnotherShift := true
+	constraints := OrderedCollection new
 ]
 
 { #category : #initialize }

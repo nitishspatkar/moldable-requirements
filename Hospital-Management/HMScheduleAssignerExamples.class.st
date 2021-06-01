@@ -15,8 +15,8 @@ HMScheduleAssignerExamples >> oneDaySchedule [
 		date: (Date year: 2021 month: 5 day: 1).
 	assigner := HMScheduleAssigner new.
 	assigner
-		doctors: doctors;
 		nurses: nurses;
+		doctors: doctors;
 		workingDays: {workingDay}.
 	assigner performAssignment.
 	^ assigner

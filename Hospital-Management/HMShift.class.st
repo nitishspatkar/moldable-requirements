@@ -21,7 +21,7 @@ HMShift >> addStaffMember: aStaffMember [
 
 { #category : #accessing }
 HMShift >> assignedDoctors [
-	^ self staff select: [ :aStafMember | aStafMember isDoctor ]
+	^ self staff select: [ :aStaffMember | aStaffMember isDoctor ]
 ]
 
 { #category : #accessing }
