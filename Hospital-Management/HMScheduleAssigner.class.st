@@ -3,7 +3,8 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'doctors',
-		'workingDays'
+		'workingDays',
+		'nurses'
 	],
 	#category : #'Hospital-Management-Model'
 }
@@ -24,9 +25,29 @@ HMScheduleAssigner >> assignDoctorsToWorkingDay: aWorkingDay [
 ]
 
 { #category : #accessing }
-HMScheduleAssigner >> availableDoctorsForDay: aWorkingDay [ 
-	^ self doctors select: [ :aDoctor |
-		aDoctor isAvailableOnDay: aWorkingDay ].
+HMScheduleAssigner >> assignNursesToWorkingDay: aWorkingDay [
+	| availableNurses |
+	availableNurses := self availableNursesForDay: aWorkingDay.
+	aWorkingDay nightShift
+		do: [ :aShift | 
+			aShift
+				addStaffMember: (self extractNurseFrom: availableNurses);
+				addStaffMember: (self extractExperiencedNurseFrom: availableNurses) ].
+	aWorkingDay dayShift
+		do:
+			[ :aShift | aShift addStaffMember: (self extractNurseFrom: availableNurses) ]
+]
+
+{ #category : #accessing }
+HMScheduleAssigner >> availableDoctorsForDay: aWorkingDay [
+	^ self doctors
+		select: [ :aDoctor | aDoctor isAvailableOnDay: aWorkingDay ]
+]
+
+{ #category : #accessing }
+HMScheduleAssigner >> availableNursesForDay: aWorkingDay [
+	^ self nurses
+		select: [ :aNurse | aNurse isAvailableOnDay: aWorkingDay ]
 ]
 
 { #category : #accessing }
@@ -57,12 +78,39 @@ HMScheduleAssigner >> extractExperiencedDoctorFrom: availableDoctors [
 ]
 
 { #category : #accessing }
+HMScheduleAssigner >> extractExperiencedNurseFrom: availableNurses [
+	| selectedNurse |
+	selectedNurse := availableNurses
+		detect: [ :aNurse | aNurse isExperienced ].
+	availableNurses remove: selectedNurse.
+	^ selectedNurse
+]
+
+{ #category : #accessing }
+HMScheduleAssigner >> extractNurseFrom: availableNurses [
+	| selectedNurse |
+	selectedNurse := availableNurses first.
+	availableNurses remove: selectedNurse.
+	^ selectedNurse
+]
+
+{ #category : #accessing }
 HMScheduleAssigner >> gtViewDaysFor: aView [
 	<gtView>
 	^ aView list
 		title: 'Working Days';
 		items: [ self workingDays ];
 		itemText: [ :aWorkingDay | aWorkingDay description ]
+]
+
+{ #category : #accessing }
+HMScheduleAssigner >> nurses [
+	^ nurses
+]
+
+{ #category : #accessing }
+HMScheduleAssigner >> nurses: aCollection [
+	nurses := aCollection
 ]
 
 { #category : #accessing }

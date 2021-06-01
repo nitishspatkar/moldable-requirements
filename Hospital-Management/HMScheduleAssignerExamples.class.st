@@ -7,15 +7,16 @@ Class {
 { #category : #accessing }
 HMScheduleAssignerExamples >> oneDaySchedule [
 	<gtExample>
-	| doctors assigner workingDay |
-	doctors := HMStaffMemberExamples new
-		allDoctorsWithConstraints.
+	| doctors nurses assigner workingDay |
+	doctors := HMStaffMemberExamples new allDoctorsWithConstraints.
+	nurses := HMStaffMemberExamples new allNursesWithConstraints.
 	workingDay := HMWorkingDay new
 		shifts: HMShiftExamples new allShifts;
 		date: (Date year: 2021 month: 5 day: 1).
 	assigner := HMScheduleAssigner new.
-	assigner 
+	assigner
 		doctors: doctors;
+		nurses: nurses;
 		workingDays: {workingDay}.
 	assigner performAssignment.
 	^ assigner

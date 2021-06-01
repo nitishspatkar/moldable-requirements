@@ -8,21 +8,10 @@ Class {
 		'lastName',
 		'firstName',
 		'balanceWorkinghours',
-		'compensationHours',
-		'availableForAnotherShift'
+		'compensationHours'
 	],
 	#category : #'Hospital-Management-Model'
 }
-
-{ #category : #accessing }
-HMStaffMember >> availableForAnotherShift [
-	^ availableForAnotherShift
-]
-
-{ #category : #accessing }
-HMStaffMember >> availableForAnotherShift: aBoolean [
-	availableForAnotherShift := aBoolean
-]
 
 { #category : #accessing }
 HMStaffMember >> balanceWorkingHours [

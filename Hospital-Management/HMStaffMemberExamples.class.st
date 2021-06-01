@@ -46,6 +46,46 @@ HMStaffMemberExamples >> allDoctorsWithConstraints [
 	^ allDoctors
 ]
 
+{ #category : #accessing }
+HMStaffMemberExamples >> allNurses [
+	<gtExample>
+	| allNurses |
+	allNurses := OrderedCollection new.
+	allNurses
+		add: HMStaffMemberExamples new nurseManuelThompson;
+		add: HMStaffMemberExamples new nurseLuciFuchs;
+		add: HMStaffMemberExamples new nursePatrickSchneider;
+		add: HMStaffMemberExamples new nurseChristopherFisher;
+		add: HMStaffMemberExamples new nurseKajanSchmidt;
+		add: HMStaffMemberExamples new nurseKarinEgger;
+		add: HMStaffMemberExamples new nurseHermannLang;
+		add: HMStaffMemberExamples new nurseMalikSahni;
+		add: HMStaffMemberExamples new nurseIbrahimLodhi;
+		add: HMStaffMemberExamples new nurseRajKapoor;
+		add: HMStaffMemberExamples new doctorSabineJakob.
+	^ allNurses
+]
+
+{ #category : #accessing }
+HMStaffMemberExamples >> allNursesWithConstraints [
+	<gtExample>
+	| allNurses |
+	allNurses := OrderedCollection new.
+	allNurses
+		add: HMStaffMemberExamples new nurseManuelThompson;
+		add: HMStaffMemberExamples new nurseLuciFuchsWithSeminarConstraint;
+		add: HMStaffMemberExamples new nursePatrickSchneiderWithVacationConstraint;
+		add: HMStaffMemberExamples new nurseChristopherFisher;
+		add: HMStaffMemberExamples new nurseKajanSchmidtWithSeminarConstraint;
+		add: HMStaffMemberExamples new nurseKarinEggerWithAvailableWorkingHoursConstraint;
+		add: HMStaffMemberExamples new nurseHermannLang;
+		add: HMStaffMemberExamples new nurseMalikSahniWithVacationConstraint;
+		add: HMStaffMemberExamples new nurseIbrahimLodhiWithVacationConstraint;
+		add: HMStaffMemberExamples new nurseRajKapoor;
+		add: HMStaffMemberExamples new doctorSabineJakob.
+	^ allNurses
+]
+
 { #category : #'doctors basic' }
 HMStaffMemberExamples >> doctorAamirSteiger [
 	<gtExample>
@@ -201,6 +241,20 @@ HMStaffMemberExamples >> doctorManuelaLitto [
 		balanceWorkingHours: 50;
 		compensationHours: 1.8.
 	^ aDoctor
+]
+
+{ #category : #'nurse basic' }
+HMStaffMemberExamples >> doctorSabineJakob [
+	<gtExample>
+	| aNurse |
+	aNurse := HMNurse new.
+	aNurse
+		firstName: 'Sabine';
+		lastName: 'Jakob';
+		experienceInYears: 8;
+		balanceWorkingHours: 42;
+		compensationHours: 1.8.
+	^ aNurse
 ]
 
 { #category : #'doctors basic' }

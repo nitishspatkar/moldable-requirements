@@ -4,6 +4,11 @@ Class {
 	#category : #'Hospital-Management-Model'
 }
 
+{ #category : #accessing }
+HMNurse >> isNurse [
+	^ true
+]
+
 { #category : #printing }
 HMNurse >> printOn: aStream [
 	super printOn: aStream.
