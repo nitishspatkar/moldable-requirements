@@ -116,9 +116,8 @@ HMScheduleAssigner >> nurses: aCollection [
 { #category : #accessing }
 HMScheduleAssigner >> performAssignment [
 	self workingDays
-		do: [ :aWorkingDay | 
-			self assignDoctorsToWorkingDay: aWorkingDay.
-			self assignNursesToWorkingDay: aWorkingDay ]
+		do: [ :aWorkingDay | self assignDoctorsToWorkingDay: aWorkingDay ];
+		do: [ :aWorkingDay | self assignNursesToWorkingDay: aWorkingDay ]
 ]
 
 { #category : #accessing }

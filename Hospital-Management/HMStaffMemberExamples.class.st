@@ -77,12 +77,14 @@ HMStaffMemberExamples >> allNursesWithConstraints [
 		add: HMStaffMemberExamples new nursePatrickSchneiderWithVacationConstraint;
 		add: HMStaffMemberExamples new nurseChristopherFisher;
 		add: HMStaffMemberExamples new nurseKajanSchmidtWithSeminarConstraint;
-		add: HMStaffMemberExamples new nurseKarinEggerWithAvailableWorkingHoursConstraint;
+		add:
+			HMStaffMemberExamples new
+				nurseKarinEggerWithAvailableWorkingHoursConstraint;
 		add: HMStaffMemberExamples new nurseHermannLang;
 		add: HMStaffMemberExamples new nurseMalikSahniWithVacationConstraint;
 		add: HMStaffMemberExamples new nurseIbrahimLodhiWithVacationConstraint;
 		add: HMStaffMemberExamples new nurseRajKapoor;
-		add: HMStaffMemberExamples new doctorSabineJakob.
+		add: HMStaffMemberExamples new nurseSabineJakob.
 	^ allNurses
 ]
 
@@ -241,20 +243,6 @@ HMStaffMemberExamples >> doctorManuelaLitto [
 		balanceWorkingHours: 50;
 		compensationHours: 1.8.
 	^ aDoctor
-]
-
-{ #category : #'nurse basic' }
-HMStaffMemberExamples >> doctorSabineJakob [
-	<gtExample>
-	| aNurse |
-	aNurse := HMNurse new.
-	aNurse
-		firstName: 'Sabine';
-		lastName: 'Jakob';
-		experienceInYears: 8;
-		balanceWorkingHours: 42;
-		compensationHours: 1.8.
-	^ aNurse
 ]
 
 { #category : #'doctors basic' }
@@ -529,6 +517,20 @@ HMStaffMemberExamples >> nurseRajKapoor [
 		lastName: 'Kapoor';
 		experienceInYears: 1;
 		balanceWorkingHours: 50;
+		compensationHours: 1.8.
+	^ aNurse
+]
+
+{ #category : #'nurse basic' }
+HMStaffMemberExamples >> nurseSabineJakob [
+	<gtExample>
+	| aNurse |
+	aNurse := HMNurse new.
+	aNurse
+		firstName: 'Sabine';
+		lastName: 'Jakob';
+		experienceInYears: 8;
+		balanceWorkingHours: 42;
 		compensationHours: 1.8.
 	^ aNurse
 ]
