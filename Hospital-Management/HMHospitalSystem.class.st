@@ -9,6 +9,36 @@ Class {
 }
 
 { #category : #accessing }
+HMHospitalSystem >> createScheduleViewForStaff: currentStaff andSchedule: currentSchedule [
+	| container  |
+	container := BlElement new
+		layout: (BlGridLayout new
+			columnCount: currentSchedule days size + 1);
+		constraintsDo: [ :c | 
+			c horizontal fitContent.
+			c vertical fitContent ].
+		
+	container addChild: (BlElement new size: 5@5).
+	currentSchedule days do: [ :aDay |
+		container addChild: (BrLabel new
+			text: aDay date dayOfMonth asString; 
+			aptitude: (BrGlamorousLabelAptitude new))].
+		
+	currentStaff do: [ :aStaffMember |
+		container addChild: (BrLabel new
+			text: aStaffMember fullName; 
+			aptitude: (BrGlamorousLabelAptitude new)).
+		currentSchedule days do: [ :aDay | 
+			container addChild: (BrLabel new
+				text: ((aStaffMember shiftForDay: aDay)
+					ifNil: [ ' - ' ] 
+					ifNotNil: [ :aShift | aShift shiftCode ]); 
+				aptitude: (BrGlamorousLabelAptitude new)) ] ].
+	
+	^ container 
+]
+
+{ #category : #accessing }
 HMHospitalSystem >> doctors [
 	^ self  staff select: [ :aStaffMember | 
 		aStaffMember isDoctor ]
@@ -50,9 +80,46 @@ HMHospitalSystem >> gtStaffFor: aView [
 ]
 
 { #category : #accessing }
+HMHospitalSystem >> gtViewSchedule2For: aView [
+	<gtView>
+	| columnView |
+	columnView := aView columnedList
+		title: 'Schedule2';
+		items: [ self staff ].
+		
+	columnView 
+		column: '' text: [ :aStaffMember | aStaffMember fullName ] width: 120.
+	self schedule days do: [ :aDay |
+		columnView 
+			column: aDay date dayOfMonth 
+			text: [ :aStaffMember | 
+				((aStaffMember shiftForDay: aDay)
+					ifNil: [ ' - ' ] 
+					ifNotNil: [ :aShift | aShift shiftCode ]) ] ].
+		
+	^ columnView
+]
+
+{ #category : #accessing }
+HMHospitalSystem >> gtViewScheduleFor: aView [
+	<gtView>
+	^ aView explicit
+		title: 'Schedule';
+		stencil: [  self 
+			createScheduleViewForStaff: self staff
+			andSchedule: self schedule  ]
+]
+
+{ #category : #accessing }
 HMHospitalSystem >> initialize [
 	super initialize.
 	staff := OrderedCollection new
+]
+
+{ #category : #accessing }
+HMHospitalSystem >> nurses [
+	^ self  staff select: [ :aStaffMember | 
+		aStaffMember isDoctor not ]
 ]
 
 { #category : #accessing }

@@ -14,6 +14,11 @@ Class {
 }
 
 { #category : #accessing }
+HMStaffMember >> addShift: aShift [
+	self shifts add: aShift
+]
+
+{ #category : #accessing }
 HMStaffMember >> balanceWorkingHours [
 	^ balanceWorkinghours
 ]
@@ -98,6 +103,16 @@ HMStaffMember >> gtViewConstraintsFor: aView [
 ]
 
 { #category : #accessing }
+HMStaffMember >> gtViewShiftsFor: aView [
+	<gtView>
+	^ aView columnedList
+		title: 'Shifts';
+		items: [ self shifts ];
+		column: 'Day' text: [ :aShift | aShift day description ];
+		column: 'Shift' text: [ :aShift | aShift description ]
+]
+
+{ #category : #accessing }
 HMStaffMember >> hasEnoughWorkingHours [
 	^ self balanceWorkingHours > 9
 		ifTrue: [ ^ true ]
@@ -144,6 +159,14 @@ HMStaffMember >> lastName [
 { #category : #accessing }
 HMStaffMember >> lastName: aString [
 	lastName := aString
+]
+
+{ #category : #accessing }
+HMStaffMember >> shiftForDay: aDay [
+	^ self shifts 
+		detect: [ :aShift | 
+			aShift day = aDay]
+		ifNone: [ nil ]
 ]
 
 { #category : #accessing }

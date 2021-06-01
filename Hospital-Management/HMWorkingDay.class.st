@@ -10,6 +10,18 @@ Class {
 }
 
 { #category : #accessing }
+HMWorkingDay >> addShift: aShift [ 
+	self shifts add: aShift.
+	aShift day: self
+]
+
+{ #category : #accessing }
+HMWorkingDay >> addShifts: aCollection [
+	aCollection do: [ :aShift |
+		self addShift: aShift ]
+]
+
+{ #category : #accessing }
 HMWorkingDay >> assignedDoctors [
 	^ self shifts flatCollect: [ :aShift | aShift assignedDoctors ]
 ]

@@ -13,10 +13,13 @@ HMHospitalSystemExamples >> hospitalManagementSystemWithOneMonthScheduleAndDocto
 	
 	HMStaffMemberExamples new allDoctorsWithConstraints
 		do: [ :each | hospitalManagementSystem staff add: each ].
+	HMStaffMemberExamples new allNursesWithConstraints
+		do: [ :each | hospitalManagementSystem staff add: each ].
 	
 	assigner := HMScheduleAssigner new.
 	assigner 
 		doctors: hospitalManagementSystem doctors;
+		nurses: hospitalManagementSystem nurses;
 		workingDays: schedule days.
 	assigner performAssignment.
 		

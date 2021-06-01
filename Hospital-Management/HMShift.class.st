@@ -16,7 +16,8 @@ Class {
 
 { #category : #accessing }
 HMShift >> addStaffMember: aStaffMember [
-	self staff add: aStaffMember
+	self staff add: aStaffMember.
+	aStaffMember addShift: self.
 ]
 
 { #category : #accessing }
@@ -79,8 +80,9 @@ HMShift >> endTime: aTimestamp [
 HMShift >> gtDoctorsFor: aView [
 	<gtView>
 	^ aView columnedList
-		title: 'Assigned Doctors';
-		items: [ self assignedDoctors ];
+		title: 'Assigned Staff';
+		items: [ self staff ];
+		column: 'Type' text: [ :aStafMember | aStafMember class name removePrefix: 'HM' ];
 		column: 'Name' text: [ :aStafMember | aStafMember fullName ];
 		column: 'Is experienced' text: [ :aStafMember  | 
 			aStafMember isExperienced

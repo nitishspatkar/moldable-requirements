@@ -63,7 +63,7 @@ HMScheduleAssigner >> doctors: aCollection [
 { #category : #accessing }
 HMScheduleAssigner >> extractDoctorFrom: availableDoctors [ 
 	| selectedDoctor |
-	selectedDoctor := availableDoctors first.
+	selectedDoctor := availableDoctors shuffle first.
 	availableDoctors remove: selectedDoctor.
 	^ selectedDoctor
 ]
@@ -71,7 +71,7 @@ HMScheduleAssigner >> extractDoctorFrom: availableDoctors [
 { #category : #accessing }
 HMScheduleAssigner >> extractExperiencedDoctorFrom: availableDoctors [
 	| selectedDoctor |
-	selectedDoctor := availableDoctors
+	selectedDoctor := availableDoctors shuffle
 		detect: [ :aDoctor | aDoctor isExperienced ].
 	availableDoctors remove: selectedDoctor.
 	^ selectedDoctor
@@ -80,7 +80,7 @@ HMScheduleAssigner >> extractExperiencedDoctorFrom: availableDoctors [
 { #category : #accessing }
 HMScheduleAssigner >> extractExperiencedNurseFrom: availableNurses [
 	| selectedNurse |
-	selectedNurse := availableNurses
+	selectedNurse := availableNurses shuffle
 		detect: [ :aNurse | aNurse isExperienced ].
 	availableNurses remove: selectedNurse.
 	^ selectedNurse
@@ -89,7 +89,7 @@ HMScheduleAssigner >> extractExperiencedNurseFrom: availableNurses [
 { #category : #accessing }
 HMScheduleAssigner >> extractNurseFrom: availableNurses [
 	| selectedNurse |
-	selectedNurse := availableNurses first.
+	selectedNurse := availableNurses shuffle first.
 	availableNurses remove: selectedNurse.
 	^ selectedNurse
 ]
