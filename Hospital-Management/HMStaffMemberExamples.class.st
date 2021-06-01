@@ -268,3 +268,213 @@ HMStaffMemberExamples >> doctorThomasSilva [
 		compensationHours: 0.9.
 	^ aDoctor
 ]
+
+{ #category : #'nurse basic' }
+HMStaffMemberExamples >> nurseChristopherFisher [
+	<gtExample>
+	| aNurse |
+	aNurse := HMNurse new.
+	aNurse
+		firstName: 'Christopher';
+		lastName: 'Fisher';
+		experienceInYears: 3;
+		balanceWorkingHours: 50;
+		compensationHours: 1.8.
+	^ aNurse
+]
+
+{ #category : #'nurse basic' }
+HMStaffMemberExamples >> nurseHermannLang [
+	<gtExample>
+	| aNurse |
+	aNurse := HMNurse new.
+	aNurse
+		firstName: 'Hermann';
+		lastName: 'Lang';
+		experienceInYears: 4;
+		balanceWorkingHours: 44;
+		compensationHours: 1.8.
+	^ aNurse
+]
+
+{ #category : #'nurse basic' }
+HMStaffMemberExamples >> nurseIbrahimLodhi [
+	<gtExample>
+	| aNurse |
+	aNurse := HMNurse new.
+	aNurse
+		firstName: 'Ibrahim';
+		lastName: 'Lodhi';
+		experienceInYears: 4;
+		balanceWorkingHours: 24;
+		compensationHours: 1.8.
+	^ aNurse
+]
+
+{ #category : #'nurse with constraints' }
+HMStaffMemberExamples >> nurseIbrahimLodhiWithVacationConstraint [
+	<gtExample>
+	| aNurse vacationConstraint |
+	aNurse := self nurseIbrahimLodhi.
+	vacationConstraint := HMStaffConstraintTypeExamples new
+		vacationConstraint.
+	vacationConstraint date: (Date year: 2021 month: 5 day: 5).
+	aNurse constraints add: vacationConstraint.
+	^ aNurse
+]
+
+{ #category : #'nurse basic' }
+HMStaffMemberExamples >> nurseKajanSchmidt [
+	<gtExample>
+	| aNurse |
+	aNurse := HMNurse new.
+	aNurse
+		firstName: 'Kajan';
+		lastName: 'Schmidt';
+		experienceInYears: 12;
+		balanceWorkingHours: 10;
+		compensationHours: 1.8.
+	^ aNurse
+]
+
+{ #category : #'nurse with constraints' }
+HMStaffMemberExamples >> nurseKajanSchmidtWithSeminarConstraint [
+	<gtExample>
+	| aNurse seminarConstraint |
+	aNurse := self nurseKajanSchmidt.
+	seminarConstraint := HMStaffConstraintTypeExamples new
+		seminarConstraint.
+	seminarConstraint date: (Date year: 2021 month: 5 day: 7).
+	aNurse constraints add: seminarConstraint.
+	^ aNurse
+]
+
+{ #category : #'nurse basic' }
+HMStaffMemberExamples >> nurseKarinEgger [
+	<gtExample>
+	| aNurse |
+	aNurse := HMNurse new.
+	aNurse
+		firstName: 'Karin';
+		lastName: 'Egger';
+		experienceInYears: 8;
+		balanceWorkingHours: 6;
+		compensationHours: 1.8.
+	^ aNurse
+]
+
+{ #category : #'nurse with constraints' }
+HMStaffMemberExamples >> nurseKarinEggerWithAvailableWorkingHoursConstraint [
+	<gtExample>
+	| aNurse availableWorkingHoursConstraint |
+	aNurse := self nurseKarinEgger.
+	aNurse balanceWorkingHours: 6.
+	^ aNurse
+]
+
+{ #category : #'nurse basic' }
+HMStaffMemberExamples >> nurseLuciFuchs [
+	<gtExample>
+	| aNurse |
+	aNurse := HMNurse new.
+	aNurse
+		firstName: 'Luci';
+		lastName: 'Fuchs';
+		experienceInYears: 6;
+		balanceWorkingHours: 50;
+		compensationHours: 1.8.
+	^ aNurse
+]
+
+{ #category : #'nurse with constraints' }
+HMStaffMemberExamples >> nurseLuciFuchsWithSeminarConstraint [
+	<gtExample>
+	| aNurse seminarConstraint |
+	aNurse := self nurseLuciFuchs.
+	seminarConstraint := HMStaffConstraintTypeExamples new
+		seminarConstraint.
+	seminarConstraint date: (Date year: 2021 month: 5 day: 2).
+	aNurse constraints add: seminarConstraint.
+	^ aNurse
+]
+
+{ #category : #'nurse basic' }
+HMStaffMemberExamples >> nurseMalikSahni [
+	<gtExample>
+	| aNurse |
+	aNurse := HMNurse new.
+	aNurse
+		firstName: 'Malik';
+		lastName: 'Sahni';
+		experienceInYears: 3;
+		balanceWorkingHours: 37;
+		compensationHours: 1.8.
+	^ aNurse
+]
+
+{ #category : #'nurse with constraints' }
+HMStaffMemberExamples >> nurseMalikSahniWithVacationConstraint [
+	<gtExample>
+	| aNurse vacationConstraint |
+	aNurse := self nurseMalikSahni.
+	vacationConstraint := HMStaffConstraintTypeExamples new
+		vacationConstraint.
+	vacationConstraint date: (Date year: 2021 month: 5 day: 1).
+	aNurse constraints add: vacationConstraint.
+	^ aNurse
+]
+
+{ #category : #'nurse basic' }
+HMStaffMemberExamples >> nurseManuelThompson [
+	<gtExample>
+	| aNurse |
+	aNurse := HMNurse new.
+	aNurse
+		firstName: 'Manuel';
+		lastName: 'Thompson';
+		experienceInYears: 5;
+		balanceWorkingHours: 50;
+		compensationHours: 1.8.
+	^ aNurse
+]
+
+{ #category : #'nurse basic' }
+HMStaffMemberExamples >> nursePatrickSchneider [
+	<gtExample>
+	| aNurse |
+	aNurse := HMNurse new.
+	aNurse
+		firstName: 'Patrick';
+		lastName: 'Schneider';
+		experienceInYears: 7;
+		balanceWorkingHours: 50;
+		compensationHours: 1.8.
+	^ aNurse
+]
+
+{ #category : #'nurse with constraints' }
+HMStaffMemberExamples >> nursePatrickSchneiderWithVacationConstraint [
+	<gtExample>
+	| aNurse vacationConstraint |
+	aNurse := self nursePatrickSchneider.
+	10 to: 14 do: [ :index | 
+		vacationConstraint := HMStaffConstraintTypeExamples new
+			vacationConstraint.
+		vacationConstraint date: (Date year: 2021 month: 5 day: index).
+		aNurse constraints add: vacationConstraint ].
+	^ aNurse
+]
+
+{ #category : #'nurse basic' }
+HMStaffMemberExamples >> nurseRajKapoor [
+	<gtExample>
+	| aNurse |
+	aNurse := HMNurse new.
+	aNurse
+		firstName: 'Raj';
+		lastName: 'Kapoor';
+		experienceInYears: 1;
+		balanceWorkingHours: 50;
+		compensationHours: 1.8.
+	^ aNurse
+]
