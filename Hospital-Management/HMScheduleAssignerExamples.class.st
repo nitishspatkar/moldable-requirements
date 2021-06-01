@@ -16,6 +16,8 @@ HMScheduleAssignerExamples >> oneDaySchedule [
 	assigner := HMScheduleAssigner new.
 	assigner
 		doctors: doctors;
+		workingDays: {workingDay}.
+	assigner
 		nurses: nurses;
 		workingDays: {workingDay}.
 	assigner performAssignment.
@@ -46,16 +48,18 @@ HMScheduleAssignerExamples >> oneMonthSchedule [
 { #category : #accessing }
 HMScheduleAssignerExamples >> oneWeekSchedule [
 	<gtExample>
-	| doctors assigner workingDays |
-	doctors := HMStaffMemberExamples new
-		allDoctorsWithConstraints.
-	workingDays := (1 to: 7) collect: [ :index | 
-		HMWorkingDay new
-			shifts: HMShiftExamples new allShifts;
-			date: (Date year: 2021 month: 5 day: index) ].
+	| doctors nurses assigner workingDays |
+	doctors := HMStaffMemberExamples new allDoctorsWithConstraints.
+	nurses := HMStaffMemberExamples new allNursesWithConstraints.
+	workingDays := (1 to: 7)
+		collect: [ :index | 
+			HMWorkingDay new
+				shifts: HMShiftExamples new allShifts;
+				date: (Date year: 2021 month: 5 day: index) ].
 	assigner := HMScheduleAssigner new.
-	assigner 
+	assigner
 		doctors: doctors;
+		nurses: nurses;
 		workingDays: workingDays.
 	assigner performAssignment.
 	^ assigner

@@ -5,8 +5,8 @@ Class {
 }
 
 { #category : #accessing }
-HMNurse >> isNurse [
-	^ true
+HMNurse >> isDoctor [
+	^ false
 ]
 
 { #category : #printing }
