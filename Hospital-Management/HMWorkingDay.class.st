@@ -60,23 +60,6 @@ HMWorkingDay >> descriptionOn: aStream [
 ]
 
 { #category : #accessing }
-HMWorkingDay >> gtAssignedDoctorsByShiftsFor: aView [
-	<gtView>
-	^ aView columnedList
-		title: 'Schedule';
-		priority: 2;
-		items: [ self shifts flatCollect: [:aShift |
-			aShift assignedDoctors collect: [ :aDoctor  |
-				aShift -> aDoctor ] ] ];
-		column: 'Shift' text: [ :assoc | assoc key description ];
-		column: 'Doctor' text: [ :assoc | assoc value fullName ];
-		column: 'Is experienced' text: [ :assoc  | 
-			assoc value isExperienced
-				ifTrue: [ 'Yes' ]
-				ifFalse: [ 'No' ] ]
-]
-
-{ #category : #accessing }
 HMWorkingDay >> gtAssignedDoctorsFor: aView [
 	<gtView>
 	^ aView columnedList
