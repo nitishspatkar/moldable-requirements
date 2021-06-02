@@ -3,8 +3,7 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'shifts',
-		'date',
-		'availableStaff'
+		'date'
 	],
 	#category : #'Hospital-Management-Model'
 }
@@ -29,16 +28,6 @@ HMWorkingDay >> assignedDoctors [
 { #category : #accessing }
 HMWorkingDay >> assignedNurses [
 	^ self shifts flatCollect: [ :aShift | aShift assignedNurses ]
-]
-
-{ #category : #accessing }
-HMWorkingDay >> availableStaff [
-	^ availableStaff
-]
-
-{ #category : #accessing }
-HMWorkingDay >> availableStaff: aCollectionOfStaffMembers [
-	availableStaff := aCollectionOfStaffMembers
 ]
 
 { #category : #printing }
@@ -140,27 +129,6 @@ HMWorkingDay >> gtAssignedStaffMembersByShiftsFor: aView [
 			assoc value isExperienced
 				ifTrue: [ 'Yes' ]
 				ifFalse: [ 'No' ] ]
-]
-
-{ #category : #accessing }
-HMWorkingDay >> gtAvailableStaffFor: aView [
-	<gtView>
-	^ aView columnedList
-		title: 'Available staff';
-		priority: 2;
-		items: [ availableStaff ];
-		column: 'First Name'
-			text: [ :aStaffMember | aStaffMember firstName ]
-			width: 100;
-		column: 'Last Name'
-			text: [ :aStaffMember | aStaffMember lastName ]
-			width: 100;
-		column: 'Experience'
-			text: [ :aStaffMember | aStaffMember experienceInYears ]
-			width: 100;
-		column: 'Balance working hours'
-			text: [ :aStaffMember | aStaffMember balanceWorkingHours ]
-			width: 100
 ]
 
 { #category : #accessing }
