@@ -84,8 +84,7 @@ HMStaffMember >> gtBasicStaffMemberFor: aView [
 			('Last Name' -> self lastName).
 			('Experience' -> self experienceInYears).
 			('Remaining Working hours' -> self balanceWorkingHours).
-			('Available compensation hours' -> self compensationHours).
-			('Available for another shift' -> self availableForAnotherShift)} ];
+			('Available compensation hours' -> self compensationHours)} ];
 		column: 'Attribute' item: #key;
 		column: 'Value' item: #value;
 		send: #value
