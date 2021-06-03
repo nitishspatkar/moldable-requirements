@@ -1,3 +1,8 @@
+"
+!Hospital Management System
+
+This tiny application assigns medical staff to various shifts. The scheduling of medical staff is a hard problem as it involves a lot of factors and constraints to consider before preparing a schedule.
+"
 Class {
 	#name : #HMHospitalSystem,
 	#superclass : #Object,
