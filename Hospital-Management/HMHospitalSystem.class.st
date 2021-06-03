@@ -1,7 +1,17 @@
 "
 !Hospital Management System
 
-This tiny application assigns medical staff to various shifts. The scheduling of medical staff is a hard problem as it involves a lot of factors and constraints to consider before preparing a schedule.
+Hospital Management System (HMS) is a tiny application to assign medical staff to various shifts over multiple days.
+Preparing a schedule is a complicated task as it involves considering various factors and constraints.
+In essence, the staff member responsible for preparing a schedule needs to assign medical staff to various shifts on various days.
+HMS has a list of medical staff with all their details and a schedule.
+The medical staff consists of ${class:HMDoctor|label=Doctors}$ and ${class:HMNurse|label=Nurses}$.
+A ${class:HMSchedule|label=schedule}$ consists of working ${class:HMWorkingDay|label=working days}$, and each day has a total of five ${class:HMShift|label=shifts}$.
+The staff member responsible for preparing a schedule needs to assign one of the available doctors and nurses to one shift per day.
+While doing so, she needs to consider various ${class:HMStaffConstraint|label=staff related constraints}$ and ${class:HMShiftConstraint|label=shift related constraints}$.
+
+Kindly follow the heperlinks to directly jump into the immplementation of the involved domain concepts.
+For each concept, you can explore a similarr interactive documentation.
 "
 Class {
 	#name : #HMHospitalSystem,
