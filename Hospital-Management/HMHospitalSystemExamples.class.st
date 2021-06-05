@@ -1,3 +1,27 @@
+"
+!!!This tutorial explains step-by-step how a schedule is prepared for a single working day.
+
+First, we need a collection of doctors.  
+Let us create that by running the following example.
+${example:HMStaffMemberExamples>>#allDoctorsWithConstraints}$
+
+Next, we need a collection of nurses.
+Let us create that by running the following example.
+${example:HMStaffMemberExamples>>#allNursesWithConstraints}$
+
+Now, we need a particular day to assign doctors and nurrses to.
+Let us create that by running the following example.
+
+${example:HMWorkingDayExamples>>#aWorkingDayMayOne}$
+
+Kindly notice, how we created and assigned various shifts to this day.
+Also, notice that we needed a collection of doctors from all the doctors we created earlier that are available on this specific day.
+
+Finally, let's use our assigner algorithm that assigns doctors and nurses to various shifts on a specific day.
+Kindly run the following example that demonstrates such assignment.
+
+${example:HMScheduleAssignerExamples>>#oneDaySchedule}$
+"
 Class {
 	#name : #HMHospitalSystemExamples,
 	#superclass : #Object,
