@@ -3,6 +3,6 @@ A medical staff should get at least two days off every week.
 "
 Class {
 	#name : #HMStaffTwoDaysOffAWeekConstraint,
-	#superclass : #HMStaffConstraint,
+	#superclass : #HMStaffConstraintType,
 	#category : #'Hospital-Management-Model'
 }
