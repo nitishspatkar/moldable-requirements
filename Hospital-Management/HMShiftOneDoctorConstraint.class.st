@@ -1,3 +1,6 @@
+"
+According to this constraint, all other shifts than a night  shift should have one doctor and a nurse assigned.
+"
 Class {
 	#name : #HMShiftOneDoctorConstraint,
 	#superclass : #HMShiftConstraint,
