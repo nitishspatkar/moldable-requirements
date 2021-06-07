@@ -3,7 +3,8 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'shifts',
-		'date'
+		'date',
+		'availableStaff'
 	],
 	#category : #'Hospital-Management-Model'
 }
@@ -28,6 +29,16 @@ HMWorkingDay >> assignedDoctors [
 { #category : #accessing }
 HMWorkingDay >> assignedNurses [
 	^ self shifts flatCollect: [ :aShift | aShift assignedNurses ]
+]
+
+{ #category : #accessing }
+HMWorkingDay >> availableStaff [
+	^ availableStaff
+]
+
+{ #category : #accessing }
+HMWorkingDay >> availableStaff: aCollection [
+	availableStaff := aCollection
 ]
 
 { #category : #printing }

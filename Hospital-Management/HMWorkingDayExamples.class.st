@@ -11,7 +11,7 @@ HMWorkingDayExamples >> aWorkingDayMayOne [
 	aDay := HMWorkingDay new
 		shifts: HMShiftExamples new allShifts;
 		date: (Date year: 2021 month: 5 day: 1);
-		availableStaff: self availableDoctorsOnMayFirst.
+		availableStaff: HMWorkingDayExamples new availableDoctorsOnMayFirst.
 	^ aDay
 ]
 
