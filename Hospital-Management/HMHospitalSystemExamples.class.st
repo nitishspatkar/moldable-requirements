@@ -117,6 +117,59 @@ HMHospitalSystemExamples >> aWardleyMap [
 ]
 
 { #category : #accessing }
+HMHospitalSystemExamples >> domainModelWithAllConnections [
+	<gtExample>
+	| aDictionary |
+	aDictionary := Dictionary new.
+	aDictionary
+		add:
+			HMHospitalSystem
+				-> (OrderedCollection with: HMSchedule with: HMStaffMember);
+		add: HMSchedule -> HMWorkingDay;
+		add: HMWorkingDay -> HMShift;
+		add: HMShift -> HMShiftConstraint;
+		add:
+			HMShiftConstraint
+				->
+					(OrderedCollection
+						with: HMConsecutiveNightShiftsConstraint
+						with: HMConsecutiveShiftsConstraint
+						with: HMNightShiftConstraint
+						with: HMShiftExperiencedAndInexperiencedConstraint
+						with: HMShiftOneDoctorConstraint);
+		add:
+			HMStaffMember
+				->
+					(OrderedCollection
+						with: HMDoctor
+						with: HMNurse
+						with: HMStaffConstraint);
+		add: HMStaffConstraint -> HMStaffConstraintType;
+		add:
+			HMStaffConstraintType
+				-> (OrderedCollection with: HMStaffCustomConstraintType).
+	^ aDictionary
+]
+
+{ #category : #accessing }
+HMHospitalSystemExamples >> domainModelWithoutAllConnections [
+	<gtExample>
+	| m |
+	m := CRMondrian new.
+	m nodes box
+		normalizeHeight: #numberOfMethods from: 5 to: 25;
+		normalizeWidth: [ :x | x slots size ] from: 5 to: 25;
+		normalizeColor: #linesOfCode;
+		with:
+			((RPackageOrganizer default packageNamed: 'Hospital-Management')
+				classes
+				reject: [ :aClass | aClass category = 'Hospital-Management-Examples' ]).
+	m edge connectFrom: #superclass.
+	m layout tree.
+	^ m
+]
+
+{ #category : #accessing }
 HMHospitalSystemExamples >> hospitalManagementSystemWithOneMonthScheduleAndDoctorsWithConstraints [
 	<gtExample>
 	| hospitalManagementSystem schedule staff assigner |
@@ -159,22 +212,4 @@ HMHospitalSystemExamples >> hospitalManagemmentSystemWithOneWeekScheduleAndDocto
 		
 	hospitalManagementSystem schedule: schedule.
 	^ hospitalManagementSystem
-]
-
-{ #category : #accessing }
-HMHospitalSystemExamples >> modelClasses [
-	<gtExample>
-	| m |
-	m := CRMondrian new.
-	m nodes box
-		normalizeHeight: #numberOfMethods from: 5 to: 25;
-		normalizeWidth: [ :x | x slots size ] from: 5 to: 25;
-		normalizeColor: #linesOfCode;
-		with:
-			((RPackageOrganizer default packageNamed: 'Hospital-Management')
-				classes
-				reject: [ :aClass | aClass category = 'Hospital-Management-Examples' ]).
-	m edge connectFrom: #superclass.
-	m layout tree.
-	^ m
 ]
