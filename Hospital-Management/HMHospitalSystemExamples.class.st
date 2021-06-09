@@ -160,3 +160,21 @@ HMHospitalSystemExamples >> hospitalManagemmentSystemWithOneWeekScheduleAndDocto
 	hospitalManagementSystem schedule: schedule.
 	^ hospitalManagementSystem
 ]
+
+{ #category : #accessing }
+HMHospitalSystemExamples >> modelClasses [
+	<gtExample>
+	| m |
+	m := CRMondrian new.
+	m nodes box
+		normalizeHeight: #numberOfMethods from: 5 to: 25;
+		normalizeWidth: [ :x | x slots size ] from: 5 to: 25;
+		normalizeColor: #linesOfCode;
+		with:
+			((RPackageOrganizer default packageNamed: 'Hospital-Management')
+				classes
+				reject: [ :aClass | aClass category = 'Hospital-Management-Examples' ]).
+	m edge connectFrom: #superclass.
+	m layout tree.
+	^ m
+]
