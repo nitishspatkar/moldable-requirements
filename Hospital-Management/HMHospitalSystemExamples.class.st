@@ -119,36 +119,39 @@ HMHospitalSystemExamples >> aWardleyMap [
 { #category : #accessing }
 HMHospitalSystemExamples >> domainModelWithAllConnections [
 	<gtExample>
-	| aDictionary |
+	| aDictionary m |
 	aDictionary := Dictionary new.
+	m := CRMondrian new.
 	aDictionary
-		add:
-			HMHospitalSystem
-				-> (OrderedCollection with: HMSchedule with: HMStaffMember);
-		add: HMSchedule -> HMWorkingDay;
-		add: HMWorkingDay -> HMShift;
-		add: HMShift -> HMShiftConstraint;
-		add:
-			HMShiftConstraint
-				->
-					(OrderedCollection
-						with: HMConsecutiveNightShiftsConstraint
-						with: HMConsecutiveShiftsConstraint
-						with: HMNightShiftConstraint
-						with: HMShiftExperiencedAndInexperiencedConstraint
-						with: HMShiftOneDoctorConstraint);
-		add:
-			HMStaffMember
-				->
-					(OrderedCollection
-						with: HMDoctor
-						with: HMNurse
-						with: HMStaffConstraint);
-		add: HMStaffConstraint -> HMStaffConstraintType;
-		add:
-			HMStaffConstraintType
-				-> (OrderedCollection with: HMStaffCustomConstraintType).
-	^ aDictionary
+		add: HMSchedule -> HMHospitalSystem;
+		add: HMStaffMember -> HMHospitalSystem;
+		add: HMWorkingDay -> HMSchedule;
+		add: HMShift -> HMWorkingDay;
+		add: HMShiftConstraint -> HMShift;
+		add: HMConsecutiveNightShiftsConstraint -> HMShiftConstraint;
+		add: HMNightShiftConstraint -> HMShiftConstraint;
+		add: HMShiftExperiencedAndInexperiencedConstraint -> HMShiftConstraint;
+		add: HMShiftOneDoctorConstraint -> HMShiftConstraint;
+		add: HMDoctor -> HMStaffMember;
+		add: HMNurse -> HMStaffMember;
+		add: HMStaffConstraint -> HMStaffMember;
+		add: HMStaffConstraintType -> HMStaffConstraint;
+		add: HMStaffHolidayConstraintType -> HMStaffConstraint;
+		add: HMStaffSeminarConstraintType -> HMStaffConstraint;
+		add: HMStaffTwoDaysOffAWeekConstraint -> HMStaffConstraint;
+		add: HMStaffCustomConstraintType -> HMStaffConstraint;
+		add: HMNightShiftConstraint -> HMStaffConstraint;
+		add: HMConsecutiveNightShiftsConstraint -> HMStaffConstraint;
+		add: HMNightShiftCompensationConstraint -> HMStaffConstraint;
+		add: HMConsecutiveShiftsConstraint -> HMStaffConstraint.
+	m nodes
+		with:
+			((RPackageOrganizer default packageNamed: 'Hospital-Management')
+				classes
+				reject: [ :aClass | aClass category = 'Hospital-Management-Examples' ]).
+	m edge connectFrom: [ :c | aDictionary at: c ifAbsent: [ nil ] ].
+	m layout tree.
+	^ m
 ]
 
 { #category : #accessing }
