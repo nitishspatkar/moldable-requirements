@@ -8,6 +8,7 @@ example arguments: {
 	
 result := example run.
 result returnValue.
+
 "
 Class {
 	#name : #ABAddressBookExamples,

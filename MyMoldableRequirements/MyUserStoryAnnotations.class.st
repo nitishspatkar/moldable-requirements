@@ -1,20 +1,4 @@
 "
-@prefix My
-@package 'MyMoldableRequirements'
-@tag 'User Story'
-@objectTag 'Models'
-@project UserStory
-
-@derive children
-@derive parent
-@derive name
-@derive print
-@derive announcer
-@derive notifier
-@derive typeTest
-@derive phlowList
-@derive api
-
 annotation(s) {
 	@derive add,
 	@derive remove
@@ -23,6 +7,7 @@ annotation(s) {
 annotation {
 	@derive property (name: name)
 }
+
 "
 Class {
 	#name : #MyUserStoryAnnotations,

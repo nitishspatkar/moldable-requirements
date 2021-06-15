@@ -5,6 +5,7 @@ For example, If a doctor works in three night shifts, i.e., for 27 hours in a ni
 However, she cannot decide when to consume this compensation.
 Alternatively, she can get paid for the equivalent of compensation time in salary.
 
+
 "
 Class {
 	#name : #HMNightShiftCompensationConstraint,

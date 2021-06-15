@@ -1,7 +1,8 @@
 "
-!Scenario
-I represent scenarios for ${class:name=EUserStory}$.
-I am test cases that cover every possibile outcome of a ${class:name=EUserStory}$.
+# Scenario
+I represent scenarios for {{gtClass:name=EUserStory}}.
+I am test cases that cover every possibile outcome of a {{gtClass:name=EUserStory}}.
+
 "
 Class {
 	#name : #EScenario,

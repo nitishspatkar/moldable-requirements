@@ -1,5 +1,6 @@
 "
 I represent a contact in an address book with a name, phone numbers, addresses, and emails.
+
 "
 Class {
 	#name : #ABContact,

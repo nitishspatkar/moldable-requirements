@@ -1,5 +1,6 @@
 "
 A staff member can have a special wish, such as a wedding day, for a specific day, which needs to be considered while preparing a schedule.
+
 "
 Class {
 	#name : #HMStaffCustomConstraintType,

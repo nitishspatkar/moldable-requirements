@@ -1,5 +1,6 @@
 "
 I represent an address for a contact
+
 "
 Class {
 	#name : #ABAddress,

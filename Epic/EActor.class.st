@@ -1,7 +1,8 @@
 "
-!Actor
+# Actor
 
-An actor is a representation of the person/system who is completed the action in a ${class:name=EUseCase}$ or ${class:name=EUserStory}$.
+An actor is a representation of the person/system who is completed the action in a {{gtClass:name=EUseCase}} or {{gtClass:name=EUserStory}}.
+
 "
 Class {
 	#name : #EActor,

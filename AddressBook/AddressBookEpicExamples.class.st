@@ -1,8 +1,9 @@
 "
-!Epic Examples
+# Epic Examples
 
 This class holds example epics for the Address Book.
-Each ${class:name=Epic}$ has ${class:name=EUseCase}$ that have ${class:name=EUserStory}$ that have ${class:name=EScenario}$ to serve as test cases.
+Each {{gtClass:name=Epic}} has {{gtClass:name=EUseCase}} that have {{gtClass:name=EUserStory}} that have {{gtClass:name=EScenario}} to serve as test cases.
+
 "
 Class {
 	#name : #AddressBookEpicExamples,

@@ -1,5 +1,6 @@
 "
 I provide types for Email addresses.
+
 "
 Class {
 	#name : #ABEmailType,

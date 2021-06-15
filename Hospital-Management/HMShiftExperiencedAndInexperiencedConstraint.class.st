@@ -1,5 +1,6 @@
 "
 According to this constraint, a night shift should have both experienced and inexperienced doctors and nurses.
+
 "
 Class {
 	#name : #HMShiftExperiencedAndInexperiencedConstraint,

@@ -1,13 +1,14 @@
 "
-!User Story
+# User Story
 
-User stories are brief descriptions of the feature and its purpose - the focus is on user and business needs, goals, and benefits. They do not contain techincal details or specifications. Stories need to be specific, measurable, achievable, relevant, and time boxed (limited duration). They are one step deeper into detail from a ${class:name=EUseCase}$. 
+User stories are brief descriptions of the feature and its purpose - the focus is on user and business needs, goals, and benefits. They do not contain techincal details or specifications. Stories need to be specific, measurable, achievable, relevant, and time boxed (limited duration). They are one step deeper into detail from a {{gtClass:name=EUseCase}}. 
 
 The format on a traditional story card is
 			As a <user> I want to <complete action> so that I can <goal>
 			
-${class:name=EScenario}$ are examples that serve as test cases.
-The user of each story is an ${class:name=EActor}$ who can have specifications made about them. The action can be defined as a quick phrase about what the ${class:name=EActor}$ will be doing (i.e. use an email address). The goal is related to/the same as the task in the heirarchal use case (i.e. register for an account).
+{{gtClass:name=EScenario}} are examples that serve as test cases.
+The user of each story is an {{gtClass:name=EActor}} who can have specifications made about them. The action can be defined as a quick phrase about what the {{gtClass:name=EActor}} will be doing (i.e. use an email address). The goal is related to/the same as the task in the heirarchal use case (i.e. register for an account).
+
 "
 Class {
 	#name : #EUserStory,

@@ -1,10 +1,11 @@
 "
-!Epic
+# Epic
 
-An epic is a feature or overarching objective. This is a fairly generalized feature within a system that meets user requirements to achieve business as usual. The epic will have a collection of ${class:name=EUseCase}$ that will help define behavior that needs to be available for users.
+An epic is a feature or overarching objective. This is a fairly generalized feature within a system that meets user requirements to achieve business as usual. The epic will have a collection of {{gtClass:name=EUseCase}} that will help define behavior that needs to be available for users.
 
 
-The ${example:GtDocumentExamples>>#exampleComUrl|label=#host|expanded=false}$  website is accessed ${example:GtDocumentExamples>>#exampleComAccessPerHour|label=#size|expanded=false}$ times every hour by ${example:GtDocumentExamples>>#exampleComUniqueAccessPerHour|label=#size|expanded=false}$ unique users.
+The {{gtExample:GtDocumentExamples>>#exampleComUrl|label=#host|expanded=false}}  website is accessed {{gtExample:GtDocumentExamples>>#exampleComAccessPerHour|label=#size|expanded=false}} times every hour by {{gtExample:GtDocumentExamples>>#exampleComUniqueAccessPerHour|label=#size|expanded=false}} unique users.
+
 "
 Class {
 	#name : #EEpic,

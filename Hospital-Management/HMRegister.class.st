@@ -1,5 +1,6 @@
 "
 I keep track of the records of the staff member, such as their requests for vacations or seminras.
+
 "
 Class {
 	#name : #HMRegister,

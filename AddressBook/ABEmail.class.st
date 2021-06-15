@@ -1,5 +1,6 @@
 "
 I represent an email address
+
 "
 Class {
 	#name : #ABEmail,

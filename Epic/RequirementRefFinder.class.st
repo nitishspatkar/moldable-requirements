@@ -2,6 +2,7 @@
 I represent a finder for requirement references to classes.
 
 I store requirement containers and search them for requirements that reference any given class.
+
 "
 Class {
 	#name : #RequirementRefFinder,
