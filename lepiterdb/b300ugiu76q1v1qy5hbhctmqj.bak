@@ -3,7 +3,85 @@
 	"__type" : "page",
 	"children" : {
 		"__type" : "snippets",
-		"items" : [ ]
+		"items" : [
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-15T11:06:26.379603+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-15T16:58:06.451975+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "j0EXcYeDDQC7fYI1BK4LEA=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "Here we look at the current set of requirements for the application. Kindly click on Hospital management system to explore requirements for our scheduling application."
+			},
+			{
+				"__type" : "exampleSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-15T15:51:21.837355+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-15T15:51:21.837355+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "YM/MgIuDDQCypU9BCqOcWw=="
+				},
+				"exampleSelector" : "gtParseJSONExample",
+				"previewHeight" : 500,
+				"previewShowSelector" : "gtViewsFor:",
+				"exampleBehaviorName" : "MyProject",
+				"codeExpanded" : true,
+				"previewExpanded" : false,
+				"noCode" : true
+			}
+		]
 	},
 	"createEmail" : {
 		"__type" : "email",

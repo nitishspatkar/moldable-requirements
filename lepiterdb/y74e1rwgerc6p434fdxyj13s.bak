@@ -18,7 +18,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2021-07-15T11:05:23.73037+02:00"
+						"dateAndTimeString" : "2021-07-15T15:57:44.053564+02:00"
 					}
 				},
 				"editEmail" : {
@@ -29,20 +29,20 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2021-07-15T11:05:43.429478+02:00"
+						"dateAndTimeString" : "2021-07-15T15:57:57.375627+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "WFXlgYeDDQC7nLliBK4LEA=="
+					"uidString" : "6e0W2oeDDQCycM1pCqOcWw=="
 				},
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "Here we expore the vision, past anf future of this application."
+				"string" : "Let us take a look at all the main domain entities involved in this project."
 			},
 			{
-				"__type" : "wardleyMap",
+				"__type" : "textSnippet",
 				"children" : {
 					"__type" : "snippets",
 					"items" : [ ]
@@ -55,7 +55,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2021-07-15T11:05:47.088933+02:00"
+						"dateAndTimeString" : "2021-07-15T15:58:59.09653+02:00"
 					}
 				},
 				"editEmail" : {
@@ -66,18 +66,54 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2021-07-15T11:05:47.088933+02:00"
+						"dateAndTimeString" : "2021-07-15T15:59:24.016033+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "Skx9g4eDDQC7nt2PBK4LEA=="
+					"uidString" : "HvHzm4uDDQCyy9L6CqOcWw=="
 				},
-				"wardleyMapDictionary" : {
-					"edges" : [ ],
-					"nodes" : [ ]
+				"paragraphStyle" : {
+					"__type" : "textStyle"
 				},
-				"snippetHeight" : 300
+				"string" : "[[Hospital System]]"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-15T17:18:10.494891+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-15T17:18:14.304796+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "FTcrt4yDDQCzFeeUCqOcWw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "[[Sc]"
 			}
 		]
 	},
@@ -89,7 +125,7 @@
 		"__type" : "time",
 		"time" : {
 			"__type" : "dateAndTime",
-			"dateAndTimeString" : "2021-07-15T11:05:20.301826+02:00"
+			"dateAndTimeString" : "2021-07-15T11:10:08.206505+02:00"
 		}
 	},
 	"editEmail" : {
@@ -100,15 +136,15 @@
 		"__type" : "time",
 		"time" : {
 			"__type" : "dateAndTime",
-			"dateAndTimeString" : "2021-07-15T11:05:20.301826+02:00"
+			"dateAndTimeString" : "2021-07-15T11:10:08.206505+02:00"
 		}
 	},
 	"pageType" : {
 		"__type" : "namedPage",
-		"title" : "Application Vision"
+		"title" : "Domain model entities"
 	},
 	"uid" : {
 		"__type" : "uuid",
-		"uuid" : "ba8ee481-8783-0d00-bb9b-c4d904ae0b10"
+		"uuid" : "58a20d93-8783-0d00-bbd8-cf7504ae0b10"
 	}
 }

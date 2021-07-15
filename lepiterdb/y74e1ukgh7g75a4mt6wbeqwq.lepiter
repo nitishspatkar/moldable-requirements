@@ -18,7 +18,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2021-07-15T11:14:38.320944+02:00"
+						"dateAndTimeString" : "2021-07-15T16:46:51.740671+02:00"
 					}
 				},
 				"editEmail" : {
@@ -29,7 +29,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2021-07-15T11:14:38.320944+02:00"
+						"dateAndTimeString" : "2021-07-15T16:50:07.684951+02:00"
 					}
 				},
 				"uid" : {
@@ -39,7 +39,229 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : ""
+				"string" : "Making a roster of the medical staff is a tedious task. The staff member responsible for preparing a schedule needs to take into account numerous constraints, such as those related to\rpermissible working hours, constraints for assigning medical staff to each shift, etc. A hospital management system manages schedule of its medical staff. "
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-15T16:52:06.550527+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-15T16:52:12.280921+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "I033WYyDDQCy3f10CqOcWw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "Doctors work in a day, mid-day, early late, late late, and night shift.\nAdditionally, there is an on-call doctor shift.\nThere are two pools: experienced and not experienced doctors.\nExperienced doctors have only late night shifts, whereas inexperienced doctors have only early night shifts.\n    \nDoctors need to give vacation preferences for at least three months in advance and they can take 15 days vacation in six months.\nThey can make a wish for two weekly offs of their choice for every month.\nThey need to give three months in advance their plans for in-house workshops, seminars, etc.\nSuch workshops or seminars can be participated 5 days in a year.\nThere is no minimum limit, but for more than 5 days, one needs permission.\n\nDoctors can work for a maximum of 50 hours a week.\nThere is no restriction on how many particular shifts an assistant doctor should do.\nHowever, they are allowed to work for a maximum of 7 night shifts in a row.\nThey are not allowed to be put in consecutive nights and early shift or late and early shift.\nLikewise, doctors are allowed to work for a maximum of 9 hours in a night shift.\n\nAfter the night shift, they should get compensation of 10% of the total working time in the night shift.\nThe compensation is considered over a year and not for individual night shifts.\nFor example, if a doctor works in three night shifts, i.e., for 27 hours in a night shift, then she must be able to claim 2.7 hours of compensation (free time).\nHowever, she cannot decide when to consume this compensation.\nAlternatively, she can get paid for the equivalent of compensation time in salary.\n\n8 PM-6 Am and on Saturdays from 12 PM, shifts are paid more."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-15T16:53:37.837631+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-15T16:56:20.736772+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "aaB7X4yDDQCy4csUCqOcWw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "####### Bellow, we show a sample schedule for a week for all the available medical staff. Following symbols are used in the original schedule by the hospital: "
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-15T16:54:52.435885+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-15T16:54:52.435885+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "yuLtY4yDDQCy5BFGCqOcWw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "T: Day \nM: Mid\nS1: Early late\nS2: Late late\nYellow N: Inexperienced night\nBlue N: experienced night\nK1: on-call\nEt: Introduction day for newcomers\nTree: Vacation\nPensil: Office day (once a month for each staff member)\nHeart: Wedding (vacation)\nW: Weekend shift\nYellow square: Free day wish\nGreen square: Free day\n"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-15T16:55:08.721444+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-15T16:55:39.259035+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "62jmZIyDDQCy5RXICqOcWw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "###### Each shift has specific time slots:"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-15T16:52:20.192871+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-15T16:55:08.723198+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "bGHCWoyDDQCy3yBCCqOcWw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "T: 7:30-16:30\nM: 10:30-20:30\nS1: 14:30-23:30\nS2: 16:00-01:00\nI-N: 20:00-05:00\nE-N: 22:30-07:45\nW1: 08:00-16:30\nE-W-N: 22:30-08:15"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-15T16:56:38.401617+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-15T16:56:58.351982+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "FYm1ToyDDQCy2vLyCqOcWw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "###### The following schedule iis a representative of the evolving software"
 			},
 			{
 				"__type" : "exampleSnippet",

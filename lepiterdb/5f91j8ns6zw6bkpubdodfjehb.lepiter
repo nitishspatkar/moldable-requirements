@@ -18,7 +18,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2021-07-15T11:05:55.834753+02:00"
+						"dateAndTimeString" : "2021-07-15T17:18:42.926447+02:00"
 					}
 				},
 				"editEmail" : {
@@ -29,17 +29,17 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2021-07-15T17:01:40.077195+02:00"
+						"dateAndTimeString" : "2021-07-15T17:18:56.631702+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "7KoDcYeDDQC7e7EJBK4LEA=="
+					"uidString" : "Ug4vuIyDDQCzHaz1CqOcWw=="
 				},
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "##### This documentation contains a series of live notebooks describing various aspects of the Hospital Management system application."
+				"string" : "This is implemented by the class  {{gtClass:HMSchedule|expanded=true|show=#gtCoderLepiterCommentsFor:}}"
 			}
 		]
 	},
@@ -51,7 +51,7 @@
 		"__type" : "time",
 		"time" : {
 			"__type" : "dateAndTime",
-			"dateAndTimeString" : "2021-07-15T10:43:54.559015+02:00"
+			"dateAndTimeString" : "2021-07-15T17:18:25.942373+02:00"
 		}
 	},
 	"editEmail" : {
@@ -62,15 +62,15 @@
 		"__type" : "time",
 		"time" : {
 			"__type" : "dateAndTime",
-			"dateAndTimeString" : "2021-07-15T10:44:02.82035+02:00"
+			"dateAndTimeString" : "2021-07-15T17:18:25.942373+02:00"
 		}
 	},
 	"pageType" : {
 		"__type" : "namedPage",
-		"title" : "About this documentation"
+		"title" : "Schedule"
 	},
 	"uid" : {
 		"__type" : "uuid",
-		"uuid" : "cdad4135-8783-0d00-bfeb-d455090c36bb"
+		"uuid" : "0f532eb8-8c83-0d00-b31c-709a0aa39c5b"
 	}
 }
