@@ -1,24 +1,24 @@
 Class {
-	#name : #HMStaffConstraint,
-	#superclass : #Object,
+	#name : 'HMStaffConstraint',
+	#superclass : 'Object',
 	#instVars : [
 		'date',
 		'type'
 	],
-	#category : #'Hospital-Management-Model'
+	#category : 'Hospital-Management-Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffConstraint >> date [
 	^ date
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffConstraint >> date: aDate [
 	date := aDate
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffConstraint >> gtConstraintFor: aView [
 	<gtView>
 	^ aView columnedList
@@ -31,17 +31,17 @@ HMStaffConstraint >> gtConstraintFor: aView [
 		send: #value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffConstraint >> initialize [
 	super initialize
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HMStaffConstraint >> isForDate: aDate [
 	^ self date = aDate
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffConstraint >> printOn: aStream [
 	super printOn: aStream.
 	aStream
@@ -52,12 +52,12 @@ HMStaffConstraint >> printOn: aStream [
 		nextPutAll: ' )'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffConstraint >> type [
 	^ type
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffConstraint >> type: aType [
 	type := aType
 ]

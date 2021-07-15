@@ -1,10 +1,10 @@
 Class {
-	#name : #HMStaffMemberExamples,
-	#superclass : #Object,
-	#category : #'Hospital-Management-Examples'
+	#name : 'HMStaffMemberExamples',
+	#superclass : 'Object',
+	#category : 'Hospital-Management-Examples'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMemberExamples >> allDoctors [
 	<gtExample>
 	| allDoctors |
@@ -24,7 +24,7 @@ HMStaffMemberExamples >> allDoctors [
 	^ allDoctors
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMemberExamples >> allDoctorsWithConstraints [
 	<gtExample>
 	| allDoctors |
@@ -46,7 +46,7 @@ HMStaffMemberExamples >> allDoctorsWithConstraints [
 	^ allDoctors
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMemberExamples >> allNurses [
 	<gtExample>
 	| allNurses |
@@ -66,7 +66,7 @@ HMStaffMemberExamples >> allNurses [
 	^ allNurses
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMemberExamples >> allNursesWithConstraints [
 	<gtExample>
 	| allNurses |
@@ -88,7 +88,7 @@ HMStaffMemberExamples >> allNursesWithConstraints [
 	^ allNurses
 ]
 
-{ #category : #'doctors basic' }
+{ #category : 'doctors basic' }
 HMStaffMemberExamples >> doctorAamirSteiger [
 	<gtExample>
 	| aDoctor |
@@ -102,7 +102,7 @@ HMStaffMemberExamples >> doctorAamirSteiger [
 	^ aDoctor
 ]
 
-{ #category : #'doctors with constraints' }
+{ #category : 'doctors with constraints' }
 HMStaffMemberExamples >> doctorAlexandaMeierWithSeminarConstraint [
 	<gtExample>
 	| aDoctor seminarConstraint |
@@ -114,7 +114,7 @@ HMStaffMemberExamples >> doctorAlexandaMeierWithSeminarConstraint [
 	^ aDoctor
 ]
 
-{ #category : #'doctors basic' }
+{ #category : 'doctors basic' }
 HMStaffMemberExamples >> doctorAlexandraMeier [
 	<gtExample>
 	| aDoctor |
@@ -128,7 +128,7 @@ HMStaffMemberExamples >> doctorAlexandraMeier [
 	^ aDoctor
 ]
 
-{ #category : #'doctors with constraints' }
+{ #category : 'doctors with constraints' }
 HMStaffMemberExamples >> doctorAmirSteigerWithAvailableWorkingHoursConstraint [
 	<gtExample>
 	| aDoctor availableWorkingHoursConstraint |
@@ -137,7 +137,7 @@ HMStaffMemberExamples >> doctorAmirSteigerWithAvailableWorkingHoursConstraint [
 	^ aDoctor
 ]
 
-{ #category : #'doctors basic' }
+{ #category : 'doctors basic' }
 HMStaffMemberExamples >> doctorAnnaBauer [
 	<gtExample>
 	| aDoctor |
@@ -151,7 +151,7 @@ HMStaffMemberExamples >> doctorAnnaBauer [
 	^ aDoctor
 ]
 
-{ #category : #'doctors with constraints' }
+{ #category : 'doctors with constraints' }
 HMStaffMemberExamples >> doctorAnnaBauerWithVacationConstraint [
 	<gtExample>
 	| aDoctor vacationConstraint |
@@ -163,7 +163,7 @@ HMStaffMemberExamples >> doctorAnnaBauerWithVacationConstraint [
 	^ aDoctor
 ]
 
-{ #category : #'doctors basic' }
+{ #category : 'doctors basic' }
 HMStaffMemberExamples >> doctorBaptistCosta [
 	<gtExample>
 	| aDoctor |
@@ -177,7 +177,7 @@ HMStaffMemberExamples >> doctorBaptistCosta [
 	^ aDoctor
 ]
 
-{ #category : #'doctors basic' }
+{ #category : 'doctors basic' }
 HMStaffMemberExamples >> doctorChristianMonde [
 	<gtExample>
 	| aDoctor |
@@ -191,7 +191,7 @@ HMStaffMemberExamples >> doctorChristianMonde [
 	^ aDoctor
 ]
 
-{ #category : #'doctors with constraints' }
+{ #category : 'doctors with constraints' }
 HMStaffMemberExamples >> doctorChristianMondeWithSeminarConstraint [
 	<gtExample>
 	| aDoctor seminarConstraint |
@@ -203,7 +203,7 @@ HMStaffMemberExamples >> doctorChristianMondeWithSeminarConstraint [
 	^ aDoctor
 ]
 
-{ #category : #'doctors basic' }
+{ #category : 'doctors basic' }
 HMStaffMemberExamples >> doctorIsabelMurphy [
 	<gtExample>
 	| aDoctor |
@@ -217,7 +217,7 @@ HMStaffMemberExamples >> doctorIsabelMurphy [
 	^ aDoctor
 ]
 
-{ #category : #'doctors basic' }
+{ #category : 'doctors basic' }
 HMStaffMemberExamples >> doctorKatharinaSieren [
 	<gtExample>
 	| aDoctor |
@@ -231,7 +231,7 @@ HMStaffMemberExamples >> doctorKatharinaSieren [
 	^ aDoctor
 ]
 
-{ #category : #'doctors basic' }
+{ #category : 'doctors basic' }
 HMStaffMemberExamples >> doctorManuelaLitto [
 	<gtExample>
 	| aDoctor |
@@ -245,7 +245,7 @@ HMStaffMemberExamples >> doctorManuelaLitto [
 	^ aDoctor
 ]
 
-{ #category : #'doctors basic' }
+{ #category : 'doctors basic' }
 HMStaffMemberExamples >> doctorSanjeetKaur [
 	<gtExample>
 	| aDoctor  |
@@ -259,7 +259,7 @@ HMStaffMemberExamples >> doctorSanjeetKaur [
 	^ aDoctor
 ]
 
-{ #category : #'doctors with constraints' }
+{ #category : 'doctors with constraints' }
 HMStaffMemberExamples >> doctorSanjeetKaurWithWeddingConstraint [
 	<gtExample>
 	| aDoctor weddingConstraint |
@@ -271,7 +271,7 @@ HMStaffMemberExamples >> doctorSanjeetKaurWithWeddingConstraint [
 	^ aDoctor
 ]
 
-{ #category : #'doctors basic' }
+{ #category : 'doctors basic' }
 HMStaffMemberExamples >> doctorShaneMeuller [
 	<gtExample>
 	| aDoctor |
@@ -285,7 +285,7 @@ HMStaffMemberExamples >> doctorShaneMeuller [
 	^ aDoctor
 ]
 
-{ #category : #'doctors with constraints' }
+{ #category : 'doctors with constraints' }
 HMStaffMemberExamples >> doctorShaneMeullerWithVacationConstraint [
 	<gtExample>
 	| aDoctor vacationConstraint |
@@ -297,7 +297,7 @@ HMStaffMemberExamples >> doctorShaneMeullerWithVacationConstraint [
 	^ aDoctor
 ]
 
-{ #category : #'doctors basic' }
+{ #category : 'doctors basic' }
 HMStaffMemberExamples >> doctorThomasSilva [
 	<gtExample>
 	| aDoctor |
@@ -311,7 +311,7 @@ HMStaffMemberExamples >> doctorThomasSilva [
 	^ aDoctor
 ]
 
-{ #category : #'nurse basic' }
+{ #category : 'nurse basic' }
 HMStaffMemberExamples >> nurseChristopherFisher [
 	<gtExample>
 	| aNurse |
@@ -325,7 +325,7 @@ HMStaffMemberExamples >> nurseChristopherFisher [
 	^ aNurse
 ]
 
-{ #category : #'nurse basic' }
+{ #category : 'nurse basic' }
 HMStaffMemberExamples >> nurseHermannLang [
 	<gtExample>
 	| aNurse |
@@ -339,7 +339,7 @@ HMStaffMemberExamples >> nurseHermannLang [
 	^ aNurse
 ]
 
-{ #category : #'nurse basic' }
+{ #category : 'nurse basic' }
 HMStaffMemberExamples >> nurseIbrahimLodhi [
 	<gtExample>
 	| aNurse |
@@ -353,7 +353,7 @@ HMStaffMemberExamples >> nurseIbrahimLodhi [
 	^ aNurse
 ]
 
-{ #category : #'nurse with constraints' }
+{ #category : 'nurse with constraints' }
 HMStaffMemberExamples >> nurseIbrahimLodhiWithVacationConstraint [
 	<gtExample>
 	| aNurse vacationConstraint |
@@ -365,7 +365,7 @@ HMStaffMemberExamples >> nurseIbrahimLodhiWithVacationConstraint [
 	^ aNurse
 ]
 
-{ #category : #'nurse basic' }
+{ #category : 'nurse basic' }
 HMStaffMemberExamples >> nurseKajanSchmidt [
 	<gtExample>
 	| aNurse |
@@ -379,7 +379,7 @@ HMStaffMemberExamples >> nurseKajanSchmidt [
 	^ aNurse
 ]
 
-{ #category : #'nurse with constraints' }
+{ #category : 'nurse with constraints' }
 HMStaffMemberExamples >> nurseKajanSchmidtWithSeminarConstraint [
 	<gtExample>
 	| aNurse seminarConstraint |
@@ -391,7 +391,7 @@ HMStaffMemberExamples >> nurseKajanSchmidtWithSeminarConstraint [
 	^ aNurse
 ]
 
-{ #category : #'nurse basic' }
+{ #category : 'nurse basic' }
 HMStaffMemberExamples >> nurseKarinEgger [
 	<gtExample>
 	| aNurse |
@@ -405,7 +405,7 @@ HMStaffMemberExamples >> nurseKarinEgger [
 	^ aNurse
 ]
 
-{ #category : #'nurse with constraints' }
+{ #category : 'nurse with constraints' }
 HMStaffMemberExamples >> nurseKarinEggerWithAvailableWorkingHoursConstraint [
 	<gtExample>
 	| aNurse availableWorkingHoursConstraint |
@@ -414,7 +414,7 @@ HMStaffMemberExamples >> nurseKarinEggerWithAvailableWorkingHoursConstraint [
 	^ aNurse
 ]
 
-{ #category : #'nurse basic' }
+{ #category : 'nurse basic' }
 HMStaffMemberExamples >> nurseLuciFuchs [
 	<gtExample>
 	| aNurse |
@@ -428,7 +428,7 @@ HMStaffMemberExamples >> nurseLuciFuchs [
 	^ aNurse
 ]
 
-{ #category : #'nurse with constraints' }
+{ #category : 'nurse with constraints' }
 HMStaffMemberExamples >> nurseLuciFuchsWithSeminarConstraint [
 	<gtExample>
 	| aNurse seminarConstraint |
@@ -440,7 +440,7 @@ HMStaffMemberExamples >> nurseLuciFuchsWithSeminarConstraint [
 	^ aNurse
 ]
 
-{ #category : #'nurse basic' }
+{ #category : 'nurse basic' }
 HMStaffMemberExamples >> nurseMalikSahni [
 	<gtExample>
 	| aNurse |
@@ -454,7 +454,7 @@ HMStaffMemberExamples >> nurseMalikSahni [
 	^ aNurse
 ]
 
-{ #category : #'nurse with constraints' }
+{ #category : 'nurse with constraints' }
 HMStaffMemberExamples >> nurseMalikSahniWithVacationConstraint [
 	<gtExample>
 	| aNurse vacationConstraint |
@@ -466,7 +466,7 @@ HMStaffMemberExamples >> nurseMalikSahniWithVacationConstraint [
 	^ aNurse
 ]
 
-{ #category : #'nurse basic' }
+{ #category : 'nurse basic' }
 HMStaffMemberExamples >> nurseManuelThompson [
 	<gtExample>
 	| aNurse |
@@ -480,7 +480,7 @@ HMStaffMemberExamples >> nurseManuelThompson [
 	^ aNurse
 ]
 
-{ #category : #'nurse basic' }
+{ #category : 'nurse basic' }
 HMStaffMemberExamples >> nursePatrickSchneider [
 	<gtExample>
 	| aNurse |
@@ -494,7 +494,7 @@ HMStaffMemberExamples >> nursePatrickSchneider [
 	^ aNurse
 ]
 
-{ #category : #'nurse with constraints' }
+{ #category : 'nurse with constraints' }
 HMStaffMemberExamples >> nursePatrickSchneiderWithVacationConstraint [
 	<gtExample>
 	| aNurse vacationConstraint |
@@ -507,7 +507,7 @@ HMStaffMemberExamples >> nursePatrickSchneiderWithVacationConstraint [
 	^ aNurse
 ]
 
-{ #category : #'nurse basic' }
+{ #category : 'nurse basic' }
 HMStaffMemberExamples >> nurseRajKapoor [
 	<gtExample>
 	| aNurse |
@@ -521,7 +521,7 @@ HMStaffMemberExamples >> nurseRajKapoor [
 	^ aNurse
 ]
 
-{ #category : #'nurse basic' }
+{ #category : 'nurse basic' }
 HMStaffMemberExamples >> nurseSabineJakob [
 	<gtExample>
 	| aNurse |

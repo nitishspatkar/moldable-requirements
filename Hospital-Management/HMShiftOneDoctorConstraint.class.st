@@ -3,12 +3,12 @@ According to this constraint, all other shifts than a night  shift should have o
 
 "
 Class {
-	#name : #HMShiftOneDoctorConstraint,
-	#superclass : #HMShiftConstraint,
-	#category : #'Hospital-Management-Model'
+	#name : 'HMShiftOneDoctorConstraint',
+	#superclass : 'HMShiftConstraint',
+	#category : 'Hospital-Management-Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShiftOneDoctorConstraint >> assignDoctorFrom: aCollectionOfAvailableDoctors toNonNightShifts: shifts andUpdateIn: aRegister [
 	shifts
 		select: #isDayShift

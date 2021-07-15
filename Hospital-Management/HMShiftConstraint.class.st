@@ -1,18 +1,18 @@
 Class {
-	#name : #HMShiftConstraint,
-	#superclass : #Object,
+	#name : 'HMShiftConstraint',
+	#superclass : 'Object',
 	#instVars : [
 		'type'
 	],
-	#category : #'Hospital-Management-Model'
+	#category : 'Hospital-Management-Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShiftConstraint >> type [
 	^ type
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShiftConstraint >> type: aString [
 	type := aString
 ]

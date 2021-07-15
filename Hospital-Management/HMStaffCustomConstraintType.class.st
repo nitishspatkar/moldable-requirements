@@ -3,12 +3,12 @@ A staff member can have a special wish, such as a wedding day, for a specific da
 
 "
 Class {
-	#name : #HMStaffCustomConstraintType,
-	#superclass : #HMStaffConstraintType,
-	#category : #'Hospital-Management-Model'
+	#name : 'HMStaffCustomConstraintType',
+	#superclass : 'HMStaffConstraintType',
+	#category : 'Hospital-Management-Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffCustomConstraintType >> aWeddingConstraintForACollectionOfDoctors: aCollectionOfDoctors andForADate: aWorkingDay [
 	" accpets a set of doctors and a day, go through their wedding constraints, and returns a set of doctors who are available on that day"
 
@@ -19,7 +19,7 @@ HMStaffCustomConstraintType >> aWeddingConstraintForACollectionOfDoctors: aColle
 	^ availableDoctors
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffCustomConstraintType >> initialize [
 	super initialize.
 	self description: 'A wedding day for a staff member'

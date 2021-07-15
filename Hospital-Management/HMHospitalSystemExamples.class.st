@@ -24,12 +24,12 @@ Kindly run the following example that demonstrates such assignment.
 
 "
 Class {
-	#name : #HMHospitalSystemExamples,
-	#superclass : #Object,
-	#category : #'Hospital-Management-Examples'
+	#name : 'HMHospitalSystemExamples',
+	#superclass : 'Object',
+	#category : 'Hospital-Management-Examples'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMHospitalSystemExamples >> aWardleyMap [
 <gtExample>
 | snippet aWardleyMap aNodeA aNodeB aNodeC aNodeD aNodeE aNode aNodeF aNodeG aNodeH anEdgeFtoG anEdgeFtoD anEdgeCtoE anEdgeCtoA|
@@ -117,7 +117,7 @@ HMHospitalSystemExamples >> aWardleyMap [
 	^ snippet
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMHospitalSystemExamples >> dependencyDiagram [
 	<gtExample>
 	| m |
@@ -132,7 +132,7 @@ HMHospitalSystemExamples >> dependencyDiagram [
 	^ m
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMHospitalSystemExamples >> domainModelWithAllConnections [
 	<gtExample>
 	| aDictionary m |
@@ -170,7 +170,76 @@ HMHospitalSystemExamples >> domainModelWithAllConnections [
 	^ m
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
+HMHospitalSystemExamples >> domainModelWithAllConnections2 [
+	<gtExample>
+	| aDictionary m |
+	aDictionary := Dictionary new.
+	m := GtMondrian new.
+	m nodes 
+		stencil: [ :each |
+			BrLabel new
+				text: each name;
+				aptitude: BrGlamorousLabelAptitude ];
+		with: HMSchedule withAllSubclasses.
+	m edges connectFrom: #superclass.
+	m layout tree.
+	^ m
+]
+
+{ #category : 'accessing' }
+HMHospitalSystemExamples >> domainModelWithAllConnections3 [
+	<gtExample>
+	| aDictionary m |
+	aDictionary := Dictionary new.
+	m := GtMondrian new.
+	aDictionary
+		add: HMSchedule -> HMHospitalSystem;
+		add: HMStaffMember -> HMHospitalSystem;
+		add: HMWorkingDay -> HMSchedule;
+		add: HMShift -> HMWorkingDay;
+		add: HMShiftConstraint -> HMShift;
+		add: HMConsecutiveNightShiftsConstraint -> HMShiftConstraint;
+		add: HMNightShiftConstraint -> HMShiftConstraint;
+		add: HMShiftExperiencedAndInexperiencedConstraint -> HMShiftConstraint;
+		add: HMShiftOneDoctorConstraint -> HMShiftConstraint;
+		add: HMDoctor -> HMStaffMember;
+		add: HMNurse -> HMStaffMember;
+		add: HMStaffConstraint -> HMStaffMember;
+		add: HMStaffConstraintType -> HMStaffConstraint;
+		add: HMStaffHolidayConstraintType -> HMStaffConstraint;
+		add: HMStaffSeminarConstraintType -> HMStaffConstraint;
+		add: HMStaffTwoDaysOffAWeekConstraint -> HMStaffConstraint;
+		add: HMStaffCustomConstraintType -> HMStaffConstraint;
+		add: HMNightShiftConstraint -> HMStaffConstraint;
+		add: HMConsecutiveNightShiftsConstraint -> HMStaffConstraint;
+		add: HMNightShiftCompensationConstraint -> HMStaffConstraint;
+		add: HMConsecutiveShiftsConstraint -> HMStaffConstraint.
+	m nodes 
+		stencil: [ :each |
+			BrLabel new
+				text: each name;
+				aptitude: BrGlamorousLabelAptitude ];
+		with:
+			((RPackageOrganizer default packageNamed: 'Hospital-Management')
+				classes
+				reject: [ :aClass | aClass category = 'Hospital-Management-Examples' ]).
+	m edges 
+		shape: [
+					BlParabollaArcElement new 
+						zIndex: 0;
+						curvatureFraction: 0.2;
+						border: (BlBorder paint: (Color gray alpha: 0.2) width: 2);
+						toHead: (BlArrowheadSimpleArrow new
+							border: (BlBorder builder paint: (Color gray alpha: 0.2); width: 2; build)) ];
+				fromRightCenter;
+				toLeftCenter;
+		connectFrom: [ :c | aDictionary at: c ifAbsent: [ nil ] ].
+	m layout  custom: (GtGradWestHierarchicalLayout new).
+	^ m
+]
+
+{ #category : 'accessing' }
 HMHospitalSystemExamples >> domainModelWithoutAllConnections [
 	<gtExample>
 	| m |
@@ -188,7 +257,7 @@ HMHospitalSystemExamples >> domainModelWithoutAllConnections [
 	^ m
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMHospitalSystemExamples >> hospitalManagementSystemWithOneMonthScheduleAndDoctorsWithConstraints [
 	<gtExample>
 	| hospitalManagementSystem schedule staff assigner |
@@ -211,7 +280,7 @@ HMHospitalSystemExamples >> hospitalManagementSystemWithOneMonthScheduleAndDocto
 	^ hospitalManagementSystem
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMHospitalSystemExamples >> hospitalManagemmentSystemWithOneWeekScheduleAndDoctorsWithConstraints [
 	<gtExample>
 	| hospitalManagementSystem schedule staff assigner |

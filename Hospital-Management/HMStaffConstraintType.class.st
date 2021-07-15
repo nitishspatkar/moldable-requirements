@@ -1,18 +1,18 @@
 Class {
-	#name : #HMStaffConstraintType,
-	#superclass : #Object,
+	#name : 'HMStaffConstraintType',
+	#superclass : 'Object',
 	#instVars : [
 		'description'
 	],
-	#category : #'Hospital-Management-Model'
+	#category : 'Hospital-Management-Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffConstraintType >> description [
 	^ description
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffConstraintType >> description: aString [
 	description := aString
 ]

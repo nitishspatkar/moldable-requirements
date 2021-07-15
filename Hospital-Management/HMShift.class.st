@@ -1,6 +1,6 @@
 Class {
-	#name : #HMShift,
-	#superclass : #Object,
+	#name : 'HMShift',
+	#superclass : 'Object',
 	#instVars : [
 		'endTime',
 		'startTime',
@@ -11,36 +11,36 @@ Class {
 		'constraints',
 		'day'
 	],
-	#category : #'Hospital-Management-Model'
+	#category : 'Hospital-Management-Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShift >> addStaffMember: aStaffMember [
 	self staff add: aStaffMember.
 	aStaffMember addShift: self.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShift >> assignedDoctors [
 	^ self staff select: [ :aStaffMember | aStaffMember isDoctor ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShift >> assignedNurses [
 	^ self staff select: [ :aStaffMember | aStaffMember isDoctor not ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShift >> day [
 	^ day
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShift >> day: aDay [
 	day := aDay
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShift >> description [
 	^ String streamContents: [ :aStream |
 		aStream
@@ -51,32 +51,32 @@ HMShift >> description [
 			nextPutAll: self endTime asString ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShift >> description: aString [
 	description := aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShift >> duration [
 	^ duration
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShift >> duration: aNumber [
 	duration := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShift >> endTime [
 	^ endTime
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShift >> endTime: aTimestamp [
 	endTime := aTimestamp
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShift >> gtDoctorsFor: aView [
 	<gtView>
 	^ aView columnedList
@@ -90,25 +90,25 @@ HMShift >> gtDoctorsFor: aView [
 				ifFalse: [ 'No' ] ]
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 HMShift >> initialize [
 	super initialize.
 	staff := OrderedCollection new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShift >> isDayShift [
 	^ self isNightShift not
 ]
 
-{ #category : #tesing }
+{ #category : 'tesing' }
 HMShift >> isNightShift [
 	^ self shiftCode = 'E-N' or: [ 
 		self shiftCode = 'I-N' or: [
 			self shiftCode = 'N'] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShift >> printOn: aStream [
 	super printOn: aStream.
 	aStream
@@ -123,32 +123,32 @@ HMShift >> printOn: aStream [
 		nextPutAll: ')'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShift >> shiftCode [
 	^ shiftCode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShift >> shiftCode: aString [
 	shiftCode := aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShift >> staff [
 	^ staff
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShift >> staff: aMember [
 	staff add: aMember
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShift >> startTime [
 	^ startTime
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShift >> startTime: aTimestamp [
 	startTime := aTimestamp
 ]
