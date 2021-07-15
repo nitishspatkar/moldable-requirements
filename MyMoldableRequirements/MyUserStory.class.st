@@ -757,7 +757,7 @@ MyUserStory >> gtDetailedStoryCardFor: aView [
 	<gtView>
 	^aView explicit
 		title: 'Story card';
-		priority: 0;
+		priority: 1;
 		stencil: [
 			self asDetailedStoryCard
 				aptitude: BrShadowAptitude;
