@@ -66,14 +66,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2021-07-15T10:46:15.210883+02:00"
+						"dateAndTimeString" : "2021-07-16T16:28:09.655337+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "AzCaPYeDDQC//IJrCQw2uw=="
 				},
-				"code" : "Metacello new\n  baseline: 'MyMoldableRequirements';\n  repository: 'github://nitishspatkar/moldable-requirements:main';\n  load"
+				"code" : "Metacello new\n  baseline: 'MyMoldableRequirements';\n  repository: 'github://nitishspatkar/moldable-requirements:scheduling';\n  load"
 			},
 			{
 				"__type" : "pharoSnippet",

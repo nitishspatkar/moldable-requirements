@@ -29,7 +29,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2021-07-15T16:58:06.451975+02:00"
+						"dateAndTimeString" : "2021-07-16T16:01:06.698027+02:00"
 					}
 				},
 				"uid" : {
@@ -39,7 +39,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "Here we look at the current set of requirements for the application. Kindly click on Hospital management system to explore requirements for our scheduling application."
+				"string" : "#####Here we look at the current set of requirements for the application. Kindly click on Hospital management system to explore requirements for our scheduling application."
 			},
 			{
 				"__type" : "exampleSnippet",
@@ -73,9 +73,86 @@
 					"__type" : "uid",
 					"uidString" : "YM/MgIuDDQCypU9BCqOcWw=="
 				},
-				"exampleSelector" : "gtParseJSONExample",
-				"previewHeight" : 500,
-				"previewShowSelector" : "gtViewsFor:",
+				"exampleSelector" : "hospitalManagementProject",
+				"previewHeight" : 300,
+				"previewShowSelector" : "gtEpicsFor:",
+				"exampleBehaviorName" : "MyProject",
+				"codeExpanded" : true,
+				"previewExpanded" : false,
+				"noCode" : true
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-16T16:05:19.362556+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-16T16:05:47.609579+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "u8hx0J+DDQCTZPlWDh24Rg=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "Below are the stories in the \"Scheduling shifts\" epic. "
+			},
+			{
+				"__type" : "exampleSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-16T16:05:49.695114+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-16T16:05:49.695114+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "raRe0p+DDQCTZnBkDh24Rg=="
+				},
+				"exampleSelector" : "shedulingShiftsEpic",
+				"previewHeight" : 300,
+				"previewShowSelector" : "gtUserStoriesFor:",
 				"exampleBehaviorName" : "MyProject",
 				"codeExpanded" : true,
 				"previewExpanded" : false,

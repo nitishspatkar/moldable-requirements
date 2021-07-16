@@ -29,7 +29,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2021-07-15T17:02:16.092593+02:00"
+						"dateAndTimeString" : "2021-07-16T16:26:00.309718+02:00"
 					}
 				},
 				"uid" : {
@@ -39,7 +39,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "######This page gives a basic overview of the domain model of the system. The picture below shows the main entities and the relations between them. You can click on any entity to exploree more details about it."
+				"string" : "This page gives a basic overview of the domain model of the system. The picture below shows the main entities and the relations between them. You can click on any entity to exploree more details about it."
 			},
 			{
 				"__type" : "exampleSnippet",
@@ -106,7 +106,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2021-07-15T17:00:54.833152+02:00"
+						"dateAndTimeString" : "2021-07-16T16:24:59.025066+02:00"
 					}
 				},
 				"uid" : {
@@ -116,7 +116,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "###### The main domain entity is  {{gtClass:HMHospitalSystem}}. This contains the list of staff members and their schedule. A schedule has a working day, which in turn has a shift. Each shift can have one of the several constraints. Similarly, a staff memmber can either be a doctor or a nurse. LIke shifts, each staff member can also have several constraints."
+				"string" : "The main domain entity is  {{gtClass:HMHospitalSystem}}. This contains the list of staff members and their schedule. A schedule has a working day, which in turn has a shift. Each shift can have one of the several constraints. Similarly, a staff memmber can either be a doctor or a nurse. LIke shifts, each staff member can also have several constraints."
 			}
 		]
 	},

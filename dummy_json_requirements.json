@@ -1507,7 +1507,20 @@
     "title": "Address Book Application",
     "board": {
       "id": "1",
-      "columns": []
+      "columns": [
+        {
+          "id": "1",
+          "title": "Not started"
+        },
+        {
+          "id": "2",
+          "title": "In progress"
+        },
+        {
+          "id": "3",
+          "title": "Done"
+        }
+      ]
     },
     "teamMembers": [
       {
@@ -1914,9 +1927,22 @@
       "id": "3",
       "title": "Restaurant Application",
       "board": {
-      "id": "1",
-      "columns": []
-    },
+        "id": "1",
+        "columns": [
+          {
+            "id": "1",
+            "title": "Not started"
+          },
+          {
+            "id": "2",
+            "title": "In progress"
+          },
+          {
+            "id": "3",
+            "title": "Done"
+          }
+        ]
+      },
       "teamMembers": [
         {
           "name": "Melina Meyer",
@@ -2523,9 +2549,22 @@
       "id": "4",
       "title": "Hospital management system",
       "board": {
-      "id": "1",
-      "columns": []
-    },
+        "id": "1",
+        "columns": [
+          {
+            "id": "1",
+            "title": "Not started"
+          },
+          {
+            "id": "2",
+            "title": "In progress"
+          },
+          {
+            "id": "3",
+            "title": "Done"
+          }
+        ]
+      },
       "teamMembers": [
         {
           "name": "Melina Meyer",
