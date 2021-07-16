@@ -73,10 +73,124 @@
 					"__type" : "uid",
 					"uidString" : "5uJGdoeDDQC7kvtmBK4LEA=="
 				},
-				"exampleSelector" : "domainModelWithAllConnections3",
-				"previewHeight" : 500,
+				"exampleSelector" : "domainModelWithMainConnections",
+				"previewHeight" : 350,
 				"previewShowSelector" : "gtLiveFor:",
 				"exampleBehaviorName" : "HMHospitalSystemExamples",
+				"codeExpanded" : true,
+				"previewExpanded" : false,
+				"noCode" : true
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-16T16:38:51.495292+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-16T16:38:51.495292+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "sX1+SKCDDQCTs6cMDh24Rg=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "The main domain entity is  {{gtClass:HMHospitalSystem}}. This contains the list of staff members and their schedule. A schedule has a working day, which in turn has a shift. "
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-16T16:39:09.813286+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-16T16:47:58.744015+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "svyVSaCDDQCTtT8HDh24Rg=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "Each shift,  {{gtClass:HMShift}} can have one of the several constraints, modeled as subclasses of {{gtClass:HMShiftConstraint}}."
+			},
+			{
+				"__type" : "exampleSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-16T16:48:12.25314+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-16T16:48:12.25314+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "9//qaaCDDQCTy8DPDh24Rg=="
+				},
+				"exampleSelector" : "yourself",
+				"previewHeight" : 250,
+				"previewShowSelector" : "gtViewConstraintTypesFor:",
+				"exampleBehaviorName" : "HMShiftConstraint class",
 				"codeExpanded" : true,
 				"previewExpanded" : false,
 				"noCode" : true
@@ -106,7 +220,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2021-07-16T16:24:59.025066+02:00"
+						"dateAndTimeString" : "2021-07-16T16:51:43.328897+02:00"
 					}
 				},
 				"uid" : {
@@ -116,7 +230,158 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "The main domain entity is  {{gtClass:HMHospitalSystem}}. This contains the list of staff members and their schedule. A schedule has a working day, which in turn has a shift. Each shift can have one of the several constraints. Similarly, a staff memmber can either be a doctor or a nurse. LIke shifts, each staff member can also have several constraints."
+				"string" : "Similarly, a staff memmber can either be a doctor or a nurse."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-16T16:51:49.318661+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-16T16:51:50.897883+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "8WfVdqCDDQCT3TTgDh24Rg=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "TODO: add staff examples"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-16T16:51:45.782479+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-16T16:51:45.782479+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "4umWdqCDDQCT3OYfDh24Rg=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : " Like shifts, each staff member can also have several constraints."
+			},
+			{
+				"__type" : "exampleSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-16T16:51:18.468368+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-16T16:51:18.468368+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "NWsEdaCDDQCT2jixDh24Rg=="
+				},
+				"exampleSelector" : "yourself",
+				"previewHeight" : 150,
+				"previewShowSelector" : "gtViewConstraintTypesFor:",
+				"exampleBehaviorName" : "HMStaffConstraintType class",
+				"codeExpanded" : true,
+				"previewExpanded" : false,
+				"noCode" : true
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-16T16:49:50.456244+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-16T16:49:53.781247+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "Nzagb6CDDQCTzvSDDh24Rg=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "TODO: add schedule"
 			}
 		]
 	},
