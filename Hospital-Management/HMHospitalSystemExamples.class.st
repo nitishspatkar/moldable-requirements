@@ -240,6 +240,52 @@ HMHospitalSystemExamples >> domainModelWithAllConnections3 [
 ]
 
 { #category : 'accessing' }
+HMHospitalSystemExamples >> domainModelWithMainConnections [
+	<gtExample>
+	| aDictionary m allowedClasses |
+	aDictionary := Dictionary new.
+	m := GtMondrian new.
+	aDictionary
+		add: HMSchedule -> HMHospitalSystem;
+		add: HMStaffMember -> HMHospitalSystem;
+		add: HMWorkingDay -> HMSchedule;
+		add: HMShift -> HMWorkingDay;
+		add: HMShiftConstraint -> HMShift;
+		add: HMDoctor -> HMStaffMember;
+		add: HMNurse -> HMStaffMember;
+		add: HMStaffConstraint -> HMStaffMember;
+		add: HMStaffConstraintType -> HMStaffConstraint.
+	allowedClasses := (aDictionary associations flatCollectAsSet: [ :each | 
+		{each key. each value } ]).
+	m nodes 
+		stencil: [ :aClass |
+			BrLabel new
+				text: aClass name;
+				aptitude: BrGlamorousLabelAptitude;
+				when: BlClickEvent do: [  :anEvent |
+					anEvent consumed: true.
+					anEvent target phlow spawnTool: (GtClassCoderTool forClass: aClass)  ] ];
+		with:
+			((RPackageOrganizer default packageNamed: 'Hospital-Management')
+				classes
+				select: [ :aClass | 
+					allowedClasses includes: aClass ] ).
+	m edges 
+		shape: [
+					BlParabollaArcElement new 
+						zIndex: 0;
+						curvatureFraction: 0.2;
+						border: (BlBorder paint: (Color gray alpha: 0.2) width: 2);
+						toHead: (BlArrowheadSimpleArrow new
+							border: (BlBorder builder paint: (Color gray alpha: 0.2); width: 2; build)) ];
+				fromRightCenter;
+				toLeftCenter;
+		connectFrom: [ :c | aDictionary at: c ifAbsent: [ nil ] ].
+	m layout  custom: (GtGradWestHierarchicalLayout new).
+	^ m
+]
+
+{ #category : 'accessing' }
 HMHospitalSystemExamples >> domainModelWithoutAllConnections [
 	<gtExample>
 	| m |
