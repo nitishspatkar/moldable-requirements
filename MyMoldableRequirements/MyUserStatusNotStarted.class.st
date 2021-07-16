@@ -1,15 +1,15 @@
 Class {
-	#name : #MyUserStatusNotStarted,
-	#superclass : #MyUserStatusOld,
-	#category : #'MyMoldableRequirements-Models'
+	#name : 'MyUserStatusNotStarted',
+	#superclass : 'MyUserStatusOld',
+	#category : 'MyMoldableRequirements-Models'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStatusNotStarted >> label [
 	^ 'Not started'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStatusNotStarted >> statusColor [
 	^ Color lightRed
 ]

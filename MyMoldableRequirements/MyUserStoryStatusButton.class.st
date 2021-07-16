@@ -1,12 +1,12 @@
 Class {
-	#name : #MyUserStoryStatusButton,
-	#superclass : #BrButton,
+	#name : 'MyUserStoryStatusButton',
+	#superclass : 'BrButton',
 	#traits : 'TMyWithUserStoryModel',
 	#classTraits : 'TMyWithUserStoryModel classTrait',
-	#category : #'MyMoldableRequirements-User Story - Views'
+	#category : 'MyMoldableRequirements-User Story - Views'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 MyUserStoryStatusButton >> createDropdownContent [
 	
 	^ BrSimpleList new
@@ -27,7 +27,7 @@ MyUserStoryStatusButton >> createDropdownContent [
 		items: self userStoryModel allStati
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 MyUserStoryStatusButton >> initialize [
 	super initialize.
 	
@@ -44,12 +44,12 @@ MyUserStoryStatusButton >> initialize [
 		content: [ self createDropdownContent ])
 ]
 
-{ #category : #'private - event handling' }
+{ #category : 'private - event handling' }
 MyUserStoryStatusButton >> onStatusChanged: anAnnouncement [
 	self updateStatusColor
 ]
 
-{ #category : #'api - user story model' }
+{ #category : 'api - user story model' }
 MyUserStoryStatusButton >> onUserStoryModelChanged [
 	"Is sent when a new userStoryModel is assigned to the receiver.
 	Note: #onUserStoryModelChanged is sent before #subscribeToUserStoryModel
@@ -61,7 +61,7 @@ MyUserStoryStatusButton >> onUserStoryModelChanged [
 	self updateStatusColor
 ]
 
-{ #category : #'api - user story model' }
+{ #category : 'api - user story model' }
 MyUserStoryStatusButton >> subscribeToUserStoryModel [
 	"Is sent after a new userStoryModel is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
@@ -74,7 +74,7 @@ MyUserStoryStatusButton >> subscribeToUserStoryModel [
 		to: self
 ]
 
-{ #category : #'api - user story model' }
+{ #category : 'api - user story model' }
 MyUserStoryStatusButton >> unsubscribeFromUserStoryModel [
 	"Is sent before a new userStoryModel is assigned to the receiver.
 	Objects that subscribe to userStoryModel are required to implement this method."
@@ -83,7 +83,7 @@ MyUserStoryStatusButton >> unsubscribeFromUserStoryModel [
 	self userStoryModel announcer unsubscribe: self
 ]
 
-{ #category : #'private - updating' }
+{ #category : 'private - updating' }
 MyUserStoryStatusButton >> updateStatusColor [
 	self background: self userStoryModel statusColor
 ]

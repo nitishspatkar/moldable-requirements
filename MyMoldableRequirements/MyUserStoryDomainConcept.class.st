@@ -1,6 +1,6 @@
 Class {
-	#name : #MyUserStoryDomainConcept,
-	#superclass : #Object,
+	#name : 'MyUserStoryDomainConcept',
+	#superclass : 'Object',
 	#instVars : [
 		'userStoryDomainConcept',
 		'userStoryDomainConceptStates',
@@ -8,16 +8,16 @@ Class {
 		'name',
 		'announcer'
 	],
-	#category : #'MyMoldableRequirements-User Story - Models'
+	#category : 'MyMoldableRequirements-User Story - Models'
 }
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyUserStoryDomainConcept >> announce: anAnnouncement [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#announceTemplate'>
 	announcer ifNotNil: [ :anAnnouncer | anAnnouncer announce: anAnnouncement ]
 ]
 
-{ #category : #'private - instance creation' }
+{ #category : 'private - instance creation' }
 MyUserStoryDomainConcept >> createUserStoryDomainConcept [
 	"Create a nested child object for a domain child (or children) and return the result"
 	<return: #MyUserStoryDomainConcept>
@@ -30,7 +30,7 @@ MyUserStoryDomainConcept >> createUserStoryDomainConcept [
 	^ childObject
 ]
 
-{ #category : #'private - instance creation' }
+{ #category : 'private - instance creation' }
 MyUserStoryDomainConcept >> createUserStoryDomainConceptServices [
 	"Create a nested child object for a domain child (or children) and return the result"
 	<return: #MyUserStoryDomainConceptServices>
@@ -43,7 +43,7 @@ MyUserStoryDomainConcept >> createUserStoryDomainConceptServices [
 	^ childObject
 ]
 
-{ #category : #'private - instance creation' }
+{ #category : 'private - instance creation' }
 MyUserStoryDomainConcept >> createUserStoryDomainConceptStates [
 	"Create a nested child object for a domain child (or children) and return the result"
 	<return: #MyUserStoryDomainConceptStates>
@@ -56,7 +56,7 @@ MyUserStoryDomainConcept >> createUserStoryDomainConceptStates [
 	^ childObject
 ]
 
-{ #category : #'gt-extentions' }
+{ #category : 'gt-extentions' }
 MyUserStoryDomainConcept >> gtDomainConceptServicesListViewFor: aView [
 	<gtView>
 	<generatedFrom: #'GtRobocoderMetamodelPhlowListViewDerive>>#listForOneTemplate'>
@@ -67,7 +67,7 @@ MyUserStoryDomainConcept >> gtDomainConceptServicesListViewFor: aView [
 		items: [ self userStoryDomainConceptServices userStoryDomainConceptServices ]
 ]
 
-{ #category : #'gt-extentions' }
+{ #category : 'gt-extentions' }
 MyUserStoryDomainConcept >> gtDomainConceptStatesListViewFor: aView [
 	<gtView>
 	<generatedFrom: #'GtRobocoderMetamodelPhlowListViewDerive>>#listForOneTemplate'>
@@ -78,7 +78,7 @@ MyUserStoryDomainConcept >> gtDomainConceptStatesListViewFor: aView [
 		items: [ self userStoryDomainConceptStates userStoryDomainConceptStates ]
 ]
 
-{ #category : #'gt-extentions' }
+{ #category : 'gt-extentions' }
 MyUserStoryDomainConcept >> gtServicesListViewFor: aView [
 	<gtView>
 	<generatedFrom: #'GtRobocoderMetamodelPhlowListViewDerive>>#listForOneTemplate'>
@@ -89,7 +89,7 @@ MyUserStoryDomainConcept >> gtServicesListViewFor: aView [
 		items: [ self conceptKind userStoryServices ]
 ]
 
-{ #category : #'api - name' }
+{ #category : 'api - name' }
 MyUserStoryDomainConcept >> hasName [
 	<return: #Boolean>
 	<propertyTester: #name>
@@ -98,7 +98,7 @@ MyUserStoryDomainConcept >> hasName [
 	^ name notNil
 ]
 
-{ #category : #'api - name' }
+{ #category : 'api - name' }
 MyUserStoryDomainConcept >> name [
 	<return: #Object>
 	<propertyGetter: #name>
@@ -107,7 +107,7 @@ MyUserStoryDomainConcept >> name [
 	^ name
 ]
 
-{ #category : #'api - name' }
+{ #category : 'api - name' }
 MyUserStoryDomainConcept >> name: aNewName [
 	<propertySetter: #name>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#propertySetterTemplate'>
@@ -127,7 +127,7 @@ MyUserStoryDomainConcept >> name: aNewName [
 	self notifyNameChanged
 ]
 
-{ #category : #'api - name' }
+{ #category : 'api - name' }
 MyUserStoryDomainConcept >> notifyNameChanged [
 	"Override this notify method to announce changes to the property"
 	<propertyChangeNotifier: #name>
@@ -136,27 +136,27 @@ MyUserStoryDomainConcept >> notifyNameChanged [
 	self announce: (MyUserStoryDomainConceptNameChanged new userStoryDomainConcept: self)
 ]
 
-{ #category : #'api - name' }
+{ #category : 'api - name' }
 MyUserStoryDomainConcept >> onNewNameSet: aNewName [
 	"Is sent after a new value of the name is assigned"
 	<propertySetHook: #name>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#onNewPropertySetHookTemplate'>
 ]
 
-{ #category : #'api - name' }
+{ #category : 'api - name' }
 MyUserStoryDomainConcept >> onPreviousNameUnset: aPreviousName [
 	"Is sent after a previous value of the name is de-assigned"
 	<propertyUnsetHook: #name>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#onPreviousPropertyUnsetHookTemplate'>
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 MyUserStoryDomainConcept >> printOn: aStream [
 	<generatedFrom: #'GtRobocoderMetamodelPrintDerive>>#printOnTemplate'>
 	super printOn: aStream
 ]
 
-{ #category : #'api - name' }
+{ #category : 'api - name' }
 MyUserStoryDomainConcept >> unsetName [
 	<propertyUnsetter: #name>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#propertyUnsetterTemplate'>
@@ -171,7 +171,7 @@ MyUserStoryDomainConcept >> unsetName [
 	self notifyNameChanged
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyUserStoryDomainConcept >> unsubscribe: anObject [
 	"Unsubscribe all subscriptions of anObject from the receiver"
 
@@ -179,7 +179,7 @@ MyUserStoryDomainConcept >> unsubscribe: anObject [
 	^ announcer ifNotNil: [ :anAnnouncer | anAnnouncer unsubscribe: anObject ]
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyUserStoryDomainConcept >> userStoryDomainConcept [
 	"Return a composite object (${class:nil}$) created for a collection of children from the domain model.
 	Note: The object is lazily instantiated."
@@ -190,7 +190,7 @@ MyUserStoryDomainConcept >> userStoryDomainConcept [
 	^ userStoryDomainConcept ifNil: [ userStoryDomainConcept := self createUserStoryDomainConcept ]
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyUserStoryDomainConcept >> userStoryDomainConceptServices [
 	"Return a composite object (${class:nil}$) created for a collection of children from the domain model.
 	Note: The object is lazily instantiated."
@@ -201,7 +201,7 @@ MyUserStoryDomainConcept >> userStoryDomainConceptServices [
 	^ userStoryDomainConceptServices ifNil: [ userStoryDomainConceptServices := self createUserStoryDomainConceptServices ]
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyUserStoryDomainConcept >> userStoryDomainConceptStates [
 	"Return a composite object (${class:nil}$) created for a collection of children from the domain model.
 	Note: The object is lazily instantiated."
@@ -212,14 +212,14 @@ MyUserStoryDomainConcept >> userStoryDomainConceptStates [
 	^ userStoryDomainConceptStates ifNil: [ userStoryDomainConceptStates := self createUserStoryDomainConceptStates ]
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyUserStoryDomainConcept >> when: anAnnouncementClass do: aBlock [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenDoTemplate'>
 	^ (announcer ifNil: [ announcer := Announcer new ])
 		when: anAnnouncementClass do: aBlock
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyUserStoryDomainConcept >> when: anAnnouncementClass send: aSelector to: anObject [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenSendToTemplate'>
 	^ (announcer ifNil: [ announcer := Announcer new ]) weak

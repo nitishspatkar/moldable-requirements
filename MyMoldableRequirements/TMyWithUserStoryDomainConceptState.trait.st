@@ -1,12 +1,12 @@
 Trait {
-	#name : #TMyWithUserStoryDomainConceptState,
+	#name : 'TMyWithUserStoryDomainConceptState',
 	#instVars : [
 		'userStoryDomainConceptState'
 	],
-	#category : #'MyMoldableRequirements-User Story - Support'
+	#category : 'MyMoldableRequirements-User Story - Support'
 }
 
-{ #category : #'api - user story domain concept state' }
+{ #category : 'api - user story domain concept state' }
 TMyWithUserStoryDomainConceptState >> hasUserStoryDomainConceptState [
 	"Return a true if nil is assigned to the receiver, false otherwise"
 	<return: #Boolean>
@@ -16,7 +16,7 @@ TMyWithUserStoryDomainConceptState >> hasUserStoryDomainConceptState [
 	^ userStoryDomainConceptState notNil
 ]
 
-{ #category : #'api - user story domain concept state' }
+{ #category : 'api - user story domain concept state' }
 TMyWithUserStoryDomainConceptState >> onPostUserStoryDomainConceptStateChanged [
 	"I am an optional hook method that is sent after #subscribeToUserStoryDomainConceptState.
 	I do nothing by default but allow users to perform update operations when a receiver object is already
@@ -24,7 +24,7 @@ TMyWithUserStoryDomainConceptState >> onPostUserStoryDomainConceptStateChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onPostObjectChangedTemplate'>
 ]
 
-{ #category : #'api - user story domain concept state' }
+{ #category : 'api - user story domain concept state' }
 TMyWithUserStoryDomainConceptState >> onUserStoryDomainConceptStateChanged [
 	"Is sent when a new userStoryDomainConceptState is assigned to the receiver.
 	Note: #onUserStoryDomainConceptStateChanged is sent before #subscribeToUserStoryDomainConceptState
@@ -34,7 +34,7 @@ TMyWithUserStoryDomainConceptState >> onUserStoryDomainConceptStateChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onObjectChangedTemplate'>
 ]
 
-{ #category : #'api - user story domain concept state' }
+{ #category : 'api - user story domain concept state' }
 TMyWithUserStoryDomainConceptState >> subscribeToUserStoryDomainConceptState [
 	"Is sent after a new userStoryDomainConceptState is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
@@ -43,7 +43,7 @@ TMyWithUserStoryDomainConceptState >> subscribeToUserStoryDomainConceptState [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#subscribeToObjectTemplate'>
 ]
 
-{ #category : #'api - user story domain concept state' }
+{ #category : 'api - user story domain concept state' }
 TMyWithUserStoryDomainConceptState >> unsubscribeFromUserStoryDomainConceptState [
 	"Is sent before a new userStoryDomainConceptState is assigned to the receiver.
 	Objects that subscribe to userStoryDomainConceptState are required to implement this method."
@@ -51,7 +51,7 @@ TMyWithUserStoryDomainConceptState >> unsubscribeFromUserStoryDomainConceptState
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#unsubscribeFromObjectTemplate'>
 ]
 
-{ #category : #'api - user story domain concept state' }
+{ #category : 'api - user story domain concept state' }
 TMyWithUserStoryDomainConceptState >> userStoryDomainConceptState [
 	"Return a not-null userStoryDomainConceptState assigned to the receiver"
 	<modelGetter: #domainConceptState>
@@ -63,7 +63,7 @@ TMyWithUserStoryDomainConceptState >> userStoryDomainConceptState [
 	^ userStoryDomainConceptState
 ]
 
-{ #category : #'api - user story domain concept state' }
+{ #category : 'api - user story domain concept state' }
 TMyWithUserStoryDomainConceptState >> userStoryDomainConceptState: aUserStoryDomainConceptState [
 	"Set a not-null userStoryDomainConceptState assigned to the receiver"
 	<modelSetter: #domainConceptState>

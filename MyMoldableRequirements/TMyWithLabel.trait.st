@@ -1,12 +1,12 @@
 Trait {
-	#name : #TMyWithLabel,
+	#name : 'TMyWithLabel',
 	#instVars : [
 		'label'
 	],
-	#category : #'MyMoldableRequirements-User Story - Support'
+	#category : 'MyMoldableRequirements-User Story - Support'
 }
 
-{ #category : #'api - label' }
+{ #category : 'api - label' }
 TMyWithLabel >> hasLabel [
 	"Return a true if nil is assigned to the receiver, false otherwise"
 	<return: #Boolean>
@@ -16,7 +16,7 @@ TMyWithLabel >> hasLabel [
 	^ label notNil
 ]
 
-{ #category : #'api - label' }
+{ #category : 'api - label' }
 TMyWithLabel >> label [
 	"Return a not-null label assigned to the receiver"
 	<objectGetter: #label>
@@ -28,7 +28,7 @@ TMyWithLabel >> label [
 	^ label
 ]
 
-{ #category : #'api - label' }
+{ #category : 'api - label' }
 TMyWithLabel >> label: aLabel [
 	"Set a not-null label assigned to the receiver"
 	<objectSetter: #label>
@@ -48,7 +48,7 @@ TMyWithLabel >> label: aLabel [
 	self onPostLabelChanged
 ]
 
-{ #category : #'api - label' }
+{ #category : 'api - label' }
 TMyWithLabel >> onLabelChanged [
 	"Is sent when a new label is assigned to the receiver.
 	Note: #onLabelChanged is sent before #subscribeToLabel
@@ -58,7 +58,7 @@ TMyWithLabel >> onLabelChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onObjectChangedTemplate'>
 ]
 
-{ #category : #'api - label' }
+{ #category : 'api - label' }
 TMyWithLabel >> onPostLabelChanged [
 	"I am an optional hook method that is sent after #subscribeToLabel.
 	I do nothing by default but allow users to perform update operations when a receiver object is already
@@ -66,7 +66,7 @@ TMyWithLabel >> onPostLabelChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onPostObjectChangedTemplate'>
 ]
 
-{ #category : #'api - label' }
+{ #category : 'api - label' }
 TMyWithLabel >> subscribeToLabel [
 	"Is sent after a new label is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
@@ -74,7 +74,7 @@ TMyWithLabel >> subscribeToLabel [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#subscribeToObjectTemplate'>
 ]
 
-{ #category : #'api - label' }
+{ #category : 'api - label' }
 TMyWithLabel >> unsubscribeFromLabel [
 	"Is sent before a new label is assigned to the receiver.
 	Objects that subscribe to label are required to implement this method."

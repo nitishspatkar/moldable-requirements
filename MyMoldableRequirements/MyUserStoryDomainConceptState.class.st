@@ -1,15 +1,15 @@
 Class {
-	#name : #MyUserStoryDomainConceptState,
-	#superclass : #Object,
+	#name : 'MyUserStoryDomainConceptState',
+	#superclass : 'Object',
 	#instVars : [
 		'parentUserStoryDomainConceptStates',
 		'name',
 		'announcer'
 	],
-	#category : #'MyMoldableRequirements-User Story - Models'
+	#category : 'MyMoldableRequirements-User Story - Models'
 }
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyUserStoryDomainConceptState >> announce: anAnnouncement [
 	<generatedFrom: #'GtRobocoderMetamodelNotifierDerive>>#announceTemplate'>
 	announcer ifNotNil: [ :anAnnouncer | anAnnouncer announce: anAnnouncement ].
@@ -19,7 +19,7 @@ MyUserStoryDomainConceptState >> announce: anAnnouncement [
 		ifTrue: [ self parentUserStoryDomainConceptStates announce: anAnnouncement ].
 ]
 
-{ #category : #'api - name' }
+{ #category : 'api - name' }
 MyUserStoryDomainConceptState >> hasName [
 	<return: #Boolean>
 	<propertyTester: #name>
@@ -28,7 +28,7 @@ MyUserStoryDomainConceptState >> hasName [
 	^ name notNil
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyUserStoryDomainConceptState >> hasParentUserStoryDomainConceptStates [
 	"Return true if the parent object is attached"
 	<return: #Boolean>
@@ -38,7 +38,7 @@ MyUserStoryDomainConceptState >> hasParentUserStoryDomainConceptStates [
 	^ parentUserStoryDomainConceptStates notNil
 ]
 
-{ #category : #'api - name' }
+{ #category : 'api - name' }
 MyUserStoryDomainConceptState >> name [
 	<return: #Object>
 	<propertyGetter: #name>
@@ -47,7 +47,7 @@ MyUserStoryDomainConceptState >> name [
 	^ name
 ]
 
-{ #category : #'api - name' }
+{ #category : 'api - name' }
 MyUserStoryDomainConceptState >> name: aNewName [
 	<propertySetter: #name>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#propertySetterTemplate'>
@@ -67,7 +67,7 @@ MyUserStoryDomainConceptState >> name: aNewName [
 	self notifyNameChanged
 ]
 
-{ #category : #'api - name' }
+{ #category : 'api - name' }
 MyUserStoryDomainConceptState >> notifyNameChanged [
 	"Override this notify method to announce changes to the property"
 	<propertyChangeNotifier: #name>
@@ -76,21 +76,21 @@ MyUserStoryDomainConceptState >> notifyNameChanged [
 	self announce: (MyUserStoryDomainConceptStateNameChanged new userStoryDomainConceptState: self)
 ]
 
-{ #category : #'api - name' }
+{ #category : 'api - name' }
 MyUserStoryDomainConceptState >> onNewNameSet: aNewName [
 	"Is sent after a new value of the name is assigned"
 	<propertySetHook: #name>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#onNewPropertySetHookTemplate'>
 ]
 
-{ #category : #'api - name' }
+{ #category : 'api - name' }
 MyUserStoryDomainConceptState >> onPreviousNameUnset: aPreviousName [
 	"Is sent after a previous value of the name is de-assigned"
 	<propertyUnsetHook: #name>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#onPreviousPropertyUnsetHookTemplate'>
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyUserStoryDomainConceptState >> parentUserStoryDomainConceptStates [
 	"Return a parent object which is used to access various state properties,
 	for example parent may be responsible for knowing a selected child object.
@@ -106,7 +106,7 @@ MyUserStoryDomainConceptState >> parentUserStoryDomainConceptStates [
 	^ parentUserStoryDomainConceptStates
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyUserStoryDomainConceptState >> parentUserStoryDomainConceptStates: aMyUserStoryDomainConceptStates [
 	"Assign a parent object (${class:MyUserStoryDomainConceptStates}$) which is used to access various state properties,
 	for example parent may be responsible for knowing a selected child object.
@@ -121,13 +121,13 @@ MyUserStoryDomainConceptState >> parentUserStoryDomainConceptStates: aMyUserStor
 	parentUserStoryDomainConceptStates := aMyUserStoryDomainConceptStates
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 MyUserStoryDomainConceptState >> printOn: aStream [
 	<generatedFrom: #'GtRobocoderMetamodelPrintDerive>>#printOnTemplate'>
 	super printOn: aStream
 ]
 
-{ #category : #'api - name' }
+{ #category : 'api - name' }
 MyUserStoryDomainConceptState >> unsetName [
 	<propertyUnsetter: #name>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#propertyUnsetterTemplate'>
@@ -142,7 +142,7 @@ MyUserStoryDomainConceptState >> unsetName [
 	self notifyNameChanged
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyUserStoryDomainConceptState >> unsubscribe: anObject [
 	"Unsubscribe all subscriptions of anObject from the receiver"
 
@@ -150,14 +150,14 @@ MyUserStoryDomainConceptState >> unsubscribe: anObject [
 	^ announcer ifNotNil: [ :anAnnouncer | anAnnouncer unsubscribe: anObject ]
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyUserStoryDomainConceptState >> when: anAnnouncementClass do: aBlock [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenDoTemplate'>
 	^ (announcer ifNil: [ announcer := Announcer new ])
 		when: anAnnouncementClass do: aBlock
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyUserStoryDomainConceptState >> when: anAnnouncementClass send: aSelector to: anObject [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenSendToTemplate'>
 	^ (announcer ifNil: [ announcer := Announcer new ]) weak

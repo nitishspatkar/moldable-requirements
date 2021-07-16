@@ -1,10 +1,10 @@
 Class {
-	#name : #MyUserStoryAnnotatingElementExamples,
-	#superclass : #Object,
-	#category : #'MyMoldableRequirements-Examples'
+	#name : 'MyUserStoryAnnotatingElementExamples',
+	#superclass : 'Object',
+	#category : 'MyMoldableRequirements-Examples'
 }
 
-{ #category : #'examples - waiter' }
+{ #category : 'examples - waiter' }
 MyUserStoryAnnotatingElementExamples >> annotateWaiterUserStory [
 	<gtExample>
 	| aUserStory anAnnotatingElement |

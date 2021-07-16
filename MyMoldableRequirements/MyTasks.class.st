@@ -1,15 +1,15 @@
 Class {
-	#name : #MyTasks,
-	#superclass : #Object,
+	#name : 'MyTasks',
+	#superclass : 'Object',
 	#instVars : [
 		'tasks',
 		'parentUserStory',
 		'announcer'
 	],
-	#category : #'MyMoldableRequirements-User Story - Models'
+	#category : 'MyMoldableRequirements-User Story - Models'
 }
 
-{ #category : #generated }
+{ #category : 'generated' }
 MyTasks >> addTask: aTask [
 	"Add a given object as a child to the receiver and notify subscribers about it.
 	Do nothing if an object is already one of my children."
@@ -23,7 +23,7 @@ MyTasks >> addTask: aTask [
 	self onTaskAdded: aTask
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyTasks >> announce: anAnnouncement [
 	<generatedFrom: #'GtRobocoderMetamodelNotifierDerive>>#announceTemplate'>
 	announcer ifNotNil: [ :anAnnouncer | anAnnouncer announce: anAnnouncement ].
@@ -33,7 +33,7 @@ MyTasks >> announce: anAnnouncement [
 		ifTrue: [ self parentUserStory announce: anAnnouncement ].
 ]
 
-{ #category : #'private - instance creation' }
+{ #category : 'private - instance creation' }
 MyTasks >> createTasks [
 	"For each child from the domain model create an object and return a resulting collection"
 	<return: #Collection of: #MyTask>
@@ -47,7 +47,7 @@ MyTasks >> createTasks [
 		eachChild ] as: OrderedCollection
 ]
 
-{ #category : #'gt-extentions' }
+{ #category : 'gt-extentions' }
 MyTasks >> gtTaskListViewFor: aView [
 	<gtView>
 	<generatedFrom: #'GtRobocoderMetamodelPhlowListViewDerive>>#listForManyTemplate'>
@@ -58,7 +58,7 @@ MyTasks >> gtTaskListViewFor: aView [
 		items: [ self tasks ]
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyTasks >> hasParentUserStory [
 	"Return true if the parent object is attached"
 	<return: #Boolean>
@@ -68,7 +68,7 @@ MyTasks >> hasParentUserStory [
 	^ parentUserStory notNil
 ]
 
-{ #category : #'api - tasks' }
+{ #category : 'api - tasks' }
 MyTasks >> hasTasks [
 	"Return a true if nil is assigned to the receiver, false otherwise"
 	<return: #Boolean>
@@ -78,7 +78,7 @@ MyTasks >> hasTasks [
 	^ tasks notNil
 ]
 
-{ #category : #generated }
+{ #category : 'generated' }
 MyTasks >> includesTask: aTask [
 	"Check and return true if a given child object exists among my children, false otherwise.
 	The comparison happens by identity"
@@ -90,7 +90,7 @@ MyTasks >> includesTask: aTask [
 		eachTask == aTask ]
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyTasks >> isLabel [
 	"Return true if the receiver represents Label, false otherwise"
 	<return: #Boolean>
@@ -99,7 +99,7 @@ MyTasks >> isLabel [
 	^ false
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyTasks >> isLabels [
 	"Return true if the receiver represents Labels, false otherwise"
 	<return: #Boolean>
@@ -108,7 +108,7 @@ MyTasks >> isLabels [
 	^ false
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyTasks >> isNote [
 	"Return true if the receiver represents Note, false otherwise"
 	<return: #Boolean>
@@ -117,7 +117,7 @@ MyTasks >> isNote [
 	^ false
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyTasks >> isNotes [
 	"Return true if the receiver represents Notes, false otherwise"
 	<return: #Boolean>
@@ -126,7 +126,7 @@ MyTasks >> isNotes [
 	^ false
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyTasks >> isTask [
 	"Return true if the receiver represents Task, false otherwise"
 	<return: #Boolean>
@@ -135,7 +135,7 @@ MyTasks >> isTask [
 	^ false
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyTasks >> isTasks [
 	"Return true if the receiver represents Tasks, false otherwise"
 	<return: #Boolean>
@@ -144,7 +144,7 @@ MyTasks >> isTasks [
 	^ true
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyTasks >> isUserStory [
 	"Return true if the receiver represents UserStory, false otherwise"
 	<return: #Boolean>
@@ -153,7 +153,7 @@ MyTasks >> isUserStory [
 	^ false
 ]
 
-{ #category : #generated }
+{ #category : 'generated' }
 MyTasks >> notifyTaskAdded: aTask [
 	"Notifies that a given child object was added to the receiver"
 	
@@ -162,13 +162,13 @@ MyTasks >> notifyTaskAdded: aTask [
 		task: aTask) 
 ]
 
-{ #category : #generated }
+{ #category : 'generated' }
 MyTasks >> notifyTaskRemoved: aTask [
 	"Notifies that a given child object was removed from the receiver"
 	<generatedFrom: #'TGtRobocoderMetamodelRemovalForManyTemplate>>#notifyObjectRemovedTemplate'>
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyTasks >> objectName [
 	"Return a symbolic name of the receiver which helps to create various type based mappings.
 	Note: The symbolic name of the object is the exact name that was used
@@ -179,7 +179,7 @@ MyTasks >> objectName [
 	^ #tasks
 ]
 
-{ #category : #'api - tasks' }
+{ #category : 'api - tasks' }
 MyTasks >> onPostTasksChanged [
 	"I am an optional hook method that is sent after #subscribeToTasks.
 	I do nothing by default but allow users to perform update operations when a receiver object is already
@@ -187,7 +187,7 @@ MyTasks >> onPostTasksChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onPostObjectChangedTemplate'>
 ]
 
-{ #category : #generated }
+{ #category : 'generated' }
 MyTasks >> onTaskAdded: aTask [
 	"Is sent after a given child object was added to the receiver"
 
@@ -195,7 +195,7 @@ MyTasks >> onTaskAdded: aTask [
 	self notifyTaskAdded: aTask.
 ]
 
-{ #category : #generated }
+{ #category : 'generated' }
 MyTasks >> onTaskRemoved: aTask [
 	"Is sent after a given child object was removed from the receiver"
 
@@ -203,7 +203,7 @@ MyTasks >> onTaskRemoved: aTask [
 	self notifyTaskRemoved: aTask.
 ]
 
-{ #category : #'api - tasks' }
+{ #category : 'api - tasks' }
 MyTasks >> onTasksChanged [
 	"Is sent when a new tasks is assigned to the receiver.
 	Note: #onTasksChanged is sent before #subscribeToTasks
@@ -213,7 +213,7 @@ MyTasks >> onTasksChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onObjectChangedTemplate'>
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyTasks >> parentUserStory [
 	"Return a parent object which is used to access various state properties,
 	for example parent may be responsible for knowing a selected child object.
@@ -229,7 +229,7 @@ MyTasks >> parentUserStory [
 	^ parentUserStory
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyTasks >> parentUserStory: aMyUserStory [
 	"Assign a parent object (${class:MyUserStory}$) which is used to access various state properties,
 	for example parent may be responsible for knowing a selected child object.
@@ -244,13 +244,13 @@ MyTasks >> parentUserStory: aMyUserStory [
 	parentUserStory := aMyUserStory
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 MyTasks >> printOn: aStream [
 	<generatedFrom: #'GtRobocoderMetamodelPrintDerive>>#printOnTemplate'>
 	super printOn: aStream
 ]
 
-{ #category : #generated }
+{ #category : 'generated' }
 MyTasks >> removeTask: aTask [
 	"Removed a given child object from the receiver and notify subscribers about it.
 	Do nothing if an object is not one of my children."
@@ -264,7 +264,7 @@ MyTasks >> removeTask: aTask [
 	self onTaskRemoved: aTask
 ]
 
-{ #category : #'api - tasks' }
+{ #category : 'api - tasks' }
 MyTasks >> subscribeToTasks [
 	"Is sent after a new tasks is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
@@ -272,7 +272,7 @@ MyTasks >> subscribeToTasks [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#subscribeToObjectTemplate'>
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyTasks >> tasks [
 	"Return a collection of objects (${class:MyTask}$) created for each child from the domain model.
 	Note: The children are lazily instantiated."
@@ -283,7 +283,7 @@ MyTasks >> tasks [
 	^  tasks ifNil: [ tasks := self createTasks ]
 ]
 
-{ #category : #'api - tasks' }
+{ #category : 'api - tasks' }
 MyTasks >> tasks: aTasks [
 	"Set a not-null tasks assigned to the receiver"
 	<objectSetter: #tasks>
@@ -303,7 +303,7 @@ MyTasks >> tasks: aTasks [
 	self onPostTasksChanged
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyTasks >> unsubscribe: anObject [
 	"Unsubscribe all subscriptions of anObject from the receiver"
 
@@ -311,21 +311,21 @@ MyTasks >> unsubscribe: anObject [
 	^ announcer ifNotNil: [ :anAnnouncer | anAnnouncer unsubscribe: anObject ]
 ]
 
-{ #category : #'api - tasks' }
+{ #category : 'api - tasks' }
 MyTasks >> unsubscribeFromTasks [
 	"Is sent before a new tasks is assigned to the receiver.
 	Objects that subscribe to tasks are required to implement this method."
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#unsubscribeFromObjectTemplate'>
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyTasks >> when: anAnnouncementClass do: aBlock [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenDoTemplate'>
 	(announcer ifNil: [ announcer := Announcer new ])
 		when: anAnnouncementClass do: aBlock
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyTasks >> when: anAnnouncementClass send: aSelector to: anObject [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenSendToTemplate'>
 	(announcer ifNil: [ announcer := Announcer new ]) weak

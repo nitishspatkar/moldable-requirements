@@ -1,6 +1,6 @@
 Class {
-	#name : #MyUserStory,
-	#superclass : #Object,
+	#name : 'MyUserStory',
+	#superclass : 'Object',
 	#traits : 'TMyWithAcceptanceCriteria + TMyWithStatus',
 	#classTraits : 'TMyWithAcceptanceCriteria classTrait + TMyWithStatus classTrait',
 	#instVars : [
@@ -21,10 +21,10 @@ Class {
 		'tasks',
 		'annotations'
 	],
-	#category : #'MyMoldableRequirements-User Story - Models'
+	#category : 'MyMoldableRequirements-User Story - Models'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory class >> fromRawData: userStoryDict [
 	^ self
 		id: (userStoryDict at: #id)
@@ -49,7 +49,7 @@ MyUserStory class >> fromRawData: userStoryDict [
 		notes: ((userStoryDict at: #notes) collect: [:notesDict | MyNote fromRawData: notesDict])
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString3 acceptanceCriteria: aString4 status: anotherString points: aNumber scenarios: anArray personas: anArray2 assignees: anotherArray labels: anotherArray2 tasks: yetAnotherArray notes: lastArray [
 	^ self new
 		id: aString;
@@ -68,7 +68,7 @@ MyUserStory class >> id: aString role: aString1 means: aString2 benefit: aString
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> aButtonCircularAptitude [
 "returns with aWithAllStatiDropdownAptitude a circular button aptitude for the status"
 ^ [BrInteractiveCommonAptitude new
@@ -76,7 +76,7 @@ MyUserStory >> aButtonCircularAptitude [
 								background: self statusColor]] asStencil.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> aWithAllLabelsDropdownAptitude [
 "returns a dropdown of all labels"
 
@@ -87,7 +87,7 @@ MyUserStory >> aWithAllLabelsDropdownAptitude [
 		content: [ self labelListForDropdown  ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> aWithAllPersonasDropdownAptitude [
 "returns a dropdown of all personas"
 
@@ -98,7 +98,7 @@ MyUserStory >> aWithAllPersonasDropdownAptitude [
 		content: [ self personaListForDropdown  ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> aWithAllTeamMembersDropdownAptitude [
 	"returns a dropdown of all team members"
 
@@ -109,7 +109,7 @@ MyUserStory >> aWithAllTeamMembersDropdownAptitude [
 		content: [ self teamMembersListForDropdown ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> addNoteDropdownAptitude [
 ^ BrGlamorousWithDropdownAptitude 
 	handle: [BrButton new
@@ -124,7 +124,7 @@ MyUserStory >> addNoteDropdownAptitude [
 			note asFormElement: [ notes addNote: note ]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> addTaskDropdownAptitude [
 	^ BrGlamorousWithDropdownAptitude 
 	handle: [BrButton new
@@ -142,30 +142,30 @@ MyUserStory >> addTaskDropdownAptitude [
 			task asFormElement: [ tasks addTask: task ]].
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> allStati [
 	"returns an orderedCollection of stati"
 	
 	^ MyUserStatusOld allSubclasses collect: [ :eachStatusClass | eachStatusClass new ]
 ]
 
-{ #category : #'api - annotations' }
+{ #category : 'api - annotations' }
 MyUserStory >> annotations [
 	^ annotations ifNil: [ annotations := self createAnnotations ]
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyUserStory >> announce: anAnnouncement [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#announceTemplate'>
 	announcer ifNotNil: [ :anAnnouncer | anAnnouncer announce: anAnnouncement ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> announcer [
 ^announcer
 ]
 
-{ #category : #'private - instance creation' }
+{ #category : 'private - instance creation' }
 MyUserStory >> asDetailedStoryCard [
 	"Returns a bloc element that renders a card"
 	| task taskDescription notesContainer card assigned |
@@ -248,7 +248,7 @@ MyUserStory >> asDetailedStoryCard [
 	^ card
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> asFormElement: aBlock [
 	"a user story presents itself as a form to be filled and save as an object"
 
@@ -320,7 +320,7 @@ MyUserStory >> asFormElement: aBlock [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> asMinimalStoryCard [
 	| card labelContainer storyContainer assigneesContainer cardLeft cardRight statusContainer |
 	card := BlElement new
@@ -445,7 +445,7 @@ MyUserStory >> asMinimalStoryCard [
 	^card
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> asUserStoryEditable [
 "Returns a vertical element of a editable user story for the detailed story card"
 	^ BlElement new
@@ -498,7 +498,7 @@ MyUserStory >> asUserStoryEditable [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> assigneeLabelAndDropdown [
 ^BlElement new
 		layout: BlLinearLayout horizontal;
@@ -528,7 +528,7 @@ MyUserStory >> assigneeLabelAndDropdown [
 						label: 'Remove a Team Member').
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> assigneeListForDropdown [
 | dropdown |
 dropdown := BlElement new
@@ -545,23 +545,23 @@ dropdown := BlElement new
 			^dropdown
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> assignees [
 ^assignees
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> assignees: anArray [
  assignees := anArray
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> benefit: aString [
 "part after 'so that' in user story"
 	benefit := aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> checklistContainerWithDropdown [
 | checklistContainer |
 	checklistContainer := BlElement new
@@ -588,12 +588,12 @@ MyUserStory >> checklistContainerWithDropdown [
 						label: 'Remove a Task').
 ]
 
-{ #category : #'private - instance creation' }
+{ #category : 'private - instance creation' }
 MyUserStory >> createAnnotations [
 	^ MyUserStoryAnnotations new
 ]
 
-{ #category : #'private - instance creation' }
+{ #category : 'private - instance creation' }
 MyUserStory >> createLabels [
 	"Create a nested child object for a domain child (or children) and return the result"
 	<return: #MyLabels>
@@ -606,7 +606,7 @@ MyUserStory >> createLabels [
 	^ childObject
 ]
 
-{ #category : #'private - instance creation' }
+{ #category : 'private - instance creation' }
 MyUserStory >> createNotes [
 	"Create a nested child object for a domain child (or children) and return the result"
 	<return: #MyNotes>
@@ -619,7 +619,7 @@ MyUserStory >> createNotes [
 	^ childObject
 ]
 
-{ #category : #'private - instance creation' }
+{ #category : 'private - instance creation' }
 MyUserStory >> createTasks [
 	"Create a nested child object for a domain child (or children) and return the result"
 	<return: #MyTasks>
@@ -632,7 +632,7 @@ MyUserStory >> createTasks [
 	^ childObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> customEntityElementFor: aReference [
 	"generate a UI element for a missing reference to a class, used in the Referenced Entities view"
 
@@ -658,7 +658,7 @@ MyUserStory >> customEntityElementFor: aReference [
 	^ container
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> description [
 "returns user story with benefit if defined, otherwise without"
 	(benefit isEmpty
@@ -668,32 +668,32 @@ MyUserStory >> description [
 	^ description
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> description: aString [
 	description := aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> epic [
 ^epic
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> epic: anEpic [
 epic := anEpic
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> getLabels [
 ^self epic project labels labels
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> getPersonas [
 ^ self epic project personas
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> getReferencesFrom: aDocument [
 	"filter out all references to domain entities from a document"
 
@@ -726,12 +726,12 @@ MyUserStory >> getReferencesFrom: aDocument [
 	^ references asSet asOrderedCollection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> getTeamMembers [
 ^epic project teamMembers
 ]
 
-{ #category : #'gt-extentions' }
+{ #category : 'gt-extentions' }
 MyUserStory >> gtAnnotationsFor: aView [
 	<gtView>
 
@@ -742,7 +742,7 @@ MyUserStory >> gtAnnotationsFor: aView [
 		updateWhen: MyUserStoryAnnotationAddedAnnouncement, MyUserStoryAnnotationRemovedAnnouncement in: self annotations
 ]
 
-{ #category : #'gt-extentions' }
+{ #category : 'gt-extentions' }
 MyUserStory >> gtDescriptionFor: aView [
 	<gtView>
 
@@ -752,7 +752,7 @@ MyUserStory >> gtDescriptionFor: aView [
 		stencil: [ MyUserStoryAnnotatingElement new userStory: self ]
 ]
 
-{ #category : #'gt-extentions' }
+{ #category : 'gt-extentions' }
 MyUserStory >> gtDetailedStoryCardFor: aView [
 	<gtView>
 	^aView explicit
@@ -769,7 +769,7 @@ MyUserStory >> gtDetailedStoryCardFor: aView [
 				yourself ]
 ]
 
-{ #category : #'gt-extentions' }
+{ #category : 'gt-extentions' }
 MyUserStory >> gtLabelsListViewFor: aView [
 	<gtView>
 	<generatedFrom: #'GtRobocoderMetamodelPhlowListViewDerive>>#listForOneTemplate'>
@@ -780,7 +780,7 @@ MyUserStory >> gtLabelsListViewFor: aView [
 		items: [ self labels labels ]
 ]
 
-{ #category : #'gt-extentions' }
+{ #category : 'gt-extentions' }
 MyUserStory >> gtMinimalStoryCardFor: aView [
 	<gtView>
 	^ aView explicit
@@ -796,7 +796,7 @@ MyUserStory >> gtMinimalStoryCardFor: aView [
 				yourself ]
 ]
 
-{ #category : #'gt-extentions' }
+{ #category : 'gt-extentions' }
 MyUserStory >> gtNotesListViewFor: aView [
 	<gtView>
 	<generatedFrom: #'GtRobocoderMetamodelPhlowListViewDerive>>#listForOneTemplate'>
@@ -807,7 +807,7 @@ MyUserStory >> gtNotesListViewFor: aView [
 		items: [ self notes notes ]
 ]
 
-{ #category : #'gt-extentions' }
+{ #category : 'gt-extentions' }
 MyUserStory >> gtReferencedEntitiesFor: aView [
 	<gtView>
 	| listView |
@@ -829,7 +829,7 @@ MyUserStory >> gtReferencedEntitiesFor: aView [
 	^ listView
 ]
 
-{ #category : #'gt-extentions' }
+{ #category : 'gt-extentions' }
 MyUserStory >> gtScenariosFor: aView [
 	<gtView>
 	| scenario |
@@ -860,7 +860,7 @@ MyUserStory >> gtScenariosFor: aView [
 				yourself ]
 ]
 
-{ #category : #'gt-extentions' }
+{ #category : 'gt-extentions' }
 MyUserStory >> gtTasksListViewFor: aView [
 	<gtView>
 	<generatedFrom: #'GtRobocoderMetamodelPhlowListViewDerive>>#listForOneTemplate'>
@@ -871,12 +871,12 @@ MyUserStory >> gtTasksListViewFor: aView [
 		items: [ self tasks tasks ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> id: aString [
 	id := aString
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 MyUserStory >> initialize [
 	super initialize.
 
@@ -894,17 +894,17 @@ MyUserStory >> initialize [
 	labels := MyLabels new
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 MyUserStory >> isDone [
 	^ self status isDone
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 MyUserStory >> isInProgress [
 	^ self status isInProgress
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyUserStory >> isLabel [
 	"Return true if the receiver represents Label, false otherwise"
 	<return: #Boolean>
@@ -913,7 +913,7 @@ MyUserStory >> isLabel [
 	^ false
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyUserStory >> isLabels [
 	"Return true if the receiver represents Labels, false otherwise"
 	<return: #Boolean>
@@ -922,7 +922,7 @@ MyUserStory >> isLabels [
 	^ false
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyUserStory >> isNote [
 	"Return true if the receiver represents Note, false otherwise"
 	<return: #Boolean>
@@ -931,7 +931,7 @@ MyUserStory >> isNote [
 	^ false
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyUserStory >> isNotes [
 	"Return true if the receiver represents Notes, false otherwise"
 	<return: #Boolean>
@@ -940,7 +940,7 @@ MyUserStory >> isNotes [
 	^ false
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyUserStory >> isTask [
 	"Return true if the receiver represents Task, false otherwise"
 	<return: #Boolean>
@@ -949,7 +949,7 @@ MyUserStory >> isTask [
 	^ false
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyUserStory >> isTasks [
 	"Return true if the receiver represents Tasks, false otherwise"
 	<return: #Boolean>
@@ -958,7 +958,7 @@ MyUserStory >> isTasks [
 	^ false
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyUserStory >> isUserStory [
 	"Return true if the receiver represents UserStory, false otherwise"
 	<return: #Boolean>
@@ -967,7 +967,7 @@ MyUserStory >> isUserStory [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> labelListForDropdown [
 | dropdown |
 dropdown := BlElement new
@@ -984,7 +984,7 @@ dropdown := BlElement new
 			^dropdown
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> labelListForRemoveDropdown [
 | dropdown |
 dropdown := BlElement new
@@ -1001,7 +1001,7 @@ dropdown := BlElement new
 			^dropdown
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyUserStory >> labels [
 	"Return a composite object (${class:nil}$) created for a collection of children from the domain model.
 	Note: The object is lazily instantiated."
@@ -1012,12 +1012,12 @@ MyUserStory >> labels [
 	^ labels ifNil: [ labels := self createLabels ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> labels: anArray [
 	labels labels: anArray asOrderedCollection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> labelsLabelAndDropdown [
 ^BlElement new
 		layout: BlLinearLayout horizontal;
@@ -1047,25 +1047,25 @@ MyUserStory >> labelsLabelAndDropdown [
 						label: 'Remove a Label').
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> means: aString [
 "the part of a user story after 'I want' "
  means := aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> notes [
 	<return: #MyNotes>
 
 	^ notes
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> notes: anArray [
 	notes notes: (anArray select: #notNil) asOrderedCollection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> notesContainerWithDropdown [
 | notesContainer |
 	notesContainer := BlElement new
@@ -1092,7 +1092,7 @@ MyUserStory >> notesContainerWithDropdown [
 						label: 'Remove a Note').
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> notesListForDropdown [
 | dropdown |
 dropdown := BlElement new
@@ -1109,7 +1109,7 @@ dropdown := BlElement new
 			^dropdown
 ]
 
-{ #category : #'api - acceptance criteria' }
+{ #category : 'api - acceptance criteria' }
 MyUserStory >> notifyAcceptanceCriteriaChanged [
 	"Override this notify method to announce changes to the property"
 	<propertyChangeNotifier: #acceptanceCriteria>
@@ -1118,7 +1118,7 @@ MyUserStory >> notifyAcceptanceCriteriaChanged [
 	self announcer announce: MyUserStoryAcceptanceCriteriaChanged new
 ]
 
-{ #category : #'api - status' }
+{ #category : 'api - status' }
 MyUserStory >> notifyStatusChanged [
 	"Override this notify method to announce changes to the property"
 	<propertyChangeNotifier: #status>
@@ -1128,7 +1128,7 @@ MyUserStory >> notifyStatusChanged [
 	self announcer announce: (MyUserStoryStatusChanged new)
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyUserStory >> objectName [
 	"Return a symbolic name of the receiver which helps to create various type based mappings.
 	Note: The symbolic name of the object is the exact name that was used
@@ -1139,14 +1139,14 @@ MyUserStory >> objectName [
 	^ #userStory
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> parseStory [
 	| aPRDocument |
 	aPRDocument := GtDocumenterParser new parse: self description.
 	^ aPRDocument
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> personaLabelAndDropdown [
 	^ BlElement new
 		layout: BlLinearLayout horizontal;
@@ -1196,7 +1196,7 @@ MyUserStory >> personaLabelAndDropdown [
 				label: 'Remove a Persona')
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> personaListForDropdown [
 | dropdown |
 dropdown := BlElement new
@@ -1213,7 +1213,7 @@ dropdown := BlElement new
 			^dropdown
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> personaListForRemoveDropdown [
 | dropdown |
 dropdown := BlElement new
@@ -1230,29 +1230,29 @@ dropdown := BlElement new
 			^dropdown
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> personas [
 ^personas
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> personas: anArray [
 personas := anArray
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> points: aNumber [
 	points := aNumber
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 MyUserStory >> printOn: aStream [
 	<generatedFrom: #'GtRobocoderMetamodelPrintDerive>>#printOnTemplate'>
 
 	aStream print: self description
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> removeAssigneeDropdownAptitude [
 ^ BrGlamorousWithDropdownAptitude 
 	handle: [BrButton new
@@ -1262,7 +1262,7 @@ MyUserStory >> removeAssigneeDropdownAptitude [
 	content: [ self assigneeListForDropdown]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> removeLabelDropdownAptitude [
 ^ BrGlamorousWithDropdownAptitude 
 	handle: [BrButton new
@@ -1272,7 +1272,7 @@ MyUserStory >> removeLabelDropdownAptitude [
 	content: [ self labelListForRemoveDropdown]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> removeNoteDropdownAptitude [
 ^ BrGlamorousWithDropdownAptitude 
 	handle: [BrButton new
@@ -1282,7 +1282,7 @@ MyUserStory >> removeNoteDropdownAptitude [
 	content: [ self notesListForDropdown]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> removePersonaDropdownAptitude [
 ^ BrGlamorousWithDropdownAptitude 
 	handle: [BrButton new
@@ -1292,7 +1292,7 @@ MyUserStory >> removePersonaDropdownAptitude [
 	content: [ self personaListForRemoveDropdown]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> removeTaskDropdownAptitude [
 ^ BrGlamorousWithDropdownAptitude 
 	handle: [BrButton new
@@ -1302,23 +1302,23 @@ MyUserStory >> removeTaskDropdownAptitude [
 	content: [ self taskListForDropdown]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> role [
 ^role
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> role: aString [
 "the part of a user story after 'As a' "
  role := aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> scenarios: anArray [
 	scenarios := anArray do: [ :each | each notNil ifTrue: [each userStory: self]]
 ]
 
-{ #category : #'api - status' }
+{ #category : 'api - status' }
 MyUserStory >> status [
 	<return: #MyUserStatusOld>
 	<propertyGetter: #status>
@@ -1327,12 +1327,12 @@ MyUserStory >> status [
 	^ status
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> statusColor [
 	^ status statusColor
 ]
 
-{ #category : #'private - instance creation' }
+{ #category : 'private - instance creation' }
 MyUserStory >> statusLabelAndDropdown [
 	| statusElement |
 
@@ -1358,12 +1358,12 @@ MyUserStory >> statusLabelAndDropdown [
 	^ statusElement
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> subItems [
  ^ OrderedCollection new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> taskListForDropdown [
 | dropdown |
 dropdown := BlElement new
@@ -1380,7 +1380,7 @@ dropdown := BlElement new
 			^dropdown
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyUserStory >> tasks [
 	"Return a composite object (${class:nil}$) created for a collection of children from the domain model.
 	Note: The object is lazily instantiated."
@@ -1391,12 +1391,12 @@ MyUserStory >> tasks [
 	^ tasks ifNil: [ tasks := self createTasks ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> tasks: anArray [
 	tasks tasks: (anArray select: #notNil) asOrderedCollection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStory >> teamMembersListForDropdown [
 | dropdown |
 dropdown := BlElement new
@@ -1413,7 +1413,7 @@ dropdown := BlElement new
 			^dropdown
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyUserStory >> unsubscribe: anObject [
 	"Unsubscribe all subscriptions of anObject from the receiver"
 
@@ -1421,14 +1421,14 @@ MyUserStory >> unsubscribe: anObject [
 	^ announcer ifNotNil: [ :anAnnouncer | anAnnouncer unsubscribe: anObject ]
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyUserStory >> when: anAnnouncementClass do: aBlock [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenDoTemplate'>
 	(announcer ifNil: [ announcer := Announcer new ])
 		when: anAnnouncementClass do: aBlock
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyUserStory >> when: anAnnouncementClass send: aSelector to: anObject [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenSendToTemplate'>
 	(announcer ifNil: [ announcer := Announcer new ]) weak

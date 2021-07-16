@@ -1,16 +1,16 @@
 Class {
-	#name : #MyBoard,
-	#superclass : #Object,
+	#name : 'MyBoard',
+	#superclass : 'Object',
 	#instVars : [
 		'columns',
 		'id',
 		'userStories',
 		'project'
 	],
-	#category : #'MyMoldableRequirements-Models'
+	#category : 'MyMoldableRequirements-Models'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyBoard >> asBoard [
 	| board headerContainer columnContainer column |
 
@@ -71,25 +71,26 @@ MyBoard >> asBoard [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyBoard >> columns: anArray [
-columns := anArray
+	columns := anArray
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyBoard >> fromRawData: aBoard [ 
 ^ self
 	id: (aBoard at: #id);
 	columns: ((aBoard at: #columns) collect: [ :columnDict | MyColumn fromRawData: columnDict])
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyBoard >> getUserStories [
-userStories := OrderedCollection new.
-project epics collect: [:each | self userStories: (each userStories)]
+	userStories := OrderedCollection new.
+	project epics collect: [:each | 
+		self userStories: (each userStories) ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyBoard >> gtBoardFor: aView [
 	<gtView>
 	^ aView explicit
@@ -102,27 +103,27 @@ MyBoard >> gtBoardFor: aView [
 			c vertical fitContent ].]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyBoard >> id: aNumber [
 id := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyBoard >> project [
-^project
+	^project
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyBoard >> project: aProject [
-project:= aProject
+	project:= aProject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyBoard >> userStories [
-^userStories
+	^userStories
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyBoard >> userStories: anArray [
-anArray collect: [ :each | userStories add: each].
+	anArray collect: [ :each | userStories add: each].
 ]

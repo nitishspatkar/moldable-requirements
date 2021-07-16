@@ -1,15 +1,15 @@
 Class {
-	#name : #MyUserStoryDomainConceptStatesEditorElement,
-	#superclass : #BrVerticalPane,
+	#name : 'MyUserStoryDomainConceptStatesEditorElement',
+	#superclass : 'BrVerticalPane',
 	#traits : 'TMyWithUserStoryDomainConceptStates',
 	#classTraits : 'TMyWithUserStoryDomainConceptStates classTrait',
 	#instVars : [
 		'statesContainer'
 	],
-	#category : #'MyMoldableRequirements-User Story - Views'
+	#category : 'MyMoldableRequirements-User Story - Views'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 MyUserStoryDomainConceptStatesEditorElement >> initialize [
 	super initialize.
 
@@ -28,7 +28,7 @@ MyUserStoryDomainConceptStatesEditorElement >> initialize [
 	self addChild: statesContainer
 ]
 
-{ #category : #'api - user story domain concept states' }
+{ #category : 'api - user story domain concept states' }
 MyUserStoryDomainConceptStatesEditorElement >> onUserStoryDomainConceptStatesChanged [
 	"Is sent when a new userStoryDomainConceptStates is assigned to the receiver.
 	Note: #onUserStoryDomainConceptStatesChanged is sent before #subscribeToUserStoryDomainConceptStates
@@ -51,7 +51,7 @@ MyUserStoryDomainConceptStatesEditorElement >> onUserStoryDomainConceptStatesCha
 		action: [ self userStoryDomainConceptStates addUserStoryDomainConceptState: (MyUserStoryDomainConceptState new name: 'state') ])
 ]
 
-{ #category : #'api - user story domain concept states' }
+{ #category : 'api - user story domain concept states' }
 MyUserStoryDomainConceptStatesEditorElement >> subscribeToUserStoryDomainConceptStates [
 	"Is sent after a new userStoryDomainConceptStates is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
@@ -65,7 +65,7 @@ MyUserStoryDomainConceptStatesEditorElement >> subscribeToUserStoryDomainConcept
 		to: self
 ]
 
-{ #category : #'api - user story domain concept states' }
+{ #category : 'api - user story domain concept states' }
 MyUserStoryDomainConceptStatesEditorElement >> unsubscribeFromUserStoryDomainConceptStates [
 	"Is sent before a new userStoryDomainConceptStates is assigned to the receiver.
 	Objects that subscribe to userStoryDomainConceptStates are required to implement this method."

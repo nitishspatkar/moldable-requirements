@@ -1,10 +1,10 @@
 Class {
-	#name : #MyUserStoryNotesExamples,
-	#superclass : #Object,
-	#category : #'MyMoldableRequirements-Examples'
+	#name : 'MyUserStoryNotesExamples',
+	#superclass : 'Object',
+	#category : 'MyMoldableRequirements-Examples'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 MyUserStoryNotesExamples >> addingNewNotes [
 	| notes |
 	

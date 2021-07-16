@@ -1,31 +1,31 @@
 Class {
-	#name : #MyUserStoryAnnotationCoder,
-	#superclass : #GtTextCoder,
+	#name : 'MyUserStoryAnnotationCoder',
+	#superclass : 'GtTextCoder',
 	#traits : 'TMyWithUserStoryAnnotations',
 	#classTraits : 'TMyWithUserStoryAnnotations classTrait',
-	#category : #'MyMoldableRequirements-Coder'
+	#category : 'MyMoldableRequirements-Coder'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStoryAnnotationCoder >> addUserStoryAnnotation: aMyUserStoryAnnotation [
 	self userStoryAnnotations addUserStoryAnnotation: aMyUserStoryAnnotation
 ]
 
-{ #category : #'api - ast' }
+{ #category : 'api - ast' }
 MyUserStoryAnnotationCoder >> computeAst: theSourceString [
 	^ MyUserStoryParser
 		parse: theSourceString
 		withAnnotations: self userStoryAnnotations userStoryAnnotations
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 MyUserStoryAnnotationCoder >> initialize [
 	super initialize.
 	
 	self userStoryAnnotations: MyUserStoryAnnotations new
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 MyUserStoryAnnotationCoder >> initializeAddOns: addOns [
 	super initializeAddOns: addOns.
 	
@@ -41,7 +41,7 @@ MyUserStoryAnnotationCoder >> initializeAddOns: addOns [
 					self addUserStoryAnnotation: (MyUserStoryAnnotation new name: aNewAnnotationText) ] ]
 ]
 
-{ #category : #'private - event handling' }
+{ #category : 'private - event handling' }
 MyUserStoryAnnotationCoder >> onUserStoryAnnotationsChanged [
 	"Is sent when a new userStoryAnnotations is assigned to the receiver.
 	Note: #onUserStoryAnnotationsChanged is sent before #subscribeToUserStoryAnnotations
@@ -53,7 +53,7 @@ MyUserStoryAnnotationCoder >> onUserStoryAnnotationsChanged [
 	self sourceChanged
 ]
 
-{ #category : #'api - user story annotations' }
+{ #category : 'api - user story annotations' }
 MyUserStoryAnnotationCoder >> subscribeToUserStoryAnnotations [
 	"Is sent after a new userStoryAnnotations is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
@@ -67,7 +67,7 @@ MyUserStoryAnnotationCoder >> subscribeToUserStoryAnnotations [
 		to: self
 ]
 
-{ #category : #'api - user story annotations' }
+{ #category : 'api - user story annotations' }
 MyUserStoryAnnotationCoder >> unsubscribeFromUserStoryAnnotations [
 	"Is sent before a new userStoryAnnotations is assigned to the receiver.
 	Objects that subscribe to userStoryAnnotations are required to implement this method."

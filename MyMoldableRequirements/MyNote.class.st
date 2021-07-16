@@ -1,6 +1,6 @@
 Class {
-	#name : #MyNote,
-	#superclass : #Object,
+	#name : 'MyNote',
+	#superclass : 'Object',
 	#instVars : [
 		'id',
 		'author',
@@ -8,10 +8,10 @@ Class {
 		'parentNotes',
 		'announcer'
 	],
-	#category : #'MyMoldableRequirements-User Story - Models'
+	#category : 'MyMoldableRequirements-User Story - Models'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 MyNote class >> fromRawData: notesDict [ 
 	^ self
 		id: (notesDict at: #id)
@@ -19,7 +19,7 @@ MyNote class >> fromRawData: notesDict [
 		author: (notesDict at: #author)
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 MyNote class >> id: aNumber description: aString author: anotherString [
 	^ self new
 		id: aNumber;
@@ -28,7 +28,7 @@ MyNote class >> id: aNumber description: aString author: anotherString [
 		yourself 
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyNote >> announce: anAnnouncement [
 	<generatedFrom: #'GtRobocoderMetamodelNotifierDerive>>#announceTemplate'>
 	announcer ifNotNil: [ :anAnnouncer | anAnnouncer announce: anAnnouncement ].
@@ -38,7 +38,7 @@ MyNote >> announce: anAnnouncement [
 		ifTrue: [ self parentNotes announce: anAnnouncement ].
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 MyNote >> asFormElement: aBlock [
 	"an epic presents itself as a form to be filled and save as an object"
 
@@ -91,17 +91,17 @@ MyNote >> asFormElement: aBlock [
 		yourself
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyNote >> author [
 	^ author
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyNote >> author: anObject [
 	author := anObject
 ]
 
-{ #category : #'api - description' }
+{ #category : 'api - description' }
 MyNote >> description [
 	"Return a not-null description assigned to the receiver"
 	<objectGetter: #description>
@@ -113,7 +113,7 @@ MyNote >> description [
 	^ description
 ]
 
-{ #category : #'api - description' }
+{ #category : 'api - description' }
 MyNote >> description: aDescription [
 	"Set a not-null description assigned to the receiver"
 	<objectSetter: #description>
@@ -133,7 +133,7 @@ MyNote >> description: aDescription [
 	self onPostDescriptionChanged
 ]
 
-{ #category : #'api - description' }
+{ #category : 'api - description' }
 MyNote >> hasDescription [
 	"Return a true if nil is assigned to the receiver, false otherwise"
 	<return: #Boolean>
@@ -143,7 +143,7 @@ MyNote >> hasDescription [
 	^ description notNil
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyNote >> hasParentNotes [
 	"Return true if the parent object is attached"
 	<return: #Boolean>
@@ -153,17 +153,17 @@ MyNote >> hasParentNotes [
 	^ parentNotes notNil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyNote >> id [
 	^ id
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyNote >> id: anObject [
 	id := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 MyNote >> initialize [
 	super initialize.
 	
@@ -171,7 +171,7 @@ MyNote >> initialize [
 	author := 'Unknown Author'
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyNote >> isLabel [
 	"Return true if the receiver represents Label, false otherwise"
 	<return: #Boolean>
@@ -180,7 +180,7 @@ MyNote >> isLabel [
 	^ false
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyNote >> isLabels [
 	"Return true if the receiver represents Labels, false otherwise"
 	<return: #Boolean>
@@ -189,7 +189,7 @@ MyNote >> isLabels [
 	^ false
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyNote >> isNote [
 	"Return true if the receiver represents Note, false otherwise"
 	<return: #Boolean>
@@ -198,7 +198,7 @@ MyNote >> isNote [
 	^ true
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyNote >> isNotes [
 	"Return true if the receiver represents Notes, false otherwise"
 	<return: #Boolean>
@@ -207,7 +207,7 @@ MyNote >> isNotes [
 	^ false
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyNote >> isTask [
 	"Return true if the receiver represents Task, false otherwise"
 	<return: #Boolean>
@@ -216,7 +216,7 @@ MyNote >> isTask [
 	^ false
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyNote >> isTasks [
 	"Return true if the receiver represents Tasks, false otherwise"
 	<return: #Boolean>
@@ -225,7 +225,7 @@ MyNote >> isTasks [
 	^ false
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyNote >> isUserStory [
 	"Return true if the receiver represents UserStory, false otherwise"
 	<return: #Boolean>
@@ -234,7 +234,7 @@ MyNote >> isUserStory [
 	^ false
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyNote >> objectName [
 	"Return a symbolic name of the receiver which helps to create various type based mappings.
 	Note: The symbolic name of the object is the exact name that was used
@@ -245,7 +245,7 @@ MyNote >> objectName [
 	^ #note
 ]
 
-{ #category : #'api - description' }
+{ #category : 'api - description' }
 MyNote >> onDescriptionChanged [
 	"Is sent when a new description is assigned to the receiver.
 	Note: #onDescriptionChanged is sent before #subscribeToDescription
@@ -255,7 +255,7 @@ MyNote >> onDescriptionChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onObjectChangedTemplate'>
 ]
 
-{ #category : #'api - description' }
+{ #category : 'api - description' }
 MyNote >> onPostDescriptionChanged [
 	"I am an optional hook method that is sent after #subscribeToDescription.
 	I do nothing by default but allow users to perform update operations when a receiver object is already
@@ -263,7 +263,7 @@ MyNote >> onPostDescriptionChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onPostObjectChangedTemplate'>
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyNote >> parentNotes [
 	"Return a parent object which is used to access various state properties,
 	for example parent may be responsible for knowing a selected child object.
@@ -279,7 +279,7 @@ MyNote >> parentNotes [
 	^ parentNotes
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyNote >> parentNotes: aMyNotes [
 	"Assign a parent object (${class:MyNotes}$) which is used to access various state properties,
 	for example parent may be responsible for knowing a selected child object.
@@ -294,12 +294,12 @@ MyNote >> parentNotes: aMyNotes [
 	parentNotes := aMyNotes
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 MyNote >> printOn: aStream [
 	aStream nextPutAll: description
 ]
 
-{ #category : #'api - description' }
+{ #category : 'api - description' }
 MyNote >> subscribeToDescription [
 	"Is sent after a new description is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
@@ -307,7 +307,7 @@ MyNote >> subscribeToDescription [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#subscribeToObjectTemplate'>
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyNote >> unsubscribe: anObject [
 	"Unsubscribe all subscriptions of anObject from the receiver"
 
@@ -315,21 +315,21 @@ MyNote >> unsubscribe: anObject [
 	^ announcer ifNotNil: [ :anAnnouncer | anAnnouncer unsubscribe: anObject ]
 ]
 
-{ #category : #'api - description' }
+{ #category : 'api - description' }
 MyNote >> unsubscribeFromDescription [
 	"Is sent before a new description is assigned to the receiver.
 	Objects that subscribe to description are required to implement this method."
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#unsubscribeFromObjectTemplate'>
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyNote >> when: anAnnouncementClass do: aBlock [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenDoTemplate'>
 	(announcer ifNil: [ announcer := Announcer new ])
 		when: anAnnouncementClass do: aBlock
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyNote >> when: anAnnouncementClass send: aSelector to: anObject [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenSendToTemplate'>
 	(announcer ifNil: [ announcer := Announcer new ]) weak

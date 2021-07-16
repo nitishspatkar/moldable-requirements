@@ -1,12 +1,12 @@
 Trait {
-	#name : #TMyWithStatus,
+	#name : 'TMyWithStatus',
 	#instVars : [
 		'status'
 	],
-	#category : #'MyMoldableRequirements-User Story - Support'
+	#category : 'MyMoldableRequirements-User Story - Support'
 }
 
-{ #category : #'api - status' }
+{ #category : 'api - status' }
 TMyWithStatus >> hasStatus [
 	<return: #Boolean>
 	<propertyTester: #status>
@@ -15,28 +15,28 @@ TMyWithStatus >> hasStatus [
 	^ status notNil
 ]
 
-{ #category : #'api - status' }
+{ #category : 'api - status' }
 TMyWithStatus >> notifyStatusChanged [
 	"Override this notify method to announce changes to the property"
 	<propertyChangeNotifier: #status>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#notifyPropertyChangedTemplate'>
 ]
 
-{ #category : #'api - status' }
+{ #category : 'api - status' }
 TMyWithStatus >> onNewStatusSet: aNewStatus [
 	"Is sent after a new value of the status is assigned"
 	<propertySetHook: #status>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#onNewPropertySetHookTemplate'>
 ]
 
-{ #category : #'api - status' }
+{ #category : 'api - status' }
 TMyWithStatus >> onPreviousStatusUnset: aPreviousStatus [
 	"Is sent after a previous value of the status is de-assigned"
 	<propertyUnsetHook: #status>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#onPreviousPropertyUnsetHookTemplate'>
 ]
 
-{ #category : #'api - status' }
+{ #category : 'api - status' }
 TMyWithStatus >> status [
 	<return: #MyUserStatusOld>
 	<propertyGetter: #status>
@@ -45,7 +45,7 @@ TMyWithStatus >> status [
 	^ status
 ]
 
-{ #category : #'api - status' }
+{ #category : 'api - status' }
 TMyWithStatus >> status: aNewStatus [
 	<propertySetter: #status>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#propertySetterTemplate'>
@@ -65,7 +65,7 @@ TMyWithStatus >> status: aNewStatus [
 	self notifyStatusChanged
 ]
 
-{ #category : #'api - status' }
+{ #category : 'api - status' }
 TMyWithStatus >> unsetStatus [
 	<propertyUnsetter: #status>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#propertyUnsetterTemplate'>

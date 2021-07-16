@@ -1,13 +1,13 @@
 Class {
-	#name : #MyTaskAddedAnnouncement,
-	#superclass : #Announcement,
+	#name : 'MyTaskAddedAnnouncement',
+	#superclass : 'Announcement',
 	#instVars : [
 		'task'
 	],
-	#category : #'MyMoldableRequirements-User Story - Events'
+	#category : 'MyMoldableRequirements-User Story - Events'
 }
 
-{ #category : #generated }
+{ #category : 'generated' }
 MyTaskAddedAnnouncement >> task [
 	<objectGetter: #task>
 	<generatedFrom: #'GtRobocoderMetamodelAnnouncementTemplate>>#objectGetterTemplate'>
@@ -15,7 +15,7 @@ MyTaskAddedAnnouncement >> task [
 	^ task
 ]
 
-{ #category : #generated }
+{ #category : 'generated' }
 MyTaskAddedAnnouncement >> task: aTask [
 	<objectSetter: #task>
 	<generatedFrom: #'GtRobocoderMetamodelAnnouncementTemplate>>#objectSetterTemplate'>

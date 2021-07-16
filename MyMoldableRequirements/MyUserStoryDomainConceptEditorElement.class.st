@@ -1,16 +1,16 @@
 Class {
-	#name : #MyUserStoryDomainConceptEditorElement,
-	#superclass : #BrVerticalPane,
+	#name : 'MyUserStoryDomainConceptEditorElement',
+	#superclass : 'BrVerticalPane',
 	#traits : 'TMyWithUserStoryDomainConcept',
 	#classTraits : 'TMyWithUserStoryDomainConcept classTrait',
 	#instVars : [
 		'states',
 		'name'
 	],
-	#category : #'MyMoldableRequirements-User Story - Views'
+	#category : 'MyMoldableRequirements-User Story - Views'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 MyUserStoryDomainConceptEditorElement >> initialize [
 	super initialize.
 	
@@ -37,7 +37,7 @@ MyUserStoryDomainConceptEditorElement >> initialize [
 		addChild: states) 
 ]
 
-{ #category : #'api - user story domain concept' }
+{ #category : 'api - user story domain concept' }
 MyUserStoryDomainConceptEditorElement >> onUserStoryDomainConceptChanged [
 	"Is sent when a new userStoryDomainConcept is assigned to the receiver.
 	Note: #onUserStoryDomainConceptChanged is sent before #subscribeToUserStoryDomainConcept

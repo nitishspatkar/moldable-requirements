@@ -10,16 +10,16 @@ annotation {
 
 "
 Class {
-	#name : #MyUserStoryAnnotations,
-	#superclass : #Object,
+	#name : 'MyUserStoryAnnotations',
+	#superclass : 'Object',
 	#instVars : [
 		'announcer',
 		'userStoryAnnotations'
 	],
-	#category : #'MyMoldableRequirements-User Story - Models'
+	#category : 'MyMoldableRequirements-User Story - Models'
 }
 
-{ #category : #'api - adding' }
+{ #category : 'api - adding' }
 MyUserStoryAnnotations >> addUserStoryAnnotation: aUserStoryAnnotation [
 	"Add a given object as a child to the receiver and notify subscribers about it.
 	Do nothing if an object is already one of my children."
@@ -34,13 +34,13 @@ MyUserStoryAnnotations >> addUserStoryAnnotation: aUserStoryAnnotation [
 	self onUserStoryAnnotationAdded: aUserStoryAnnotation
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyUserStoryAnnotations >> announce: anAnnouncement [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#announceTemplate'>
 	announcer ifNotNil: [ :anAnnouncer | anAnnouncer announce: anAnnouncement ]
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 MyUserStoryAnnotations >> asDomainConcepts [
 	| theDomainConcepts |
 	
@@ -50,7 +50,7 @@ MyUserStoryAnnotations >> asDomainConcepts [
 	^ theDomainConcepts
 ]
 
-{ #category : #'gt-extentions' }
+{ #category : 'gt-extentions' }
 MyUserStoryAnnotations >> gtAnnotationListViewFor: aView [
 	<gtView>
 	<generatedFrom: #'GtRobocoderMetamodelPhlowListViewDerive>>#listForManyTemplate'>
@@ -61,7 +61,7 @@ MyUserStoryAnnotations >> gtAnnotationListViewFor: aView [
 		items: [ self userStoryAnnotations ]
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyUserStoryAnnotations >> includesUserStoryAnnotation: aUserStoryAnnotation [
 	"Check and return true if a given child object exists among my children, false otherwise.
 	The comparison happens by identity"
@@ -73,7 +73,7 @@ MyUserStoryAnnotations >> includesUserStoryAnnotation: aUserStoryAnnotation [
 		eachUserStoryAnnotation == aUserStoryAnnotation ]
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyUserStoryAnnotations >> isUserStoryAnnotation [
 	"Return true if the receiver represents userStoryAnnotation, false otherwise"
 	<return: #Boolean>
@@ -82,7 +82,7 @@ MyUserStoryAnnotations >> isUserStoryAnnotation [
 	^ false
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyUserStoryAnnotations >> isUserStoryAnnotations [
 	"Return true if the receiver represents userStoryAnnotations, false otherwise"
 	<return: #Boolean>
@@ -91,7 +91,7 @@ MyUserStoryAnnotations >> isUserStoryAnnotations [
 	^ true
 ]
 
-{ #category : #'private - notifying' }
+{ #category : 'private - notifying' }
 MyUserStoryAnnotations >> notifyUserStoryAnnotationAdded: aUserStoryAnnotation [
 	"Notifies that a given child object was added to the receiver"
 	
@@ -100,7 +100,7 @@ MyUserStoryAnnotations >> notifyUserStoryAnnotationAdded: aUserStoryAnnotation [
 		userStoryAnnotation: aUserStoryAnnotation) 
 ]
 
-{ #category : #'private - notifying' }
+{ #category : 'private - notifying' }
 MyUserStoryAnnotations >> notifyUserStoryAnnotationRemoved: aUserStoryAnnotation [
 	"Notifies that a given child object was removed from the receiver"
 	
@@ -109,7 +109,7 @@ MyUserStoryAnnotations >> notifyUserStoryAnnotationRemoved: aUserStoryAnnotation
 		userStoryAnnotation: aUserStoryAnnotation) 
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyUserStoryAnnotations >> objectName [
 	"Return a symbolic name of the receiver which helps to create various type based mappings.
 	Note: The symbolic name of the object is the exact name that was used
@@ -120,7 +120,7 @@ MyUserStoryAnnotations >> objectName [
 	^ #annotations
 ]
 
-{ #category : #'api - adding' }
+{ #category : 'api - adding' }
 MyUserStoryAnnotations >> onUserStoryAnnotationAdded: aUserStoryAnnotation [
 	"Is sent after a given child object was added to the receiver"
 
@@ -128,7 +128,7 @@ MyUserStoryAnnotations >> onUserStoryAnnotationAdded: aUserStoryAnnotation [
 	self notifyUserStoryAnnotationAdded: aUserStoryAnnotation.
 ]
 
-{ #category : #'api - adding' }
+{ #category : 'api - adding' }
 MyUserStoryAnnotations >> onUserStoryAnnotationRemoved: aUserStoryAnnotation [
 	"Is sent after a given child object was removed from the receiver"
 
@@ -136,13 +136,13 @@ MyUserStoryAnnotations >> onUserStoryAnnotationRemoved: aUserStoryAnnotation [
 	self notifyUserStoryAnnotationRemoved: aUserStoryAnnotation.
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 MyUserStoryAnnotations >> printOn: aStream [
 	<generatedFrom: #'GtRobocoderMetamodelPrintDerive>>#printOnTemplate'>
 	super printOn: aStream
 ]
 
-{ #category : #'api - adding' }
+{ #category : 'api - adding' }
 MyUserStoryAnnotations >> removeUserStoryAnnotation: aUserStoryAnnotation [
 	"Remove a given object as a child to the receiver and notify subscribers about it.
 	Do nothing if an object is already one of my children."
@@ -159,7 +159,7 @@ MyUserStoryAnnotations >> removeUserStoryAnnotation: aUserStoryAnnotation [
 	self onUserStoryAnnotationRemoved: aUserStoryAnnotation
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyUserStoryAnnotations >> unsubscribe: anObject [
 	"Unsubscribe all subscriptions of anObject from the receiver"
 
@@ -167,7 +167,7 @@ MyUserStoryAnnotations >> unsubscribe: anObject [
 	^ announcer ifNotNil: [ :anAnnouncer | anAnnouncer unsubscribe: anObject ]
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyUserStoryAnnotations >> userStoryAnnotations [
 	"Return a collection of objects (${class:MyUserStoryAnnotation}$) created for each child from the domain model.
 	Note: The children are lazily instantiated."
@@ -178,7 +178,7 @@ MyUserStoryAnnotations >> userStoryAnnotations [
 	^  userStoryAnnotations ifNil: [ userStoryAnnotations := OrderedCollection new ]
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyUserStoryAnnotations >> userStoryAnnotations: aCollectionOfMyUserStoryAnnotation [
 	"Silently assign a collection of given objects as my children without triggering any event. This is part of the #initialization protocol."
 	<modelSetter: #annotations>
@@ -189,14 +189,14 @@ MyUserStoryAnnotations >> userStoryAnnotations: aCollectionOfMyUserStoryAnnotati
 		eachMyUserStoryAnnotation parentUserStoryAnnotations: self ]
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyUserStoryAnnotations >> when: anAnnouncementClass do: aBlock [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenDoTemplate'>
 	^ (announcer ifNil: [ announcer := Announcer new ])
 		when: anAnnouncementClass do: aBlock
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyUserStoryAnnotations >> when: anAnnouncementClass send: aSelector to: anObject [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenSendToTemplate'>
 	^ (announcer ifNil: [ announcer := Announcer new ]) weak

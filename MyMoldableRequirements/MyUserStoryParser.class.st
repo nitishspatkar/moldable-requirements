@@ -1,30 +1,30 @@
 Class {
-	#name : #MyUserStoryParser,
-	#superclass : #Object,
+	#name : 'MyUserStoryParser',
+	#superclass : 'Object',
 	#instVars : [
 		'annotations'
 	],
-	#category : #'MyMoldableRequirements-Ast'
+	#category : 'MyMoldableRequirements-Ast'
 }
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 MyUserStoryParser class >> parse: aString withAnnotations: aCollectionOfAnnotations [
 	^ self new
 		annotations: aCollectionOfAnnotations;
 		parse: aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStoryParser >> annotations [
 	^ annotations
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStoryParser >> annotations: anObject [
 	annotations := anObject
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 MyUserStoryParser >> findAnyAnnotation: aCollectionOfAnnotations in: aString startingAt: aStartIndex [
 	| theAnnotationsWithIndex |
 	
@@ -45,7 +45,7 @@ MyUserStoryParser >> findAnyAnnotation: aCollectionOfAnnotations in: aString sta
 		ifNotEmpty: [ theAnnotationsWithIndex first ]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 MyUserStoryParser >> parse: aString [
 	| storyNode index |
 

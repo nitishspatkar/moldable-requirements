@@ -1,16 +1,16 @@
 Class {
-	#name : #MyUserStoryAcceptanceCriteriaElement,
-	#superclass : #BrVerticalPane,
+	#name : 'MyUserStoryAcceptanceCriteriaElement',
+	#superclass : 'BrVerticalPane',
 	#traits : 'TMyWithUserStoryModel',
 	#classTraits : 'TMyWithUserStoryModel classTrait',
 	#instVars : [
 		'label',
 		'editor'
 	],
-	#category : #'MyMoldableRequirements-User Story - Views'
+	#category : 'MyMoldableRequirements-User Story - Views'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 MyUserStoryAcceptanceCriteriaElement >> initialize [
 	super initialize.
 	
@@ -33,14 +33,14 @@ MyUserStoryAcceptanceCriteriaElement >> initialize [
 	}
 ]
 
-{ #category : #'private - event handling' }
+{ #category : 'private - event handling' }
 MyUserStoryAcceptanceCriteriaElement >> onAcceptanceCriteriaChanged [
 	"Is sent when acceptance criteria of the user story changes"
 
 	self updateAcceptanceCriteria
 ]
 
-{ #category : #'api - user story model' }
+{ #category : 'api - user story model' }
 MyUserStoryAcceptanceCriteriaElement >> onUserStoryModelChanged [
 	"Is sent when a new userStoryModel is assigned to the receiver.
 	Note: #onUserStoryModelChanged is sent before #subscribeToUserStoryModel
@@ -52,7 +52,7 @@ MyUserStoryAcceptanceCriteriaElement >> onUserStoryModelChanged [
 	self updateAcceptanceCriteria
 ]
 
-{ #category : #'api - user story model' }
+{ #category : 'api - user story model' }
 MyUserStoryAcceptanceCriteriaElement >> subscribeToUserStoryModel [
 	"Is sent after a new userStoryModel is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
@@ -65,7 +65,7 @@ MyUserStoryAcceptanceCriteriaElement >> subscribeToUserStoryModel [
 		to: self
 ]
 
-{ #category : #'api - user story model' }
+{ #category : 'api - user story model' }
 MyUserStoryAcceptanceCriteriaElement >> unsubscribeFromUserStoryModel [
 	"Is sent before a new userStoryModel is assigned to the receiver.
 	Objects that subscribe to userStoryModel are required to implement this method."
@@ -74,7 +74,7 @@ MyUserStoryAcceptanceCriteriaElement >> unsubscribeFromUserStoryModel [
 	self userStoryModel announcer unsubscribe: self
 ]
 
-{ #category : #'private - updating' }
+{ #category : 'private - updating' }
 MyUserStoryAcceptanceCriteriaElement >> updateAcceptanceCriteria [
 	editor text: self userStoryModel acceptanceCriteria
 ]

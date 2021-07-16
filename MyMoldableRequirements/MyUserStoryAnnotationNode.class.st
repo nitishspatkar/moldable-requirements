@@ -1,39 +1,39 @@
 Class {
-	#name : #MyUserStoryAnnotationNode,
-	#superclass : #MyUserStoryParseNode,
+	#name : 'MyUserStoryAnnotationNode',
+	#superclass : 'MyUserStoryParseNode',
 	#instVars : [
 		'annotation',
 		'name'
 	],
-	#category : #'MyMoldableRequirements-Ast'
+	#category : 'MyMoldableRequirements-Ast'
 }
 
-{ #category : #'visitor-double dispatching' }
+{ #category : 'visitor-double dispatching' }
 MyUserStoryAnnotationNode >> acceptVisitor: aProgramVisitor [
 	^ aProgramVisitor visitAnnotationNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStoryAnnotationNode >> annotation [
 	^ annotation
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStoryAnnotationNode >> annotation: anObject [
 	annotation := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStoryAnnotationNode >> name [
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStoryAnnotationNode >> name: anObject [
 	name := anObject
 ]
 
-{ #category : #variables }
+{ #category : 'variables' }
 MyUserStoryAnnotationNode >> otherVariables [
 	^ #(#name)
 ]

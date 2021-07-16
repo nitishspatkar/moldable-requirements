@@ -1,20 +1,20 @@
 Class {
-	#name : #MyUserStatusDone,
-	#superclass : #MyUserStatusOld,
-	#category : #'MyMoldableRequirements-Models'
+	#name : 'MyUserStatusDone',
+	#superclass : 'MyUserStatusOld',
+	#category : 'MyMoldableRequirements-Models'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 MyUserStatusDone >> isDone [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStatusDone >> label [
 	^ 'Done'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStatusDone >> statusColor [
 	^ Color lightGreen
 ]

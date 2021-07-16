@@ -1,16 +1,16 @@
 Class {
-	#name : #MyTask,
-	#superclass : #Object,
+	#name : 'MyTask',
+	#superclass : 'Object',
 	#instVars : [
 		'description',
 		'done',
 		'parentTasks',
 		'announcer'
 	],
-	#category : #'MyMoldableRequirements-User Story - Models'
+	#category : 'MyMoldableRequirements-User Story - Models'
 }
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyTask >> announce: anAnnouncement [
 	<generatedFrom: #'GtRobocoderMetamodelNotifierDerive>>#announceTemplate'>
 	announcer ifNotNil: [ :anAnnouncer | anAnnouncer announce: anAnnouncement ].
@@ -20,7 +20,7 @@ MyTask >> announce: anAnnouncement [
 		ifTrue: [ self parentTasks announce: anAnnouncement ].
 ]
 
-{ #category : #'api - description' }
+{ #category : 'api - description' }
 MyTask >> description [
 	"Return a not-null description assigned to the receiver"
 	<objectGetter: #description>
@@ -32,7 +32,7 @@ MyTask >> description [
 	^ description
 ]
 
-{ #category : #'api - description' }
+{ #category : 'api - description' }
 MyTask >> description: aDescription [
 	"Set a not-null description assigned to the receiver"
 	<objectSetter: #description>
@@ -52,7 +52,7 @@ MyTask >> description: aDescription [
 	self onPostDescriptionChanged
 ]
 
-{ #category : #'api - done' }
+{ #category : 'api - done' }
 MyTask >> done [
 	"Return a not-null done assigned to the receiver"
 	<objectGetter: #done>
@@ -64,7 +64,7 @@ MyTask >> done [
 	^ done
 ]
 
-{ #category : #'api - done' }
+{ #category : 'api - done' }
 MyTask >> done: aDone [
 	"Set a not-null done assigned to the receiver"
 	<objectSetter: #done>
@@ -84,7 +84,7 @@ MyTask >> done: aDone [
 	self onPostDoneChanged
 ]
 
-{ #category : #'api - description' }
+{ #category : 'api - description' }
 MyTask >> hasDescription [
 	"Return a true if nil is assigned to the receiver, false otherwise"
 	<return: #Boolean>
@@ -94,7 +94,7 @@ MyTask >> hasDescription [
 	^ description notNil
 ]
 
-{ #category : #'api - done' }
+{ #category : 'api - done' }
 MyTask >> hasDone [
 	"Return a true if nil is assigned to the receiver, false otherwise"
 	<return: #Boolean>
@@ -104,7 +104,7 @@ MyTask >> hasDone [
 	^ done notNil
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyTask >> hasParentTasks [
 	"Return true if the parent object is attached"
 	<return: #Boolean>
@@ -114,7 +114,7 @@ MyTask >> hasParentTasks [
 	^ parentTasks notNil
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyTask >> isLabel [
 	"Return true if the receiver represents Label, false otherwise"
 	<return: #Boolean>
@@ -123,7 +123,7 @@ MyTask >> isLabel [
 	^ false
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyTask >> isLabels [
 	"Return true if the receiver represents Labels, false otherwise"
 	<return: #Boolean>
@@ -132,7 +132,7 @@ MyTask >> isLabels [
 	^ false
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyTask >> isNote [
 	"Return true if the receiver represents Note, false otherwise"
 	<return: #Boolean>
@@ -141,7 +141,7 @@ MyTask >> isNote [
 	^ false
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyTask >> isNotes [
 	"Return true if the receiver represents Notes, false otherwise"
 	<return: #Boolean>
@@ -150,7 +150,7 @@ MyTask >> isNotes [
 	^ false
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyTask >> isTask [
 	"Return true if the receiver represents Task, false otherwise"
 	<return: #Boolean>
@@ -159,7 +159,7 @@ MyTask >> isTask [
 	^ true
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyTask >> isTasks [
 	"Return true if the receiver represents Tasks, false otherwise"
 	<return: #Boolean>
@@ -168,7 +168,7 @@ MyTask >> isTasks [
 	^ false
 ]
 
-{ #category : #'api - testing' }
+{ #category : 'api - testing' }
 MyTask >> isUserStory [
 	"Return true if the receiver represents UserStory, false otherwise"
 	<return: #Boolean>
@@ -177,7 +177,7 @@ MyTask >> isUserStory [
 	^ false
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyTask >> objectName [
 	"Return a symbolic name of the receiver which helps to create various type based mappings.
 	Note: The symbolic name of the object is the exact name that was used
@@ -188,7 +188,7 @@ MyTask >> objectName [
 	^ #task
 ]
 
-{ #category : #'api - description' }
+{ #category : 'api - description' }
 MyTask >> onDescriptionChanged [
 	"Is sent when a new description is assigned to the receiver.
 	Note: #onDescriptionChanged is sent before #subscribeToDescription
@@ -198,7 +198,7 @@ MyTask >> onDescriptionChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onObjectChangedTemplate'>
 ]
 
-{ #category : #'api - done' }
+{ #category : 'api - done' }
 MyTask >> onDoneChanged [
 	"Is sent when a new done is assigned to the receiver.
 	Note: #onDoneChanged is sent before #subscribeToDone
@@ -208,7 +208,7 @@ MyTask >> onDoneChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onObjectChangedTemplate'>
 ]
 
-{ #category : #'api - description' }
+{ #category : 'api - description' }
 MyTask >> onPostDescriptionChanged [
 	"I am an optional hook method that is sent after #subscribeToDescription.
 	I do nothing by default but allow users to perform update operations when a receiver object is already
@@ -216,7 +216,7 @@ MyTask >> onPostDescriptionChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onPostObjectChangedTemplate'>
 ]
 
-{ #category : #'api - done' }
+{ #category : 'api - done' }
 MyTask >> onPostDoneChanged [
 	"I am an optional hook method that is sent after #subscribeToDone.
 	I do nothing by default but allow users to perform update operations when a receiver object is already
@@ -224,7 +224,7 @@ MyTask >> onPostDoneChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onPostObjectChangedTemplate'>
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyTask >> parentTasks [
 	"Return a parent object which is used to access various state properties,
 	for example parent may be responsible for knowing a selected child object.
@@ -240,7 +240,7 @@ MyTask >> parentTasks [
 	^ parentTasks
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 MyTask >> parentTasks: aMyTasks [
 	"Assign a parent object (${class:MyTasks}$) which is used to access various state properties,
 	for example parent may be responsible for knowing a selected child object.
@@ -255,13 +255,13 @@ MyTask >> parentTasks: aMyTasks [
 	parentTasks := aMyTasks
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 MyTask >> printOn: aStream [
 	<generatedFrom: #'GtRobocoderMetamodelPrintDerive>>#printOnTemplate'>
 	super printOn: aStream
 ]
 
-{ #category : #'api - description' }
+{ #category : 'api - description' }
 MyTask >> subscribeToDescription [
 	"Is sent after a new description is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
@@ -269,7 +269,7 @@ MyTask >> subscribeToDescription [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#subscribeToObjectTemplate'>
 ]
 
-{ #category : #'api - done' }
+{ #category : 'api - done' }
 MyTask >> subscribeToDone [
 	"Is sent after a new done is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
@@ -277,7 +277,7 @@ MyTask >> subscribeToDone [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#subscribeToObjectTemplate'>
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyTask >> unsubscribe: anObject [
 	"Unsubscribe all subscriptions of anObject from the receiver"
 
@@ -285,28 +285,28 @@ MyTask >> unsubscribe: anObject [
 	^ announcer ifNotNil: [ :anAnnouncer | anAnnouncer unsubscribe: anObject ]
 ]
 
-{ #category : #'api - description' }
+{ #category : 'api - description' }
 MyTask >> unsubscribeFromDescription [
 	"Is sent before a new description is assigned to the receiver.
 	Objects that subscribe to description are required to implement this method."
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#unsubscribeFromObjectTemplate'>
 ]
 
-{ #category : #'api - done' }
+{ #category : 'api - done' }
 MyTask >> unsubscribeFromDone [
 	"Is sent before a new done is assigned to the receiver.
 	Objects that subscribe to done are required to implement this method."
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#unsubscribeFromObjectTemplate'>
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyTask >> when: anAnnouncementClass do: aBlock [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenDoTemplate'>
 	(announcer ifNil: [ announcer := Announcer new ])
 		when: anAnnouncementClass do: aBlock
 ]
 
-{ #category : #'api - announcer' }
+{ #category : 'api - announcer' }
 MyTask >> when: anAnnouncementClass send: aSelector to: anObject [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenSendToTemplate'>
 	(announcer ifNil: [ announcer := Announcer new ]) weak

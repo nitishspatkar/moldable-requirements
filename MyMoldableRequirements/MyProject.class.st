@@ -1,6 +1,6 @@
 Class {
-	#name : #MyProject,
-	#superclass : #Object,
+	#name : 'MyProject',
+	#superclass : 'Object',
 	#instVars : [
 		'id',
 		'title',
@@ -11,10 +11,10 @@ Class {
 		'announcer',
 		'board'
 	],
-	#category : #'MyMoldableRequirements-Models'
+	#category : 'MyMoldableRequirements-Models'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyProject class >> fromRawData: projectDict [
 	^ self
 		id: (projectDict at: #id)
@@ -30,7 +30,7 @@ MyProject class >> fromRawData: projectDict [
 				collect: [ :labelDict | MyLabelOld fromRawData: labelDict ])
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyProject class >> id: aString title: anotherString board: aBoard teamMembers: anArray epics: anotherArray personas: yetAnotherArray labels: labelArray [
 	^ self new
 		id: aString;
@@ -43,7 +43,7 @@ MyProject class >> id: aString title: anotherString board: aBoard teamMembers: a
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyProject class >> id: aString title: anotherString teamMembers: anArray epics: anotherArray personas: yetAnotherArray labels: labelArray [
 	^ self new
 		id: aString;
@@ -55,34 +55,34 @@ MyProject class >> id: aString title: anotherString teamMembers: anArray epics: 
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyProject >> announcer [
 ^announcer
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyProject >> announcer: anAnnouncer [
 announcer := anAnnouncer
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyProject >> board: aBoard [
-board := MyBoard new fromRawData: aBoard.
-board project: self.
-
+	board := MyBoard new 
+		fromRawData: aBoard.
+	board project: self.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyProject >> epics [
 ^epics
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyProject >> epics: anArray [
 	epics := anArray do: [ :each | each project: self]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyProject >> gtBoardFor: aView [
 	<gtView>
 	^ aView explicit
@@ -97,7 +97,7 @@ MyProject >> gtBoardFor: aView [
 		actionUpdateButton
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyProject >> gtEpicsFor: aView [
 	<gtView>
 	^ (epics gtItemsFor: aView)
@@ -116,7 +116,7 @@ MyProject >> gtEpicsFor: aView [
 			epic asFormElement: [ epics add: epic ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyProject >> gtLabelsFor: aView [
 	<gtView>
 	^ aView columnedList
@@ -141,7 +141,7 @@ MyProject >> gtLabelsFor: aView [
 			label asFormElement: [ labels add: label ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyProject >> gtParseJSONExample [
 	<gtExample>
 	| rawData projectsDictionaries |
@@ -152,7 +152,7 @@ MyProject >> gtParseJSONExample [
 		collect: [ :projectDict | MyProject fromRawData: projectDict ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyProject >> gtPersonasFor: aView [
 	<gtView>
 	^ aView columnedList
@@ -178,7 +178,7 @@ MyProject >> gtPersonasFor: aView [
 			persona asFormElement: [ personas add: persona ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyProject >> gtTeamMembersFor: aView [
 	<gtView>
 	^ aView columnedList
@@ -203,58 +203,73 @@ MyProject >> gtTeamMembersFor: aView [
 			member asFormElement: [ teamMembers add: member ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
+MyProject >> hospitalManagementProject [
+	<gtExample>
+	^ self gtParseJSONExample
+		detect: [:each | each title = 'Hospital management system']
+]
+
+{ #category : 'accessing' }
 MyProject >> id: aString [
 	id := aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyProject >> initialize [
 	super initialize.
 	announcer:= Announcer new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyProject >> labels [
 ^labels
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyProject >> labels: anArray [
 labels := anArray do: [ :each | each project: self]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyProject >> personas [
 ^personas
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyProject >> personas: yetAnotherArray [ 
 personas := yetAnotherArray do: [ :each | each project: self]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyProject >> printOn: aStream [
 	aStream nextPutAll: title
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
+MyProject >> shedulingShiftsEpic [
+	<gtExample>
+	^ self hospitalManagementProject  epics 
+		detect: [ :each | 
+			each title = 'Scheduling shifts' ]
+]
+
+{ #category : 'accessing' }
 MyProject >> teamMembers [
 ^teamMembers
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyProject >> teamMembers: anArray [ 
 teamMembers := anArray do: [ :each | each project: self]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyProject >> title [
 ^title
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyProject >> title: anotherString [
 	title := anotherString
 ]

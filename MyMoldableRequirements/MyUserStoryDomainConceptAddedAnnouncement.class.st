@@ -1,13 +1,13 @@
 Class {
-	#name : #MyUserStoryDomainConceptAddedAnnouncement,
-	#superclass : #Announcement,
+	#name : 'MyUserStoryDomainConceptAddedAnnouncement',
+	#superclass : 'Announcement',
 	#instVars : [
 		'userStoryDomainConcept'
 	],
-	#category : #'MyMoldableRequirements-User Story - Events'
+	#category : 'MyMoldableRequirements-User Story - Events'
 }
 
-{ #category : #generated }
+{ #category : 'generated' }
 MyUserStoryDomainConceptAddedAnnouncement >> userStoryDomainConcept [
 	<objectGetter: #domainConcept>
 	<generatedFrom: #'GtRobocoderMetamodelAnnouncementTemplate>>#objectGetterTemplate'>
@@ -15,7 +15,7 @@ MyUserStoryDomainConceptAddedAnnouncement >> userStoryDomainConcept [
 	^ userStoryDomainConcept
 ]
 
-{ #category : #generated }
+{ #category : 'generated' }
 MyUserStoryDomainConceptAddedAnnouncement >> userStoryDomainConcept: aUserStoryDomainConcept [
 	<objectSetter: #domainConcept>
 	<generatedFrom: #'GtRobocoderMetamodelAnnouncementTemplate>>#objectSetterTemplate'>

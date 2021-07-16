@@ -1,15 +1,15 @@
 Class {
-	#name : #MyUserStoryDomainConceptsListElement,
-	#superclass : #BrVerticalPane,
+	#name : 'MyUserStoryDomainConceptsListElement',
+	#superclass : 'BrVerticalPane',
 	#traits : 'TMyWithUserStoryDomainConcepts',
 	#classTraits : 'TMyWithUserStoryDomainConcepts classTrait',
 	#instVars : [
 		'list'
 	],
-	#category : #'MyMoldableRequirements-User Story - Views'
+	#category : 'MyMoldableRequirements-User Story - Views'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 MyUserStoryDomainConceptsListElement >> initialize [
 	super initialize.
 	
@@ -31,7 +31,7 @@ MyUserStoryDomainConceptsListElement >> initialize [
 	self addChild: list
 ]
 
-{ #category : #'api - user story domain concepts' }
+{ #category : 'api - user story domain concepts' }
 MyUserStoryDomainConceptsListElement >> onUserStoryDomainConceptsChanged [
 	"Is sent when a new userStoryDomainConcepts is assigned to the receiver.
 	Note: #onUserStoryDomainConceptsChanged is sent before #subscribeToUserStoryDomainConcepts

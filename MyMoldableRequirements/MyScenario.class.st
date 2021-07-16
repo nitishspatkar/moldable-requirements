@@ -1,6 +1,6 @@
 Class {
-	#name : #MyScenario,
-	#superclass : #Object,
+	#name : 'MyScenario',
+	#superclass : 'Object',
 	#instVars : [
 		'id',
 		'description',
@@ -11,17 +11,17 @@ Class {
 		'simpleExampleText',
 		'userStory'
 	],
-	#category : #'MyMoldableRequirements-Models'
+	#category : 'MyMoldableRequirements-Models'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyScenario class >> fromRawData: scenariosDict [
 	^ self
 		id: (scenariosDict at: #id)
 		description: (scenariosDict at: #description)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyScenario class >> id: aString description: anotherString [
 	^ self new
 		id: aString;
@@ -29,12 +29,12 @@ MyScenario class >> id: aString description: anotherString [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyScenario >> children [
 	^ self parametrizedExamples
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyScenario >> createAddExampleButton [
 	^ BrButton new
 		aptitude: BrGlamorousButtonWithLabelAptitude new;
@@ -50,47 +50,47 @@ MyScenario >> createAddExampleButton [
 		constraintsDo: [ :c | c linear horizontal alignLeft ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyScenario >> description [
 	^ description
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyScenario >> description: aString [
 	description := aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyScenario >> descriptionText [
 	^ descriptionText
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyScenario >> descriptionText: anObject [
 	descriptionText := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyScenario >> exampleMethod [
 	^ exampleMethod
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyScenario >> exampleMethod: aMethod [
 	exampleMethod := aMethod
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyScenario >> exampleMethods [
 	^ exampleMethods
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyScenario >> exampleMethods: list [
 	list do: [ :item | self exampleMethods add: item ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyScenario >> gtListOfExamplesFor: aView [
 	<gtView>
 	^ aView forward
@@ -100,7 +100,7 @@ MyScenario >> gtListOfExamplesFor: aView [
 		view: #gtExamplesFor:
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyScenario >> gtListOfParametrizedExamplesFor: aView [
 	<gtView>
 	| phlowList listElement viewElement container |
@@ -129,44 +129,44 @@ MyScenario >> gtListOfParametrizedExamplesFor: aView [
 	^ viewElement
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyScenario >> gtViewSource: aView [
 	<gtView>
 	self exampleMethod ifNil: [ ^ aView empty ].
 	^ self exampleMethod gtCoderSourceFor: aView
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyScenario >> id: aString [
 	id := aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyScenario >> parametrizedExamples [
 	^ parameterizedExamples
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyScenario >> printOn: aStream [
 	aStream nextPutAll: description
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyScenario >> simpleExampleText [
 	^ simpleExampleText
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyScenario >> simpleExampleText: anObject [
 	simpleExampleText := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyScenario >> userStory [
 ^userStory
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyScenario >> userStory: aUserStory [
 userStory := aUserStory
 ]

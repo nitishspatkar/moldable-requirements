@@ -1,12 +1,12 @@
 Trait {
-	#name : #TMyWithUserStoryModel,
+	#name : 'TMyWithUserStoryModel',
 	#instVars : [
 		'userStoryModel'
 	],
-	#category : #'MyMoldableRequirements-User Story - Support'
+	#category : 'MyMoldableRequirements-User Story - Support'
 }
 
-{ #category : #'api - user story model' }
+{ #category : 'api - user story model' }
 TMyWithUserStoryModel >> hasUserStoryModel [
 	"Return a true if nil is assigned to the receiver, false otherwise"
 	<return: #Boolean>
@@ -16,7 +16,7 @@ TMyWithUserStoryModel >> hasUserStoryModel [
 	^ userStoryModel notNil
 ]
 
-{ #category : #'api - user story model' }
+{ #category : 'api - user story model' }
 TMyWithUserStoryModel >> onPostUserStoryModelChanged [
 	"I am an optional hook method that is sent after #subscribeToUserStoryModel.
 	I do nothing by default but allow users to perform update operations when a receiver object is already
@@ -24,7 +24,7 @@ TMyWithUserStoryModel >> onPostUserStoryModelChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onPostObjectChangedTemplate'>
 ]
 
-{ #category : #'api - user story model' }
+{ #category : 'api - user story model' }
 TMyWithUserStoryModel >> onUserStoryModelChanged [
 	"Is sent when a new userStoryModel is assigned to the receiver.
 	Note: #onUserStoryModelChanged is sent before #subscribeToUserStoryModel
@@ -34,7 +34,7 @@ TMyWithUserStoryModel >> onUserStoryModelChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onObjectChangedTemplate'>
 ]
 
-{ #category : #'api - user story model' }
+{ #category : 'api - user story model' }
 TMyWithUserStoryModel >> subscribeToUserStoryModel [
 	"Is sent after a new userStoryModel is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
@@ -42,14 +42,14 @@ TMyWithUserStoryModel >> subscribeToUserStoryModel [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#subscribeToObjectTemplate'>
 ]
 
-{ #category : #'api - user story model' }
+{ #category : 'api - user story model' }
 TMyWithUserStoryModel >> unsubscribeFromUserStoryModel [
 	"Is sent before a new userStoryModel is assigned to the receiver.
 	Objects that subscribe to userStoryModel are required to implement this method."
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#unsubscribeFromObjectTemplate'>
 ]
 
-{ #category : #'api - user story model' }
+{ #category : 'api - user story model' }
 TMyWithUserStoryModel >> userStoryModel [
 	"Return a not-null userStoryModel assigned to the receiver"
 	<objectGetter: #userStoryModel>
@@ -61,7 +61,7 @@ TMyWithUserStoryModel >> userStoryModel [
 	^ userStoryModel
 ]
 
-{ #category : #'api - user story model' }
+{ #category : 'api - user story model' }
 TMyWithUserStoryModel >> userStoryModel: aUserStoryModel [
 	"Set a not-null userStoryModel assigned to the receiver"
 	<objectSetter: #userStoryModel>

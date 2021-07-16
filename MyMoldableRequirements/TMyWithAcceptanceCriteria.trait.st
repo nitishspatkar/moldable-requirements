@@ -1,12 +1,12 @@
 Trait {
-	#name : #TMyWithAcceptanceCriteria,
+	#name : 'TMyWithAcceptanceCriteria',
 	#instVars : [
 		'acceptanceCriteria'
 	],
-	#category : #'MyMoldableRequirements-User Story - Support'
+	#category : 'MyMoldableRequirements-User Story - Support'
 }
 
-{ #category : #'api - acceptance criteria' }
+{ #category : 'api - acceptance criteria' }
 TMyWithAcceptanceCriteria >> acceptanceCriteria [
 	<return: #String>
 	<propertyGetter: #acceptanceCriteria>
@@ -15,7 +15,7 @@ TMyWithAcceptanceCriteria >> acceptanceCriteria [
 	^ acceptanceCriteria
 ]
 
-{ #category : #'api - acceptance criteria' }
+{ #category : 'api - acceptance criteria' }
 TMyWithAcceptanceCriteria >> acceptanceCriteria: aNewAcceptanceCriteria [
 	<propertySetter: #acceptanceCriteria>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#propertySetterTemplate'>
@@ -35,7 +35,7 @@ TMyWithAcceptanceCriteria >> acceptanceCriteria: aNewAcceptanceCriteria [
 	self notifyAcceptanceCriteriaChanged
 ]
 
-{ #category : #'api - acceptance criteria' }
+{ #category : 'api - acceptance criteria' }
 TMyWithAcceptanceCriteria >> hasAcceptanceCriteria [
 	<return: #Boolean>
 	<propertyTester: #acceptanceCriteria>
@@ -44,28 +44,28 @@ TMyWithAcceptanceCriteria >> hasAcceptanceCriteria [
 	^ acceptanceCriteria notNil
 ]
 
-{ #category : #'api - acceptance criteria' }
+{ #category : 'api - acceptance criteria' }
 TMyWithAcceptanceCriteria >> notifyAcceptanceCriteriaChanged [
 	"Override this notify method to announce changes to the property"
 	<propertyChangeNotifier: #acceptanceCriteria>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#notifyPropertyChangedTemplate'>
 ]
 
-{ #category : #'api - acceptance criteria' }
+{ #category : 'api - acceptance criteria' }
 TMyWithAcceptanceCriteria >> onNewAcceptanceCriteriaSet: aNewAcceptanceCriteria [
 	"Is sent after a new value of the acceptanceCriteria is assigned"
 	<propertySetHook: #acceptanceCriteria>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#onNewPropertySetHookTemplate'>
 ]
 
-{ #category : #'api - acceptance criteria' }
+{ #category : 'api - acceptance criteria' }
 TMyWithAcceptanceCriteria >> onPreviousAcceptanceCriteriaUnset: aPreviousAcceptanceCriteria [
 	"Is sent after a previous value of the acceptanceCriteria is de-assigned"
 	<propertyUnsetHook: #acceptanceCriteria>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#onPreviousPropertyUnsetHookTemplate'>
 ]
 
-{ #category : #'api - acceptance criteria' }
+{ #category : 'api - acceptance criteria' }
 TMyWithAcceptanceCriteria >> unsetAcceptanceCriteria [
 	<propertyUnsetter: #acceptanceCriteria>
 	<generatedFrom: #'TGtRobocoderWithPropertyTraitTemplate>>#propertyUnsetterTemplate'>

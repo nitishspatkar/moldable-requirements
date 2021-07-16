@@ -1,13 +1,13 @@
 Class {
-	#name : #MyNoteAddedAnnouncement,
-	#superclass : #Announcement,
+	#name : 'MyNoteAddedAnnouncement',
+	#superclass : 'Announcement',
 	#instVars : [
 		'note'
 	],
-	#category : #'MyMoldableRequirements-User Story - Events'
+	#category : 'MyMoldableRequirements-User Story - Events'
 }
 
-{ #category : #generated }
+{ #category : 'generated' }
 MyNoteAddedAnnouncement >> note [
 	<objectGetter: #note>
 	<generatedFrom: #'GtRobocoderMetamodelAnnouncementTemplate>>#objectGetterTemplate'>
@@ -15,7 +15,7 @@ MyNoteAddedAnnouncement >> note [
 	^ note
 ]
 
-{ #category : #generated }
+{ #category : 'generated' }
 MyNoteAddedAnnouncement >> note: aNote [
 	<objectSetter: #note>
 	<generatedFrom: #'GtRobocoderMetamodelAnnouncementTemplate>>#objectSetterTemplate'>

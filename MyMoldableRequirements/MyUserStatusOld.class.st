@@ -1,10 +1,10 @@
 Class {
-	#name : #MyUserStatusOld,
-	#superclass : #Object,
-	#category : #'MyMoldableRequirements-Models'
+	#name : 'MyUserStatusOld',
+	#superclass : 'Object',
+	#category : 'MyMoldableRequirements-Models'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 MyUserStatusOld class >> fromString: aString [
 	| aStatusClass |
 	
@@ -19,7 +19,7 @@ MyUserStatusOld class >> fromString: aString [
 	^ aStatusClass new
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 MyUserStatusOld >> = anObject [
 	self == anObject
 		ifTrue: [ ^ true ].
@@ -27,32 +27,32 @@ MyUserStatusOld >> = anObject [
 	^ self class = anObject class
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 MyUserStatusOld >> hash [
 	^ self class hash
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 MyUserStatusOld >> isDone [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 MyUserStatusOld >> isInProgress [
 	^ false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStatusOld >> label [
 	^ self subclassResponsibility
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 MyUserStatusOld >> printOn: aStream [
 	aStream nextPutAll: 'Status:'; space; nextPutAll: self label
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 MyUserStatusOld >> statusColor [
 	^ self subclassResponsibility
 ]

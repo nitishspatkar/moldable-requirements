@@ -1,6 +1,6 @@
 Class {
-	#name : #MyUserStoryAnnotatingElement,
-	#superclass : #BrVerticalPane,
+	#name : 'MyUserStoryAnnotatingElement',
+	#superclass : 'BrVerticalPane',
 	#traits : 'TMyWithUserStory',
 	#classTraits : 'TMyWithUserStory classTrait',
 	#instVars : [
@@ -9,10 +9,10 @@ Class {
 		'annotationsCoderElement',
 		'sanitizeButton'
 	],
-	#category : #'MyMoldableRequirements-User Story - Views'
+	#category : 'MyMoldableRequirements-User Story - Views'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 MyUserStoryAnnotatingElement >> initialize [
 	super initialize.
 
@@ -48,7 +48,7 @@ MyUserStoryAnnotatingElement >> initialize [
 	self addChildren: { title. annotationsCoderElement . sanitizeButton }
 ]
 
-{ #category : #'api - user story' }
+{ #category : 'api - user story' }
 MyUserStoryAnnotatingElement >> onUserStoryChanged [
 	"Is sent when a new userStory is assigned to the receiver.
 	Note: #onUserStoryChanged is sent before #subscribeToUserStory
