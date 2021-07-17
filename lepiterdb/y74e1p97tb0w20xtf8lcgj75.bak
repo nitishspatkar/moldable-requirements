@@ -233,7 +233,7 @@
 				"string" : "Similarly, a staff memmber can either be a doctor or a nurse."
 			},
 			{
-				"__type" : "textSnippet",
+				"__type" : "exampleSnippet",
 				"children" : {
 					"__type" : "snippets",
 					"items" : [ ]
@@ -246,7 +246,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2021-07-16T16:51:49.318661+02:00"
+						"dateAndTimeString" : "2021-07-17T10:33:02.695483+02:00"
 					}
 				},
 				"editEmail" : {
@@ -257,17 +257,60 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2021-07-16T16:51:49.970589+02:00"
+						"dateAndTimeString" : "2021-07-17T10:33:02.695483+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "8WfVdqCDDQCT3TTgDh24Rg=="
+					"uidString" : "ZsgVSq+DDQCymzTJCqOcWw=="
 				},
-				"paragraphStyle" : {
-					"__type" : "textStyle"
+				"exampleSelector" : "allDoctors",
+				"previewHeight" : 150,
+				"previewShowSelector" : "gtItemsFor:",
+				"exampleBehaviorName" : "HMStaffMemberExamples",
+				"codeExpanded" : true,
+				"previewExpanded" : false,
+				"noCode" : true
+			},
+			{
+				"__type" : "exampleSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
 				},
-				"string" : "TODO: add staff e"
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-17T10:33:21.147479+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-17T10:33:21.147479+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "mFYvS6+DDQCynRfiCqOcWw=="
+				},
+				"exampleSelector" : "allNurses",
+				"previewHeight" : 150,
+				"previewShowSelector" : "gtItemsFor:",
+				"exampleBehaviorName" : "HMStaffMemberExamples",
+				"codeExpanded" : true,
+				"previewExpanded" : false,
+				"noCode" : true
 			},
 			{
 				"__type" : "textSnippet",
@@ -360,7 +403,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2021-07-16T16:49:40.468513+02:00"
+						"dateAndTimeString" : "2021-07-17T10:57:58.714386+02:00"
 					}
 				},
 				"editEmail" : {
@@ -371,20 +414,20 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2021-07-16T16:49:46.189355+02:00"
+						"dateAndTimeString" : "2021-07-17T10:58:28.218613+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "fk0lb6CDDQCTzaLLDh24Rg=="
+					"uidString" : "Nzagb6CDDQCTzvSDDh24Rg=="
 				},
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "TODO: add staff"
+				"string" : "A schedule displays days, shifts, and available staff."
 			},
 			{
-				"__type" : "textSnippet",
+				"__type" : "exampleSnippet",
 				"children" : {
 					"__type" : "snippets",
 					"items" : [ ]
@@ -397,7 +440,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2021-07-16T16:49:50.456244+02:00"
+						"dateAndTimeString" : "2021-07-17T10:58:32.373697+02:00"
 					}
 				},
 				"editEmail" : {
@@ -408,17 +451,20 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2021-07-16T16:49:53.781247+02:00"
+						"dateAndTimeString" : "2021-07-17T10:58:32.373697+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "Nzagb6CDDQCTzvSDDh24Rg=="
+					"uidString" : "+NFCpa+DDQCysTCuCqOcWw=="
 				},
-				"paragraphStyle" : {
-					"__type" : "textStyle"
-				},
-				"string" : "TODO: add schedule"
+				"exampleSelector" : "oneDaySchedule",
+				"previewHeight" : 100,
+				"previewShowSelector" : "gtViewDaysFor:",
+				"exampleBehaviorName" : "HMScheduleAssignerExamples",
+				"codeExpanded" : true,
+				"previewExpanded" : false,
+				"noCode" : true
 			}
 		]
 	},

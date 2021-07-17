@@ -233,7 +233,7 @@
 				"string" : "Similarly, a staff memmber can either be a doctor or a nurse."
 			},
 			{
-				"__type" : "textSnippet",
+				"__type" : "exampleSnippet",
 				"children" : {
 					"__type" : "snippets",
 					"items" : [ ]
@@ -246,7 +246,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2021-07-16T16:51:49.318661+02:00"
+						"dateAndTimeString" : "2021-07-17T10:33:02.695483+02:00"
 					}
 				},
 				"editEmail" : {
@@ -257,17 +257,60 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2021-07-16T16:51:50.897883+02:00"
+						"dateAndTimeString" : "2021-07-17T10:33:02.695483+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "8WfVdqCDDQCT3TTgDh24Rg=="
+					"uidString" : "ZsgVSq+DDQCymzTJCqOcWw=="
 				},
-				"paragraphStyle" : {
-					"__type" : "textStyle"
+				"exampleSelector" : "allDoctors",
+				"previewHeight" : 150,
+				"previewShowSelector" : "gtItemsFor:",
+				"exampleBehaviorName" : "HMStaffMemberExamples",
+				"codeExpanded" : true,
+				"previewExpanded" : false,
+				"noCode" : true
+			},
+			{
+				"__type" : "exampleSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
 				},
-				"string" : "TODO: add staff examples"
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-17T10:33:21.147479+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-17T10:33:21.147479+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "mFYvS6+DDQCynRfiCqOcWw=="
+				},
+				"exampleSelector" : "allNurses",
+				"previewHeight" : 150,
+				"previewShowSelector" : "gtItemsFor:",
+				"exampleBehaviorName" : "HMStaffMemberExamples",
+				"codeExpanded" : true,
+				"previewExpanded" : false,
+				"noCode" : true
 			},
 			{
 				"__type" : "textSnippet",
@@ -360,7 +403,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2021-07-16T16:49:50.456244+02:00"
+						"dateAndTimeString" : "2021-07-17T10:57:58.714386+02:00"
 					}
 				},
 				"editEmail" : {
@@ -371,7 +414,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2021-07-16T16:49:53.781247+02:00"
+						"dateAndTimeString" : "2021-07-17T11:00:18.731865+02:00"
 					}
 				},
 				"uid" : {
@@ -381,7 +424,47 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "TODO: add schedule"
+				"string" : "A schedule displays assigned doctors and nuurses to specific days."
+			},
+			{
+				"__type" : "exampleSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-17T10:58:32.373697+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2021-07-17T10:58:32.373697+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "+NFCpa+DDQCysTCuCqOcWw=="
+				},
+				"exampleSelector" : "oneDaySchedule",
+				"previewHeight" : 100,
+				"previewShowSelector" : "gtViewDaysFor:",
+				"exampleBehaviorName" : "HMScheduleAssignerExamples",
+				"codeExpanded" : true,
+				"previewExpanded" : false,
+				"noCode" : true
 			}
 		]
 	},
