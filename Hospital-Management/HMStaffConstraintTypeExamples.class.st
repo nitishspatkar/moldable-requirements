@@ -1,10 +1,10 @@
 Class {
-	#name : 'HMStaffConstraintTypeExamples',
-	#superclass : 'Object',
+	#name : #HMStaffConstraintTypeExamples,
+	#superclass : #Object,
 	#category : 'Hospital-Management-Examples'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMStaffConstraintTypeExamples >> customWeddingConstraint [
 	<gtExample>
 	| aConstraint constraintType |
@@ -14,7 +14,7 @@ HMStaffConstraintTypeExamples >> customWeddingConstraint [
 	^ aConstraint
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMStaffConstraintTypeExamples >> seminarConstraint [
 	<gtExample>
 	| aConstraint constraintType |
@@ -24,7 +24,7 @@ HMStaffConstraintTypeExamples >> seminarConstraint [
 	^ aConstraint
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMStaffConstraintTypeExamples >> vacationConstraint [
 	<gtExample>
 	| aConstraint constraintType |

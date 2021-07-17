@@ -1,13 +1,13 @@
 Class {
-	#name : 'HMShiftConstraint',
-	#superclass : 'Object',
+	#name : #HMShiftConstraint,
+	#superclass : #Object,
 	#instVars : [
 		'type'
 	],
 	#category : 'Hospital-Management-Model'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 HMShiftConstraint class >> gtViewConstraintTypesFor: aView [ 	
 	<gtView>
 	<gtClassView>
@@ -19,18 +19,18 @@ HMShiftConstraint class >> gtViewConstraintTypesFor: aView [
 		expandOneLevel 
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 HMShiftConstraint class >> yourself [
 	<gtExample>
 	^ self
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMShiftConstraint >> type [
 	^ type
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMShiftConstraint >> type: aString [
 	type := aString
 ]

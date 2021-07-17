@@ -15,8 +15,8 @@ For each concept, you can explore a similarr interactive documentation.
 
 "
 Class {
-	#name : 'HMHospitalSystem',
-	#superclass : 'Object',
+	#name : #HMHospitalSystem,
+	#superclass : #Object,
 	#instVars : [
 		'staff',
 		'schedule'
@@ -24,7 +24,7 @@ Class {
 	#category : 'Hospital-Management-Model'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMHospitalSystem class >> gtDependenciessViewFor: aView [
 	<gtView>
 	<gtClassView>
@@ -53,7 +53,7 @@ HMHospitalSystem class >> gtDependenciessViewFor: aView [
 	view ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMHospitalSystem >> createScheduleViewForStaff: currentStaff andSchedule: currentSchedule [
 	| container  |
 	container := BlElement new
@@ -83,13 +83,13 @@ HMHospitalSystem >> createScheduleViewForStaff: currentStaff andSchedule: curren
 	^ container 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMHospitalSystem >> doctors [
 	^ self  staff select: [ :aStaffMember | 
 		aStaffMember isDoctor ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMHospitalSystem >> gViewWorkingDaysFor: aView [
 	<gtView>
 	^ aView columnedList
@@ -100,7 +100,7 @@ HMHospitalSystem >> gViewWorkingDaysFor: aView [
 		column: 'Day' text: [ :aDay | aDay date weekday ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMHospitalSystem >> gtStaffFor: aView [
 	<gtView>
 	^ aView columnedList
@@ -124,7 +124,7 @@ HMHospitalSystem >> gtStaffFor: aView [
 			text: [ :aStaffMember | aStaffMember compensationHours ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMHospitalSystem >> gtViewSchedule2For: aView [
 	<gtView>
 	| columnView |
@@ -145,7 +145,7 @@ HMHospitalSystem >> gtViewSchedule2For: aView [
 	^ columnView
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMHospitalSystem >> gtViewScheduleFor: aView [
 	<gtView>
 	^ aView explicit
@@ -155,34 +155,34 @@ HMHospitalSystem >> gtViewScheduleFor: aView [
 			andSchedule: self schedule  ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMHospitalSystem >> initialize [
 	super initialize.
 	staff := OrderedCollection new
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMHospitalSystem >> nurses [
 	^ self  staff select: [ :aStaffMember | 
 		aStaffMember isDoctor not ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMHospitalSystem >> schedule [
 	^ schedule
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMHospitalSystem >> schedule: aSchedule [
 	schedule := aSchedule
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMHospitalSystem >> staff [
 	^ staff
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMHospitalSystem >> staff: staffMembers [
 	staff := staffMembers
 ]

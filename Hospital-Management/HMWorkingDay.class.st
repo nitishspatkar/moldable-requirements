@@ -1,6 +1,6 @@
 Class {
-	#name : 'HMWorkingDay',
-	#superclass : 'Object',
+	#name : #HMWorkingDay,
+	#superclass : #Object,
 	#instVars : [
 		'shifts',
 		'date',
@@ -9,60 +9,60 @@ Class {
 	#category : 'Hospital-Management-Model'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMWorkingDay >> addShift: aShift [ 
 	self shifts add: aShift.
 	aShift day: self
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMWorkingDay >> addShifts: aCollection [
 	aCollection do: [ :aShift |
 		self addShift: aShift ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMWorkingDay >> assignedDoctors [
 	^ self shifts flatCollect: [ :aShift | aShift assignedDoctors ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMWorkingDay >> assignedNurses [
 	^ self shifts flatCollect: [ :aShift | aShift assignedNurses ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMWorkingDay >> availableStaff [
 	^ availableStaff
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMWorkingDay >> availableStaff: aCollection [
 	availableStaff := aCollection
 ]
 
-{ #category : 'printing' }
+{ #category : #printing }
 HMWorkingDay >> date [
 	^ date
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMWorkingDay >> date: aDate [
 	date := aDate
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMWorkingDay >> dayShift [
 	^ self shifts select: [:aShift | aShift isDayShift ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMWorkingDay >> description [
 	^ String streamContents: [ :aStream |
 		self descriptionOn:  aStream ]
 ]
 
-{ #category : 'printing' }
+{ #category : #printing }
 HMWorkingDay >> descriptionOn: aStream [
 	aStream
 		nextPutAll: self date weekday;
@@ -70,7 +70,7 @@ HMWorkingDay >> descriptionOn: aStream [
 		nextPutAll: self date asString
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMWorkingDay >> gtAssignedDoctorsFor: aView [
 	<gtView>
 	^ aView columnedList
@@ -84,7 +84,7 @@ HMWorkingDay >> gtAssignedDoctorsFor: aView [
 				ifFalse: [ 'No' ] ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMWorkingDay >> gtAssignedNursesFor: aView [
 	<gtView>
 	^ aView columnedList
@@ -99,7 +99,7 @@ HMWorkingDay >> gtAssignedNursesFor: aView [
 				ifFalse: [ 'No' ] ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMWorkingDay >> gtAssignedStaffMembersByShiftsFor: aView [
 	<gtView>
 	^ aView columnedList
@@ -125,7 +125,7 @@ HMWorkingDay >> gtAssignedStaffMembersByShiftsFor: aView [
 				ifFalse: [ 'No' ] ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMWorkingDay >> gtShiftsFor: aView [
 	<gtView>
 	^ aView columnedList
@@ -139,19 +139,19 @@ HMWorkingDay >> gtShiftsFor: aView [
 		column: 'Duration in hours' text: [:aShift | aShift duration].
 ]
 
-{ #category : 'initialize' }
+{ #category : #initialize }
 HMWorkingDay >> initialize [
 	super initialize.
 	shifts := OrderedCollection new.
 	availableStaff := OrderedCollection new
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMWorkingDay >> nightShift [
 	^ self shifts select: [:aShift | aShift isNightShift ]
 ]
 
-{ #category : 'printing' }
+{ #category : #printing }
 HMWorkingDay >> printOn: aStream [
 	super printOn: aStream.
 	aStream
@@ -161,12 +161,12 @@ HMWorkingDay >> printOn: aStream [
 		nextPutAll: ')'
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMWorkingDay >> shifts [
 	^ shifts
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMWorkingDay >> shifts: aCollection [
 	shifts := aCollection
 ]

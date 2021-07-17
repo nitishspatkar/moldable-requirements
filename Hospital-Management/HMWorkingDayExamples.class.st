@@ -1,21 +1,21 @@
 Class {
-	#name : 'HMWorkingDayExamples',
-	#superclass : 'Object',
-	#category : 'Hospital-Management-Examples'
+	#name : #HMWorkingDayExamples,
+	#superclass : #Object,
+	#category : #'Hospital-Management-Examples'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMWorkingDayExamples >> aWorkingDayMayOne [
 	<gtExample>
 	| aDay shifts oneDoctorConstraint twoDoctorsNightShiftConstraint |
 	aDay := HMWorkingDay new
 		shifts: HMShiftExamples new allShifts;
 		date: (Date year: 2021 month: 5 day: 1);
-		availableStaff: HMWorkingDayExamples new availableDoctorsOnMayFirst.
+		availableStaff: HMWorkingDayExamples new availableStaffOnMayFirst.
 	^ aDay
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMWorkingDayExamples >> aWorkingMonthMay [
 	<gtExample>
 	| aCollectionOfDoctors aCollectionOfDays dayWiseAvailableDoctors |
@@ -37,7 +37,7 @@ HMWorkingDayExamples >> aWorkingMonthMay [
 	^ dayWiseAvailableDoctors
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMWorkingDayExamples >> aWorkingWeek [
 	<gtExample>
 	| aCollectionOfDoctors aCollectionOfDays dayWiseAvailableDoctors |
@@ -59,7 +59,7 @@ HMWorkingDayExamples >> aWorkingWeek [
 	^ dayWiseAvailableDoctors
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMWorkingDayExamples >> availableDoctorsOnMayFirst [
 	<gtExample>
 	| aCollectionOfDoctors aWorkingDay |
@@ -70,7 +70,30 @@ HMWorkingDayExamples >> availableDoctorsOnMayFirst [
 		select: [ :aDoctor | (aDoctor isAvailableOnDay: aWorkingDay) and: (aDoctor hasEnoughWorkingHours) ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
+HMWorkingDayExamples >> availableNursesOnMayFirst [
+	<gtExample>
+	| aCollectionOfNurses aWorkingDay |
+	aCollectionOfNurses := HMStaffMemberExamples new allNursesWithConstraints.
+	aWorkingDay := HMWorkingDay new
+		date: (Date year: 2021 month: 5 day: 1).
+	^ aCollectionOfNurses
+		select: [ :aNurse | (aNurse isAvailableOnDay: aWorkingDay) and: (aNurse hasEnoughWorkingHours) ]
+]
+
+{ #category : #accessing }
+HMWorkingDayExamples >> availableStaffOnMayFirst [
+	<gtExample>
+	| availableStaff |
+	availableStaff := OrderedCollection new.
+	self availableDoctorsOnMayFirst
+		do: [ :aDoctor | availableStaff add: aDoctor ].
+	self availableNursesOnMayFirst
+		do: [ :aNurse | availableStaff add: aNurse ].
+	^ availableStaff
+]
+
+{ #category : #accessing }
 HMWorkingDayExamples >> seminarDayCheckPass [
 	<gtExample>
 	| aCollectionOfDoctors aDay aSeminarConstraint aConstraint test |
@@ -86,7 +109,7 @@ HMWorkingDayExamples >> seminarDayCheckPass [
 		andForADate: aDay
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMWorkingDayExamples >> vacationDayCheckPass [
 	<gtExample>
 	| aCollectionOfDoctors aDay aVacationConstraint aConstraint test |
@@ -102,7 +125,7 @@ HMWorkingDayExamples >> vacationDayCheckPass [
 		andForADate: aDay
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMWorkingDayExamples >> weddingDayCheckPass [
 	<gtExample>
 	| aCollectionOfDoctors aWorkingDay |

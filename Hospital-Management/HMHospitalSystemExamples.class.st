@@ -24,12 +24,12 @@ Kindly run the following example that demonstrates such assignment.
 
 "
 Class {
-	#name : 'HMHospitalSystemExamples',
-	#superclass : 'Object',
+	#name : #HMHospitalSystemExamples,
+	#superclass : #Object,
 	#category : 'Hospital-Management-Examples'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMHospitalSystemExamples >> aWardleyMap [
 <gtExample>
 | snippet aWardleyMap aNodeA aNodeB aNodeC aNodeD aNodeE aNode aNodeF aNodeG aNodeH anEdgeFtoG anEdgeFtoD anEdgeCtoE anEdgeCtoA|
@@ -117,7 +117,7 @@ HMHospitalSystemExamples >> aWardleyMap [
 	^ snippet
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMHospitalSystemExamples >> dependencyDiagram [
 	<gtExample>
 	| m |
@@ -132,7 +132,7 @@ HMHospitalSystemExamples >> dependencyDiagram [
 	^ m
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMHospitalSystemExamples >> domainModelWithAllConnections [
 	<gtExample>
 	| aDictionary m |
@@ -170,7 +170,7 @@ HMHospitalSystemExamples >> domainModelWithAllConnections [
 	^ m
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMHospitalSystemExamples >> domainModelWithAllConnections2 [
 	<gtExample>
 	| aDictionary m |
@@ -187,7 +187,7 @@ HMHospitalSystemExamples >> domainModelWithAllConnections2 [
 	^ m
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMHospitalSystemExamples >> domainModelWithAllConnections3 [
 	<gtExample>
 	| aDictionary m |
@@ -239,7 +239,7 @@ HMHospitalSystemExamples >> domainModelWithAllConnections3 [
 	^ m
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMHospitalSystemExamples >> domainModelWithMainConnections [
 	<gtExample>
 	| aDictionary m allowedClasses |
@@ -285,7 +285,7 @@ HMHospitalSystemExamples >> domainModelWithMainConnections [
 	^ m
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMHospitalSystemExamples >> domainModelWithoutAllConnections [
 	<gtExample>
 	| m |
@@ -303,7 +303,7 @@ HMHospitalSystemExamples >> domainModelWithoutAllConnections [
 	^ m
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMHospitalSystemExamples >> hospitalManagementSystemWithOneMonthScheduleAndDoctorsWithConstraints [
 	<gtExample>
 	| hospitalManagementSystem schedule staff assigner |
@@ -326,7 +326,7 @@ HMHospitalSystemExamples >> hospitalManagementSystemWithOneMonthScheduleAndDocto
 	^ hospitalManagementSystem
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMHospitalSystemExamples >> hospitalManagemmentSystemWithOneWeekScheduleAndDoctorsWithConstraints [
 	<gtExample>
 	| hospitalManagementSystem schedule staff assigner |

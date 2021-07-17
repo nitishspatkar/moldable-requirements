@@ -1,21 +1,21 @@
 Class {
-	#name : 'HMScheduleExamples',
-	#superclass : 'Object',
-	#category : 'Hospital-Management-Examples'
+	#name : #HMScheduleExamples,
+	#superclass : #Object,
+	#category : #'Hospital-Management-Examples'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMScheduleExamples >> forOneDayMayOne [
 	<gtExample>
 	| schedule aDay staff doctors nurses |
 	aDay := HMWorkingDayExamples new aWorkingDayMayOne.
-	aDay shifts: HMShiftConstraintExamples new assignDoctorsToAllShiftsMayOne.
+	aDay shifts: HMShiftExamples new allShifts.
 	schedule := HMSchedule new.
 	schedule days add: aDay.
 	^ schedule
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMScheduleExamples >> forOneMonth [
 	<gtExample>
 	| aSchedule |
@@ -30,7 +30,7 @@ HMScheduleExamples >> forOneMonth [
 	^ aSchedule
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMScheduleExamples >> forOneWeek [
 	<gtExample>
 	| aSchedule |

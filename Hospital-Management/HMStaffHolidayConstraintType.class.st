@@ -3,12 +3,12 @@ A staff member can have a holiday wish for a specific day, which needs to be con
 
 "
 Class {
-	#name : 'HMStaffHolidayConstraintType',
-	#superclass : 'HMStaffConstraintType',
+	#name : #HMStaffHolidayConstraintType,
+	#superclass : #HMStaffConstraintType,
 	#category : 'Hospital-Management-Model'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMStaffHolidayConstraintType >> aVacationConstraintForACollectionOfDoctors: aCollectionOfDoctors andForADate: aDay [
 	" accpets a set of doctors and a day, go through their vacation constraints, and returns a set of doctors who are available on that day"
 
@@ -22,7 +22,7 @@ HMStaffHolidayConstraintType >> aVacationConstraintForACollectionOfDoctors: aCol
 	^ availableDoctors
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMStaffHolidayConstraintType >> initialize [
 	super initialize.
 	description := 'A holdiday request from a staff member'

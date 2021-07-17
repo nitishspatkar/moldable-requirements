@@ -8,7 +8,7 @@ Alternatively, she can get paid for the equivalent of compensation time in salar
 
 "
 Class {
-	#name : 'HMNightShiftCompensationConstraint',
-	#superclass : 'HMShiftConstraint',
+	#name : #HMNightShiftCompensationConstraint,
+	#superclass : #HMShiftConstraint,
 	#category : 'Hospital-Management-Model'
 }

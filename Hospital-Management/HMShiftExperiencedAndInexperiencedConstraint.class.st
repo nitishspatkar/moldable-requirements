@@ -3,12 +3,12 @@ According to this constraint, a night shift should have both experienced and ine
 
 "
 Class {
-	#name : 'HMShiftExperiencedAndInexperiencedConstraint',
-	#superclass : 'HMShiftConstraint',
+	#name : #HMShiftExperiencedAndInexperiencedConstraint,
+	#superclass : #HMShiftConstraint,
 	#category : 'Hospital-Management-Model'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMShiftExperiencedAndInexperiencedConstraint >> assignDoctorsFrom: aCollectionOfDoctors toNightShift: shifts andUpdateIn: aRegister [
 	" checks if the shift type/code is a night shift"
 

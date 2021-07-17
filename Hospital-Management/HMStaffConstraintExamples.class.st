@@ -1,5 +1,5 @@
 Class {
-	#name : 'HMStaffConstraintExamples',
-	#superclass : 'Object',
+	#name : #HMStaffConstraintExamples,
+	#superclass : #Object,
 	#category : 'Hospital-Management-Examples'
 }
