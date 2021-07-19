@@ -1,10 +1,10 @@
 Class {
-	#name : #HMScheduleAssignerExamples,
-	#superclass : #Object,
+	#name : 'HMScheduleAssignerExamples',
+	#superclass : 'Object',
 	#category : 'Hospital-Management-Examples'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMScheduleAssignerExamples >> oneDaySchedule [
 	<gtExample>
 	| doctors nurses assigner workingDay |
@@ -24,7 +24,7 @@ HMScheduleAssignerExamples >> oneDaySchedule [
 	^ assigner
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMScheduleAssignerExamples >> oneMonthSchedule [
 	<gtExample>
 	| doctors assigner workingDays |
@@ -45,7 +45,7 @@ HMScheduleAssignerExamples >> oneMonthSchedule [
 			days: workingDays)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMScheduleAssignerExamples >> oneWeekSchedule [
 	<gtExample>
 	| doctors nurses assigner workingDays |

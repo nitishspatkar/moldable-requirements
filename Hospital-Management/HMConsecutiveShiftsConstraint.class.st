@@ -3,7 +3,7 @@ A doctor cannot be assigned to consecutive night and early shifts or late and ea
 
 "
 Class {
-	#name : #HMConsecutiveShiftsConstraint,
-	#superclass : #HMShiftConstraint,
+	#name : 'HMConsecutiveShiftsConstraint',
+	#superclass : 'HMShiftConstraint',
 	#category : 'Hospital-Management-Model'
 }

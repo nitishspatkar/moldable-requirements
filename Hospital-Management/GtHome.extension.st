@@ -1,6 +1,6 @@
-Extension { #name : #GtHome }
+Extension { #name : 'GtHome' }
 
-{ #category : #'*Hospital-Management' }
+{ #category : '*Hospital-Management' }
 GtHome >> hospitalManagemebtSection [
 	<gtHomeSection>
 	^ HMHomeSection new

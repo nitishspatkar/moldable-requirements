@@ -1,6 +1,6 @@
 Class {
-	#name : #HMStaffMember,
-	#superclass : #Object,
+	#name : 'HMStaffMember',
+	#superclass : 'Object',
 	#instVars : [
 		'experienceInYears',
 		'shifts',
@@ -13,67 +13,67 @@ Class {
 	#category : 'Hospital-Management-Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> addShift: aShift [
 	self shifts add: aShift
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> balanceWorkingHours [
 	^ balanceWorkinghours
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> balanceWorkingHours: aNumber [
 	balanceWorkinghours := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> compensationHours [
 	^ compensationHours
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> compensationHours: aNumber [
 	compensationHours := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> constraints [
 	^ constraints
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> constraints: someConstraints [
 	constraints := someConstraints
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> experienceInYears [
 	^ experienceInYears
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> experienceInYears: aNumber [
 	experienceInYears := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> firstName [
 	^ firstName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> firstName: aString [
 	firstName := aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> fullName [
 	^ self firstName, ' ', self lastName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> gtBasicStaffMemberFor: aView [
 	<gtView>
 	^ aView columnedList
@@ -90,7 +90,7 @@ HMStaffMember >> gtBasicStaffMemberFor: aView [
 		send: #value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> gtViewConstraintsFor: aView [
 	<gtView>
 	^ aView columnedList
@@ -101,7 +101,7 @@ HMStaffMember >> gtViewConstraintsFor: aView [
 		column: 'Description' text: [ :each | each type description ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> gtViewShiftsFor: aView [
 	<gtView>
 	^ aView columnedList
@@ -111,56 +111,56 @@ HMStaffMember >> gtViewShiftsFor: aView [
 		column: 'Shift' text: [ :aShift | aShift description ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> hasEnoughWorkingHours [
 	^ self balanceWorkingHours > 9
 		ifTrue: [ ^ true ]
 		ifFalse: [ ^ false ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> initialize [
 	super initialize.
 	shifts := OrderedCollection new.
 	constraints := OrderedCollection new
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 HMStaffMember >> isAvailableOnDay: aWorkingDay [
 	^ (self isNotAvailableOnDay: aWorkingDay) not
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> isExperienced [
 	experienceInYears >= 5
 		ifTrue: [ ^ true ]
 		ifFalse: [ ^ false ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> isNotAvailableOnDay: aWorkingDay [
 	^ self constraints anySatisfy: [ :aConstraint |
 		aConstraint isForDate: aWorkingDay date ].
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> isNotExperienced [
 	experienceInYears < 5
 		ifTrue: [ ^ true ]
 		ifFalse: [ ^ false ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> lastName [
 	^ lastName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> lastName: aString [
 	lastName := aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> shiftForDay: aDay [
 	^ self shifts 
 		detect: [ :aShift | 
@@ -168,12 +168,12 @@ HMStaffMember >> shiftForDay: aDay [
 		ifNone: [ nil ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> shifts [
 	^ shifts
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffMember >> shifts: assignedShifts [
 	shifts := assignedShifts
 ]

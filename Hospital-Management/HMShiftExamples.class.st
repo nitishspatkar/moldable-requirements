@@ -1,10 +1,10 @@
 Class {
-	#name : #HMShiftExamples,
-	#superclass : #Object,
+	#name : 'HMShiftExamples',
+	#superclass : 'Object',
 	#category : 'Hospital-Management-Examples'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShiftExamples >> aDayShift [
 	<gtExample>
 	| aShift |
@@ -18,7 +18,7 @@ HMShiftExamples >> aDayShift [
 	^ aShift
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShiftExamples >> aDayShiftForMayOne [
 	<gtExample>
 	| aShift |
@@ -33,7 +33,7 @@ HMShiftExamples >> aDayShiftForMayOne [
 	^ aShift
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShiftExamples >> aLateLateShift [
 	<gtExample>
 	| aShift |
@@ -47,7 +47,7 @@ HMShiftExamples >> aLateLateShift [
 	^ aShift
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShiftExamples >> aLateLateShiftForMayOne [
 	<gtExample>
 	| aShift |
@@ -62,7 +62,7 @@ HMShiftExamples >> aLateLateShiftForMayOne [
 	^ aShift
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShiftExamples >> aMidDayShift [
 	<gtExample>
 	| aShift |
@@ -76,7 +76,7 @@ HMShiftExamples >> aMidDayShift [
 	^ aShift
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShiftExamples >> aMidDayShiftForMayOne [
 	<gtExample>
 	| aShift |
@@ -91,7 +91,7 @@ HMShiftExamples >> aMidDayShiftForMayOne [
 	^ aShift
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShiftExamples >> aNightShift [
 	<gtExample>
 	| aShift |
@@ -105,7 +105,7 @@ HMShiftExamples >> aNightShift [
 	^ aShift
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShiftExamples >> aNightShiftForExperienced [
 	<gtExample>
 	| aShift |
@@ -119,7 +119,7 @@ HMShiftExamples >> aNightShiftForExperienced [
 	^ aShift
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShiftExamples >> aNightShiftForInexperienced [
 	<gtExample>
 	| aShift |
@@ -133,7 +133,7 @@ HMShiftExamples >> aNightShiftForInexperienced [
 	^ aShift
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShiftExamples >> aNightShiftForMayOne [
 	<gtExample>
 	| aShift |
@@ -148,7 +148,7 @@ HMShiftExamples >> aNightShiftForMayOne [
 	^ aShift
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShiftExamples >> allShifts [
 	<gtExample>
 	| allShifts |
@@ -162,7 +162,7 @@ HMShiftExamples >> allShifts [
 	^ allShifts
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShiftExamples >> allShiftsForMayOne [
 	<gtExample>
 	| allShifts |
@@ -176,7 +176,7 @@ HMShiftExamples >> allShiftsForMayOne [
 	^ allShifts
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShiftExamples >> anEarlyLateShift [
 	<gtExample>
 	| aShift |
@@ -190,7 +190,7 @@ HMShiftExamples >> anEarlyLateShift [
 	^ aShift
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMShiftExamples >> anEarlyLateShiftForMayOne [
 	<gtExample>
 	| aShift |

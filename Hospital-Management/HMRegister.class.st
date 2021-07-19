@@ -3,15 +3,15 @@ I keep track of the records of the staff member, such as their requests for vaca
 
 "
 Class {
-	#name : #HMRegister,
-	#superclass : #Object,
+	#name : 'HMRegister',
+	#superclass : 'Object',
 	#instVars : [
 		'records'
 	],
 	#category : 'Hospital-Management-Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMRegister >> gtRegisterFor: aView [
 	<gtView>
 	^ aView columnedList
@@ -21,17 +21,17 @@ HMRegister >> gtRegisterFor: aView [
 		column: 'Day' text: [ :aDay | aDay ]
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 HMRegister >> initialize [
 	records := OrderedCollection new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMRegister >> records [
 	^ records
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMRegister >> records: aCollectionOfRecords [
 	records := aCollectionOfRecords
 ]

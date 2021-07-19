@@ -1,13 +1,13 @@
 Class {
-	#name : #HMStaffConstraintType,
-	#superclass : #Object,
+	#name : 'HMStaffConstraintType',
+	#superclass : 'Object',
 	#instVars : [
 		'description'
 	],
 	#category : 'Hospital-Management-Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffConstraintType class >> gtViewConstraintTypesFor: aView [ 	
 	<gtView>
 	<gtClassView>
@@ -19,18 +19,18 @@ HMStaffConstraintType class >> gtViewConstraintTypesFor: aView [
 		expandOneLevel 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffConstraintType class >> yourself [
 	<gtExample>
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffConstraintType >> description [
 	^ description
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMStaffConstraintType >> description: aString [
 	description := aString
 ]

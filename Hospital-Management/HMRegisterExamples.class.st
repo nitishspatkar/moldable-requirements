@@ -1,15 +1,15 @@
 Class {
-	#name : #HMRegisterExamples,
-	#superclass : #Object,
+	#name : 'HMRegisterExamples',
+	#superclass : 'Object',
 	#category : 'Hospital-Management-Examples'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMRegisterExamples >> aGolbalRegister [
 	^ HMRegister new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMRegisterExamples >> aRegisterForOneDayWithWishes [
 	<gtExample>
 	| aRegister |
@@ -18,13 +18,13 @@ HMRegisterExamples >> aRegisterForOneDayWithWishes [
 	^ aRegister
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMRegisterExamples >> anEmptyRegister [
 	<gtExample>
 	^ HMRegister new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HMRegisterExamples >> emptyRegisterForOneWeek [
 	<gtExample>
 	| aRegister |
