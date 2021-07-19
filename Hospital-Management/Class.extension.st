@@ -20,6 +20,13 @@ Class >> computeRelatedPages [
 ]
 
 { #category : '*Hospital-Management' }
+Class >> computeRelatedStories [
+	^ MyProject defaultHospitalManagementProject userStories 
+		select: [ :aUserStory |
+			aUserStory role asLowercase includesSubstring: (self name asLowercase removePrefix: 'hm') ]
+]
+
+{ #category : '*Hospital-Management' }
 Class >> gtViewRelatedPagesFor: aView [
 	<gtView>
 	<gtClassView>
@@ -27,4 +34,14 @@ Class >> gtViewRelatedPagesFor: aView [
 		title: 'Related pages';
 		items: [ self computeRelatedPages ];
 		itemText: [ :aPage | aPage title ]
+]
+
+{ #category : '*Hospital-Management' }
+Class >> gtViewRelatedRequirementsFor: aView [
+	<gtView>
+	<gtClassView>
+	^ aView list
+		title: 'Related Stories';
+		items: [ self computeRelatedStories ];
+		itemText: [ :aUserStory | aUserStory description ]
 ]

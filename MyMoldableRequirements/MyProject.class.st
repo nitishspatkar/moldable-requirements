@@ -11,8 +11,23 @@ Class {
 		'announcer',
 		'board'
 	],
+	#classVars : [
+		'defaultInstance'
+	],
 	#category : 'MyMoldableRequirements-Models'
 }
+
+{ #category : 'accessing' }
+MyProject class >> defaultHospitalManagementProject [
+	^ self defaultInstance
+		detect: [:each | each title = 'Hospital management system']
+]
+
+{ #category : 'accessing' }
+MyProject class >> defaultInstance [
+	^ defaultInstance ifNil: [
+		defaultInstance := self new gtParseJSONExample ]
+]
 
 { #category : 'accessing' }
 MyProject class >> fromRawData: projectDict [
@@ -272,4 +287,10 @@ MyProject >> title [
 { #category : 'accessing' }
 MyProject >> title: anotherString [
 	title := anotherString
+]
+
+{ #category : 'accessing' }
+MyProject >> userStories [
+	^ self epics flatCollect: [ :each |
+		each userStories ]
 ]
