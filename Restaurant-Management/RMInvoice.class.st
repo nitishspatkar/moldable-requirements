@@ -36,7 +36,7 @@ RMInvoice class >> gtCoderParametrizedExamplesFor: aView [
 { #category : #accessing }
 RMInvoice >> addInvoiceItem: anInvoiceItem [ 
 	self invoiceItems add: anInvoiceItem.
-	self announcer announce: (UInvoiceItemAdded new invoiceItem: anInvoiceItem)
+	self announcer announce: (RMInvoiceItemAdded new invoiceItem: anInvoiceItem)
 ]
 
 { #category : #accessing }
@@ -304,7 +304,7 @@ RMInvoice >> gtDetailsFor: aView [
 			aGrid addChild: vatContainer.
 			
 			self announcer
-				when: UInvoiceItemAdded
+				when: RMInvoiceItemAdded
 				do: [ :anAnnouncement |
 					| newItems |
 					newItems := anItemStencil value: anAnnouncement invoiceItem.
@@ -323,7 +323,7 @@ RMInvoice >> gtDetailsFor: aView [
 						aGrid addChild: eachItem at: (aGrid childIndexOf: (aGrid childNamed: #span)) ] ].
 				
 			self announcer
-				when: UInvoiceItemRemoved
+				when: RMInvoiceItemRemoved
 				do: [  ].
 			
 			aGrid asScalableElement
@@ -503,7 +503,7 @@ RMInvoice >> printOn: aStream [
 { #category : #accessing }
 RMInvoice >> removeInvoiceItem: anInvoiceItem [
 	self invoiceItems remove: anInvoiceItem.
-	self announcer announce: (UInvoiceItemRemoved new invoiceItem: anInvoiceItem)
+	self announcer announce: (RMInvoiceItemRemoved new invoiceItem: anInvoiceItem)
 ]
 
 { #category : #accessing }
