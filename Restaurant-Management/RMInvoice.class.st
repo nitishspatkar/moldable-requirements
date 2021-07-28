@@ -214,120 +214,161 @@ RMInvoice >> gtDetailsFor: aView [
 	^ aView explicit
 		title: 'Details';
 		priority: 0;
-		stencil: [ 
-			| aGrid anItemStencil theHeaders theItems total |
-			
+		stencil: [ | aGrid anItemStencil theHeaders theItems total |
 			aGrid := BlElement new.
-			aGrid layout: (BlGridLayout horizontal cellSpacing: 1; columnCount: 4).
+			aGrid
+				layout:
+					(BlGridLayout horizontal
+						cellSpacing: 1;
+						columnCount: 4).
 			aGrid padding: (BlInsets all: 20).
-			aGrid constraintsDo: [ :c |
-				c horizontal exact: 400.
-				c vertical fitContent ].
-			
-			theHeaders := { 'Item' . 'Quantity' . 'Item price' . 'Subtotal'} withIndexCollect: [ :eachName :anIndex |
+			aGrid
+				constraintsDo: [ :c | 
+					c horizontal exact: 400.
+					c vertical fitContent ].
+			theHeaders := {'Item' . 'Quantity' . 'Item price' . 'Subtotal'}
+				withIndexCollect: [ :eachName :anIndex | 
 					BrLabel new
 						background: Color white;
-						look: (BrGlamorousLabelLook new fontSize: 15);
+						aptitude: (BrGlamorousLabelLook new fontSize: 15);
 						padding: (BlInsets all: 10);
-						constraintsDo: [ :c |
+						constraintsDo: [ :c | 
 							c grid horizontal alignRight.
 							c grid vertical alignCenter ];
 						text: eachName ].
-			
-			
-			anItemStencil := [ :eachInvoiceItem |
-				#(name quantity individualPrice price) withIndexCollect: [ :eachProperty :anIndex |
+			anItemStencil := [ :eachInvoiceItem | 
+			#(name quantity individualPrice price)
+				withIndexCollect: [ :eachProperty :anIndex | 
 					BrLabel new
 						background: Color white;
-						look: (BrGlamorousLabelLook new fontSize: 12);
-						padding: (BlInsets top: 5 left: 10 bottom: 5 right: 10);
-						text: ((eachProperty cull: eachInvoiceItem) isString
-							ifTrue: [ (eachProperty cull: eachInvoiceItem) ]
-							ifFalse: [ (eachProperty cull: eachInvoiceItem) gtDisplayString ]);
-						when: BlClickEvent do: [ :anEvent | anEvent currentTarget fireEvent: (GtPhlowObjectToSpawn new object: eachInvoiceItem; sourceElement: anEvent currentTarget) ];
-						constraintsDo: [ :c |
+						aptitude: (BrGlamorousLabelLook new fontSize: 12);
+						padding:
+							(BlInsets
+								top: 5
+								left: 10
+								bottom: 5
+								right: 10);
+						text:
+							((eachProperty cull: eachInvoiceItem) isString
+								ifTrue: [ eachProperty cull: eachInvoiceItem ]
+								ifFalse: [ (eachProperty cull: eachInvoiceItem) gtDisplayString ]);
+						when: BlClickEvent
+							do: [ :anEvent | 
+							anEvent currentTarget
+								fireEvent:
+									(GtPhlowObjectToSpawn new
+										object: eachInvoiceItem;
+										sourceElement: anEvent currentTarget) ];
+						constraintsDo: [ :c | 
 							c grid horizontal alignRight.
 							c grid vertical alignCenter ];
-						in: [ :e| 
-							eachProperty = #price ifTrue: [ 
-								e connector 
-									model: eachInvoiceItem;
-									beVisualSource ]
-							 ];
+						in: [ :e | 
+							eachProperty = #price
+								ifTrue: [ e connector
+										model: eachInvoiceItem;
+										beVisualSource ] ];
 						yourself ] ].
-			
-			theItems := self invoiceItems flatCollect: anItemStencil as: OrderedCollection.
-			
+			theItems := self invoiceItems
+				flatCollect: anItemStencil
+				as: OrderedCollection.
 			total := BrLabel new
-				look: (BrGlamorousLabelLook new fontSize: 15);
-				text: 'Total: ', self price gtDisplayString;
-				padding: (BlInsets top: 5 left: 10 bottom: 5 right: 10);
-				constraintsDo: [ :c |
+				aptitude: (BrGlamorousLabelLook new fontSize: 15);
+				text: 'Total: ' , self price gtDisplayString;
+				padding:
+					(BlInsets
+						top: 5
+						left: 10
+						bottom: 5
+						right: 10);
+				constraintsDo: [ :c | 
 					c grid horizontal span: 4.
 					c grid horizontal alignRight.
 					c grid vertical alignCenter ].
-			
 			vatContainer := BlElement new
 				layout: (BlLinearLayout vertical cellSpacing: 5);
-				padding: (BlInsets top: 5 left: 10 bottom: 5 right: 10);
-				constraintsDo: [ :c |
+				padding:
+					(BlInsets
+						top: 5
+						left: 10
+						bottom: 5
+						right: 10);
+				constraintsDo: [ :c | 
 					c vertical fitContent.
 					c horizontal fitContent.
 					c grid horizontal span: 4.
 					c grid horizontal alignRight.
 					c grid vertical alignCenter ].
-			self splitBySameApplicableTax do: [ :aSplit | 
-				| vat |
-				vat := BrLabel new
-					constraintsDo: [ :c | c linear horizontal alignRight ];
-					look: (BrGlamorousLabelLook new fontSize: 12);
-					text: aSplit taxComputation gtDisplayString, ' VAT: ', aSplit taxMoney gtDisplayString;
-					when: BlClickEvent do: [ :anEvent | anEvent currentTarget fireEvent: (GtPhlowObjectToSpawn new object: aSplit;  sourceElement: anEvent currentTarget) ].
-					vatContainer addChild: vat ]. 
-
+			self splitBySameApplicableTax
+				do: [ :aSplit | 
+					| vat |
+					vat := BrLabel new
+						constraintsDo: [ :c | c linear horizontal alignRight ];
+						aptitude: (BrGlamorousLabelLook new fontSize: 12);
+						text:
+							aSplit taxComputation gtDisplayString , ' VAT: '
+								, aSplit taxMoney gtDisplayString;
+						when: BlClickEvent
+							do: [ :anEvent | 
+							anEvent currentTarget
+								fireEvent:
+									(GtPhlowObjectToSpawn new
+										object: aSplit;
+										sourceElement: anEvent currentTarget) ].
+					vatContainer addChild: vat ].
 			aGrid addChildren: theHeaders.
 			aGrid addChildren: theItems.
-			aGrid addChild: (BlElement new
-				constraintsDo: [ :c |
-					c horizontal matchParent.
-					c vertical exact: 1.
-					c grid horizontal span: 3.
-					c grid vertical alignCenter ]) as: #span.
-			aGrid addChild: (BlElement new
-				background: Color gray;
-				margin: (BlInsets top: 20 right: 10);
-				constraintsDo: [ :c |
-					c horizontal matchParent.
-					c vertical exact: 1.
-					c grid vertical alignCenter ]).
+			aGrid
+				addChild:
+					(BlElement new
+						constraintsDo: [ :c | 
+							c horizontal matchParent.
+							c vertical exact: 1.
+							c grid horizontal span: 3.
+							c grid vertical alignCenter ])
+				as: #span.
+			aGrid
+				addChild:
+					(BlElement new
+						background: Color gray;
+						margin: (BlInsets top: 20 right: 10);
+						constraintsDo: [ :c | 
+							c horizontal matchParent.
+							c vertical exact: 1.
+							c grid vertical alignCenter ]).
 			aGrid addChild: total.
 			aGrid addChild: vatContainer.
-			
 			self announcer
 				when: RMInvoiceItemAdded
-				do: [ :anAnnouncement |
+				do: [ :anAnnouncement | 
 					| newItems |
 					newItems := anItemStencil value: anAnnouncement invoiceItem.
 					theItems addAll: newItems.
-					total text: 'Total: ', self price gtDisplayString.
+					total text: 'Total: ' , self price gtDisplayString.
 					vatContainer removeChildren.
-					self splitBySameApplicableTax do: [ :aSplit | 
-						| vat |
-						vat := BrLabel new
-							constraintsDo: [ :c | c linear horizontal alignRight ];
-							look: (BrGlamorousLabelLook new fontSize: 12);
-							text: aSplit taxComputation gtDisplayString, ' VAT: ', aSplit taxMoney gtDisplayString;
-							when: BlClickEvent do: [ :anEvent | anEvent currentTarget fireEvent: (GtPhlowObjectToSpawn new object: aSplit;  sourceElement: anEvent currentTarget) ].
-							vatContainer addChild: vat ]. 
-					newItems do: [ :eachItem |
-						aGrid addChild: eachItem at: (aGrid childIndexOf: (aGrid childNamed: #span)) ] ].
-				
-			self announcer
-				when: RMInvoiceItemRemoved
-				do: [  ].
-			
-			aGrid asScalableElement
-		]
+					self splitBySameApplicableTax
+						do: [ :aSplit | 
+							| vat |
+							vat := BrLabel new
+								constraintsDo: [ :c | c linear horizontal alignRight ];
+								look: (BrGlamorousLabelLook new fontSize: 12);
+								text:
+									aSplit taxComputation gtDisplayString , ' VAT: '
+										, aSplit taxMoney gtDisplayString;
+								when: BlClickEvent
+									do: [ :anEvent | 
+									anEvent currentTarget
+										fireEvent:
+											(GtPhlowObjectToSpawn new
+												object: aSplit;
+												sourceElement: anEvent currentTarget) ].
+							vatContainer addChild: vat ].
+					newItems
+						do: [ :eachItem | 
+							aGrid
+								addChild: eachItem
+								at: (aGrid childIndexOf: (aGrid childNamed: #span)) ] ].
+			self announcer when: RMInvoiceItemRemoved do: [  ].
+			aGrid asScalableElement ]
 ]
 
 { #category : #connector }

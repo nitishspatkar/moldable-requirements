@@ -14,5 +14,6 @@ BaselineOfMyMoldableRequirements >> baseline: spec [
 				package: 'MyMoldableRequirements';
 				package: 'Hospital-Management';
 				package: 'Epic';
+				package: 'Restaurant-Management';
 				package: 'AddressBook' with: [ spec requires: #(Epic) ] ]
 ]
