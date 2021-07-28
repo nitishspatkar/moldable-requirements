@@ -1,6 +1,6 @@
 Class {
 	#name : #RMMenuEntry,
-	#superclass : #UObject,
+	#superclass : #RMObject,
 	#instVars : [
 		'menuCategory',
 		'characteristics'

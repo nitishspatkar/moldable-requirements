@@ -1,6 +1,6 @@
 Class {
 	#name : #RMOrderItemState,
-	#superclass : #UObject,
+	#superclass : #RMObject,
 	#instVars : [
 		'orderItem',
 		'previousState',

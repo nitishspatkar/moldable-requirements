@@ -1,6 +1,6 @@
 Class {
 	#name : #RMTaxComputation,
-	#superclass : #UObject,
+	#superclass : #RMObject,
 	#category : #'Restaurant-Management-Model'
 }
 

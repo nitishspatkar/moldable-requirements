@@ -1,6 +1,6 @@
 Class {
 	#name : #RMOrderItem,
-	#superclass : #UTimestampedObject,
+	#superclass : #RMTimestampedObject,
 	#instVars : [
 		'menuItem',
 		'quantity',

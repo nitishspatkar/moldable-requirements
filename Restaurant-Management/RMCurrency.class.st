@@ -1,6 +1,6 @@
 Class {
 	#name : #RMCurrency,
-	#superclass : #UObject,
+	#superclass : #RMObject,
 	#instVars : [
 		'name'
 	],

@@ -1,6 +1,6 @@
 Class {
 	#name : #RMQuantity,
-	#superclass : #UObject,
+	#superclass : #RMObject,
 	#category : #'Restaurant-Management-Model'
 }
 

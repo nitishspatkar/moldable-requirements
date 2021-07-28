@@ -1,6 +1,6 @@
 Class {
 	#name : #RMSellable,
-	#superclass : #UObject,
+	#superclass : #RMObject,
 	#instVars : [
 		'price',
 		'name',

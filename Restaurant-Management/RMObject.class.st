@@ -1,5 +1,5 @@
 Class {
-	#name : #RMQuantityUnit,
-	#superclass : #RMObject,
+	#name : #RMObject,
+	#superclass : #Object,
 	#category : #'Restaurant-Management-Model'
 }

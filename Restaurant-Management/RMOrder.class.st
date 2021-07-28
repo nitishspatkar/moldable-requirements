@@ -1,6 +1,6 @@
 Class {
 	#name : #RMOrder,
-	#superclass : #UTimestampedObject,
+	#superclass : #RMTimestampedObject,
 	#instVars : [
 		'orderItems',
 		'invoices',
