@@ -514,5 +514,5 @@ RMInvoice >> splitBySameApplicableTax [
 
 { #category : #accessing }
 RMInvoice >> taxMoney [
-	^ self splitBySameApplicableTax uhmoSum: [ :each | each taxMoney ]
+	^ self splitBySameApplicableTax rmSum: [ :each | each taxMoney ]
 ]

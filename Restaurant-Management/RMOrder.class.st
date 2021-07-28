@@ -25,7 +25,7 @@ RMOrder >> announcer [
 RMOrder >> derivedPrice [
 	^ self orderItems isEmpty
 		ifTrue: [ RMZeroMoney new asPrice ]
-		ifFalse: [ self orderItems uhmoSum: [ :each | each price ] ]
+		ifFalse: [ self orderItems rmSum: [ :each | each price ] ]
 ]
 
 { #category : #ui }

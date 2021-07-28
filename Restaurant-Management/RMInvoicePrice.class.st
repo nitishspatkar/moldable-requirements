@@ -8,5 +8,5 @@ Class {
 RMInvoicePrice >> money [
 	^ (self reference invoiceItems isEmpty
 		ifTrue: [ RMZeroMoney new ]
-		ifFalse: [ (self reference invoiceItems uhmoSum: [ :each | each price ]) money ])
+		ifFalse: [ (self reference invoiceItems rmSum: [ :each | each price ]) money ])
 ]

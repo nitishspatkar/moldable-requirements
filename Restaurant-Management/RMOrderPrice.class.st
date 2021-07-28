@@ -8,5 +8,5 @@ Class {
 RMOrderPrice >> money [
 	^ (self reference orderItems isEmpty
 		ifTrue: [ RMZeroMoney new ]
-		ifFalse: [ (self reference orderItems uhmoSum: [ :each | each price ]) money ])
+		ifFalse: [ (self reference orderItems rmSum: [ :each | each price ]) money ])
 ]
