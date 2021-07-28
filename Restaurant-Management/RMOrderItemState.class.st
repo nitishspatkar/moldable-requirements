@@ -12,7 +12,7 @@ Class {
 { #category : #initialization }
 RMOrderItemState >> initialize [
 	super initialize.
-	timestamp := UTimeProvider currentTime.
+	timestamp := DateAndTime now
 ]
 
 { #category : #accessing }
