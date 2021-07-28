@@ -509,7 +509,7 @@ RMInvoice >> removeInvoiceItem: anInvoiceItem [
 { #category : #accessing }
 RMInvoice >> splitBySameApplicableTax [
 	^ (self invoiceItems groupedBy: [ :anInvoiceItem | anInvoiceItem applicableTax percentage ])
-		values collect: [ :aCollection | UInvoiceSplitBySameTax new invoiceItems: aCollection ]
+		values collect: [ :aCollection | RMInvoiceSplitBySameTax new invoiceItems: aCollection ]
 ]
 
 { #category : #accessing }
