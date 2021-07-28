@@ -10,7 +10,7 @@ Class {
 { #category : #initialization }
 RMTimestampedObject >> initialize [
 	super initialize.
-	timestamp := UTimeProvider currentTime
+	timestamp := DateAndTime now
 ]
 
 { #category : #accessing }
