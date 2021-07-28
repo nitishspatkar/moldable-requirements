@@ -172,11 +172,10 @@ EScenarioSelectionSpotterMultipleSelectionWidget >> getRemoveExampleButton [
 	^ BrButton new
 		aptitude: BrGlamorousButtonWithIconAptitude - BrGlamorousButtonExteriorAptitude;
 		icon: BrGlamorousIcons close asElement;
-		beTiny;
+		beTinySize;
 		label: 'Remove example';
-		margin: (BlInsets left: 5)";
+		margin: (BlInsets left: 5)	";
 		action: [ :button | self class gtBrowseFrom: button ]"
-
 ]
 
 { #category : #examples }
