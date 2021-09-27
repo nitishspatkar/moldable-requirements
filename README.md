@@ -11,7 +11,7 @@ Run the follwong script to load the necessary packages.
 ```
 Metacello new
   baseline: 'MyMoldableRequirements';
-  repository: 'github://nitishspatkar/moldable-requirements:main';
+  repository: 'github://nitishspatkar/moldable-requirements:reqif-parser';
   load
 ```
 

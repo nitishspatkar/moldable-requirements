@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0">
+  <THE-HEADER>
+    <REQ-IF-HEADER IDENTIFIER="rmf-8d0a9679-106a-4df9-ada8-f20b68bdeb48">
+      <COMMENT>Created by: Christian Fries</COMMENT>
+      <CREATION-TIME>2021-03-16T15:15:18.421+01:00</CREATION-TIME>
+      <REQ-IF-TOOL-ID>ProR (http://pror.org)</REQ-IF-TOOL-ID>
+      <REQ-IF-VERSION>1.0.1</REQ-IF-VERSION>
+      <SOURCE-TOOL-ID>ProR (http://pror.org)</SOURCE-TOOL-ID>
+      <TITLE>Address Book Application</TITLE>
+    </REQ-IF-HEADER>
+  </THE-HEADER>
+  <CORE-CONTENT>
+    <REQ-IF-CONTENT>
+      <DATATYPES>
+        <DATATYPE-DEFINITION-ENUMERATION IDENTIFIER="_0iBWoIZcEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T14:37:53.529+01:00" LONG-NAME="status">
+          <SPECIFIED-VALUES>
+            <ENUM-VALUE IDENTIFIER="_4fSdcIZcEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T14:37:59.661+01:00" LONG-NAME="not-started">
+              <PROPERTIES>
+                <EMBEDDED-VALUE/>
+              </PROPERTIES>
+            </ENUM-VALUE>
+            <ENUM-VALUE IDENTIFIER="_7DT5YIZcEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T14:38:40.471+01:00" LONG-NAME="in-progress">
+              <PROPERTIES>
+                <EMBEDDED-VALUE/>
+              </PROPERTIES>
+            </ENUM-VALUE>
+            <ENUM-VALUE IDENTIFIER="_8hS6UIZcEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T14:38:49.898+01:00" LONG-NAME="done">
+              <PROPERTIES>
+                <EMBEDDED-VALUE/>
+              </PROPERTIES>
+            </ENUM-VALUE>
+          </SPECIFIED-VALUES>
+        </DATATYPE-DEFINITION-ENUMERATION>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="_d5qNMIZdEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T14:42:32.772+01:00" LONG-NAME="title" MAX-LENGTH="255"/>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="_hGWysIZdEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T14:42:52.247+01:00" LONG-NAME="text" MAX-LENGTH="1024"/>
+        <DATATYPE-DEFINITION-INTEGER IDENTIFIER="_lm93IIZdEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T14:43:25.007+01:00" LONG-NAME="points" MAX="100" MIN="1"/>
+        <DATATYPE-DEFINITION-INTEGER IDENTIFIER="_sr6HQIZiEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:19:58.288+01:00" LONG-NAME="id" MAX="99999999" MIN="1"/>
+      </DATATYPES>
+      <SPEC-TYPES>
+        <SPEC-OBJECT-TYPE IDENTIFIER="_N9m1oIZcEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T14:33:30.917+01:00" LONG-NAME="Epic">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_T2THUIZcEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T14:34:10.732+01:00" LONG-NAME="title" IS-EDITABLE="true">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_d5qNMIZdEeuCNrkoFTKLjQ</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_X06R8IZcEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T14:34:36.596+01:00" LONG-NAME="description" IS-EDITABLE="true">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_hGWysIZdEeuCNrkoFTKLjQ</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-INTEGER IDENTIFIER="_oeMJoIZiEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:19:30.286+01:00" LONG-NAME="id" IS-EDITABLE="true">
+              <TYPE>
+                <DATATYPE-DEFINITION-INTEGER-REF>_sr6HQIZiEeuCNrkoFTKLjQ</DATATYPE-DEFINITION-INTEGER-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-INTEGER>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPEC-OBJECT-TYPE IDENTIFIER="_Q4SeEIZcEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T14:33:56.263+01:00" LONG-NAME="UserStory">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-ENUMERATION IDENTIFIER="_u_AaAIZcEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T14:37:16.392+01:00" LONG-NAME="status" IS-EDITABLE="true">
+              <TYPE>
+                <DATATYPE-DEFINITION-ENUMERATION-REF>_0iBWoIZcEeuCNrkoFTKLjQ</DATATYPE-DEFINITION-ENUMERATION-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-ENUMERATION>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_Av_IUIZdEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T14:39:16.493+01:00" LONG-NAME="description" IS-EDITABLE="true">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_hGWysIZdEeuCNrkoFTKLjQ</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-INTEGER IDENTIFIER="_LpCVgIZdEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T14:40:30.979+01:00" LONG-NAME="points" IS-EDITABLE="true">
+              <TYPE>
+                <DATATYPE-DEFINITION-INTEGER-REF>_lm93IIZdEeuCNrkoFTKLjQ</DATATYPE-DEFINITION-INTEGER-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-INTEGER>
+            <ATTRIBUTE-DEFINITION-INTEGER IDENTIFIER="_x7Fh4IZiEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:20:33.568+01:00" LONG-NAME="id" IS-EDITABLE="true">
+              <TYPE>
+                <DATATYPE-DEFINITION-INTEGER-REF>_sr6HQIZiEeuCNrkoFTKLjQ</DATATYPE-DEFINITION-INTEGER-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-INTEGER>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPECIFICATION-TYPE DESC="A project with epics and user stories" IDENTIFIER="_CTODZoZiEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:15:18.421+01:00" LONG-NAME="Project">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_CTODZ4ZiEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:15:18.421+01:00" LONG-NAME="description" IS-EDITABLE="true">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_hGWysIZdEeuCNrkoFTKLjQ</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPECIFICATION-TYPE>
+      </SPEC-TYPES>
+      <SPEC-OBJECTS>
+        <SPEC-OBJECT IDENTIFIER="_CTODaIZiEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:15:18.421+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-INTEGER THE-VALUE="2">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-INTEGER-REF>_oeMJoIZiEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-INTEGER-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-INTEGER>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Edit a contact">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_T2THUIZcEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="sample description">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_X06R8IZcEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_N9m1oIZcEeuCNrkoFTKLjQ</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_cUHZcIZiEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:18:10.287+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="sample description">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_X06R8IZcEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Add a contact">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_T2THUIZcEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-INTEGER THE-VALUE="1">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-INTEGER-REF>_oeMJoIZiEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-INTEGER-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-INTEGER>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_N9m1oIZcEeuCNrkoFTKLjQ</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_NK-aoIZjEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:23:30.957+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-INTEGER THE-VALUE="1">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-INTEGER-REF>_x7Fh4IZiEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-INTEGER-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-INTEGER>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="As a user, I want to add a new contact to an address book">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Av_IUIZdEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_4fSdcIZcEeuCNrkoFTKLjQ</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_u_AaAIZcEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+            <ATTRIBUTE-VALUE-INTEGER THE-VALUE="10">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-INTEGER-REF>_LpCVgIZdEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-INTEGER-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-INTEGER>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_Q4SeEIZcEeuCNrkoFTKLjQ</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_7_kpIIZjEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:29:15.438+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-INTEGER THE-VALUE="2">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-INTEGER-REF>_x7Fh4IZiEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-INTEGER-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-INTEGER>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="As a user, I want to add a new phone number to a contact">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Av_IUIZdEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_4fSdcIZcEeuCNrkoFTKLjQ</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_u_AaAIZcEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+            <ATTRIBUTE-VALUE-INTEGER THE-VALUE="20">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-INTEGER-REF>_LpCVgIZdEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-INTEGER-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-INTEGER>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_Q4SeEIZcEeuCNrkoFTKLjQ</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_P1j8IIZkEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:31:28.981+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-INTEGER THE-VALUE="3">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-INTEGER-REF>_x7Fh4IZiEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-INTEGER-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-INTEGER>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="As a user, I want to edit the first name of a specific contact">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Av_IUIZdEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_4fSdcIZcEeuCNrkoFTKLjQ</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_u_AaAIZcEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+            <ATTRIBUTE-VALUE-INTEGER THE-VALUE="10">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-INTEGER-REF>_LpCVgIZdEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-INTEGER-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-INTEGER>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_Q4SeEIZcEeuCNrkoFTKLjQ</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_S7J0EIZkEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:31:52.245+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-INTEGER THE-VALUE="4">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-INTEGER-REF>_x7Fh4IZiEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-INTEGER-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-INTEGER>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="As a user, I want to edit the last name of a specific contact">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Av_IUIZdEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_4fSdcIZcEeuCNrkoFTKLjQ</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_u_AaAIZcEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+            <ATTRIBUTE-VALUE-INTEGER THE-VALUE="20">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-INTEGER-REF>_LpCVgIZdEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-INTEGER-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-INTEGER>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_Q4SeEIZcEeuCNrkoFTKLjQ</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_WZBpIIZkEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:32:26.791+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-INTEGER THE-VALUE="10">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-INTEGER-REF>_LpCVgIZdEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-INTEGER-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-INTEGER>
+            <ATTRIBUTE-VALUE-INTEGER THE-VALUE="5">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-INTEGER-REF>_x7Fh4IZiEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-INTEGER-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-INTEGER>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="As a user, I want to edit a specific phone number of a specific contact">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Av_IUIZdEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_4fSdcIZcEeuCNrkoFTKLjQ</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_u_AaAIZcEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_Q4SeEIZcEeuCNrkoFTKLjQ</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_eDXeoIZkEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:33:11.569+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-INTEGER THE-VALUE="3">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-INTEGER-REF>_oeMJoIZiEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-INTEGER-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-INTEGER>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Remove a contact">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_T2THUIZcEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="sample description">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_X06R8IZcEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_N9m1oIZcEeuCNrkoFTKLjQ</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_j-v38IZkEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:33:48.358+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-INTEGER THE-VALUE="6">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-INTEGER-REF>_x7Fh4IZiEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-INTEGER-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-INTEGER>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="As a user, I want to remove an entire contact">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Av_IUIZdEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_4fSdcIZcEeuCNrkoFTKLjQ</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_u_AaAIZcEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+            <ATTRIBUTE-VALUE-INTEGER THE-VALUE="10">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-INTEGER-REF>_LpCVgIZdEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-INTEGER-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-INTEGER>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_Q4SeEIZcEeuCNrkoFTKLjQ</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_nsXZMIZkEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:34:02.068+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-INTEGER THE-VALUE="7">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-INTEGER-REF>_x7Fh4IZiEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-INTEGER-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-INTEGER>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="As a user, I want to remove a specific property, such as a specific phone number, of a specific contact">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Av_IUIZdEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_4fSdcIZcEeuCNrkoFTKLjQ</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_u_AaAIZcEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+            <ATTRIBUTE-VALUE-INTEGER THE-VALUE="10">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-INTEGER-REF>_LpCVgIZdEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-INTEGER-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-INTEGER>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_Q4SeEIZcEeuCNrkoFTKLjQ</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+      </SPEC-OBJECTS>
+      <SPECIFICATIONS>
+        <SPECIFICATION IDENTIFIER="_CTODaoZiEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:38:50.330+01:00" LONG-NAME="Specification Document">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Address Book Application">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_CTODZ4ZiEeuCNrkoFTKLjQ</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPECIFICATION-TYPE-REF>_CTODZoZiEeuCNrkoFTKLjQ</SPECIFICATION-TYPE-REF>
+          </TYPE>
+          <CHILDREN>
+            <SPEC-HIERARCHY IDENTIFIER="_cUJ1sIZiEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:18:10.287+01:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_cUHZcIZiEeuCNrkoFTKLjQ</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="_NLAP0IZjEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:23:30.957+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_NK-aoIZjEeuCNrkoFTKLjQ</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_7_nFYIZjEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:28:51.406+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_7_kpIIZjEeuCNrkoFTKLjQ</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="_CTODbIZiEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:15:18.421+01:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_CTODaIZiEeuCNrkoFTKLjQ</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="_P1mYYIZkEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:31:03.425+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_P1j8IIZkEeuCNrkoFTKLjQ</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_S7LpQIZkEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:31:28.977+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_S7J0EIZkEeuCNrkoFTKLjQ</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_WZDeUIZkEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:31:52.242+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_WZBpIIZkEeuCNrkoFTKLjQ</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="_eDZT0IZkEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:32:41.007+01:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_eDXeoIZkEeuCNrkoFTKLjQ</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="_j-xtIIZkEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:33:20.160+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_j-v38IZkEeuCNrkoFTKLjQ</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_nsZOYIZkEeuCNrkoFTKLjQ" LAST-CHANGE="2021-03-16T15:33:48.355+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_nsXZMIZkEeuCNrkoFTKLjQ</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+          </CHILDREN>
+        </SPECIFICATION>
+      </SPECIFICATIONS>
+    </REQ-IF-CONTENT>
+  </CORE-CONTENT>
+  <TOOL-EXTENSIONS>
+    <REQ-IF-TOOL-EXTENSION>
+      <configuration:ProrToolExtension>
+        <configuration:specViewConfigurations>
+          <configuration:ProrSpecViewConfiguration specification="_CTODaoZiEeuCNrkoFTKLjQ">
+            <configuration:columns>
+              <configuration:Column label="id" width="85"/>
+              <configuration:Column label="title" width="109"/>
+              <configuration:Column label="description" width="388"/>
+              <configuration:Column label="status" width="79"/>
+              <configuration:Column label="points" width="45"/>
+            </configuration:columns>
+            <configuration:leftHeaderColumn>
+              <configuration:Column label="Lead Header Column" width="30"/>
+            </configuration:leftHeaderColumn>
+          </configuration:ProrSpecViewConfiguration>
+        </configuration:specViewConfigurations>
+        <configuration:generalConfiguration>
+          <configuration:ProrGeneralConfiguration>
+            <configuration:labelConfiguration>
+              <configuration:LabelConfiguration>
+                <defaultLabel>id</defaultLabel>
+                <defaultLabel>description</defaultLabel>
+              </configuration:LabelConfiguration>
+            </configuration:labelConfiguration>
+          </configuration:ProrGeneralConfiguration>
+        </configuration:generalConfiguration>
+        <configuration:presentationConfigurations>
+          <configuration:ProrPresentationConfigurations/>
+        </configuration:presentationConfigurations>
+      </configuration:ProrToolExtension>
+    </REQ-IF-TOOL-EXTENSION>
+  </TOOL-EXTENSIONS>
+</REQ-IF>
