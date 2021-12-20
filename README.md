@@ -1,40 +1,92 @@
-## Prerequisite
+### Step 1
 
-Kindly install Glamorous Toolkit by following the instrctions from [https://gtoolkit.com/](their%20homepage)
+Download and open the latest image of the Glamorous toolkit from [their official homepage](https://gtoolkit.com/).
+Open a **Playground** and execute the following script.
 
-# Exploring the sample solution
-
-## The requirements hierarchy
-
-Start the Glamorous Toolkit IDE and open a playground.
-Run the follwong script to load the necessary packages.
-```
+``` 
 Metacello new
-  baseline: 'MyMoldableRequirements';
-  repository: 'github://nitishspatkar/moldable-requirements:main';
-  load
+    baseline: 'MyMoldableRequirements';
+    repository: 'github://nitishspatkar/moldable-requirements:scheduling’;
+    load 
+```
+### Step 2:
+
+To verify the average number of lines of code to define a view in an image: open a **Playground** and execute 
+```
+#gtView gtPragmas.
+```
+ 
+The returned object has a “**Metrics**” view that shows the average number of lines of code of view methods.
+
+### Step 3
+
+To explore the requirements created in an IDE as user stories, follow these steps:
+There are two ways to run that example:
+
+* **Alternative 1**:
+Open another **Playground** and type: 
+```
+MyProject
+``` 
+and click on the inspect button.  
+An object inspector window will open.   
+Navigate to the tab “**Examples map**” and run the example:
+```
+gtParseJSONExample
 ```
 
-In another playground window type in `MyProject` and inspect the results.
-Navigate to `Example map` tab, hover over of the only example `gtParseJSONExample` and click on `Play and Inspect Example Result`.
-It should open another inspector wondow that displays two sample projects, i.e., `Address Book Application` and `Restaurant Application`.
+* **Alternative 2**:
+type:
+``` 
+gtParseJSONExample
+``` 
+in **Spotter** and run the example from there.
 
-Clicking on one of the projects will open another inspector window for a specific `MyProject` object.
-The first tab `Epics` lists all the epics in this projects.
-Cliking on a specific epic will open corresponding user stories, and clicking on a specific user story will open corresponding scenarios.
+This would load a list of four sample projects, the last being “**Hospital management system**.”   
+When you double-click on it, it will open corresponding epics.  
+When you double-click one of the epics, it should open corresponding user stories. 
+Click on different tabs, such as 'Minimal' or 'Story card', to see various representations of a specific user story.
 
-Note that, in each inspector window there are several tabs that show various views on a specific object. 
-For instance, the rae tab, which is the default tab, in `MyProject` inspector window shows raw details of a specific `MyProject` object. 
-The `Meta` tab, among other details, such as related examples, lists all the methods of the `MyProject` class.
 
-## The scenarios
+### Step 4:
 
-Open another playground, type in `requirementContainerWithThreeEpics`, and press CMD +M to explore all the implmentors of this method.
-Open the `Live` tab In the opened object inspector and click on `Play and Inspect Example Result`.
-It will open another similar requirements hierachy but in a tree representation. 
-Open the user story `As a user, I want to add contact` from the second epic `Manage address book`.
-Click on the `Scenarios` tab and then on `Add new contact` scenario.
-This should open an object inspector for `EScenario` object.
-Navigate to `Parametrized example` tab and click on `Add given contact to to an address book`.
-It should open an interface where the user can select the combinations of contact and address books to generate new examples. 
-Clicking on the `Run` button returns the resulting address book, whereas clicking on the `Generate` button will generate the corresponding example method.
+To explore the implementation of the scheduling application: 
+Open another **Playground** and type: 
+```
+HMHospitalManagementSystemExamples
+``` 
+and click on the inspect button.  
+An object inspector window will open.
+Click on **Browse class** button and then you can explore the entire implementation of the scheduling application. 
+
+### Step 5:
+To explore the example documentation:
+From the **Home** menu of the Glamorous Toolkit, click on Lepiter.
+It will open a bunch of existing live documents.
+To load documents specific to our schedduling application:
+Scroll down on Lepiter page, where you will find a button **Add new database**. Click on that.
+Tell the Glamorous Toolkit where to find the existing database by providing a path.
+Your path should looks something like: 
+```
+<<the current Glamorous toolkiit folder>>/pharo-local/iceberg/<<GitHub username>>/moldable-requirements
+```
+
+When you navigatee to this path, you will see in a list a folder **lepiterdb**.
+Select that folder and click on **Add database**.
+This should load all the existing live documents.
+Now, navigate back to **Home** screeen of the Glamorous Toolkit. On the top, you should see a tile called **Hospital Management System**. 
+You can explore the documentation by clicking on the tile.
+
+### Step 6
+
+To verify Invoicing examples: kindly type brows the class "**RMInvoice**" and navigate to the tab "**Parameterized examples**".
+Click on "**Order item with price and tax**".
+After filling all the required details, kindly click "**Run**".
+
+Click on "**Create an invoice with order items with regular or reduced tax rates**".
+After filling all the required details, kindly click "**Run**".
+
+Navigate to the tab "**Path**" from the previous step.
+
+
+
