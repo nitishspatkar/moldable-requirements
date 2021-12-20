@@ -1,1 +1,1 @@
-Package { #name : 'MyMoldableRequirements' }
+Package { #name : #MyMoldableRequirements }

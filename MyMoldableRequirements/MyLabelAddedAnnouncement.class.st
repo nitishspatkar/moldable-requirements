@@ -1,13 +1,13 @@
 Class {
-	#name : 'MyLabelAddedAnnouncement',
-	#superclass : 'Announcement',
+	#name : #MyLabelAddedAnnouncement,
+	#superclass : #Announcement,
 	#instVars : [
 		'label'
 	],
 	#category : 'MyMoldableRequirements-User Story - Events'
 }
 
-{ #category : 'generated' }
+{ #category : #generated }
 MyLabelAddedAnnouncement >> label [
 	<objectGetter: #label>
 	<generatedFrom: #'GtRobocoderMetamodelAnnouncementTemplate>>#objectGetterTemplate'>
@@ -15,7 +15,7 @@ MyLabelAddedAnnouncement >> label [
 	^ label
 ]
 
-{ #category : 'generated' }
+{ #category : #generated }
 MyLabelAddedAnnouncement >> label: aLabel [
 	<objectSetter: #label>
 	<generatedFrom: #'GtRobocoderMetamodelAnnouncementTemplate>>#objectSetterTemplate'>

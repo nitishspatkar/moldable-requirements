@@ -1,6 +1,6 @@
 Class {
-	#name : 'MyTeamMembers',
-	#superclass : 'Object',
+	#name : #MyTeamMembers,
+	#superclass : #Object,
 	#instVars : [
 		'name',
 		'shorthand',
@@ -9,14 +9,14 @@ Class {
 	#category : 'MyMoldableRequirements-Models'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTeamMembers class >> fromRawData: teamDict [ 
 ^self 
 	name: (teamDict at: #name)
 	shorthand: (teamDict at: #shorthand)
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTeamMembers class >> name: aString shorthand: anotherString [
 ^ self new
 	name: aString;
@@ -24,7 +24,7 @@ MyTeamMembers class >> name: aString shorthand: anotherString [
 	yourself 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTeamMembers >> asFormElement: aBlock [
 	"a teamMember presents itself as a form to be filled and save as an object"
 
@@ -79,7 +79,7 @@ MyTeamMembers >> asFormElement: aBlock [
 		yourself
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTeamMembers >> asShorthandCircle [
 ^ BrButton new
 		layout: BlLinearLayout vertical;
@@ -103,7 +103,7 @@ MyTeamMembers >> asShorthandCircle [
 		yourself 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTeamMembers >> gtCircleViewFor: aView [
 	<gtView>
 	^aView explicit
@@ -112,38 +112,38 @@ MyTeamMembers >> gtCircleViewFor: aView [
 		stencil: [ self asShorthandCircle]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTeamMembers >> name [ 
 ^name
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTeamMembers >> name: aString [ 
 name := aString
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTeamMembers >> printOn: aStream [
 	aStream nextPutAll: name
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTeamMembers >> project [ 
 ^project
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTeamMembers >> project: aProject [
 project := aProject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTeamMembers >> shorthand [
 ^shorthand
 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTeamMembers >> shorthand: aString [
 shorthand := aString
 ]

@@ -1,12 +1,12 @@
 Trait {
-	#name : 'TMyWithUserStoryAnnotation',
+	#name : #TMyWithUserStoryAnnotation,
 	#instVars : [
 		'userStoryAnnotation'
 	],
 	#category : 'MyMoldableRequirements-User Story - Support'
 }
 
-{ #category : 'api - user story annotation' }
+{ #category : #'api - user story annotation' }
 TMyWithUserStoryAnnotation >> hasUserStoryAnnotation [
 	"Return a true if nil is assigned to the receiver, false otherwise"
 	<return: #Boolean>
@@ -16,7 +16,7 @@ TMyWithUserStoryAnnotation >> hasUserStoryAnnotation [
 	^ userStoryAnnotation notNil
 ]
 
-{ #category : 'api - user story annotation' }
+{ #category : #'api - user story annotation' }
 TMyWithUserStoryAnnotation >> onPostUserStoryAnnotationChanged [
 	"I am an optional hook method that is sent after #subscribeToUserStoryAnnotation.
 	I do nothing by default but allow users to perform update operations when a receiver object is already
@@ -24,7 +24,7 @@ TMyWithUserStoryAnnotation >> onPostUserStoryAnnotationChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onPostObjectChangedTemplate'>
 ]
 
-{ #category : 'api - user story annotation' }
+{ #category : #'api - user story annotation' }
 TMyWithUserStoryAnnotation >> onUserStoryAnnotationChanged [
 	"Is sent when a new userStoryAnnotation is assigned to the receiver.
 	Note: #onUserStoryAnnotationChanged is sent before #subscribeToUserStoryAnnotation
@@ -34,7 +34,7 @@ TMyWithUserStoryAnnotation >> onUserStoryAnnotationChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onObjectChangedTemplate'>
 ]
 
-{ #category : 'api - user story annotation' }
+{ #category : #'api - user story annotation' }
 TMyWithUserStoryAnnotation >> subscribeToUserStoryAnnotation [
 	"Is sent after a new userStoryAnnotation is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
@@ -43,7 +43,7 @@ TMyWithUserStoryAnnotation >> subscribeToUserStoryAnnotation [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#subscribeToObjectTemplate'>
 ]
 
-{ #category : 'api - user story annotation' }
+{ #category : #'api - user story annotation' }
 TMyWithUserStoryAnnotation >> unsubscribeFromUserStoryAnnotation [
 	"Is sent before a new userStoryAnnotation is assigned to the receiver.
 	Objects that subscribe to userStoryAnnotation are required to implement this method."
@@ -51,7 +51,7 @@ TMyWithUserStoryAnnotation >> unsubscribeFromUserStoryAnnotation [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#unsubscribeFromObjectTemplate'>
 ]
 
-{ #category : 'api - user story annotation' }
+{ #category : #'api - user story annotation' }
 TMyWithUserStoryAnnotation >> userStoryAnnotation [
 	"Return a not-null userStoryAnnotation assigned to the receiver"
 	<modelGetter: #annotation>
@@ -63,7 +63,7 @@ TMyWithUserStoryAnnotation >> userStoryAnnotation [
 	^ userStoryAnnotation
 ]
 
-{ #category : 'api - user story annotation' }
+{ #category : #'api - user story annotation' }
 TMyWithUserStoryAnnotation >> userStoryAnnotation: aUserStoryAnnotation [
 	"Set a not-null userStoryAnnotation assigned to the receiver"
 	<modelSetter: #annotation>

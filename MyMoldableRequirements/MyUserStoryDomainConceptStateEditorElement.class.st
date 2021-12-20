@@ -1,12 +1,12 @@
 Class {
-	#name : 'MyUserStoryDomainConceptStateEditorElement',
-	#superclass : 'BrEditableLabel',
+	#name : #MyUserStoryDomainConceptStateEditorElement,
+	#superclass : #BrEditableLabel,
 	#traits : 'TMyWithUserStoryDomainConceptState',
 	#classTraits : 'TMyWithUserStoryDomainConceptState classTrait',
 	#category : 'MyMoldableRequirements-User Story - Views'
 }
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 MyUserStoryDomainConceptStateEditorElement >> initialize [
 	super initialize.
 	
@@ -20,7 +20,7 @@ MyUserStoryDomainConceptStateEditorElement >> initialize [
 		action: [ self userStoryDomainConceptState parentUserStoryDomainConceptStates removeUserStoryDomainConceptState: self userStoryDomainConceptState ])
 ]
 
-{ #category : 'api - user story domain concept state' }
+{ #category : #'api - user story domain concept state' }
 MyUserStoryDomainConceptStateEditorElement >> onUserStoryDomainConceptStateChanged [
 	"Is sent when a new userStoryDomainConceptState is assigned to the receiver.
 	Note: #onUserStoryDomainConceptStateChanged is sent before #subscribeToUserStoryDomainConceptState
@@ -32,7 +32,7 @@ MyUserStoryDomainConceptStateEditorElement >> onUserStoryDomainConceptStateChang
 	self text: self userStoryDomainConceptState name
 ]
 
-{ #category : 'api - user story domain concept state' }
+{ #category : #'api - user story domain concept state' }
 MyUserStoryDomainConceptStateEditorElement >> subscribeToUserStoryDomainConceptState [
 	"Is sent after a new userStoryDomainConceptState is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
@@ -46,7 +46,7 @@ MyUserStoryDomainConceptStateEditorElement >> subscribeToUserStoryDomainConceptS
 		to: self
 ]
 
-{ #category : 'api - user story domain concept state' }
+{ #category : #'api - user story domain concept state' }
 MyUserStoryDomainConceptStateEditorElement >> unsubscribeFromUserStoryDomainConceptState [
 	"Is sent before a new userStoryDomainConceptState is assigned to the receiver.
 	Objects that subscribe to userStoryDomainConceptState are required to implement this method."

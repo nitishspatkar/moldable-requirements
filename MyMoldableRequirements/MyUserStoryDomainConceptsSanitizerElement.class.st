@@ -1,6 +1,6 @@
 Class {
-	#name : 'MyUserStoryDomainConceptsSanitizerElement',
-	#superclass : 'BrVerticalPane',
+	#name : #MyUserStoryDomainConceptsSanitizerElement,
+	#superclass : #BrVerticalPane,
 	#traits : 'TMyWithUserStoryDomainConcepts',
 	#classTraits : 'TMyWithUserStoryDomainConcepts classTrait',
 	#instVars : [
@@ -10,7 +10,7 @@ Class {
 	#category : 'MyMoldableRequirements-User Story - Views'
 }
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 MyUserStoryDomainConceptsSanitizerElement >> initialize [
 	super initialize.
 	
@@ -45,7 +45,7 @@ MyUserStoryDomainConceptsSanitizerElement >> initialize [
 	self addChild: acceptConcepts
 ]
 
-{ #category : 'api - user story domain concepts' }
+{ #category : #'api - user story domain concepts' }
 MyUserStoryDomainConceptsSanitizerElement >> onUserStoryDomainConceptsChanged [
 	"Is sent when a new userStoryDomainConcepts is assigned to the receiver.
 	Note: #onUserStoryDomainConceptsChanged is sent before #subscribeToUserStoryDomainConcepts

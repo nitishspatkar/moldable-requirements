@@ -1,10 +1,10 @@
 Class {
-	#name : 'HMHomeSection',
-	#superclass : 'GtHomeSection',
+	#name : #HMHomeSection,
+	#superclass : #GtHomeSection,
 	#category : 'Hospital-Management'
 }
 
-{ #category : 'api - instantiation' }
+{ #category : #'api - instantiation' }
 HMHomeSection >> create [
 	| sectionContainer cardsContainer |
 	sectionContainer := self newSectionContainer.

@@ -1,10 +1,10 @@
 Class {
-	#name : 'MyUserStoryElementExamples',
-	#superclass : 'Object',
+	#name : #MyUserStoryElementExamples,
+	#superclass : #Object,
 	#category : 'MyMoldableRequirements-Examples'
 }
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 MyUserStoryElementExamples >> newUserStoryElement [
 	<gtExample>
 	| aUserStoryElement |

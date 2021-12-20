@@ -1,6 +1,6 @@
 Class {
-	#name : 'MyUserStoryNotesElement',
-	#superclass : 'BrVerticalPane',
+	#name : #MyUserStoryNotesElement,
+	#superclass : #BrVerticalPane,
 	#traits : 'TMyWithNotes',
 	#classTraits : 'TMyWithNotes classTrait',
 	#instVars : [
@@ -9,7 +9,7 @@ Class {
 	#category : 'MyMoldableRequirements-User Story - Views'
 }
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 MyUserStoryNotesElement >> initialize [
 	super initialize.
 	
@@ -31,7 +31,7 @@ MyUserStoryNotesElement >> initialize [
 	
 ]
 
-{ #category : 'api - notes' }
+{ #category : #'api - notes' }
 MyUserStoryNotesElement >> onNotesChanged [
 	"Is sent when a new notes is assigned to the receiver.
 	Note: #onNotesChanged is sent before #subscribeToNotes
@@ -43,7 +43,7 @@ MyUserStoryNotesElement >> onNotesChanged [
 	list items: self notes notes
 ]
 
-{ #category : 'api - user story model' }
+{ #category : #'api - user story model' }
 MyUserStoryNotesElement >> onUserStoryModelChanged [
 	"Is sent when a new userStoryModel is assigned to the receiver.
 	Note: #onUserStoryModelChanged is sent before #subscribeToUserStoryModel
@@ -54,7 +54,7 @@ MyUserStoryNotesElement >> onUserStoryModelChanged [
 	notes notes: self userStoryModel notes
 ]
 
-{ #category : 'api - notes' }
+{ #category : #'api - notes' }
 MyUserStoryNotesElement >> subscribeToNotes [
 	"Is sent after a new notes is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
@@ -67,7 +67,7 @@ MyUserStoryNotesElement >> subscribeToNotes [
 		to: self
 ]
 
-{ #category : 'api - notes' }
+{ #category : #'api - notes' }
 MyUserStoryNotesElement >> unsubscribeFromNotes [
 	"Is sent before a new notes is assigned to the receiver.
 	Objects that subscribe to notes are required to implement this method."

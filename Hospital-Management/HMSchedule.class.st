@@ -1,6 +1,6 @@
 Class {
-	#name : 'HMSchedule',
-	#superclass : 'Object',
+	#name : #HMSchedule,
+	#superclass : #Object,
 	#instVars : [
 		'days',
 		'description'
@@ -8,17 +8,17 @@ Class {
 	#category : 'Hospital-Management-Model'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMSchedule >> days [
 	^ days
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMSchedule >> days: aCollection [
 	days := aCollection 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMSchedule >> gViewWorkingDaysFor: aView [
 	<gtView>
 	^ aView columnedList
@@ -28,7 +28,7 @@ HMSchedule >> gViewWorkingDaysFor: aView [
 		column: 'Index' text: [ :aDay | aDay date ].
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMSchedule >> initialize [
 	super initialize.
 	days := OrderedCollection new

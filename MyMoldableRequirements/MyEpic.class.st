@@ -1,6 +1,6 @@
 Class {
-	#name : 'MyEpic',
-	#superclass : 'Object',
+	#name : #MyEpic,
+	#superclass : #Object,
 	#instVars : [
 		'id',
 		'title',
@@ -13,7 +13,7 @@ Class {
 	#category : 'MyMoldableRequirements-Models'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyEpic class >> fromRawData: epicDict [
 	^ self
 		id: (epicDict at: #id)
@@ -24,7 +24,7 @@ MyEpic class >> fromRawData: epicDict [
 				collect: [ :userStoriesDict | MyUserStory fromRawData: userStoriesDict ])
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyEpic class >> id: aString title: anotherString description: yetAnotherString userStories: anArray [
 	^ self new
 		id: aString;
@@ -34,17 +34,17 @@ MyEpic class >> id: aString title: anotherString description: yetAnotherString u
 		yourself
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyEpic >> announcer [
 ^announcer
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyEpic >> announcer: anAnnouncer [
 announcer := anAnnouncer
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyEpic >> asFormElement: aBlock [
 	"an epic presents itself as a form to be filled and save as an object"
 
@@ -82,12 +82,12 @@ MyEpic >> asFormElement: aBlock [
 		yourself
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyEpic >> description: yetAnotherString [
 	description := yetAnotherString
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyEpic >> gtUserStoriesFor: aView [
 	<gtView>
 	^ (userStories gtItemsFor: aView)
@@ -115,7 +115,7 @@ MyEpic >> gtUserStoriesFor: aView [
 			story asFormElement: [ userStories add: story ] ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyEpic >> gtViewMindMapStoryTree: aView [
 "Tree Mind Map for epic status and its user stories"
 	<gtView>
@@ -146,43 +146,43 @@ MyEpic >> gtViewMindMapStoryTree: aView [
 				view layout tree]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyEpic >> id: aString [
 	id := aString
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyEpic >> initialize [
 	super initialize.
 	announcer := Announcer new.
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 MyEpic >> isFinished [
 	^ userStories allSatisfy: [ :eachUserStory | eachUserStory isDone ]
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 MyEpic >> isInProgress [
 	^ userStories anySatisfy: [ :eachUserStory | eachUserStory isInProgress ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyEpic >> printOn: aStream [
 	aStream nextPutAll: title
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyEpic >> project [ 
 ^project
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyEpic >> project: aProject [
 project := aProject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyEpic >> requirements [
 "requirements for the tree mind map view"
 	| requirements |
@@ -191,7 +191,7 @@ MyEpic >> requirements [
 	^requirements
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyEpic >> statusColor [	
 	self isFinished
 		ifTrue: [ ^ Color lightGreen ].
@@ -202,27 +202,27 @@ MyEpic >> statusColor [
 	^ Color lightRed
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyEpic >> subItems [
 	^ self userStories
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyEpic >> title [ 
 ^title
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyEpic >> title: anotherString [
 	title := anotherString
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyEpic >> userStories [
 	^ userStories
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyEpic >> userStories: anArray [
 	
 	userStories := anArray do: [ :each | each notNil ifTrue: [each epic: self]]

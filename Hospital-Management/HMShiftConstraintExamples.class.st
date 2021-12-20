@@ -1,10 +1,10 @@
 Class {
-	#name : 'HMShiftConstraintExamples',
-	#superclass : 'Object',
+	#name : #HMShiftConstraintExamples,
+	#superclass : #Object,
 	#category : 'Hospital-Management-Examples'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMShiftConstraintExamples >> assignDoctorsToAllShiftsMayOne [
 	<gtExample>
 	| aCollectionOfAvailableDoctors allShifts oneDoctorPerShiftConstraint nightShiftConstraint assignedDoctor aGlobalRegister |

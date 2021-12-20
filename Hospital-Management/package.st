@@ -1,1 +1,1 @@
-Package { #name : 'Hospital-Management' }
+Package { #name : #'Hospital-Management' }

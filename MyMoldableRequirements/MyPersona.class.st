@@ -1,6 +1,6 @@
 Class {
-	#name : 'MyPersona',
-	#superclass : 'Object',
+	#name : #MyPersona,
+	#superclass : #Object,
 	#instVars : [
 		'name',
 		'description',
@@ -10,14 +10,14 @@ Class {
 	#category : 'MyMoldableRequirements-Models'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyPersona class >> fromRawData: personaDict [ 
 ^ self 
 	name: (personaDict at: #name)
 	description: (personaDict at: #description)
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyPersona class >> name: aString description: anotherString [
 ^self new
 	name: aString;
@@ -25,7 +25,7 @@ MyPersona class >> name: aString description: anotherString [
 	yourself
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyPersona >> asFormElement: aBlock [
 	"a persona presents itself as a form to be filled and save as an object"
 
@@ -80,7 +80,7 @@ MyPersona >> asFormElement: aBlock [
 		yourself
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyPersona >> asListElement [
 ^BrButton new
 	label: name;
@@ -92,7 +92,7 @@ MyPersona >> asListElement [
 	action: [ :button | button phlow spawnObject: self]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyPersona >> asPersonaCard [
 	^ BlElement new
 		layout: BlLinearLayout vertical;
@@ -113,17 +113,17 @@ MyPersona >> asPersonaCard [
 		yourself
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyPersona >> description [
 ^description
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyPersona >> description: aString [
 description := aString
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyPersona >> gtPersonaFor: aView [
 	<gtView>
 	^ aView explicit
@@ -139,27 +139,27 @@ MyPersona >> gtPersonaFor: aView [
 				yourself ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyPersona >> name [ 
 ^name
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyPersona >> name: aString [
 name := aString 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyPersona >> printOn: aStream [
 	aStream nextPutAll: name
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyPersona >> project [
 ^project
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyPersona >> project: aProject [
 project := aProject
 ]

@@ -1,13 +1,13 @@
 Class {
-	#name : 'MyUserStoryAnnotationAddedAnnouncement',
-	#superclass : 'Announcement',
+	#name : #MyUserStoryAnnotationAddedAnnouncement,
+	#superclass : #Announcement,
 	#instVars : [
 		'userStoryAnnotation'
 	],
 	#category : 'MyMoldableRequirements-User Story - Events'
 }
 
-{ #category : 'generated' }
+{ #category : #generated }
 MyUserStoryAnnotationAddedAnnouncement >> userStoryAnnotation [
 	<objectGetter: #annotation>
 	<generatedFrom: #'GtRobocoderMetamodelAnnouncementTemplate>>#objectGetterTemplate'>
@@ -15,7 +15,7 @@ MyUserStoryAnnotationAddedAnnouncement >> userStoryAnnotation [
 	^ userStoryAnnotation
 ]
 
-{ #category : 'generated' }
+{ #category : #generated }
 MyUserStoryAnnotationAddedAnnouncement >> userStoryAnnotation: aUserStoryAnnotation [
 	<objectSetter: #annotation>
 	<generatedFrom: #'GtRobocoderMetamodelAnnouncementTemplate>>#objectSetterTemplate'>

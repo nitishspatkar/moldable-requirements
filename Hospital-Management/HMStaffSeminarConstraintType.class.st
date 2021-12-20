@@ -3,12 +3,12 @@ A staff member can have a seminar on a specific day, which needs to be considere
 
 "
 Class {
-	#name : 'HMStaffSeminarConstraintType',
-	#superclass : 'HMStaffConstraintType',
+	#name : #HMStaffSeminarConstraintType,
+	#superclass : #HMStaffConstraintType,
 	#category : 'Hospital-Management-Model'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMStaffSeminarConstraintType >> aSeminarConstraintForACollectionOfDoctors: aCollectionOfDoctors andForADate: aDay [
 	" accpets a set of doctors and a day, go through their seminar constraints, and returns a set of doctors who are available on that day"
 
@@ -22,7 +22,7 @@ HMStaffSeminarConstraintType >> aSeminarConstraintForACollectionOfDoctors: aColl
 	^ availableDoctors
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMStaffSeminarConstraintType >> initialize [
 	super initialize.
 	description := 'A seminar day for a staff member'

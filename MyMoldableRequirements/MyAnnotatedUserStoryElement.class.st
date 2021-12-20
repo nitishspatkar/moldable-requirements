@@ -1,10 +1,10 @@
 Class {
-	#name : 'MyAnnotatedUserStoryElement',
-	#superclass : 'BlElement',
+	#name : #MyAnnotatedUserStoryElement,
+	#superclass : #BlElement,
 	#category : 'MyMoldableRequirements-User Story - Views'
 }
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 MyAnnotatedUserStoryElement >> initialize [
 	super initialize.
 

@@ -1,18 +1,18 @@
 Class {
-	#name : 'MyUserStoryAnnotationNameChanged',
-	#superclass : 'Announcement',
+	#name : #MyUserStoryAnnotationNameChanged,
+	#superclass : #Announcement,
 	#instVars : [
 		'userStoryAnnotation'
 	],
 	#category : 'MyMoldableRequirements-User Story - Events'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyUserStoryAnnotationNameChanged >> userStoryAnnotation [
 	^ userStoryAnnotation
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyUserStoryAnnotationNameChanged >> userStoryAnnotation: anObject [
 	userStoryAnnotation := anObject
 ]

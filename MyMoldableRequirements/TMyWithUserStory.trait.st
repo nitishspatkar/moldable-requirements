@@ -1,12 +1,12 @@
 Trait {
-	#name : 'TMyWithUserStory',
+	#name : #TMyWithUserStory,
 	#instVars : [
 		'userStory'
 	],
 	#category : 'MyMoldableRequirements-User Story - Support'
 }
 
-{ #category : 'api - user story' }
+{ #category : #'api - user story' }
 TMyWithUserStory >> hasUserStory [
 	"Return a true if nil is assigned to the receiver, false otherwise"
 	<return: #Boolean>
@@ -16,7 +16,7 @@ TMyWithUserStory >> hasUserStory [
 	^ userStory notNil
 ]
 
-{ #category : 'api - user story' }
+{ #category : #'api - user story' }
 TMyWithUserStory >> onPostUserStoryChanged [
 	"I am an optional hook method that is sent after #subscribeToUserStory.
 	I do nothing by default but allow users to perform update operations when a receiver object is already
@@ -24,7 +24,7 @@ TMyWithUserStory >> onPostUserStoryChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onPostObjectChangedTemplate'>
 ]
 
-{ #category : 'api - user story' }
+{ #category : #'api - user story' }
 TMyWithUserStory >> onUserStoryChanged [
 	"Is sent when a new userStory is assigned to the receiver.
 	Note: #onUserStoryChanged is sent before #subscribeToUserStory
@@ -34,7 +34,7 @@ TMyWithUserStory >> onUserStoryChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onObjectChangedTemplate'>
 ]
 
-{ #category : 'api - user story' }
+{ #category : #'api - user story' }
 TMyWithUserStory >> subscribeToUserStory [
 	"Is sent after a new userStory is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
@@ -42,14 +42,14 @@ TMyWithUserStory >> subscribeToUserStory [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#subscribeToObjectTemplate'>
 ]
 
-{ #category : 'api - user story' }
+{ #category : #'api - user story' }
 TMyWithUserStory >> unsubscribeFromUserStory [
 	"Is sent before a new userStory is assigned to the receiver.
 	Objects that subscribe to userStory are required to implement this method."
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#unsubscribeFromObjectTemplate'>
 ]
 
-{ #category : 'api - user story' }
+{ #category : #'api - user story' }
 TMyWithUserStory >> userStory [
 	"Return a not-null userStory assigned to the receiver"
 	<objectGetter: #userStory>
@@ -61,7 +61,7 @@ TMyWithUserStory >> userStory [
 	^ userStory
 ]
 
-{ #category : 'api - user story' }
+{ #category : #'api - user story' }
 TMyWithUserStory >> userStory: aUserStory [
 	"Set a not-null userStory assigned to the receiver"
 	<objectSetter: #userStory>

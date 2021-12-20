@@ -1,20 +1,20 @@
 Class {
-	#name : 'MyUserStatusInProgress',
-	#superclass : 'MyUserStatusOld',
+	#name : #MyUserStatusInProgress,
+	#superclass : #MyUserStatusOld,
 	#category : 'MyMoldableRequirements-Models'
 }
 
-{ #category : 'testing' }
+{ #category : #testing }
 MyUserStatusInProgress >> isInProgress [
 	^ true
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyUserStatusInProgress >> label [
 	^ 'In progress'
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyUserStatusInProgress >> statusColor [
 	^ Color lightYellow
 ]

@@ -1,18 +1,18 @@
 Class {
-	#name : 'MyUserStoryDomainConceptStateNameChanged',
-	#superclass : 'Announcement',
+	#name : #MyUserStoryDomainConceptStateNameChanged,
+	#superclass : #Announcement,
 	#instVars : [
 		'userStoryDomainConceptState'
 	],
 	#category : 'MyMoldableRequirements-User Story - Events'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyUserStoryDomainConceptStateNameChanged >> userStoryDomainConceptState [
 	^ userStoryDomainConceptState
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyUserStoryDomainConceptStateNameChanged >> userStoryDomainConceptState: anObject [
 	userStoryDomainConceptState := anObject
 ]

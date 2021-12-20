@@ -1,12 +1,12 @@
 Trait {
-	#name : 'TMyWithUserStoryDomainConceptServices',
+	#name : #TMyWithUserStoryDomainConceptServices,
 	#instVars : [
 		'userStoryDomainConceptServices'
 	],
 	#category : 'MyMoldableRequirements-User Story - Support'
 }
 
-{ #category : 'api - user story domain concept services' }
+{ #category : #'api - user story domain concept services' }
 TMyWithUserStoryDomainConceptServices >> hasUserStoryDomainConceptServices [
 	"Return a true if nil is assigned to the receiver, false otherwise"
 	<return: #Boolean>
@@ -16,7 +16,7 @@ TMyWithUserStoryDomainConceptServices >> hasUserStoryDomainConceptServices [
 	^ userStoryDomainConceptServices notNil
 ]
 
-{ #category : 'api - user story domain concept services' }
+{ #category : #'api - user story domain concept services' }
 TMyWithUserStoryDomainConceptServices >> onPostUserStoryDomainConceptServicesChanged [
 	"I am an optional hook method that is sent after #subscribeToUserStoryDomainConceptServices.
 	I do nothing by default but allow users to perform update operations when a receiver object is already
@@ -24,7 +24,7 @@ TMyWithUserStoryDomainConceptServices >> onPostUserStoryDomainConceptServicesCha
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onPostObjectChangedTemplate'>
 ]
 
-{ #category : 'api - user story domain concept services' }
+{ #category : #'api - user story domain concept services' }
 TMyWithUserStoryDomainConceptServices >> onUserStoryDomainConceptServicesChanged [
 	"Is sent when a new userStoryDomainConceptServices is assigned to the receiver.
 	Note: #onUserStoryDomainConceptServicesChanged is sent before #subscribeToUserStoryDomainConceptServices
@@ -34,7 +34,7 @@ TMyWithUserStoryDomainConceptServices >> onUserStoryDomainConceptServicesChanged
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onObjectChangedTemplate'>
 ]
 
-{ #category : 'api - user story domain concept services' }
+{ #category : #'api - user story domain concept services' }
 TMyWithUserStoryDomainConceptServices >> subscribeToUserStoryDomainConceptServices [
 	"Is sent after a new userStoryDomainConceptServices is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
@@ -43,7 +43,7 @@ TMyWithUserStoryDomainConceptServices >> subscribeToUserStoryDomainConceptServic
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#subscribeToObjectTemplate'>
 ]
 
-{ #category : 'api - user story domain concept services' }
+{ #category : #'api - user story domain concept services' }
 TMyWithUserStoryDomainConceptServices >> unsubscribeFromUserStoryDomainConceptServices [
 	"Is sent before a new userStoryDomainConceptServices is assigned to the receiver.
 	Objects that subscribe to userStoryDomainConceptServices are required to implement this method."
@@ -51,7 +51,7 @@ TMyWithUserStoryDomainConceptServices >> unsubscribeFromUserStoryDomainConceptSe
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#unsubscribeFromObjectTemplate'>
 ]
 
-{ #category : 'api - user story domain concept services' }
+{ #category : #'api - user story domain concept services' }
 TMyWithUserStoryDomainConceptServices >> userStoryDomainConceptServices [
 	"Return a not-null userStoryDomainConceptServices assigned to the receiver"
 	<modelGetter: #domainConceptServices>
@@ -63,7 +63,7 @@ TMyWithUserStoryDomainConceptServices >> userStoryDomainConceptServices [
 	^ userStoryDomainConceptServices
 ]
 
-{ #category : 'api - user story domain concept services' }
+{ #category : #'api - user story domain concept services' }
 TMyWithUserStoryDomainConceptServices >> userStoryDomainConceptServices: aUserStoryDomainConceptServices [
 	"Set a not-null userStoryDomainConceptServices assigned to the receiver"
 	<modelSetter: #domainConceptServices>

@@ -1,6 +1,6 @@
 Class {
-	#name : 'HMScheduleAssigner',
-	#superclass : 'Object',
+	#name : #HMScheduleAssigner,
+	#superclass : #Object,
 	#instVars : [
 		'doctors',
 		'workingDays',
@@ -9,7 +9,7 @@ Class {
 	#category : 'Hospital-Management-Model'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMScheduleAssigner >> assignDoctorsToWorkingDay: aWorkingDay [ 
 	| availableDoctors |
 	availableDoctors := self availableDoctorsForDay: aWorkingDay.
@@ -24,7 +24,7 @@ HMScheduleAssigner >> assignDoctorsToWorkingDay: aWorkingDay [
 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMScheduleAssigner >> assignNursesToWorkingDay: aWorkingDay [
 	| availableNurses |
 	availableNurses := self availableNursesForDay: aWorkingDay.
@@ -38,29 +38,29 @@ HMScheduleAssigner >> assignNursesToWorkingDay: aWorkingDay [
 			[ :aShift | aShift addStaffMember: (self extractNurseFrom: availableNurses) ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMScheduleAssigner >> availableDoctorsForDay: aWorkingDay [
 	^ self doctors
 		select: [ :aDoctor | aDoctor isAvailableOnDay: aWorkingDay ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMScheduleAssigner >> availableNursesForDay: aWorkingDay [
 	^ self nurses
 		select: [ :aNurse | aNurse isAvailableOnDay: aWorkingDay ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMScheduleAssigner >> doctors [
 	^ doctors
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMScheduleAssigner >> doctors: aCollection [
 	doctors := aCollection
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMScheduleAssigner >> extractDoctorFrom: availableDoctors [ 
 	| selectedDoctor |
 	selectedDoctor := availableDoctors "shuffle "first.
@@ -68,7 +68,7 @@ HMScheduleAssigner >> extractDoctorFrom: availableDoctors [
 	^ selectedDoctor
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMScheduleAssigner >> extractExperiencedDoctorFrom: availableDoctors [
 	| selectedDoctor |
 	selectedDoctor := availableDoctors "shuffle"
@@ -77,7 +77,7 @@ HMScheduleAssigner >> extractExperiencedDoctorFrom: availableDoctors [
 	^ selectedDoctor
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMScheduleAssigner >> extractExperiencedNurseFrom: availableNurses [
 	| selectedNurse |
 	selectedNurse := availableNurses "shuffle"
@@ -86,7 +86,7 @@ HMScheduleAssigner >> extractExperiencedNurseFrom: availableNurses [
 	^ selectedNurse
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMScheduleAssigner >> extractNurseFrom: availableNurses [
 	| selectedNurse |
 	selectedNurse := availableNurses "shuffle" first.
@@ -94,7 +94,7 @@ HMScheduleAssigner >> extractNurseFrom: availableNurses [
 	^ selectedNurse
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMScheduleAssigner >> gtViewDaysFor: aView [
 	<gtView>
 	^ aView list
@@ -103,29 +103,29 @@ HMScheduleAssigner >> gtViewDaysFor: aView [
 		itemText: [ :aWorkingDay | aWorkingDay description ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMScheduleAssigner >> nurses [
 	^ nurses
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMScheduleAssigner >> nurses: aCollection [
 	nurses := aCollection
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMScheduleAssigner >> performAssignment [
 	self workingDays
 		do: [ :aWorkingDay | self assignDoctorsToWorkingDay: aWorkingDay ];
 		do: [ :aWorkingDay | self assignNursesToWorkingDay: aWorkingDay ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMScheduleAssigner >> workingDays [
 	^ workingDays 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMScheduleAssigner >> workingDays: aCollection [
 	workingDays := aCollection
 ]

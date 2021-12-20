@@ -1,6 +1,6 @@
 Class {
-	#name : 'MyLabelOld',
-	#superclass : 'Object',
+	#name : #MyLabelOld,
+	#superclass : #Object,
 	#instVars : [
 		'id',
 		'description',
@@ -10,7 +10,7 @@ Class {
 	#category : 'MyMoldableRequirements-Models'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyLabelOld class >> fromRawData: labelDict [ 
 ^ self
 	id: (labelDict at: #id)
@@ -18,7 +18,7 @@ MyLabelOld class >> fromRawData: labelDict [
 	color: (labelDict at: #color)
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyLabelOld class >> id: aNumber description: aString color: anotherString [ 
 ^ self new 
 	id: aNumber;
@@ -27,7 +27,7 @@ MyLabelOld class >> id: aNumber description: aString color: anotherString [
 	yourself
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyLabelOld >> addColorDropdownAptitude [
 "returns a dropdown of all colors"
 
@@ -38,7 +38,7 @@ MyLabelOld >> addColorDropdownAptitude [
 		content: [ self colorListForDropdown ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyLabelOld >> asFormElement: aBlock [
 	"a label presents itself as a form to be filled and save as an object"
 
@@ -89,7 +89,7 @@ MyLabelOld >> asFormElement: aBlock [
 	^form
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyLabelOld >> asLabel [
 	^ BlTextElement new
 		geometry: (BlRectangle cornerRadius: 6);
@@ -107,12 +107,12 @@ MyLabelOld >> asLabel [
 			c vertical fitContent ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyLabelOld >> color [
 ^color
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyLabelOld >> color: aString [
 | aColor |
 	
@@ -130,7 +130,7 @@ MyLabelOld >> color: aString [
 	color := aColor
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyLabelOld >> colorDropdownButton [
 	^ BrButton new
 		aptitude: BrGlamorousButtonWithIconAptitude + self addColorDropdownAptitude;
@@ -145,12 +145,12 @@ MyLabelOld >> colorDropdownButton [
 		label: 'Add a Color'
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyLabelOld >> colorList [
 ^ #('yellow' 'green' 'blue' 'orange' 'red' 'cyan')
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyLabelOld >> colorListForDropdown [
 | dropdown colorList |
 
@@ -170,17 +170,17 @@ dropdown := BlElement new
 			^dropdown
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyLabelOld >> description [
 ^description
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyLabelOld >> description: aString [ 
 description := aString
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyLabelOld >> gtCircleViewFor: aView [
 	<gtView>
 	^ aView explicit
@@ -191,22 +191,22 @@ MyLabelOld >> gtCircleViewFor: aView [
 			c vertical fitContent ] ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyLabelOld >> id: aNumber [ 
 id := aNumber
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyLabelOld >> printOn: aStream [
 	aStream nextPutAll: description
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyLabelOld >> project [
 ^project
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyLabelOld >> project: aProject [
 project := aProject
 ]

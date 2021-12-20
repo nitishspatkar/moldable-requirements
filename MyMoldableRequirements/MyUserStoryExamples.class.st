@@ -1,10 +1,10 @@
 Class {
-	#name : 'MyUserStoryExamples',
-	#superclass : 'Object',
+	#name : #MyUserStoryExamples,
+	#superclass : #Object,
 	#category : 'MyMoldableRequirements-Examples'
 }
 
-{ #category : 'examples' }
+{ #category : #examples }
 MyUserStoryExamples >> changeAcceptanceCriteria [
 	| aUserStory aSubscription announcements |
 	<gtExample>
@@ -26,7 +26,7 @@ MyUserStoryExamples >> changeAcceptanceCriteria [
 	^ aUserStory
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 MyUserStoryExamples >> changeAcceptanceCriteriaToTheSame [
 	| aUserStory aSubscription announcements |
 	<gtExample>
@@ -48,7 +48,7 @@ MyUserStoryExamples >> changeAcceptanceCriteriaToTheSame [
 	^ aUserStory
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 MyUserStoryExamples >> changeStatus [
 	| aUserStory aSubscription announcements |
 	<gtExample>
@@ -70,7 +70,7 @@ MyUserStoryExamples >> changeStatus [
 	^ aUserStory
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 MyUserStoryExamples >> changeStatusToTheSame [
 	| aUserStory aSubscription announcements |
 	<gtExample>
@@ -92,7 +92,7 @@ MyUserStoryExamples >> changeStatusToTheSame [
 	^ aUserStory
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 MyUserStoryExamples >> newUserStory [
 	| aUserStory |
 	<gtExample>
@@ -104,7 +104,7 @@ MyUserStoryExamples >> newUserStory [
 	^ aUserStory
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 MyUserStoryExamples >> waiterUserStory [
 	<gtExample>
 	| aUserStory |

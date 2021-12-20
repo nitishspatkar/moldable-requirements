@@ -1,6 +1,6 @@
 Class {
-	#name : 'MyUserStoryDomainConceptStates',
-	#superclass : 'Object',
+	#name : #MyUserStoryDomainConceptStates,
+	#superclass : #Object,
 	#instVars : [
 		'parentUserStoryDomainConcept',
 		'userStoryDomainConceptStates',
@@ -9,7 +9,7 @@ Class {
 	#category : 'MyMoldableRequirements-User Story - Models'
 }
 
-{ #category : 'api - adding' }
+{ #category : #'api - adding' }
 MyUserStoryDomainConceptStates >> addUserStoryDomainConceptState: aUserStoryDomainConceptState [
 	"Add a given object as a child to the receiver and notify subscribers about it.
 	Do nothing if an object is already one of my children."
@@ -24,7 +24,7 @@ MyUserStoryDomainConceptStates >> addUserStoryDomainConceptState: aUserStoryDoma
 	self onUserStoryDomainConceptStateAdded: aUserStoryDomainConceptState
 ]
 
-{ #category : 'api - announcer' }
+{ #category : #'api - announcer' }
 MyUserStoryDomainConceptStates >> announce: anAnnouncement [
 	<generatedFrom: #'GtRobocoderMetamodelNotifierDerive>>#announceTemplate'>
 	announcer ifNotNil: [ :anAnnouncer | anAnnouncer announce: anAnnouncement ].
@@ -34,7 +34,7 @@ MyUserStoryDomainConceptStates >> announce: anAnnouncement [
 		ifTrue: [ self parentUserStoryDomainConcept announce: anAnnouncement ].
 ]
 
-{ #category : 'gt-extentions' }
+{ #category : #'gt-extentions' }
 MyUserStoryDomainConceptStates >> gtDomainConceptStateListViewFor: aView [
 	<gtView>
 	<generatedFrom: #'GtRobocoderMetamodelPhlowListViewDerive>>#listForManyTemplate'>
@@ -45,7 +45,7 @@ MyUserStoryDomainConceptStates >> gtDomainConceptStateListViewFor: aView [
 		items: [ self userStoryDomainConceptStates ]
 ]
 
-{ #category : 'api - testing' }
+{ #category : #'api - testing' }
 MyUserStoryDomainConceptStates >> hasParentUserStoryDomainConcept [
 	"Return true if the parent object is attached"
 	<return: #Boolean>
@@ -55,7 +55,7 @@ MyUserStoryDomainConceptStates >> hasParentUserStoryDomainConcept [
 	^ parentUserStoryDomainConcept notNil
 ]
 
-{ #category : 'api - testing' }
+{ #category : #'api - testing' }
 MyUserStoryDomainConceptStates >> includesUserStoryDomainConceptStates: aUserStoryDomainConceptStates [
 	"Check and return true if a given child object exists among my children, false otherwise.
 	The comparison happens by identity"
@@ -67,7 +67,7 @@ MyUserStoryDomainConceptStates >> includesUserStoryDomainConceptStates: aUserSto
 		eachUserStoryDomainConceptStates == aUserStoryDomainConceptStates ]
 ]
 
-{ #category : 'private - notifying' }
+{ #category : #'private - notifying' }
 MyUserStoryDomainConceptStates >> notifyUserStoryDomainConceptStateAdded: aUserStoryDomainConceptState [
 	"Notifies that a given child object was added to the receiver"
 	
@@ -76,7 +76,7 @@ MyUserStoryDomainConceptStates >> notifyUserStoryDomainConceptStateAdded: aUserS
 		userStoryDomainConceptState: aUserStoryDomainConceptState) 
 ]
 
-{ #category : 'private - notifying' }
+{ #category : #'private - notifying' }
 MyUserStoryDomainConceptStates >> notifyUserStoryDomainConceptStateRemoved: aUserStoryDomainConceptState [
 	"Notifies that a given child object was removed from the receiver"
 	
@@ -85,7 +85,7 @@ MyUserStoryDomainConceptStates >> notifyUserStoryDomainConceptStateRemoved: aUse
 		userStoryDomainConceptState: aUserStoryDomainConceptState) 
 ]
 
-{ #category : 'api - adding' }
+{ #category : #'api - adding' }
 MyUserStoryDomainConceptStates >> onUserStoryDomainConceptStateAdded: aUserStoryDomainConceptState [
 	"Is sent after a given child object was added to the receiver"
 	<generatedFrom: #'TGtRobocoderMetamodelAdditionForManyTemplate>>#objectAddedHookTemplate'>
@@ -93,7 +93,7 @@ MyUserStoryDomainConceptStates >> onUserStoryDomainConceptStateAdded: aUserStory
 	self notifyUserStoryDomainConceptStateAdded: aUserStoryDomainConceptState.
 ]
 
-{ #category : 'api - adding' }
+{ #category : #'api - adding' }
 MyUserStoryDomainConceptStates >> onUserStoryDomainConceptStateRemoved: aUserStoryDomainConceptState [
 	"Is sent after a given child object was removed from the receiver"
 
@@ -101,7 +101,7 @@ MyUserStoryDomainConceptStates >> onUserStoryDomainConceptStateRemoved: aUserSto
 	self notifyUserStoryDomainConceptStateRemoved: aUserStoryDomainConceptState.
 ]
 
-{ #category : 'api - accessing' }
+{ #category : #'api - accessing' }
 MyUserStoryDomainConceptStates >> parentUserStoryDomainConcept [
 	"Return a parent object which is used to access various state properties,
 	for example parent may be responsible for knowing a selected child object.
@@ -117,7 +117,7 @@ MyUserStoryDomainConceptStates >> parentUserStoryDomainConcept [
 	^ parentUserStoryDomainConcept
 ]
 
-{ #category : 'api - accessing' }
+{ #category : #'api - accessing' }
 MyUserStoryDomainConceptStates >> parentUserStoryDomainConcept: aMyUserStoryDomainConcept [
 	"Assign a parent object (${class:MyUserStoryDomainConcept}$) which is used to access various state properties,
 	for example parent may be responsible for knowing a selected child object.
@@ -132,13 +132,13 @@ MyUserStoryDomainConceptStates >> parentUserStoryDomainConcept: aMyUserStoryDoma
 	parentUserStoryDomainConcept := aMyUserStoryDomainConcept
 ]
 
-{ #category : 'printing' }
+{ #category : #printing }
 MyUserStoryDomainConceptStates >> printOn: aStream [
 	<generatedFrom: #'GtRobocoderMetamodelPrintDerive>>#printOnTemplate'>
 	super printOn: aStream
 ]
 
-{ #category : 'api - adding' }
+{ #category : #'api - adding' }
 MyUserStoryDomainConceptStates >> removeUserStoryDomainConceptState: aUserStoryDomainConceptState [
 	"Remove a given object as a child to the receiver and notify subscribers about it.
 	Do nothing if an object is already one of my children."
@@ -155,7 +155,7 @@ MyUserStoryDomainConceptStates >> removeUserStoryDomainConceptState: aUserStoryD
 	self onUserStoryDomainConceptStateRemoved: aUserStoryDomainConceptState
 ]
 
-{ #category : 'api - announcer' }
+{ #category : #'api - announcer' }
 MyUserStoryDomainConceptStates >> unsubscribe: anObject [
 	"Unsubscribe all subscriptions of anObject from the receiver"
 
@@ -163,7 +163,7 @@ MyUserStoryDomainConceptStates >> unsubscribe: anObject [
 	^ announcer ifNotNil: [ :anAnnouncer | anAnnouncer unsubscribe: anObject ]
 ]
 
-{ #category : 'api - accessing' }
+{ #category : #'api - accessing' }
 MyUserStoryDomainConceptStates >> userStoryDomainConceptStates [
 	"Return a collection of objects (${class:MyUserStoryDomainConceptState}$) created for each child from the domain model.
 	Note: The children are lazily instantiated."
@@ -174,7 +174,7 @@ MyUserStoryDomainConceptStates >> userStoryDomainConceptStates [
 	^  userStoryDomainConceptStates ifNil: [ userStoryDomainConceptStates := OrderedCollection new ]
 ]
 
-{ #category : 'api - accessing' }
+{ #category : #'api - accessing' }
 MyUserStoryDomainConceptStates >> userStoryDomainConceptStates: aCollectionOfMyUserStoryDomainConceptState [
 	"Silently assign a collection of given objects as my children without triggering any event. This is part of the #initialization protocol."
 	<modelSetter: #domainConceptStates>
@@ -185,14 +185,14 @@ MyUserStoryDomainConceptStates >> userStoryDomainConceptStates: aCollectionOfMyU
 		eachMyUserStoryDomainConceptState parentUserStoryDomainConceptStates: self ]
 ]
 
-{ #category : 'api - announcer' }
+{ #category : #'api - announcer' }
 MyUserStoryDomainConceptStates >> when: anAnnouncementClass do: aBlock [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenDoTemplate'>
 	^ (announcer ifNil: [ announcer := Announcer new ])
 		when: anAnnouncementClass do: aBlock
 ]
 
-{ #category : 'api - announcer' }
+{ #category : #'api - announcer' }
 MyUserStoryDomainConceptStates >> when: anAnnouncementClass send: aSelector to: anObject [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenSendToTemplate'>
 	^ (announcer ifNil: [ announcer := Announcer new ]) weak

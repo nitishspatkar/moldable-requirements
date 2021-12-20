@@ -1,6 +1,6 @@
 Class {
-	#name : 'MyUserStoryDomainConceptElement',
-	#superclass : 'BrHorizontalPane',
+	#name : #MyUserStoryDomainConceptElement,
+	#superclass : #BrHorizontalPane,
 	#traits : 'TMyWithUserStoryDomainConcept',
 	#classTraits : 'TMyWithUserStoryDomainConcept classTrait',
 	#instVars : [
@@ -10,7 +10,7 @@ Class {
 	#category : 'MyMoldableRequirements-User Story - Views'
 }
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 MyUserStoryDomainConceptElement >> initialize [
 	super initialize.
 	
@@ -36,7 +36,7 @@ MyUserStoryDomainConceptElement >> initialize [
 	self addChild: kind.
 ]
 
-{ #category : 'private - event handling' }
+{ #category : #'private - event handling' }
 MyUserStoryDomainConceptElement >> onDomainConceptKindNameChanged [
 
 	kind text: (self userStoryDomainConcept userStoryDomainConcept hasName
@@ -44,13 +44,13 @@ MyUserStoryDomainConceptElement >> onDomainConceptKindNameChanged [
 		ifFalse: [ 'Object' ])
 ]
 
-{ #category : 'private - event handling' }
+{ #category : #'private - event handling' }
 MyUserStoryDomainConceptElement >> onDomainConceptNameChanged [
 
 	name text: self userStoryDomainConcept name
 ]
 
-{ #category : 'api - user story domain concept' }
+{ #category : #'api - user story domain concept' }
 MyUserStoryDomainConceptElement >> onUserStoryDomainConceptChanged [
 	"Is sent when a new userStoryDomainConcept is assigned to the receiver.
 	Note: #onUserStoryDomainConceptChanged is sent before #subscribeToUserStoryDomainConcept
@@ -63,7 +63,7 @@ MyUserStoryDomainConceptElement >> onUserStoryDomainConceptChanged [
 	self onDomainConceptKindNameChanged
 ]
 
-{ #category : 'api - user story domain concept' }
+{ #category : #'api - user story domain concept' }
 MyUserStoryDomainConceptElement >> subscribeToUserStoryDomainConcept [
 	"Is sent after a new userStoryDomainConcept is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
@@ -82,7 +82,7 @@ MyUserStoryDomainConceptElement >> subscribeToUserStoryDomainConcept [
 		to: self
 ]
 
-{ #category : 'api - user story domain concept' }
+{ #category : #'api - user story domain concept' }
 MyUserStoryDomainConceptElement >> unsubscribeFromUserStoryDomainConcept [
 	"Is sent before a new userStoryDomainConcept is assigned to the receiver.
 	Objects that subscribe to userStoryDomainConcept are required to implement this method."

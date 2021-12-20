@@ -1,12 +1,12 @@
 Trait {
-	#name : 'TMyWithNotes',
+	#name : #TMyWithNotes,
 	#instVars : [
 		'notes'
 	],
 	#category : 'MyMoldableRequirements-User Story - Support'
 }
 
-{ #category : 'api - notes' }
+{ #category : #'api - notes' }
 TMyWithNotes >> hasNotes [
 	"Return a true if nil is assigned to the receiver, false otherwise"
 	<return: #Boolean>
@@ -16,7 +16,7 @@ TMyWithNotes >> hasNotes [
 	^ notes notNil
 ]
 
-{ #category : 'api - notes' }
+{ #category : #'api - notes' }
 TMyWithNotes >> notes [
 	"Return a not-null notes assigned to the receiver"
 	<objectGetter: #notes>
@@ -28,7 +28,7 @@ TMyWithNotes >> notes [
 	^ notes
 ]
 
-{ #category : 'api - notes' }
+{ #category : #'api - notes' }
 TMyWithNotes >> notes: aNotes [
 	"Set a not-null notes assigned to the receiver"
 	<objectSetter: #notes>
@@ -48,7 +48,7 @@ TMyWithNotes >> notes: aNotes [
 	self onPostNotesChanged
 ]
 
-{ #category : 'api - notes' }
+{ #category : #'api - notes' }
 TMyWithNotes >> onNotesChanged [
 	"Is sent when a new notes is assigned to the receiver.
 	Note: #onNotesChanged is sent before #subscribeToNotes
@@ -58,7 +58,7 @@ TMyWithNotes >> onNotesChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onObjectChangedTemplate'>
 ]
 
-{ #category : 'api - notes' }
+{ #category : #'api - notes' }
 TMyWithNotes >> onPostNotesChanged [
 	"I am an optional hook method that is sent after #subscribeToNotes.
 	I do nothing by default but allow users to perform update operations when a receiver object is already
@@ -66,7 +66,7 @@ TMyWithNotes >> onPostNotesChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onPostObjectChangedTemplate'>
 ]
 
-{ #category : 'api - notes' }
+{ #category : #'api - notes' }
 TMyWithNotes >> subscribeToNotes [
 	"Is sent after a new notes is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
@@ -74,7 +74,7 @@ TMyWithNotes >> subscribeToNotes [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#subscribeToObjectTemplate'>
 ]
 
-{ #category : 'api - notes' }
+{ #category : #'api - notes' }
 TMyWithNotes >> unsubscribeFromNotes [
 	"Is sent before a new notes is assigned to the receiver.
 	Objects that subscribe to notes are required to implement this method."

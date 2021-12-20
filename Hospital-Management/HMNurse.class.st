@@ -1,15 +1,15 @@
 Class {
-	#name : 'HMNurse',
-	#superclass : 'HMStaffMember',
+	#name : #HMNurse,
+	#superclass : #HMStaffMember,
 	#category : 'Hospital-Management-Model'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 HMNurse >> isDoctor [
 	^ false
 ]
 
-{ #category : 'printing' }
+{ #category : #printing }
 HMNurse >> printOn: aStream [
 	super printOn: aStream.
 	aStream 

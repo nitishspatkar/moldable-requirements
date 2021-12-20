@@ -1,6 +1,6 @@
 Class {
-	#name : 'MyUserStoryStatusElement',
-	#superclass : 'BrHorizontalPane',
+	#name : #MyUserStoryStatusElement,
+	#superclass : #BrHorizontalPane,
 	#traits : 'TMyWithUserStoryModel',
 	#classTraits : 'TMyWithUserStoryModel classTrait',
 	#instVars : [
@@ -10,7 +10,7 @@ Class {
 	#category : 'MyMoldableRequirements-User Story - Views'
 }
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 MyUserStoryStatusElement >> initialize [
 	super initialize.
 	
@@ -31,7 +31,7 @@ MyUserStoryStatusElement >> initialize [
 	}
 ]
 
-{ #category : 'api - user story model' }
+{ #category : #'api - user story model' }
 MyUserStoryStatusElement >> onUserStoryModelChanged [
 	"Is sent when a new userStoryModel is assigned to the receiver.
 	Note: #onUserStoryModelChanged is sent before #subscribeToUserStoryModel

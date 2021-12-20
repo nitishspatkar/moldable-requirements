@@ -1,12 +1,12 @@
 Trait {
-	#name : 'TMyWithTasks',
+	#name : #TMyWithTasks,
 	#instVars : [
 		'tasks'
 	],
 	#category : 'MyMoldableRequirements-User Story - Support'
 }
 
-{ #category : 'api - tasks' }
+{ #category : #'api - tasks' }
 TMyWithTasks >> hasTasks [
 	"Return a true if nil is assigned to the receiver, false otherwise"
 	<return: #Boolean>
@@ -16,7 +16,7 @@ TMyWithTasks >> hasTasks [
 	^ tasks notNil
 ]
 
-{ #category : 'api - tasks' }
+{ #category : #'api - tasks' }
 TMyWithTasks >> onPostTasksChanged [
 	"I am an optional hook method that is sent after #subscribeToTasks.
 	I do nothing by default but allow users to perform update operations when a receiver object is already
@@ -24,7 +24,7 @@ TMyWithTasks >> onPostTasksChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onPostObjectChangedTemplate'>
 ]
 
-{ #category : 'api - tasks' }
+{ #category : #'api - tasks' }
 TMyWithTasks >> onTasksChanged [
 	"Is sent when a new tasks is assigned to the receiver.
 	Note: #onTasksChanged is sent before #subscribeToTasks
@@ -34,7 +34,7 @@ TMyWithTasks >> onTasksChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onObjectChangedTemplate'>
 ]
 
-{ #category : 'api - tasks' }
+{ #category : #'api - tasks' }
 TMyWithTasks >> subscribeToTasks [
 	"Is sent after a new tasks is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
@@ -42,7 +42,7 @@ TMyWithTasks >> subscribeToTasks [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#subscribeToObjectTemplate'>
 ]
 
-{ #category : 'api - tasks' }
+{ #category : #'api - tasks' }
 TMyWithTasks >> tasks [
 	"Return a not-null tasks assigned to the receiver"
 	<objectGetter: #tasks>
@@ -54,7 +54,7 @@ TMyWithTasks >> tasks [
 	^ tasks
 ]
 
-{ #category : 'api - tasks' }
+{ #category : #'api - tasks' }
 TMyWithTasks >> tasks: aTasks [
 	"Set a not-null tasks assigned to the receiver"
 	<objectSetter: #tasks>
@@ -74,7 +74,7 @@ TMyWithTasks >> tasks: aTasks [
 	self onPostTasksChanged
 ]
 
-{ #category : 'api - tasks' }
+{ #category : #'api - tasks' }
 TMyWithTasks >> unsubscribeFromTasks [
 	"Is sent before a new tasks is assigned to the receiver.
 	Objects that subscribe to tasks are required to implement this method."

@@ -1,6 +1,6 @@
-Extension { #name : 'Class' }
+Extension { #name : #Class }
 
-{ #category : '*Hospital-Management' }
+{ #category : #'*Hospital-Management' }
 Class >> computeRelatedPages [
 	| targetDatabase relatedPages |
 	relatedPages := OrderedCollection new.
@@ -19,14 +19,14 @@ Class >> computeRelatedPages [
 	^ relatedPages
 ]
 
-{ #category : '*Hospital-Management' }
+{ #category : #'*Hospital-Management' }
 Class >> computeRelatedStories [
 	^ MyProject defaultHospitalManagementProject userStories 
 		select: [ :aUserStory |
 			aUserStory role asLowercase includesSubstring: (self name asLowercase removePrefix: 'hm') ]
 ]
 
-{ #category : '*Hospital-Management' }
+{ #category : #'*Hospital-Management' }
 Class >> gtViewRelatedPagesFor: aView [
 	<gtView>
 	<gtClassView>
@@ -36,12 +36,13 @@ Class >> gtViewRelatedPagesFor: aView [
 		itemText: [ :aPage | aPage title ]
 ]
 
-{ #category : '*Hospital-Management' }
+{ #category : #'*Hospital-Management' }
 Class >> gtViewRelatedRequirementsFor: aView [
 	<gtView>
 	<gtClassView>
 	^ aView list
 		title: 'Related Stories';
+		priority: 30;
 		items: [ self computeRelatedStories ];
 		itemText: [ :aUserStory | aUserStory description ]
 ]

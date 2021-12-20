@@ -1,6 +1,6 @@
 Class {
-	#name : 'MyLabel',
-	#superclass : 'Object',
+	#name : #MyLabel,
+	#superclass : #Object,
 	#instVars : [
 		'description',
 		'color',
@@ -10,7 +10,7 @@ Class {
 	#category : 'MyMoldableRequirements-User Story - Models'
 }
 
-{ #category : 'api - announcer' }
+{ #category : #'api - announcer' }
 MyLabel >> announce: anAnnouncement [
 	<generatedFrom: #'GtRobocoderMetamodelNotifierDerive>>#announceTemplate'>
 	announcer ifNotNil: [ :anAnnouncer | anAnnouncer announce: anAnnouncement ].
@@ -20,7 +20,7 @@ MyLabel >> announce: anAnnouncement [
 		ifTrue: [ self parentLabels announce: anAnnouncement ].
 ]
 
-{ #category : 'api - color' }
+{ #category : #'api - color' }
 MyLabel >> color [
 	"Return a not-null color assigned to the receiver"
 	<objectGetter: #color>
@@ -32,7 +32,7 @@ MyLabel >> color [
 	^ color
 ]
 
-{ #category : 'api - color' }
+{ #category : #'api - color' }
 MyLabel >> color: aColor [
 	"Set a not-null color assigned to the receiver"
 	<objectSetter: #color>
@@ -52,7 +52,7 @@ MyLabel >> color: aColor [
 	self onPostColorChanged
 ]
 
-{ #category : 'api - description' }
+{ #category : #'api - description' }
 MyLabel >> description [
 	"Return a not-null description assigned to the receiver"
 	<objectGetter: #description>
@@ -64,7 +64,7 @@ MyLabel >> description [
 	^ description
 ]
 
-{ #category : 'api - description' }
+{ #category : #'api - description' }
 MyLabel >> description: aDescription [
 	"Set a not-null description assigned to the receiver"
 	<objectSetter: #description>
@@ -84,7 +84,7 @@ MyLabel >> description: aDescription [
 	self onPostDescriptionChanged
 ]
 
-{ #category : 'api - color' }
+{ #category : #'api - color' }
 MyLabel >> hasColor [
 	"Return a true if nil is assigned to the receiver, false otherwise"
 	<return: #Boolean>
@@ -94,7 +94,7 @@ MyLabel >> hasColor [
 	^ color notNil
 ]
 
-{ #category : 'api - description' }
+{ #category : #'api - description' }
 MyLabel >> hasDescription [
 	"Return a true if nil is assigned to the receiver, false otherwise"
 	<return: #Boolean>
@@ -104,7 +104,7 @@ MyLabel >> hasDescription [
 	^ description notNil
 ]
 
-{ #category : 'api - accessing' }
+{ #category : #'api - accessing' }
 MyLabel >> hasParentLabels [
 	"Return true if the parent object is attached"
 	<return: #Boolean>
@@ -114,7 +114,7 @@ MyLabel >> hasParentLabels [
 	^ parentLabels notNil
 ]
 
-{ #category : 'api - testing' }
+{ #category : #'api - testing' }
 MyLabel >> isLabel [
 	"Return true if the receiver represents Label, false otherwise"
 	<return: #Boolean>
@@ -123,7 +123,7 @@ MyLabel >> isLabel [
 	^ true
 ]
 
-{ #category : 'api - testing' }
+{ #category : #'api - testing' }
 MyLabel >> isLabels [
 	"Return true if the receiver represents Labels, false otherwise"
 	<return: #Boolean>
@@ -132,7 +132,7 @@ MyLabel >> isLabels [
 	^ false
 ]
 
-{ #category : 'api - testing' }
+{ #category : #'api - testing' }
 MyLabel >> isNote [
 	"Return true if the receiver represents Note, false otherwise"
 	<return: #Boolean>
@@ -141,7 +141,7 @@ MyLabel >> isNote [
 	^ false
 ]
 
-{ #category : 'api - testing' }
+{ #category : #'api - testing' }
 MyLabel >> isNotes [
 	"Return true if the receiver represents Notes, false otherwise"
 	<return: #Boolean>
@@ -150,7 +150,7 @@ MyLabel >> isNotes [
 	^ false
 ]
 
-{ #category : 'api - testing' }
+{ #category : #'api - testing' }
 MyLabel >> isTask [
 	"Return true if the receiver represents Task, false otherwise"
 	<return: #Boolean>
@@ -159,7 +159,7 @@ MyLabel >> isTask [
 	^ false
 ]
 
-{ #category : 'api - testing' }
+{ #category : #'api - testing' }
 MyLabel >> isTasks [
 	"Return true if the receiver represents Tasks, false otherwise"
 	<return: #Boolean>
@@ -168,7 +168,7 @@ MyLabel >> isTasks [
 	^ false
 ]
 
-{ #category : 'api - testing' }
+{ #category : #'api - testing' }
 MyLabel >> isUserStory [
 	"Return true if the receiver represents UserStory, false otherwise"
 	<return: #Boolean>
@@ -177,7 +177,7 @@ MyLabel >> isUserStory [
 	^ false
 ]
 
-{ #category : 'api - accessing' }
+{ #category : #'api - accessing' }
 MyLabel >> objectName [
 	"Return a symbolic name of the receiver which helps to create various type based mappings.
 	Note: The symbolic name of the object is the exact name that was used
@@ -188,7 +188,7 @@ MyLabel >> objectName [
 	^ #label
 ]
 
-{ #category : 'api - color' }
+{ #category : #'api - color' }
 MyLabel >> onColorChanged [
 	"Is sent when a new color is assigned to the receiver.
 	Note: #onColorChanged is sent before #subscribeToColor
@@ -198,7 +198,7 @@ MyLabel >> onColorChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onObjectChangedTemplate'>
 ]
 
-{ #category : 'api - description' }
+{ #category : #'api - description' }
 MyLabel >> onDescriptionChanged [
 	"Is sent when a new description is assigned to the receiver.
 	Note: #onDescriptionChanged is sent before #subscribeToDescription
@@ -208,7 +208,7 @@ MyLabel >> onDescriptionChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onObjectChangedTemplate'>
 ]
 
-{ #category : 'api - color' }
+{ #category : #'api - color' }
 MyLabel >> onPostColorChanged [
 	"I am an optional hook method that is sent after #subscribeToColor.
 	I do nothing by default but allow users to perform update operations when a receiver object is already
@@ -216,7 +216,7 @@ MyLabel >> onPostColorChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onPostObjectChangedTemplate'>
 ]
 
-{ #category : 'api - description' }
+{ #category : #'api - description' }
 MyLabel >> onPostDescriptionChanged [
 	"I am an optional hook method that is sent after #subscribeToDescription.
 	I do nothing by default but allow users to perform update operations when a receiver object is already
@@ -224,7 +224,7 @@ MyLabel >> onPostDescriptionChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onPostObjectChangedTemplate'>
 ]
 
-{ #category : 'api - accessing' }
+{ #category : #'api - accessing' }
 MyLabel >> parentLabels [
 	"Return a parent object which is used to access various state properties,
 	for example parent may be responsible for knowing a selected child object.
@@ -240,7 +240,7 @@ MyLabel >> parentLabels [
 	^ parentLabels
 ]
 
-{ #category : 'api - accessing' }
+{ #category : #'api - accessing' }
 MyLabel >> parentLabels: aMyLabels [
 	"Assign a parent object (${class:MyLabels}$) which is used to access various state properties,
 	for example parent may be responsible for knowing a selected child object.
@@ -255,13 +255,13 @@ MyLabel >> parentLabels: aMyLabels [
 	parentLabels := aMyLabels
 ]
 
-{ #category : 'printing' }
+{ #category : #printing }
 MyLabel >> printOn: aStream [
 	<generatedFrom: #'GtRobocoderMetamodelPrintDerive>>#printOnTemplate'>
 	super printOn: aStream
 ]
 
-{ #category : 'api - color' }
+{ #category : #'api - color' }
 MyLabel >> subscribeToColor [
 	"Is sent after a new color is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
@@ -269,7 +269,7 @@ MyLabel >> subscribeToColor [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#subscribeToObjectTemplate'>
 ]
 
-{ #category : 'api - description' }
+{ #category : #'api - description' }
 MyLabel >> subscribeToDescription [
 	"Is sent after a new description is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
@@ -277,7 +277,7 @@ MyLabel >> subscribeToDescription [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#subscribeToObjectTemplate'>
 ]
 
-{ #category : 'api - announcer' }
+{ #category : #'api - announcer' }
 MyLabel >> unsubscribe: anObject [
 	"Unsubscribe all subscriptions of anObject from the receiver"
 
@@ -285,28 +285,28 @@ MyLabel >> unsubscribe: anObject [
 	^ announcer ifNotNil: [ :anAnnouncer | anAnnouncer unsubscribe: anObject ]
 ]
 
-{ #category : 'api - color' }
+{ #category : #'api - color' }
 MyLabel >> unsubscribeFromColor [
 	"Is sent before a new color is assigned to the receiver.
 	Objects that subscribe to color are required to implement this method."
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#unsubscribeFromObjectTemplate'>
 ]
 
-{ #category : 'api - description' }
+{ #category : #'api - description' }
 MyLabel >> unsubscribeFromDescription [
 	"Is sent before a new description is assigned to the receiver.
 	Objects that subscribe to description are required to implement this method."
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#unsubscribeFromObjectTemplate'>
 ]
 
-{ #category : 'api - announcer' }
+{ #category : #'api - announcer' }
 MyLabel >> when: anAnnouncementClass do: aBlock [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenDoTemplate'>
 	(announcer ifNil: [ announcer := Announcer new ])
 		when: anAnnouncementClass do: aBlock
 ]
 
-{ #category : 'api - announcer' }
+{ #category : #'api - announcer' }
 MyLabel >> when: anAnnouncementClass send: aSelector to: anObject [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenSendToTemplate'>
 	(announcer ifNil: [ announcer := Announcer new ]) weak

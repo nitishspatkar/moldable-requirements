@@ -1,6 +1,6 @@
 Class {
-	#name : 'MyLabels',
-	#superclass : 'Object',
+	#name : #MyLabels,
+	#superclass : #Object,
 	#instVars : [
 		'labels',
 		'parentUserStory',
@@ -9,7 +9,7 @@ Class {
 	#category : 'MyMoldableRequirements-User Story - Models'
 }
 
-{ #category : 'generated' }
+{ #category : #generated }
 MyLabels >> addLabel: aLabel [
 	"Add a given object as a child to the receiver and notify subscribers about it.
 	Do nothing if an object is already one of my children."
@@ -23,7 +23,7 @@ MyLabels >> addLabel: aLabel [
 	self onLabelAdded: aLabel
 ]
 
-{ #category : 'api - announcer' }
+{ #category : #'api - announcer' }
 MyLabels >> announce: anAnnouncement [
 	<generatedFrom: #'GtRobocoderMetamodelNotifierDerive>>#announceTemplate'>
 	announcer ifNotNil: [ :anAnnouncer | anAnnouncer announce: anAnnouncement ].
@@ -33,7 +33,7 @@ MyLabels >> announce: anAnnouncement [
 		ifTrue: [ self parentUserStory announce: anAnnouncement ].
 ]
 
-{ #category : 'private - instance creation' }
+{ #category : #'private - instance creation' }
 MyLabels >> createLabels [
 	"For each child from the domain model create an object and return a resulting collection"
 	<return: #Collection of: #MyLabel>
@@ -47,7 +47,7 @@ MyLabels >> createLabels [
 		eachChild ] as: OrderedCollection
 ]
 
-{ #category : 'gt-extentions' }
+{ #category : #'gt-extentions' }
 MyLabels >> gtLabelListViewFor: aView [
 	<gtView>
 	<generatedFrom: #'GtRobocoderMetamodelPhlowListViewDerive>>#listForManyTemplate'>
@@ -58,7 +58,7 @@ MyLabels >> gtLabelListViewFor: aView [
 		items: [ self labels ]
 ]
 
-{ #category : 'api - labels' }
+{ #category : #'api - labels' }
 MyLabels >> hasLabels [
 	"Return a true if nil is assigned to the receiver, false otherwise"
 	<return: #Boolean>
@@ -68,7 +68,7 @@ MyLabels >> hasLabels [
 	^ labels notNil
 ]
 
-{ #category : 'api - accessing' }
+{ #category : #'api - accessing' }
 MyLabels >> hasParentUserStory [
 	"Return true if the parent object is attached"
 	<return: #Boolean>
@@ -78,7 +78,7 @@ MyLabels >> hasParentUserStory [
 	^ parentUserStory notNil
 ]
 
-{ #category : 'generated' }
+{ #category : #generated }
 MyLabels >> includesLabel: aLabel [
 	"Check and return true if a given child object exists among my children, false otherwise.
 	The comparison happens by identity"
@@ -90,7 +90,7 @@ MyLabels >> includesLabel: aLabel [
 		eachLabel == aLabel ]
 ]
 
-{ #category : 'api - testing' }
+{ #category : #'api - testing' }
 MyLabels >> isLabel [
 	"Return true if the receiver represents Label, false otherwise"
 	<return: #Boolean>
@@ -99,7 +99,7 @@ MyLabels >> isLabel [
 	^ false
 ]
 
-{ #category : 'api - testing' }
+{ #category : #'api - testing' }
 MyLabels >> isLabels [
 	"Return true if the receiver represents Labels, false otherwise"
 	<return: #Boolean>
@@ -108,7 +108,7 @@ MyLabels >> isLabels [
 	^ true
 ]
 
-{ #category : 'api - testing' }
+{ #category : #'api - testing' }
 MyLabels >> isNote [
 	"Return true if the receiver represents Note, false otherwise"
 	<return: #Boolean>
@@ -117,7 +117,7 @@ MyLabels >> isNote [
 	^ false
 ]
 
-{ #category : 'api - testing' }
+{ #category : #'api - testing' }
 MyLabels >> isNotes [
 	"Return true if the receiver represents Notes, false otherwise"
 	<return: #Boolean>
@@ -126,7 +126,7 @@ MyLabels >> isNotes [
 	^ false
 ]
 
-{ #category : 'api - testing' }
+{ #category : #'api - testing' }
 MyLabels >> isTask [
 	"Return true if the receiver represents Task, false otherwise"
 	<return: #Boolean>
@@ -135,7 +135,7 @@ MyLabels >> isTask [
 	^ false
 ]
 
-{ #category : 'api - testing' }
+{ #category : #'api - testing' }
 MyLabels >> isTasks [
 	"Return true if the receiver represents Tasks, false otherwise"
 	<return: #Boolean>
@@ -144,7 +144,7 @@ MyLabels >> isTasks [
 	^ false
 ]
 
-{ #category : 'api - testing' }
+{ #category : #'api - testing' }
 MyLabels >> isUserStory [
 	"Return true if the receiver represents UserStory, false otherwise"
 	<return: #Boolean>
@@ -153,7 +153,7 @@ MyLabels >> isUserStory [
 	^ false
 ]
 
-{ #category : 'api - accessing' }
+{ #category : #'api - accessing' }
 MyLabels >> labels [
 	"Return a collection of objects (${class:MyLabel}$) created for each child from the domain model.
 	Note: The children are lazily instantiated."
@@ -164,7 +164,7 @@ MyLabels >> labels [
 	^  labels ifNil: [ labels := self createLabels ]
 ]
 
-{ #category : 'api - labels' }
+{ #category : #'api - labels' }
 MyLabels >> labels: aLabels [
 	"Set a not-null labels assigned to the receiver"
 	<objectSetter: #labels>
@@ -184,7 +184,7 @@ MyLabels >> labels: aLabels [
 	self onPostLabelsChanged
 ]
 
-{ #category : 'generated' }
+{ #category : #generated }
 MyLabels >> notifyLabelAdded: aLabel [
 	"Notifies that a given child object was added to the receiver"
 	
@@ -193,13 +193,13 @@ MyLabels >> notifyLabelAdded: aLabel [
 		label: aLabel) 
 ]
 
-{ #category : 'generated' }
+{ #category : #generated }
 MyLabels >> notifyLabelRemoved: aLabel [
 	"Notifies that a given child object was removed from the receiver"
 	<generatedFrom: #'TGtRobocoderMetamodelRemovalForManyTemplate>>#notifyObjectRemovedTemplate'>
 ]
 
-{ #category : 'api - accessing' }
+{ #category : #'api - accessing' }
 MyLabels >> objectName [
 	"Return a symbolic name of the receiver which helps to create various type based mappings.
 	Note: The symbolic name of the object is the exact name that was used
@@ -210,7 +210,7 @@ MyLabels >> objectName [
 	^ #labels
 ]
 
-{ #category : 'generated' }
+{ #category : #generated }
 MyLabels >> onLabelAdded: aLabel [
 	"Is sent after a given child object was added to the receiver"
 
@@ -218,7 +218,7 @@ MyLabels >> onLabelAdded: aLabel [
 	self notifyLabelAdded: aLabel.
 ]
 
-{ #category : 'generated' }
+{ #category : #generated }
 MyLabels >> onLabelRemoved: aLabel [
 	"Is sent after a given child object was removed from the receiver"
 
@@ -226,7 +226,7 @@ MyLabels >> onLabelRemoved: aLabel [
 	self notifyLabelRemoved: aLabel.
 ]
 
-{ #category : 'api - labels' }
+{ #category : #'api - labels' }
 MyLabels >> onLabelsChanged [
 	"Is sent when a new labels is assigned to the receiver.
 	Note: #onLabelsChanged is sent before #subscribeToLabels
@@ -236,7 +236,7 @@ MyLabels >> onLabelsChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onObjectChangedTemplate'>
 ]
 
-{ #category : 'api - labels' }
+{ #category : #'api - labels' }
 MyLabels >> onPostLabelsChanged [
 	"I am an optional hook method that is sent after #subscribeToLabels.
 	I do nothing by default but allow users to perform update operations when a receiver object is already
@@ -244,7 +244,7 @@ MyLabels >> onPostLabelsChanged [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#onPostObjectChangedTemplate'>
 ]
 
-{ #category : 'api - accessing' }
+{ #category : #'api - accessing' }
 MyLabels >> parentUserStory [
 	"Return a parent object which is used to access various state properties,
 	for example parent may be responsible for knowing a selected child object.
@@ -260,7 +260,7 @@ MyLabels >> parentUserStory [
 	^ parentUserStory
 ]
 
-{ #category : 'api - accessing' }
+{ #category : #'api - accessing' }
 MyLabels >> parentUserStory: aMyUserStory [
 	"Assign a parent object (${class:MyUserStory}$) which is used to access various state properties,
 	for example parent may be responsible for knowing a selected child object.
@@ -275,13 +275,13 @@ MyLabels >> parentUserStory: aMyUserStory [
 	parentUserStory := aMyUserStory
 ]
 
-{ #category : 'printing' }
+{ #category : #printing }
 MyLabels >> printOn: aStream [
 	<generatedFrom: #'GtRobocoderMetamodelPrintDerive>>#printOnTemplate'>
 	super printOn: aStream
 ]
 
-{ #category : 'generated' }
+{ #category : #generated }
 MyLabels >> removeLabel: aLabel [
 	"Removed a given child object from the receiver and notify subscribers about it.
 	Do nothing if an object is not one of my children."
@@ -295,7 +295,7 @@ MyLabels >> removeLabel: aLabel [
 	self onLabelRemoved: aLabel
 ]
 
-{ #category : 'api - labels' }
+{ #category : #'api - labels' }
 MyLabels >> subscribeToLabels [
 	"Is sent after a new labels is assigned to the receiver.
 	It is required to unsubscribe from the previously subscribed objects by implementing
@@ -303,7 +303,7 @@ MyLabels >> subscribeToLabels [
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#subscribeToObjectTemplate'>
 ]
 
-{ #category : 'api - announcer' }
+{ #category : #'api - announcer' }
 MyLabels >> unsubscribe: anObject [
 	"Unsubscribe all subscriptions of anObject from the receiver"
 
@@ -311,21 +311,21 @@ MyLabels >> unsubscribe: anObject [
 	^ announcer ifNotNil: [ :anAnnouncer | anAnnouncer unsubscribe: anObject ]
 ]
 
-{ #category : 'api - labels' }
+{ #category : #'api - labels' }
 MyLabels >> unsubscribeFromLabels [
 	"Is sent before a new labels is assigned to the receiver.
 	Objects that subscribe to labels are required to implement this method."
 	<generatedFrom: #'TGtRobocoderWithObjectTraitTemplate>>#unsubscribeFromObjectTemplate'>
 ]
 
-{ #category : 'api - announcer' }
+{ #category : #'api - announcer' }
 MyLabels >> when: anAnnouncementClass do: aBlock [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenDoTemplate'>
 	(announcer ifNil: [ announcer := Announcer new ])
 		when: anAnnouncementClass do: aBlock
 ]
 
-{ #category : 'api - announcer' }
+{ #category : #'api - announcer' }
 MyLabels >> when: anAnnouncementClass send: aSelector to: anObject [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenSendToTemplate'>
 	(announcer ifNil: [ announcer := Announcer new ]) weak

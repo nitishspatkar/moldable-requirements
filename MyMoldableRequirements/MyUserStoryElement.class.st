@@ -1,6 +1,6 @@
 Class {
-	#name : 'MyUserStoryElement',
-	#superclass : 'BrVerticalPane',
+	#name : #MyUserStoryElement,
+	#superclass : #BrVerticalPane,
 	#traits : 'TMyWithUserStoryModel',
 	#classTraits : 'TMyWithUserStoryModel classTrait',
 	#instVars : [
@@ -14,7 +14,7 @@ Class {
 	#category : 'MyMoldableRequirements-User Story - Views'
 }
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 MyUserStoryElement >> addNoteDropdownAptitude [
 ^ BrGlamorousWithDropdownAptitude 
 	handle: [BrButton new
@@ -29,7 +29,7 @@ MyUserStoryElement >> addNoteDropdownAptitude [
 			note asFormElement: [ userStoryModel notes addNote: note ]]
 ]
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 MyUserStoryElement >> initialize [
 	super initialize.
 	self hMatchParent.
@@ -79,7 +79,7 @@ MyUserStoryElement >> initialize [
 			notes}
 ]
 
-{ #category : 'api - user story model' }
+{ #category : #'api - user story model' }
 MyUserStoryElement >> onUserStoryModelChanged [
 	"Is sent when a new userStoryModel is assigned to the receiver.
 	Note: #onUserStoryModelChanged is sent before #subscribeToUserStoryModel

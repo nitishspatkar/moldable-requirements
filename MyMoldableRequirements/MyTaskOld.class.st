@@ -1,6 +1,6 @@
 Class {
-	#name : 'MyTaskOld',
-	#superclass : 'Object',
+	#name : #MyTaskOld,
+	#superclass : #Object,
 	#instVars : [
 		'is',
 		'description',
@@ -12,7 +12,7 @@ Class {
 	#category : 'MyMoldableRequirements-Models'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTaskOld class >> fromRawData: taskDict [ 
 	^self 
 		id: (taskDict at: #id)
@@ -22,7 +22,7 @@ MyTaskOld class >> fromRawData: taskDict [
 		assignees: ((taskDict at: #assignees) collect: [ :assigneesDict | MyTeamMembers fromRawData: assigneesDict])
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTaskOld class >> id: aNumber description: aString done: aBoolean end: aDate assignees: anArray [
 ^self new
 	id: aNumber; 
@@ -33,7 +33,7 @@ MyTaskOld class >> id: aNumber description: aString done: aBoolean end: aDate as
 	yourself 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTaskOld >> asFormElement: aBlock [
 	"an epic presents itself as a form to be filled and save as an object"
 
@@ -70,37 +70,37 @@ MyTaskOld >> asFormElement: aBlock [
 		yourself
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTaskOld >> assignees: anArray [
 	assignees := anArray
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTaskOld >> description [
 ^description
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTaskOld >> description: aString [ 
 description := aString
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTaskOld >> done [
 ^done
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTaskOld >> done: aBoolean [ 
 done := aBoolean
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTaskOld >> end: aDate [ 
 end := aDate
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTaskOld >> getTaskDescription: aTask [
 "gets taskdescription with checkbox"
 
@@ -132,22 +132,22 @@ MyTaskOld >> getTaskDescription: aTask [
 					^taskDescription
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTaskOld >> id: aNumber [ 
 is := aNumber
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTaskOld >> printOn: aStream [
 	aStream nextPutAll: description
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTaskOld >> userStory [
 ^userStory
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 MyTaskOld >> userStory: aStory [
 userStory := aStory
 ]

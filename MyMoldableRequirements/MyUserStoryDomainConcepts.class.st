@@ -1,6 +1,6 @@
 Class {
-	#name : 'MyUserStoryDomainConcepts',
-	#superclass : 'Object',
+	#name : #MyUserStoryDomainConcepts,
+	#superclass : #Object,
 	#instVars : [
 		'userStoryDomainConcepts',
 		'announcer'
@@ -8,7 +8,7 @@ Class {
 	#category : 'MyMoldableRequirements-User Story - Models'
 }
 
-{ #category : 'api - adding' }
+{ #category : #'api - adding' }
 MyUserStoryDomainConcepts >> addUserStoryDomainConcept: aUserStoryDomainConcept [
 	"Add a given object as a child to the receiver and notify subscribers about it.
 	Do nothing if an object is already one of my children."
@@ -23,13 +23,13 @@ MyUserStoryDomainConcepts >> addUserStoryDomainConcept: aUserStoryDomainConcept 
 	self onUserStoryDomainConceptAdded: aUserStoryDomainConcept
 ]
 
-{ #category : 'api - announcer' }
+{ #category : #'api - announcer' }
 MyUserStoryDomainConcepts >> announce: anAnnouncement [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#announceTemplate'>
 	announcer ifNotNil: [ :anAnnouncer | anAnnouncer announce: anAnnouncement ]
 ]
 
-{ #category : 'gt-extentions' }
+{ #category : #'gt-extentions' }
 MyUserStoryDomainConcepts >> gtDomainConceptListViewFor: aView [
 	<gtView>
 	<generatedFrom: #'GtRobocoderMetamodelPhlowListViewDerive>>#listForManyTemplate'>
@@ -40,7 +40,7 @@ MyUserStoryDomainConcepts >> gtDomainConceptListViewFor: aView [
 		items: [ self userStoryDomainConcepts ]
 ]
 
-{ #category : 'api - testing' }
+{ #category : #'api - testing' }
 MyUserStoryDomainConcepts >> includesUserStoryDomainConcepts: aUserStoryDomainConcepts [
 	"Check and return true if a given child object exists among my children, false otherwise.
 	The comparison happens by identity"
@@ -52,7 +52,7 @@ MyUserStoryDomainConcepts >> includesUserStoryDomainConcepts: aUserStoryDomainCo
 		eachUserStoryDomainConcepts == aUserStoryDomainConcepts ]
 ]
 
-{ #category : 'private - notifying' }
+{ #category : #'private - notifying' }
 MyUserStoryDomainConcepts >> notifyUserStoryDomainConceptAdded: aUserStoryDomainConcept [
 	"Notifies that a given child object was added to the receiver"
 	
@@ -61,7 +61,7 @@ MyUserStoryDomainConcepts >> notifyUserStoryDomainConceptAdded: aUserStoryDomain
 		userStoryDomainConcept: aUserStoryDomainConcept) 
 ]
 
-{ #category : 'private - notifying' }
+{ #category : #'private - notifying' }
 MyUserStoryDomainConcepts >> notifyUserStoryDomainConceptRemoved: aUserStoryDomainConcept [
 	"Notifies that a given child object was removed from the receiver"
 	
@@ -70,7 +70,7 @@ MyUserStoryDomainConcepts >> notifyUserStoryDomainConceptRemoved: aUserStoryDoma
 		userStoryDomainConcept: aUserStoryDomainConcept) 
 ]
 
-{ #category : 'api - adding' }
+{ #category : #'api - adding' }
 MyUserStoryDomainConcepts >> onUserStoryDomainConceptAdded: aUserStoryDomainConcept [
 	"Is sent after a given child object was added to the receiver"
 
@@ -78,7 +78,7 @@ MyUserStoryDomainConcepts >> onUserStoryDomainConceptAdded: aUserStoryDomainConc
 	self notifyUserStoryDomainConceptAdded: aUserStoryDomainConcept.
 ]
 
-{ #category : 'api - adding' }
+{ #category : #'api - adding' }
 MyUserStoryDomainConcepts >> onUserStoryDomainConceptRemoved: aUserStoryDomainConcept [
 	"Is sent after a given child object was removed from the receiver"
 
@@ -86,13 +86,13 @@ MyUserStoryDomainConcepts >> onUserStoryDomainConceptRemoved: aUserStoryDomainCo
 	self notifyUserStoryDomainConceptRemoved: aUserStoryDomainConcept.
 ]
 
-{ #category : 'printing' }
+{ #category : #printing }
 MyUserStoryDomainConcepts >> printOn: aStream [
 	<generatedFrom: #'GtRobocoderMetamodelPrintDerive>>#printOnTemplate'>
 	super printOn: aStream
 ]
 
-{ #category : 'api - adding' }
+{ #category : #'api - adding' }
 MyUserStoryDomainConcepts >> removeUserStoryDomainConcept: aUserStoryDomainConcept [
 	"Remove a given object as a child to the receiver and notify subscribers about it.
 	Do nothing if an object is already one of my children."
@@ -109,7 +109,7 @@ MyUserStoryDomainConcepts >> removeUserStoryDomainConcept: aUserStoryDomainConce
 	self onUserStoryDomainConceptRemoved: aUserStoryDomainConcept
 ]
 
-{ #category : 'api - announcer' }
+{ #category : #'api - announcer' }
 MyUserStoryDomainConcepts >> unsubscribe: anObject [
 	"Unsubscribe all subscriptions of anObject from the receiver"
 
@@ -117,7 +117,7 @@ MyUserStoryDomainConcepts >> unsubscribe: anObject [
 	^ announcer ifNotNil: [ :anAnnouncer | anAnnouncer unsubscribe: anObject ]
 ]
 
-{ #category : 'api - accessing' }
+{ #category : #'api - accessing' }
 MyUserStoryDomainConcepts >> userStoryDomainConcepts [
 	"Return a collection of objects (${class:MyUserStoryDomainConcept}$) created for each child from the domain model.
 	Note: The children are lazily instantiated."
@@ -128,7 +128,7 @@ MyUserStoryDomainConcepts >> userStoryDomainConcepts [
 	^  userStoryDomainConcepts ifNil: [ userStoryDomainConcepts := OrderedCollection new ]
 ]
 
-{ #category : 'api - accessing' }
+{ #category : #'api - accessing' }
 MyUserStoryDomainConcepts >> userStoryDomainConcepts: aCollectionOfMyUserStoryDomainConcept [
 	"Silently assign a collection of given objects as my children without triggering any event. This is part of the #initialization protocol."
 	<modelSetter: #domainConcepts>
@@ -138,14 +138,14 @@ MyUserStoryDomainConcepts >> userStoryDomainConcepts: aCollectionOfMyUserStoryDo
 	
 ]
 
-{ #category : 'api - announcer' }
+{ #category : #'api - announcer' }
 MyUserStoryDomainConcepts >> when: anAnnouncementClass do: aBlock [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenDoTemplate'>
 	^ (announcer ifNil: [ announcer := Announcer new ])
 		when: anAnnouncementClass do: aBlock
 ]
 
-{ #category : 'api - announcer' }
+{ #category : #'api - announcer' }
 MyUserStoryDomainConcepts >> when: anAnnouncementClass send: aSelector to: anObject [
 	<generatedFrom: #'TGtRobocoderAnnouncerTemplate>>#whenSendToTemplate'>
 	^ (announcer ifNil: [ announcer := Announcer new ]) weak
